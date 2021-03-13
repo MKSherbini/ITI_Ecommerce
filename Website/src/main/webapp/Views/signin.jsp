@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="Commons/pageCommon.jsp" %>
+<%@include file="../Commons/pageCommon.jsp" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <%@include file="Commons/headCommon.jsp" %>
+    <%@include file="../Commons/headCommon.jsp" %>
     <title>${applicationScope.urlMappingConstants.getTitle(PageNames.SIGN_IN_PAGE)}</title>
 
 
     <!-- Custom styles for this template -->
-    <link href="<c:url value='Styles/signin.css'/>" rel="stylesheet">
+    <link href="<c:url value='../Styles/signin.css'/>" rel="stylesheet">
 </head>
 <body class="text-center">
 

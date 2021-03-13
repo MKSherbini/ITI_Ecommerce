@@ -1,4 +1,4 @@
-package models.enums;
+package constants.enums;
 
 public enum PageNames {
     HOME_PAGE,

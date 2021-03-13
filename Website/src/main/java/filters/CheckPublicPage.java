@@ -1,7 +1,5 @@
 package filters;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +13,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.enums.PageNames;
+import constants.enums.PageNames;
 
 @WebFilter(urlPatterns = {"/*"})
 public class CheckPublicPage implements Filter {
@@ -35,7 +33,8 @@ public class CheckPublicPage implements Filter {
             var target = matcher.group(1);
             if (!UrlMappingConstants.getInstance().isJspPublic(target)) {
                 System.out.println(target + " is not public");
-                httpResponse.sendRedirect(UrlMappingConstants.getInstance().getViewUrl(PageNames.HOME_PAGE));
+                httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+                // todo goto the 404 page
                 return;
             }
             System.out.println(target + " is public");

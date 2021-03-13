@@ -4,7 +4,6 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import managers.ReqCountManager;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -28,12 +27,12 @@ public class Serializer {
         return instance;
     }
 
-    public <T> void serializeXML(Class<T> type, String path) {
+    public <T> void serializeXML(Class<T> type, String path, T object) {
         try {
             JAXBContext jabeontext = JAXBContext.newInstance(type);
             Marshaller marshaller = jabeontext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(ReqCountManager.getInstance(), new FileWriter(path));
+            marshaller.marshal(object, new FileWriter(path));
         } catch (JAXBException | IOException e) {
             e.printStackTrace();
         }

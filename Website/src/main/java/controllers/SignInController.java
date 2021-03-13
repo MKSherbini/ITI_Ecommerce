@@ -4,7 +4,7 @@ import constants.UrlMappingConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import models.enums.PageNames;
+import constants.enums.PageNames;
 
 import java.io.*;
 
@@ -33,7 +33,7 @@ public class SignInController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         if (email != null && password != null && email.equals("ali@ali.ali") && password.equals("ali")) {
-            response.sendRedirect(UrlMappingConstants.getInstance().getViewUrl(PageNames.HOME_PAGE));
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
             return;
         } else {
             request.setAttribute("userError", true);

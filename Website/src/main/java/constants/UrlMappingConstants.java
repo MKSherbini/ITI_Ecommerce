@@ -10,6 +10,8 @@ public class UrlMappingConstants {
     private static final Map<PageNames, VCUrlMapping> urlMap = new HashMap<>();
 
     static {
+
+        
         urlMap.put(PageNames.SIGN_IN_PAGE, new VCUrlMapping("Sign in", "signin", "Views/signin.jsp", false));
         urlMap.put(PageNames.HOME_PAGE, new VCUrlMapping("Home", "home", "index.jsp", false));
         // ... add other pages

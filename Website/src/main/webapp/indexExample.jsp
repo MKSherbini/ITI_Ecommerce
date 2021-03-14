@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@include file="Commons/pageCommon.jsp" %>
+<%@include file="commons/pageCommon.jsp" %>
 <html>
 
 <head>

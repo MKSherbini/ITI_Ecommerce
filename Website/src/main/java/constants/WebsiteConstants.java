@@ -1,7 +1,13 @@
 package constants;
 
 public class WebsiteConstants {
+    // database
+    public static String Username = "user547";
+    public static String Password = "pass547";
+
+
     private String WebsiteName = "ChillStore";
+
 
     private static volatile WebsiteConstants instance = null;
 

@@ -1,6 +1,7 @@
 package models;
 
 public class User {
+    private Long id;
     private String firstName;
     private String lastName;
     private String userName;
@@ -50,12 +51,4 @@ public class User {
                 '}';
     }
 
-    public String toHtml() {
-        return "        <tr>\n" +
-                "            <td>" + firstName + "</td>\n" +
-                "            <td>" + lastName + "</td>\n" +
-                "            <td>" + userName + "</td>\n" +
-                "            <td>" + password + "</td>\n" +
-                "        </tr>\n";
-    }
 }

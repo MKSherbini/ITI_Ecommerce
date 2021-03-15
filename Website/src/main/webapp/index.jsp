@@ -1,3 +1,4 @@
+<%@ page import="jakarta.servlet.RequestDispatcher" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -91,6 +92,8 @@
 
                                                     <span>Signup</span></a></li>
                                             <li>
+
+
 
                                                 <a href="signin.jsp"><i class="fas fa-lock u-s-m-r-6"></i>
 
@@ -1572,9 +1575,12 @@
                                                             <li>
 
                                                                 <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+
                                                             <li>
 
                                                                 <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                            
+
                                                         </ul>
                                                     </div>
                                                 </div>

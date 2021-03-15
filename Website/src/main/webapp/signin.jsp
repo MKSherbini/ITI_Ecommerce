@@ -1453,12 +1453,17 @@
 
                                                 <label class="gl-label" for="login-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail"></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="login-email" required onblur="validateemail()" placeholder="Enter E-mail">
+                                                <label style='color: red' ; id="error-email"></label>
+
+                                            </div>
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="login-password">PASSWORD *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="login-password" placeholder="Enter Password"></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="login-password" required onblur="validatePass()" placeholder="Enter Password">
+                                                <label style='color: red' ; id="error-pass"></label>
+                                            </div>
                                             <div class="gl-inline">
                                                 <div class="u-s-m-b-30">
 
@@ -1668,6 +1673,7 @@
 
     <!--====== Vendor Js ======-->
     <script src="scripts/js/vendor.js"></script>
+    <script src="scripts/js/SignIn.js"></script>
 
     <!--====== jQuery Shopnav plugin ======-->
     <script src="scripts/js/jquery.shopnav.js"></script>

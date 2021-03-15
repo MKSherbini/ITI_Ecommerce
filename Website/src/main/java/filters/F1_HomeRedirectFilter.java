@@ -11,12 +11,12 @@ import java.io.IOException;
 
 // can't just match /, as base changes
 @WebFilter(filterName = "HomeRedirectFilter", urlPatterns = "/*")
-public class F3_HomeRedirectFilter implements Filter {
+public class F1_HomeRedirectFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("F3_HomeRedirectFilter.doFilter");
+        System.out.println("F1_HomeRedirectFilter.doFilter");
 
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;

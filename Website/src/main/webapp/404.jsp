@@ -1584,16 +1584,16 @@
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
     <!--====== Vendor Js ======-->
-<%--    <script src="scripts/js/vendor.js"></script>--%>
-    <script src="<c:url value='scripts/js/vendor.js'/>"></script>
+    <script src="scripts/js/vendor.js"></script>
+<%--    <script src="<c:url value='scripts/js/vendor.js'/>"></script>--%>
 
     <!--====== jQuery Shopnav plugin ======-->
-<%--    <script src="scripts/js/jquery.shopnav.js"></script>--%>
-    <script src="<c:url value='scripts/js/jquery.shopnav.js'/>"></script>
+    <script src="scripts/js/jquery.shopnav.js"></script>
+<%--    <script src="<c:url value='scripts/js/jquery.shopnav.js'/>"></script>--%>
 
     <!--====== App ======-->
-<%--    <script src="scripts/js/app.js"></script>--%>
-    <script src="<c:url value='scripts/js/app.js'/>"></script>
+    <script src="scripts/js/app.js"></script>
+<%--    <script src="<c:url value='scripts/js/app.js'/>"></script>--%>
 
     <!--====== Noscript ======-->
     <noscript>

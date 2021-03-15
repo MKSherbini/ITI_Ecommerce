@@ -13,6 +13,10 @@ public class VCUrlMapping {
         this.isViewPublic = isViewPublic;
     }
 
+    public VCUrlMapping(String title, String controllerUrl, String viewUrl) {
+        this(title, controllerUrl, viewUrl, false);
+    }
+
     public String getTitle() {
         return title;
     }
@@ -27,5 +31,15 @@ public class VCUrlMapping {
 
     public boolean isViewPublic() {
         return isViewPublic;
+    }
+
+    @Override
+    public String toString() {
+        return "VCUrlMapping{" +
+                "title='" + title + '\'' +
+                ", controllerUrl='" + controllerUrl + '\'' +
+                ", viewUrl='" + viewUrl + '\'' +
+                ", isViewPublic=" + isViewPublic +
+                '}';
     }
 }

@@ -1,6 +1,5 @@
 package listeners;
 
-import java.io.*;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,7 +11,6 @@ import constants.WebsiteConstants;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
-import utilities.Serializer;
 
 @WebListener
 public class ApplicationLifeCycleListener implements ServletContextListener {
@@ -21,6 +19,10 @@ public class ApplicationLifeCycleListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("ApplicationLifeCycleListener.contextInitialized()");
 
+        // absolute controller url
+        UrlMappingConstants.getInstance().makeUrlMappingAbsolute(sce.getServletContext().getContextPath());
+
+        // bindings
         var applicationScope = sce.getServletContext();
         applicationScope.setAttribute("urlMappingConstants", UrlMappingConstants.getInstance());
         applicationScope.setAttribute("websiteConstants", WebsiteConstants.getInstance());

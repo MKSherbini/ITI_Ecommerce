@@ -9,7 +9,7 @@ import models.Product;
 import java.io.IOException;
 
 
-public class ProductTagHandler implements Tag {
+public class TagHandler implements Tag {
     private Product product;
     private PageContext pc;
 
@@ -37,6 +37,12 @@ public class ProductTagHandler implements Tag {
     }
     @Override
     public int doStartTag() {
+
+        return Tag.SKIP_BODY;
+    }
+    @Override
+    public int doEndTag()
+    {
         this.product = new Product((long)10,"camera",20,"electronics","jdjs dksks dksks dks",11,"images/preloader.png",10);
 
         ServletRequest request = pc.getRequest();
@@ -49,11 +55,7 @@ public class ProductTagHandler implements Tag {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return EVAL_BODY_INCLUDE;
-    }
-    public int doEndTag()
-    {
-        return EVAL_PAGE;
+        return Tag.EVAL_PAGE;
     }
 
 }

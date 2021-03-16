@@ -13,11 +13,13 @@
     <%@include file="commons/headCommon.jsp" %>
 </head>
 <body>
-
+<header class="header--style-1 header--box-shadow">
+    <%@include file="commons/headerCommon.jsp" %>
+</header>
 <div id="app">
-        <%@include file="commons/headerCommon.jsp" %>
+
     <div class="row">
-        <productTag:product/>
+
     </div>
 </div>
 </body>

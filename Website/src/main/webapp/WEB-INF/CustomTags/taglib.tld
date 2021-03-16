@@ -9,7 +9,7 @@ http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
 	<uri>WEB-INF/test.tld</uri>
 	<tag>
 		<name>product</name>
-		<tag-class>customtaghandlers.ProductTagHandler</tag-class>
+		<tag-class>customtaghandlers.TagHandler</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<name>product</name>

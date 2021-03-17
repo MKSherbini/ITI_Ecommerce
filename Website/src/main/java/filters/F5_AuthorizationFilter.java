@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebFilter(filterName = "AuthorizationFilter", urlPatterns = "/*")
-public class F4_AuthorizationFilter implements Filter {
+public class F5_AuthorizationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

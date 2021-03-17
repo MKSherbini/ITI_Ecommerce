@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @WebFilter(filterName = "ValidPageFilter", urlPatterns = "/*")
-public class F2_ValidPageFilter implements Filter {
+public class F3_ValidPageFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

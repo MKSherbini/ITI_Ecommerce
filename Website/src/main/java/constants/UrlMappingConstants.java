@@ -17,8 +17,10 @@ public class UrlMappingConstants {
 
     {
         urlMap.put(PageNames.HOME_PAGE, new VCUrlMapping("Home", "home", "index.jsp"));
+        urlMap.put(PageNames.SIGN_IN_PAGE,new VCUrlMapping("SignIn","signin","signin.jsp"));
+        urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp","signup","signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
-        urlMap.put(PageNames.TEST_JSP,new VCUrlMapping("testJSP","test","Testtag.jsp"));
+        urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         // ... add other pages
     }
 

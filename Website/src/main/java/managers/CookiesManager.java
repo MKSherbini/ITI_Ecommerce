@@ -36,11 +36,17 @@ public class CookiesManager {
     private static final int defaultAgeInDays = 14;
     private static final String defaultUserInfoKey = "sb";
 
+
     public Optional<String> readCookie(HttpServletRequest request, String key) {
-        return Arrays.stream(request.getCookies())
-                .filter(c -> key.equals(c.getName()))
-                .map(Cookie::getValue)
-                .findAny();
+        if (request.getCookies() != null) {
+            return Arrays.stream(request.getCookies())
+                    .filter(c -> key.equals(c.getName()))
+                    .map(Cookie::getValue)
+                    .findAny();
+        }
+        else {
+            return Optional.empty();
+        }
     }
 
     public void writeCookie(HttpServletResponse response, String key, String value) {

@@ -150,7 +150,6 @@
                                                 <div class="u-s-m-b-30" >
 
                                                     <a class="gl-link" href="lost-password.jsp">Lost Your Password?</a></div>
-                                            </div>
 
                                             <div class="u-s-m-b-30" align="center">
 

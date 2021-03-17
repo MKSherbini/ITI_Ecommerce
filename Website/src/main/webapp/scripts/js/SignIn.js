@@ -3,18 +3,21 @@ function validateemail()
             var email = document.getElementById("login-email").value;
             var emailregix =  /^[A-Za-z0-9+_.-]+@(.+)$/;
             var emailresult = emailregix.test(email);
+            console.log(email);
+            console.log(emailresult);
+
             if(emailresult == false)
                 {
                     document.getElementById("error-email").innerHTML ="Please Enter a valid email*";
 
-                   //return false; 
-                   document.getElementById("login-email").value = ' ';
+                   //return false;
+                   document.getElementById("login-email").value = '';
                 }
-            else{      
-                                     document.getElementById("error-email").innerHTML =
+            else{
+                document.getElementById("error-email").innerHTML =
 
-                "<span style='color: white;'> </span>";
-}
+                "<span style='color: white;'></span>";
+            }
         }
 
 
@@ -26,12 +29,12 @@ function validatePass()
     if(passresult == false)
     {
         document.getElementById("error-pass").innerHTML ="Please Enter a valid password*";
-        document.getElementById("login-password").value = ' ';
+        document.getElementById("login-password").value = '';
     }
     else{
         document.getElementById("error-pass").innerHTML =
 
-            "<span style='color: white;'> </span>";
+            "<span style='color: white;'></span>";
     }
 }
 

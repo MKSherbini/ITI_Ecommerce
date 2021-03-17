@@ -1,6 +1,7 @@
 package controllers;
 
 import constants.UrlMappingConstants;
+import constants.WebsiteConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -30,13 +31,16 @@ public class SignInController extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // do preparing
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        if (email != null && password != null && email.equals("ali@ali.ali") && password.equals("ali")) {
+        System.out.println("test");
+        String email = request.getParameter("emailN");
+        String password = request.getParameter("passN");
+        if (email != null && password != null && email.equals(WebsiteConstants.email) && password.equals(WebsiteConstants.Password)) {
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
             return;
         } else {
             request.setAttribute("userError", true);
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
+
         }
 
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);

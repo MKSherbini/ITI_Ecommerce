@@ -3,6 +3,7 @@ package constants;
 public class WebsiteConstants {
     // database
     public static String Username = "user547";
+    public static String email = "mohaelkaed@gmail.com";
     public static String Password = "pass547";
 
 

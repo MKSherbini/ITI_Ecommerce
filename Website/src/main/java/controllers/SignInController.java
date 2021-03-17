@@ -10,6 +10,7 @@ import constants.enums.PageNames;
 import utilities.Hashator;
 
 import java.io.*;
+import java.util.Base64;
 
 @WebServlet("/signin")
 public class SignInController extends HttpServlet {
@@ -40,7 +41,8 @@ public class SignInController extends HttpServlet {
             String hashedPassword = Hashator.getInstance().hash(password);
             // todo hash both email and password together in one String with reversible hashing before saving it in cookie
             String userInfo = email+":"+hashedPassword;
-            Cookie userCookie = new Cookie("User",userInfo);
+            String encodedUserInfo = Base64.getEncoder().encodeToString(userInfo.getBytes());
+            Cookie userCookie = new Cookie("sb",encodedUserInfo);
             response.addCookie(userCookie);
         }
         if (email != null && password != null && email.equals("ali@ali.ali") && password.equals("ali")) {
@@ -53,8 +55,6 @@ public class SignInController extends HttpServlet {
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         // do verifying
     }
-
-
 
     public String getServletInfo() {
         return null;

@@ -8,12 +8,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/test")
 public class TestController extends HttpServlet {
     ServletConfig myConfig;
+    List<Product> productList = new ArrayList<>();
+
+    {
+        productList.add(new Product(1L, "test1", 100, "TestCat1", "testDesc1", 1, "images/product/electronic/product1.jpg", 1));
+        productList.add(new Product(2L, "test2", 200, "TestCat2", "testDesc2", 2, "images/product/electronic/product2.jpg", 2));
+    }
 
     public void init(ServletConfig config) throws ServletException {
         myConfig = config;
@@ -24,10 +33,8 @@ public class TestController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // do preparing
-        System.out.println("HomeController.doGet");
+        request.setAttribute("productList", productList);
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.TEST_JSP)).include(request, response);
-        // do verifying
     }
 
     public String getServletInfo() {

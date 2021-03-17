@@ -6,7 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib  prefix="productTag" uri="/WEB-INF/CustomTags/taglib.tld" %>
+<%@ taglib prefix="productTag" uri="/WEB-INF/CustomTags/taglib.tld" %>
+<%@include file="commons/pageCommon.jsp" %>
+
 <html>
 <head>
     <title>Title</title>
@@ -19,7 +21,9 @@
 <div id="app">
 
     <div class="row">
-
+        <c:forEach items="${requestScope.productList}" var="product">
+            <%@include file="custom/product.jsp" %>
+        </c:forEach>
     </div>
 </div>
 </body>

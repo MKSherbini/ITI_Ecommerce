@@ -19,12 +19,17 @@
     <%@include file="commons/headerCommon.jsp" %>
 </header>
 <div id="app">
+    <%--these are the divs for product grid--%>
+    <div class="shop-p__collection">
+        <div class="row is-grid-active">
 
-    <div class="row">
         <c:forEach items="${requestScope.productList}" var="product">
             <%@include file="custom/product.jsp" %>
         </c:forEach>
+
+        </div>
     </div>
+    <%-- End of products grid --%>
 </div>
 </body>
 </html>

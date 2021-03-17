@@ -43,8 +43,7 @@ public class CookiesManager {
                     .filter(c -> key.equals(c.getName()))
                     .map(Cookie::getValue)
                     .findAny();
-        }
-        else {
+        } else {
             return Optional.empty();
         }
     }
@@ -71,11 +70,12 @@ public class CookiesManager {
         if (cookie.isPresent()) {
             var value = new String(Base64.getDecoder().decode(cookie.get()));
             System.out.println("value.split(\":\") = " + Arrays.toString(value.split(":")));
-
+        } else {
+            System.out.println("no UserInfoCookie was found");
         }
     }
 
-    public void deleteUserInfoCookie(HttpServletResponse response){
-        writeCookie(response,defaultUserInfoKey,"",-1000);
+    public void deleteUserInfoCookie(HttpServletResponse response) {
+        writeCookie(response, defaultUserInfoKey, "", 0);
     }
 }

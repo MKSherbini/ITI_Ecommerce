@@ -1,16 +1,16 @@
-package models;
+package models.urls;
 
 public class VCUrlMapping {
     private final String title;
     private final String controllerUrl;
     private final String viewUrl;
-    private final boolean isAdminOnline;
+    private final boolean isAdminOnly;
 
-    public VCUrlMapping(String title, String controllerUrl, String viewUrl, boolean isAdminOnline) {
+    public VCUrlMapping(String title, String controllerUrl, String viewUrl, boolean isAdminOnly) {
         this.title = title;
         this.controllerUrl = controllerUrl;
         this.viewUrl = viewUrl;
-        this.isAdminOnline = isAdminOnline;
+        this.isAdminOnly = isAdminOnly;
     }
 
     public VCUrlMapping(String title, String controllerUrl, String viewUrl) {
@@ -29,8 +29,8 @@ public class VCUrlMapping {
         return viewUrl;
     }
 
-    public boolean isAdminOnline() {
-        return isAdminOnline;
+    public boolean isAdminOnly() {
+        return isAdminOnly;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class VCUrlMapping {
                 "title='" + title + '\'' +
                 ", controllerUrl='" + controllerUrl + '\'' +
                 ", viewUrl='" + viewUrl + '\'' +
-                ", isAdminOnline=" + isAdminOnline +
+                ", isAdminOnline=" + isAdminOnly +
                 '}';
     }
 }

@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 @WebFilter(filterName = "ValidPageFilter", urlPatterns = "/*")
 public class F3_ValidPageFilter implements Filter {
@@ -17,7 +16,7 @@ public class F3_ValidPageFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("F2_ValidPageFilter.doFilter");
+        System.out.println("F3_ValidPageFilter.doFilter");
 
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;
@@ -29,7 +28,8 @@ public class F3_ValidPageFilter implements Filter {
 
         // todo idgaf lw file 5araf later
         boolean validUrl = (resource != null && resource.getProtocol().equals("file") && new File(resource.getFile()).isFile())
-                || UrlMappingConstants.getInstance().isControllerUrl(httpRequest);
+                || UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
+                || UrlMappingConstants.getInstance().isService(httpRequest);
 
         if (validUrl) {
             System.out.printf("Url %s is valid\n", resourcePath);

@@ -98,7 +98,7 @@
                                                     <span>Signin</span></a></li>
                                             <li>
 
-                                                <a href="signup"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
                                                     <span>Signout</span></a></li>
                                         </ul>
@@ -1577,7 +1577,7 @@
                                                             <li>
 
                                                                 <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                                            
+
 
                                                         </ul>
                                                     </div>

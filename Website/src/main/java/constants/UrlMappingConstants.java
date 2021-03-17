@@ -21,6 +21,8 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp","signup","signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
+        //todo check if signout viewUrl should be like this as it's not working without adding viewUrl
+        urlMap.put(PageNames.SIGN_OUT,new VCUrlMapping("signOut","signout","signin.jsp"));
         // ... add other pages
     }
 

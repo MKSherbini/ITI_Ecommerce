@@ -51,10 +51,10 @@
                             <ul class="breadcrumb__list">
                                 <li class="has-separator">
 
-                                    <a href="index.jsp">Home</a></li>
+                                    <a href="home">Home</a></li>
                                 <li class="is-marked">
 
-                                    <a href="signin.jsp">Signin</a></li>
+                                    <a href="signin">Signin</a></li>
                             </ul>
                         </div>
                     </div>
@@ -94,29 +94,12 @@
                                     <span class="gl-text u-s-m-b-30">By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.</span>
                                     <div class="u-s-m-b-15">
 
-                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup.jsp">CREATE
+                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup">CREATE
                                             AN ACCOUNT</a></div>
                                     <h1 class="gl-h1">SIGNIN</h1>
 
                                     <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
                                     <form class="l-f-o__form" action="signin" method="post">
-                                        <div class="gl-s-api">
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i
-                                                        class="fab fa-facebook-f"></i>
-
-                                                    <span>Signin with Facebook</span></button>
-                                            </div>
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i
-                                                        class="fab fa-google"></i>
-
-                                                    <span>Signin with Google</span></button>
-                                            </div>
-                                        </div>
-
                                         <div class="u-s-m-b-30">
 
                                             <label class="gl-label" for="login-email">E-MAIL *</label>
@@ -140,8 +123,16 @@
                                         <div class="gl-inline">
                                             <div class="u-s-m-b-30">
 
-                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN
-                                                </button>
+                                                <!--====== Check Box ======-->
+                                                <div class="check-box">
+
+                                                    <input type="checkbox" id="remember-me" name="rememberMe" value="true">
+                                                    <div class="check-box__state check-box__state--primary">
+
+                                                        <label class="check-box__label" for="remember-me">Remember
+                                                            Me</label></div>
+                                                </div>
+                                                <!--====== End - Check Box ======-->
                                             </div>
                                             <div class="u-s-m-b-30">
 
@@ -150,27 +141,9 @@
                                         </div>
                                         <div class="u-s-m-b-30">
 
-                                            <!--====== Check Box ======-->
-                                            <div class="check-box">
-
-                                                <input type="checkbox" id="remember-me" name="rememberMe" value="true">
-                                                <div class="check-box__state check-box__state--primary">
-
-                                                    <label class="check-box__label" for="remember-me">Remember
-                                                        Me</label></div>
-                                            </div>
-                                            <!--====== End - Check Box ======-->
-                                        </div>
-                                        <div class="u-s-m-b-30">
-
-                                            <a class="gl-link" href="lost-password.jsp">Lost Your Password?</a></div>
-
-                                        <div class="u-s-m-b-30" align="center">
-
                                             <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN
                                             </button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>

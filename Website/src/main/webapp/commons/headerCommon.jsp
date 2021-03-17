@@ -53,17 +53,17 @@
                                             <span>Account</span></a></li>
                                     <li>
 
-                                        <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                        <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                             <span>Signup</span></a></li>
                                     <li>
 
-                                        <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                        <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
                                             <span>Signin</span></a></li>
                                     <li>
 
-                                        <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                        <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
                                             <span>Signout</span></a></li>
                                 </ul>

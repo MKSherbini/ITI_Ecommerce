@@ -97,7 +97,7 @@
                                         <h1 class="gl-h1">SIGNIN</h1>
 
                                         <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
-                                        <form class="l-f-o__form">
+                                        <form class="l-f-o__form" action="signin" method="post">
                                             <div class="gl-s-api">
                                                 <div class="u-s-m-b-15">
 
@@ -111,13 +111,12 @@
                                                         <span>Signin with Google</span></button></div>
                                             </div>
 
-                                            <form method="POST" action="/signin">
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="login-email">E-MAIL *</label>
 
 
-                                                <input class="input-text input-text--primary-style" type="text" name="emailN" id="login-email" required onblur="validateemail()" placeholder="Enter E-mail">
+                                                <input class="input-text input-text--primary-style" type="text" name="email" id="login-email" required onblur="validateemail()" placeholder="Enter E-mail">
                                                 <label style='color: red' ; id="error-email"></label>
 
                                             </div>
@@ -125,7 +124,7 @@
 
                                                 <label class="gl-label" for="login-password">PASSWORD *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" name="passN" id="login-password" required onblur="validatePass()" placeholder="Enter Password">
+                                                <input class="input-text input-text--primary-style" type="text" name="password" id="login-password" required onblur="validatePass()" placeholder="Enter Password">
                                                 <label style='color: red' ; id="error-pass"></label>
                                             </div>
                                             <div class="gl-inline">
@@ -138,17 +137,25 @@
                                             </div>
                                             <div class="u-s-m-b-30">
 
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
+                                                    <!--====== Check Box ======-->
+                                                    <div class="check-box">
 
-                                                    <input type="checkbox" id="remember-me">
-                                                    <div class="check-box__state check-box__state--primary">
+                                                        <input type="checkbox" id="remember-me" name="rememberMe" value="true">
+                                                        <div class="check-box__state check-box__state--primary">
 
-                                                        <label class="check-box__label" for="remember-me">Remember Me</label></div>
+                                                            <label class="check-box__label" for="remember-me">Remember Me</label></div>
+                                                    </div>
+                                                    <!--====== End - Check Box ======-->
                                                 </div>
-                                                <!--====== End - Check Box ======-->
+                                                <div class="u-s-m-b-30" >
+
+                                                    <a class="gl-link" href="lost-password.jsp">Lost Your Password?</a></div>
                                             </div>
-                                            </form>
+
+                                            <div class="u-s-m-b-30" align="center">
+
+                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>
+
                                         </form>
                                     </div>
                                 </div>

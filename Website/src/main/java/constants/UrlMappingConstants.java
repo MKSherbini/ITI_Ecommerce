@@ -18,6 +18,7 @@ public class UrlMappingConstants {
     {
         urlMap.put(PageNames.HOME_PAGE, new VCUrlMapping("Home", "home", "index.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
+        urlMap.put(PageNames.TEST_JSP,new VCUrlMapping("testJSP","test","Testtag.jsp"));
         // ... add other pages
     }
 

@@ -8,8 +8,14 @@ http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
 	<short-name>MKS</short-name>
 	<uri>WEB-INF/test.tld</uri>
 	<tag>
-		<name>copyright</name>
-		<tag-class>customtaghandlers.CopyrightTagHandler</tag-class>
+		<name>product</name>
+		<tag-class>customtaghandlers.TagHandler</tag-class>
 		<body-content>empty</body-content>
+		<attribute>
+			<name>product</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>models.Product</type>
+		</attribute>
 	</tag>
 </taglib>  

@@ -35,7 +35,7 @@ public class F2_ValidPageFilter implements Filter {
             System.out.printf("Url %s is valid\n", resourcePath);
             chain.doFilter(request, response);
         } else {
-            System.out.printf("Url %s is not invalid\n", resourcePath);
+            System.out.printf("Url %s is invalid\n", resourcePath);
             httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
         }
     }

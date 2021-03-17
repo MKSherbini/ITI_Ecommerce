@@ -65,6 +65,11 @@ public class CookiesManager {
         if (cookie.isPresent()) {
             var value = new String(Base64.getDecoder().decode(cookie.get()));
             System.out.println("value.split(\":\") = " + Arrays.toString(value.split(":")));
+
         }
+    }
+
+    public void deleteUserInfoCookie(HttpServletResponse response){
+        writeCookie(response,defaultUserInfoKey,"",-1000);
     }
 }

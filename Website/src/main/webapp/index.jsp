@@ -97,7 +97,7 @@
                                                     <span>Signin</span></a></li>
                                             <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
                                                     <span>Signout</span></a></li>
                                         </ul>

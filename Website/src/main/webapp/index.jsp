@@ -88,19 +88,17 @@
                                                     <span>Account</span></a></li>
                                             <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                                <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                                     <span>Signup</span></a></li>
                                             <li>
 
-
-
-                                                <a href="signin.jsp"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
                                                     <span>Signin</span></a></li>
                                             <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                                <a href="signup"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
                                                     <span>Signout</span></a></li>
                                         </ul>
@@ -978,7 +976,7 @@
                                                         <a href="signin.jsp">Signin / Already Registered</a></li>
                                                     <li>
 
-                                                        <a href="signup.jsp">Signup / Register</a></li>
+                                                        <a href="signup">Signup / Register</a></li>
                                                     <li>
 
                                                         <a href="lost-password.jsp">Lost Password</a></li>
@@ -1618,10 +1616,10 @@
                                                                 <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
                                                             <li>
 
-                                                                <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                                <a href="signin" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
                                                             <li>
 
-                                                                <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                                <a href="signin" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2506,10 +2504,10 @@
                                                     <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
                                                 <li>
 
-                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                    <a href="signin" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
                                                 <li>
 
-                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                    <a href="signin" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

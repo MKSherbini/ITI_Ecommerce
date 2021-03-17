@@ -1,6 +1,8 @@
 package controllers;
 
 import constants.UrlMappingConstants;
+import jakarta.json.Json;
+import jakarta.json.JsonObjectBuilder;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -35,12 +37,11 @@ public class SignInController extends HttpServlet {
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
         if(rememberMe!=null && rememberMe.equals("true")){
-            Cookie emailCookie = new Cookie("email",email);
             String hashedPassword = Hashator.getInstance().hash(password);
-            System.out.println(hashedPassword+" hashedddd");
-            Cookie passwordCookie = new Cookie("password",hashedPassword);
-            response.addCookie(emailCookie);
-            response.addCookie(passwordCookie);
+            // todo hash both email and password together in one String with reversible hashing before saving it in cookie
+            String userInfo = email+","+hashedPassword;
+            Cookie userCookie = new Cookie("User",userInfo);
+            response.addCookie(userCookie);
         }
         if (email != null && password != null && email.equals("ali@ali.ali") && password.equals("ali")) {
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
@@ -52,6 +53,8 @@ public class SignInController extends HttpServlet {
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         // do verifying
     }
+
+
 
     public String getServletInfo() {
         return null;

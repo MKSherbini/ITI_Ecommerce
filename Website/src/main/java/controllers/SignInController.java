@@ -39,7 +39,7 @@ public class SignInController extends HttpServlet {
         if(rememberMe!=null && rememberMe.equals("true")){
             String hashedPassword = Hashator.getInstance().hash(password);
             // todo hash both email and password together in one String with reversible hashing before saving it in cookie
-            String userInfo = email+","+hashedPassword;
+            String userInfo = email+":"+hashedPassword;
             Cookie userCookie = new Cookie("User",userInfo);
             response.addCookie(userCookie);
         }

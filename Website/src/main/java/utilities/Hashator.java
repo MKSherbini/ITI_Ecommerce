@@ -29,7 +29,7 @@ public class Hashator {
 
         MessageDigest digest = null;
         try {
-            digest = MessageDigest.getInstance("SHA-256");
+            digest = MessageDigest.getInstance("SHA-512");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return "";

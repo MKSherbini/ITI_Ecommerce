@@ -1,12 +1,16 @@
 package controllers;
 
 import constants.UrlMappingConstants;
+import jakarta.json.Json;
+import jakarta.json.JsonObjectBuilder;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import constants.enums.PageNames;
+import utilities.Hashator;
 
 import java.io.*;
+import java.util.Base64;
 
 @WebServlet("/signin")
 public class SignInController extends HttpServlet {
@@ -32,6 +36,15 @@ public class SignInController extends HttpServlet {
         // do preparing
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String rememberMe = request.getParameter("rememberMe");
+        if(rememberMe!=null && rememberMe.equals("true")){
+            String hashedPassword = Hashator.getInstance().hash(password);
+            // todo hash both email and password together in one String with reversible hashing before saving it in cookie
+            String userInfo = email+":"+hashedPassword;
+            String encodedUserInfo = Base64.getEncoder().encodeToString(userInfo.getBytes());
+            Cookie userCookie = new Cookie("sb",encodedUserInfo);
+            response.addCookie(userCookie);
+        }
         if (email != null && password != null && email.equals("ali@ali.ali") && password.equals("ali")) {
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
             return;

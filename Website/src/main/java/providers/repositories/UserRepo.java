@@ -1,8 +1,7 @@
 package providers.repositories;
 
 import managers.DatabaseManager;
-import models.User;
-import providers.database.DatabaseFactory;
+import models.orm.User;
 import providers.database.QueryResultRow;
 import providers.database.SqlCommand;
 

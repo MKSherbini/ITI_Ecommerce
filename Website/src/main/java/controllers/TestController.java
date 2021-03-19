@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Product;
+import models.orm.Product;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ public class TestController extends HttpServlet {
     List<Product> productList = new ArrayList<>();
 
     {
-        productList.add(new Product(1L, "test1", 100, "TestCat1", "testDesc1", 1, "images/product/electronic/product1.jpg", 1));
-        productList.add(new Product(2L, "test2", 200, "TestCat2", "testDesc2", 2, "images/product/electronic/product2.jpg", 2));
+//        productList.add(new Product(1L, "test1", 100, "TestCat1", "testDesc1", 1, "images/product/electronic/product1.jpg", 1));
+//        productList.add(new Product(2L, "test2", 200, "TestCat2", "testDesc2", 2, "images/product/electronic/product2.jpg", 2));
     }
 
     public void init(ServletConfig config) throws ServletException {

@@ -1,19 +1,37 @@
 package models.orm;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
+//import jakarta.persistence.*;
 import javax.persistence.*;
+
 import java.sql.Date;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "User.findLikeName",
+                query = "select u from User u where u.userName like :name"),
+        @NamedQuery(
+                name = "User.findByEmailPassword",
+                query = "select u from User u where u.email = :email and u.password = :password"),
+        @NamedQuery(
+                name = "User.getAll",
+                query = "from User"),
+})
+
 @Data
 @Entity
+@jakarta.persistence.Entity
 @Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
+    @Setter(AccessLevel.NONE)
     private Long userId;
 
     @Column(unique = true, nullable = false)
@@ -47,3 +65,5 @@ public class User {
     public User() {
     }
 }
+
+

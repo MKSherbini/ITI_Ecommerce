@@ -1,25 +1,29 @@
 package filters;
 
+import constants.UrlMappingConstants;
+import constants.enums.PageNames;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import managers.DatabaseManager;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "AutoSigninFilter", urlPatterns = "/*")
-public class F4_AutoSigninFilter implements Filter {
+@WebFilter(filterName = "DBTransactionFilter", urlPatterns = "/*")
+public class F4_DBTransactionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("F4_AutoSigninFilter.doFilter");
+        System.out.println("F4_DBTransactionFilter.doFilter");
 
-        var httpRequest = (HttpServletRequest) request;
-        var httpResponse = (HttpServletResponse) response;
-
+        var db = DatabaseManager.getInstance();
+        db.beginTransaction();
 
         chain.doFilter(request, response);
+
+        db.endTransaction();
     }
 
 }

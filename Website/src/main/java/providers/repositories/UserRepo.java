@@ -2,14 +2,10 @@ package providers.repositories;
 
 import managers.DatabaseManager;
 import models.orm.User;
-import providers.database.QueryResultRow;
-import providers.database.SqlCommand;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepo {
+public class UserRepo extends GenericRepo<User, Long> {
     private static volatile UserRepo instance = null;
 
     private UserRepo() {
@@ -28,49 +24,27 @@ public class UserRepo {
         return instance;
     }
 
-    public int insertContactRecord(User user) {
-        String insertQuery = "insert into user values (?, ?, ?, ?)";
-        SqlCommand cmd = new SqlCommand(insertQuery
-                , user.getFirstName()
-                , user.getLastName()
-                , user.getUserName()
-                , user.getPassword());
-        return DatabaseManager.getInstance().getDatabaseInstance().executeUpdate(cmd);
+    public List<User> getAll() {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("User.getAll")
+                        .list());
     }
 
-    public List<User> searchContacts(String name) {
-        ArrayList<User> contactsList = new ArrayList<>();
-        String sql = "select * from user where firstName like ? or lastName like ?";
-        SqlCommand cmd = new SqlCommand(sql,
-                "%" + name + "%",
-                "%" + name + "%");
-        var result = DatabaseManager.getInstance().getDatabaseInstance().executeQuery(cmd);
-        for (QueryResultRow rs : result) {
-            User user = new User();
-            user.setFirstName(rs.getString(1));
-            user.setLastName(rs.getString(2));
-            user.setUserName(rs.getString(3));
-            user.setPassword(rs.getString(4));
-            contactsList.add(user);
-        }
-        return contactsList;
+    public List<User> findLikeName(String name) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("User.findLikeName")
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .list());
     }
 
-    public User selectFromDB(String userName, String password) throws RemoteException {
-        User user = null;
-        String sql = "select * from user where username = ? and password = ?";
-        SqlCommand cmd = new SqlCommand(sql,
-                userName,
-                password);
-        var result = DatabaseManager.getInstance().getDatabaseInstance().executeQuery(cmd);
-        if (result.size() > 0) {
-            var rs = result.get(0);
-            user = new User();
-            user.setFirstName(rs.getString(1));
-            user.setLastName(rs.getString(2));
-            user.setUserName(rs.getString(3));
-            user.setPassword(rs.getString(4));
-        }
-        return user;
+    public User findByEmailPassword(String email, String password) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> (User) session
+                        .createNamedQuery("User.findByEmailPassword")
+                        .setParameter("email", email)
+                        .setParameter("password", password)
+                        .getSingleResult());
     }
 }

@@ -29,7 +29,7 @@ public class SearchServlet extends HttpServlet {
                        HttpServletResponse response)
             throws ServletException, IOException {
         var userRepo = UserRepo.getInstance();
-        request.setAttribute("result", userRepo.searchContacts(request.getParameter("query")));
+//        request.setAttribute("result", userRepo.searchContacts(request.getParameter("query")));
         request.getRequestDispatcher("search.jsp").forward(request, response);
     }
 

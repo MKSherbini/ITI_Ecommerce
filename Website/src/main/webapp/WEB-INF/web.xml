@@ -21,6 +21,10 @@ https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
     </filter-mapping>
 
     <filter-mapping>
+        <filter-name>DBTransactionFilter</filter-name>
+    </filter-mapping>
+
+    <filter-mapping>
         <filter-name>AutoSigninFilter</filter-name>
     </filter-mapping>
 

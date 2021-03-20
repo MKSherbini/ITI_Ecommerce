@@ -46,7 +46,7 @@
 
                         <a class="main-logo" href="index.jsp">
 
-                            <img src="images/logo/logo-1.png" alt=""></a>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLKIHRWExDyudjwiYdCbHNy7eaGcoH9kDIxkZKf7JiUswgdGrw7RRCYL2Aq94Yo6Bbkw&usqp=CAU" width="300" alt=""></a>
                         <!--====== End - Main Logo ======-->
 
 

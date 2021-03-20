@@ -1,12 +1,15 @@
 package constants;
 
+import java.io.File;
+
 public class WebsiteConstants {
     // database
     public static String Email = "temp@temp.temp";
     public static String Password = "tempp";
-
+    public static String UPLOAD_PATH = new File("").getAbsolutePath()+"/uploads";
 
     private String WebsiteName = "ChillStore";
+
 
 
     private static volatile WebsiteConstants instance = null;

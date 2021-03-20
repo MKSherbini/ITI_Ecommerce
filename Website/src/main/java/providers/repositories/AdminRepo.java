@@ -5,6 +5,7 @@ import models.orm.Admin;
 import models.orm.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AdminRepo extends GenericRepo<Admin, Long> {
     private static volatile AdminRepo instance = null;
@@ -25,12 +26,12 @@ public class AdminRepo extends GenericRepo<Admin, Long> {
         return instance;
     }
 
-    public Admin findByEmailPassword(String email, String password) {
+    public Optional<Admin> findByEmailPassword(String email, String password) {
         return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> (Admin) session
+                .runTransactionWithRet(session -> (Optional<Admin>) session
                         .createNamedQuery("Admin.findByEmailPassword")
                         .setParameter("email", email)
                         .setParameter("password", password)
-                        .getSingleResult());
+                        .stream().findAny());
     }
 }

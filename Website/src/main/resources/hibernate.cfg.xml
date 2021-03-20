@@ -13,10 +13,10 @@
             jdbc:mysql://localhost:3306/ecommerce
         </property>
         <property name="hibernate.connection.username">
-            mks
+            admin
         </property>
         <property name="hibernate.connection.password">
-            jets
+            admin
         </property>
         <property name="hibernate.dialect">
             org.hibernate.dialect.MySQL8Dialect
@@ -34,6 +34,8 @@
         <mapping class="models.orm.Product"/>
         <mapping class="models.orm.ShoppingCart"/>
         <mapping class="models.orm.User"/>
+        <mapping class="models.orm.FakeCreditCard"/>
+        <mapping class="models.orm.ScratchCard"/>
     </session-factory>
 </hibernate-configuration>
 

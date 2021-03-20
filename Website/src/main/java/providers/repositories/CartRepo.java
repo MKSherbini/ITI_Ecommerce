@@ -1,10 +1,12 @@
 package providers.repositories;
 
 import managers.DatabaseManager;
+import models.orm.Admin;
 import models.orm.ShoppingCart;
 import models.orm.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CartRepo extends GenericRepo<ShoppingCart, Long> {
     private static volatile CartRepo instance = null;
@@ -34,11 +36,11 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .list());
     }
 
-    public ShoppingCart findShoppingCartByUser(User owner) {
+    public Optional<ShoppingCart> findShoppingCartByUser(User owner) {
         return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> (ShoppingCart) session
+                .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByUser")
                         .setParameter("user", owner)
-                        .getSingleResult());
+                        .stream().findAny());
     }
 }

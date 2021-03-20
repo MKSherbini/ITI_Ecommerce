@@ -4,6 +4,7 @@ import managers.DatabaseManager;
 import models.orm.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserRepo extends GenericRepo<User, Long> {
     private static volatile UserRepo instance = null;
@@ -32,12 +33,12 @@ public class UserRepo extends GenericRepo<User, Long> {
                         .list());
     }
 
-    public User findByEmailPassword(String email, String password) {
+    public Optional<User> findByEmailPassword(String email, String password) {
         return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> (User) session
+                .runTransactionWithRet(session -> (Optional<User>) session
                         .createNamedQuery("User.findByEmailPassword")
                         .setParameter("email", email)
                         .setParameter("password", password)
-                        .getSingleResult());
+                        .stream().findAny());
     }
 }

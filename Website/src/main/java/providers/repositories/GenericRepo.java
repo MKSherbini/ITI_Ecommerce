@@ -1,9 +1,11 @@
 package providers.repositories;
 
 import managers.DatabaseManager;
+import models.orm.User;
 import net.jodah.typetools.TypeResolver;
 
 import java.util.List;
+import java.util.Optional;
 
 public class GenericRepo<T, ID> {
     protected Class<T> persistentClass;
@@ -19,16 +21,16 @@ public class GenericRepo<T, ID> {
         DatabaseManager.getInstance().runTransaction(session -> session.persist(obj));
     }
 
-    public T read(ID id) {
-        return DatabaseManager.getInstance().runTransactionWithRet(session -> session.find(persistentClass, id));
+    public Optional<T> read(ID id) {
+        return DatabaseManager.getInstance().runTransactionWithRet(session -> Optional.ofNullable(session.find(persistentClass, id)));
     }
 
     public List<T> readAll() {
         return DatabaseManager.getInstance().runTransactionWithRet(session -> (List<T>) session.createQuery("from " + persistentClass.getSimpleName()).list());
     }
 
-    public T update(T obj) {
-        return DatabaseManager.getInstance().runTransactionWithRet(session -> (T) session.merge(obj));
+    public Optional<T> update(T obj) { // you can never be too careful
+        return DatabaseManager.getInstance().runTransactionWithRet(session -> (Optional<T>) Optional.ofNullable(session.merge(obj)));
     }
 
     public void delete(T obj) {

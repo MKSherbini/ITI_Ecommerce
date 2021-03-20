@@ -25,13 +25,6 @@ public class AdminRepo extends GenericRepo<Admin, Long> {
         return instance;
     }
 
-    public List<Admin> getAll() {
-        return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> session
-                        .createNamedQuery("Admin.getAll")
-                        .list());
-    }
-
     public Admin findByEmailPassword(String email, String password) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> (Admin) session

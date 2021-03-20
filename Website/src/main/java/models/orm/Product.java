@@ -1,6 +1,7 @@
 package models.orm;
 
 //import jakarta.persistence.*;
+
 import javax.persistence.*;
 
 
@@ -15,9 +16,6 @@ import java.util.List;
         @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like '%:name%'"),
-        @NamedQuery(
-                name = "Product.getAll",
-                query = "from Product"),
         @NamedQuery(
                 name = "Product.findByPriceRange", // todo handle discount
                 query = "select p from Product p where p.price between :min and :max"),

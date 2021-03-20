@@ -17,9 +17,6 @@ import java.util.List;
         @NamedQuery(
                 name = "User.findByEmailPassword",
                 query = "select u from User u where u.email = :email and u.password = :password"),
-        @NamedQuery(
-                name = "User.getAll",
-                query = "from User"),
 })
 
 @Data

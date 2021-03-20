@@ -28,13 +28,6 @@ public class ProductRepo extends GenericRepo<Product, Long> {
     }
 
 
-    public List<Product> getAll() {
-        return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> session
-                        .createNamedQuery("Product.getAll")
-                        .list());
-    }
-
     public List<Product> findLikeName(String name) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session

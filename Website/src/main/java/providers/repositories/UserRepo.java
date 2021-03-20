@@ -24,13 +24,6 @@ public class UserRepo extends GenericRepo<User, Long> {
         return instance;
     }
 
-    public List<User> getAll() {
-        return DatabaseManager.getInstance()
-                .runTransactionWithRet(session -> session
-                        .createNamedQuery("User.getAll")
-                        .list());
-    }
-
     public List<User> findLikeName(String name) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session

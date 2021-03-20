@@ -37,7 +37,7 @@ public class testMain {
 //        userRepo.create(user);
 //        System.out.println("user = " + userRepo.read(user.getUserId()));
 
-        for (User user : userRepo.findLikeName("t")) {
+        for (User user : userRepo.readAll()) {
             System.out.println("user = " + user);
         }
 

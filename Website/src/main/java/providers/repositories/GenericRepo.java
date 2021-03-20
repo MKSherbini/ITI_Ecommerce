@@ -3,6 +3,8 @@ package providers.repositories;
 import managers.DatabaseManager;
 import net.jodah.typetools.TypeResolver;
 
+import java.util.List;
+
 public class GenericRepo<T, ID> {
     protected Class<T> persistentClass;
     protected Class<ID> idClass;
@@ -19,6 +21,10 @@ public class GenericRepo<T, ID> {
 
     public T read(ID id) {
         return DatabaseManager.getInstance().runTransactionWithRet(session -> session.find(persistentClass, id));
+    }
+
+    public List<T> readAll() {
+        return DatabaseManager.getInstance().runTransactionWithRet(session -> (List<T>) session.createQuery("from " + persistentClass.getSimpleName()).list());
     }
 
     public T update(T obj) {

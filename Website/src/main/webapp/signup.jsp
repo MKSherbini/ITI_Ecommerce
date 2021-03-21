@@ -1440,31 +1440,20 @@
                                                 <label class="gl-label" for="reg-lname">LAST NAME *</label>
 
                                                 <input class="input-text input-text--primary-style" name="lastName" type="text" id="reg-lname" placeholder="Last Name" required></div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="userName">USERNAME *</label>
+
+                                                <input class="input-text input-text--primary-style" name="userName" type="text" id="userName" placeholder="UserName" required></div>
                                             <div class="gl-inline">
                                                 <div class="u-s-m-b-30">
 
                                                     <!--====== Date of Birth Select-Box ======-->
 
                                                     <span class="gl-label">BIRTHDAY</span>
-                                                    <div class="gl-dob"><select class="select-box select-box--primary-style" name="month" onchange="call()">
-                                                        <option selected>Month</option>
-                                                        <option value="1">Jan</option>
-                                                        <option value="2">Feb</option>
-                                                        <option value="3">Mar</option>
-                                                        <option value="4">Apr</option>
-                                                        <option value="5">May</option>
-                                                        <option value="6">Jun</option>
-                                                        <option value="7">Jul</option>
-                                                        <option value="8">Aug</option>
-                                                        <option value="9">Sep</option>
-                                                        <option value="10">Oct</option>
-                                                        <option value="11">Nov</option>
-                                                        <option value="12">Dec</option>
-                                                        </select><select name="day" class="select-box select-box--primary-style">
-                                                            <option value="">Day</option>
-                                                        </select><select class="select-box select-box--primary-style" name="year" onchange="call()">
-                                                            <option value="">Year</option>
-                                                        </select></div>
+                                                    <div class="gl-dob">
+                                                        <input type="date" name="birthDate">
+                                                    </div>
                                                     <!--====== End - Date of Birth Select-Box ======-->
                                                 </div>
                                                 <div class="u-s-m-b-30">

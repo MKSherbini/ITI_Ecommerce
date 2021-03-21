@@ -49,6 +49,7 @@ public class DatabaseManager {
 
     public void endTransaction() {
         sessionFactory.getCurrentSession().getTransaction().commit();
+        sessionFactory.getCurrentSession().close();
     }
 
     public <T> T runTransactionWithRet(Function<Session, T> transaction) {

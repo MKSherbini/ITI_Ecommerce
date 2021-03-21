@@ -20,7 +20,6 @@ public class F2_CookieFilter implements Filter {
         //toDo
         var req = (HttpServletRequest) request;
         var res = (HttpServletResponse) response;
-        PrintWriter out = res.getWriter();
         Cookie[] cookies = req.getCookies();
         System.out.println(" the cookies " + cookies);
         System.out.println("req = " + req.getParameter("openCookies"));
@@ -35,6 +34,7 @@ public class F2_CookieFilter implements Filter {
                 System.out.println("cookie is added");
                 res.sendRedirect(url + "?openCookies=123");
             } else {
+                PrintWriter out = res.getWriter();
                 out.println("Cookie is Disabled ; Please Open Cookies :) ");
                 System.out.println("cookie is disabled");
                 // res.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));

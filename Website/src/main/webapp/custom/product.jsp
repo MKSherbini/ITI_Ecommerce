@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-md-4 col-sm-6">
+<div class="col-lg-4 col-md-6 col-sm-6">
     <div class="product-m">
         <div class="product-m__thumb">
             <%--product image--%>
@@ -15,13 +15,13 @@
         <%--product category--%>
         <div class="product-m__content">
             <div class="product-m__category">
-                <a href="shop-side-version-2.jsp">${product.category}</a></div>
+                <a href="shop-side-version-2.jsp">${product.category.name}</a></div>
             <%--product name--%>
             <div class="product-m__name">
                 <a href="product-detail.jsp">${product.name}</a></div>
             <%--product price--%>
-            <div class="product-m__price">${product.price}
-                <span class="product-m__discount">${product.discount}</span></div>
+            <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}
+                <span class="product-m__discount">${product.price}</span></div>
             <%--product description--%>
             <div class="product-m__hover">
                 <div class="product-m__preview-description">

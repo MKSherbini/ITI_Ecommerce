@@ -37,7 +37,7 @@ public class User {
     @Column(unique = true, nullable = false)
     private String userName;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String password;
 
     private String firstName;
@@ -48,7 +48,7 @@ public class User {
     private Date birthdate;
 
     @ManyToMany
-    private List<Category> interests;
+    private List<ProductCategory> interests;
 
     @OneToMany(mappedBy = "owner",
             orphanRemoval = true,
@@ -60,6 +60,15 @@ public class User {
     int credit;
 
     public User() {
+    }
+
+    public User(String email, String userName, String password, String firstName, String lastName, Date birthdate) {
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
     }
 }
 

@@ -7,7 +7,7 @@ import net.jodah.typetools.TypeResolver;
 import java.util.List;
 import java.util.Optional;
 
-public class GenericRepo<T, ID> {
+public abstract class GenericRepo<T, ID> {
     protected Class<T> persistentClass;
     protected Class<ID> idClass;
 

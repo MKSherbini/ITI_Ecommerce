@@ -1,10 +1,8 @@
 package providers.repositories;
 
 import managers.DatabaseManager;
-import models.orm.Category;
+import models.orm.ProductCategory;
 import models.orm.Product;
-import models.orm.ShoppingCart;
-import models.orm.User;
 
 import java.util.List;
 
@@ -45,20 +43,20 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .list());
     }
 
-    public List<Product> findByCategory(Category category) {
+    public List<Product> findByCategory(ProductCategory productCategory) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByCategory")
-                        .setParameter("category", category)
+                        .setParameter("category", productCategory)
                         .list());
     }
 
     // extra dammit
-    public List<Product> findByCategoryPriceName(Category category, int min, int max, String name) {
+    public List<Product> findByCategoryPriceName(ProductCategory productCategory, int min, int max, String name) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
-                        .createNamedQuery("Product.findByCategory")
-                        .setParameter("category", category)
+                        .createNamedQuery("Product.findByCategoryPriceName")
+                        .setParameter("category", productCategory)
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit

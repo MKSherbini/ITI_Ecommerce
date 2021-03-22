@@ -30,7 +30,7 @@
         <mapping class="models.orm.Address"/>
         <mapping class="models.orm.Admin"/>
         <mapping class="models.orm.CartItem"/>
-        <mapping class="models.orm.Category"/>
+        <mapping class="models.orm.ProductCategory"/>
         <mapping class="models.orm.Product"/>
         <mapping class="models.orm.ShoppingCart"/>
         <mapping class="models.orm.User"/>

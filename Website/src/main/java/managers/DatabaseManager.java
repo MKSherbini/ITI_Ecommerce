@@ -43,12 +43,13 @@ public class DatabaseManager {
     }
 
     public void beginTransaction() {
-        sessionFactory.openSession().beginTransaction();
+        sessionFactory.openSession();
         sessionFactory.getCurrentSession().getTransaction().begin();
     }
 
     public void endTransaction() {
         sessionFactory.getCurrentSession().getTransaction().commit();
+        sessionFactory.getCurrentSession().close();
     }
 
     public <T> T runTransactionWithRet(Function<Session, T> transaction) {

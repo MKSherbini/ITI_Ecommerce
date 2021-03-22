@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import managers.DatabaseManager;
 import models.orm.User;
 import providers.repositories.UserRepo;
+import utilities.Hashator;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -39,7 +40,8 @@ public class RegistrationController extends HttpServlet {
             Date birthDate = null;
             birthDate = Date.valueOf(birthDateParam);
             System.out.println(birthDate);
-            User user = new User(email, userName, password, firstName, lastName, birthDate);
+            String hashedPassword = Hashator.getInstance().hash(password);
+            User user = new User(email, userName, hashedPassword, firstName, lastName, birthDate);
             UserRepo userRepo = UserRepo.getInstance();
             userRepo.create(user);
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));

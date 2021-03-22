@@ -65,13 +65,12 @@ public class CookiesManager {
         writeCookie(response, defaultUserInfoKey, encodedUserInfo, defaultAgeInDays);
     }
 
-    public void readUserInfoCookie(HttpServletRequest request) {
+    public String readUserInfoCookie(HttpServletRequest request) {
         var cookie = readCookie(request, defaultUserInfoKey);
         if (cookie.isPresent()) {
-            var value = new String(Base64.getDecoder().decode(cookie.get()));
-            System.out.println("value.split(\":\") = " + Arrays.toString(value.split(":")));
+            return new String(Base64.getDecoder().decode(cookie.get()));
         } else {
-            System.out.println("no UserInfoCookie was found");
+            return null;
         }
     }
 

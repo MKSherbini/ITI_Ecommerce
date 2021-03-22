@@ -14,9 +14,9 @@ import java.util.List;
         @NamedQuery(name = "Category.findAllNames",
                 query = "select c.name from ProductCategory c"),
         @NamedQuery(name = "Category.findByName",
-                query = "select c.name from ProductCategory c where c.name = :name"),
+                query = "select c from ProductCategory c where c.name = :name"),
         @NamedQuery(name = "Category.findLikeName",
-                query = "select c.name from ProductCategory c where c.name like :name")
+                query = "select c from ProductCategory c where c.name like :name")
 })
 
 @Data
@@ -33,7 +33,7 @@ public class ProductCategory {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
+    @OneToMany(mappedBy = "category")
     @ToString.Exclude
     private List<Product> products;
 

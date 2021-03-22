@@ -61,15 +61,25 @@ public class testMain {
 
 
         CategoryRepo categoryRepo = CategoryRepo.getInstance();
-        var cats = categoryRepo.findByName("category1");
+//        var cats = categoryRepo.findByName("category1");
 //        System.out.println("cats.size() = " + cats.size());
-        System.out.println("cats = " + cats);
+//        System.out.println("cats = " + cats);
 
 //        for (int i = 1; i < 5; i++) {
 //            categoryRepo.create(new Category("category" + i));
 //        }
 
-//        ProductRepo productRepo = ProductRepo.getInstance();
+        ProductRepo productRepo = ProductRepo.getInstance();
+        var products = productRepo.readAll();
+        for (var product : products) {
+            product.setDiscountPercent((int) (product.getCategory().getCategoryId() * 5));
+        }
+//        productRepo.create(new Product("product" + 21,
+//                21 * 100,
+//                "description" + 21,
+//                21 * 5,
+//                "images/product/men/product6.jpg",
+//                categoryRepo.findByName("category5").get()));
 //        for (int i = 1; i < 21; i++) {
 //            productRepo.create(new Product("product" + i,
 //                    i * 100,
@@ -81,6 +91,9 @@ public class testMain {
 //        var list = productRepo.findByCategory(categoryRepo.read(1L).get());
 //        var list = productRepo.findByPriceRange(100, 500);
 //        var list = productRepo.findByCategoryPriceName(categoryRepo.read(1L).get(), 100, 500, "product1");
+//        var cat = categoryRepo.findByName("category1").get();
+//        System.out.println("cat = " + cat);
+//        var list = productRepo.findByCategoryPriceName(cat, 100, 500, "product1");
 //        System.out.println("list.size() = " + list.size());
 //        System.out.println("list = " + list);
 
@@ -89,7 +102,7 @@ public class testMain {
 //            var productO = productRepo.read(i);
 //            if (productO.isPresent()) {
 //                var product = productO.get();
-//                product.getCategories().add(categoryRepo.read(i / 5 + 1).get());
+//                product.setCategory(categoryRepo.read(i / 5 + 1).get());
 //                productRepo.update(product);
 //            }
 //        }

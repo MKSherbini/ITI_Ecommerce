@@ -1,8 +1,5 @@
 import managers.DatabaseManager;
-import models.orm.FakeCreditCard;
-import models.orm.Product;
-import models.orm.ScratchCard;
-import models.orm.User;
+import models.orm.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -10,9 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.jboss.logging.Logger;
-import providers.repositories.FakeCreditCardRepo;
-import providers.repositories.ScratchCardRepo;
-import providers.repositories.UserRepo;
+import providers.repositories.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -63,6 +58,41 @@ public class testMain {
 //        System.out.println("card = " + card);
 //        System.out.println("fakeCreditCardRepo.charge(card.get(), 5) = " + fakeCreditCardRepo.charge(card.get(), 5));
 //        System.out.println("card = " + card);
+
+
+        CategoryRepo categoryRepo = CategoryRepo.getInstance();
+        var cats = categoryRepo.findByName("category1");
+//        System.out.println("cats.size() = " + cats.size());
+        System.out.println("cats = " + cats);
+
+//        for (int i = 1; i < 5; i++) {
+//            categoryRepo.create(new Category("category" + i));
+//        }
+
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        for (int i = 1; i < 21; i++) {
+//            productRepo.create(new Product("product" + i,
+//                    i * 100,
+//                    "description" + i,
+//                    i * 5,
+//                    "images/product/men/product6.jpg"));
+//        }
+//        var list = productRepo.findLikeName("product1");
+//        var list = productRepo.findByCategory(categoryRepo.read(1L).get());
+//        var list = productRepo.findByPriceRange(100, 500);
+//        var list = productRepo.findByCategoryPriceName(categoryRepo.read(1L).get(), 100, 500, "product1");
+//        System.out.println("list.size() = " + list.size());
+//        System.out.println("list = " + list);
+
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        for (long i = 1; i < 21; i++) {
+//            var productO = productRepo.read(i);
+//            if (productO.isPresent()) {
+//                var product = productO.get();
+//                product.getCategories().add(categoryRepo.read(i / 5 + 1).get());
+//                productRepo.update(product);
+//            }
+//        }
 
         db.endTransaction();
     }

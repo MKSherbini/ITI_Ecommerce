@@ -48,7 +48,7 @@ public class User {
     private Date birthdate;
 
     @ManyToMany
-    private List<Category> interests;
+    private List<ProductCategory> interests;
 
     @OneToMany(mappedBy = "owner",
             orphanRemoval = true,

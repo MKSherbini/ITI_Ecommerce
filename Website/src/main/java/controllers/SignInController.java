@@ -9,11 +9,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import constants.enums.PageNames;
 import managers.CookiesManager;
+import models.orm.User;
+import providers.repositories.UserRepo;
 import utilities.Hashator;
 
 import java.io.*;
 import java.net.CookieManager;
 import java.util.Base64;
+import java.util.Optional;
 
 @WebServlet("/signin")
 public class SignInController extends HttpServlet {
@@ -42,15 +45,18 @@ public class SignInController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
+        UserRepo userRepo = UserRepo.getInstance();
+        Optional<User> user = userRepo.findByEmailPassword(email,password);
         if (email != null &&
                 password != null &&
-                email.equals(WebsiteConstants.Email) &&
-                password.equals(WebsiteConstants.Password)) {
+                user.isPresent()) {
             if (rememberMe != null && rememberMe.equals("true")) {
                 String hashedPassword = Hashator.getInstance().hash(password);
                 // todo hash both email and password together in one String with reversible hashing before saving it in cookie
                 CookiesManager.getInstance().writeUserInfoCookie(response, email, hashedPassword);
             }
+            HttpSession session = request.getSession();
+            session.setAttribute("user",user.get());
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
             return;
         } else {

@@ -37,7 +37,7 @@
                         <span class="ah-close">✕ Close</span>
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
-                            <label style="color: black; font-weight: bold">${sessionScope.user.userName}</label>
+                            <span>Hello,<label style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
 
                             <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 

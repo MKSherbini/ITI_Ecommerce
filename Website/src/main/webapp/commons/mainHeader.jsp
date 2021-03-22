@@ -38,6 +38,8 @@
 
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                            <span>Hello,<label style="color: black; font-weight: bold">User</label></span>
+
                             <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
                                 <a><i class="far fa-user-circle"></i></a>
@@ -48,11 +50,6 @@
                                 <ul style="width:120px">
                                     <li>
 
-                                        <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
-
-                                            <span>Account</span></a></li>
-                                    <li>
-
                                         <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                             <span>Signup</span></a></li>
@@ -61,11 +58,6 @@
                                         <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
                                             <span>Signin</span></a></li>
-                                    <li>
-
-                                        <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-                                            <span>Signout</span></a></li>
                                 </ul>
                                 <!--====== End - Dropdown ======-->
                             </li>

@@ -23,6 +23,11 @@ public class RegistrationController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("inside registration controller");
+        var user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+            return;
+        }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.REGISTER_PAGE));
         requestDispatcher.include(request, response);
     }

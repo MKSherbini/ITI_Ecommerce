@@ -1,5 +1,8 @@
 package utilities;
 
+import models.orm.User;
+import providers.repositories.UserRepo;
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -26,11 +29,14 @@ public class SignupEndpoint {
     @OnMessage
     public void onMessage(String msg , Session session){
         try {
-            if (msg == "dalia.elzohairy.de@gmail.com"){
-                session.getBasicRemote().sendText(" ");
-            }else {
-                session.getBasicRemote().sendText("This Email is Already Registered");
+            UserRepo userRepo = UserRepo.getInstance();
+            Optional<User> user = userRepo.findByEmail(msg);
 
+            if (user.isPresent()){
+                session.getBasicRemote().sendText("This Email is Already Registered");
+            }
+            else {
+                session.getBasicRemote().sendText(" ");
             }
         } catch (IOException e) {
             e.printStackTrace();

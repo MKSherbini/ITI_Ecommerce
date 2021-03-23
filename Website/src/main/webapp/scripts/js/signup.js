@@ -1,15 +1,18 @@
 var wsocket;
-    function validateEmail(){
-        var emailregex = document.getElementById("reg-email").value;
+
+   function validateEmail(emailregex){
+
         var emailpattern =  /[A-Za-z._]{3,}@[A-Za-z]{3,}[ . ]{1}[A-Za-z.]{2,6}/;
-     if(!emailpattern.test(emailregex)){
-    document.getElementById("emailValid").innerHTML ="Please enter a valid form of an email";
+
+        if(!emailpattern.test(emailregex)){
+         document.getElementById("emailValid").innerHTML ="Please enter a valid form of an email";
     } else{
-        wsocket = new WebSocket("ws://localhost:9090/manager/text/echo");
+         document.getElementById("emailValid").innerHTML ="";
+         wsocket = new WebSocket("ws://localhost:9090/ITI_Ecommerce_Website_war_exploded/echo");
          wsocket.onopen = onOpen;
-         wsocket.send(document.getElementById("reg-email").value);
          wsocket.onmessage = onMessage();
-         document.getElementById("emailValid").innerHTML =" ";
+         wsocket.send(document.getElementById("reg-email").value);
+
     }
 }
 
@@ -33,11 +36,11 @@ var wsocket;
     document.getElementById("passwordValid").innerHTML ="Short Password are easy to guess! Try one with at least 5 characters";
 }
     else{
-    document.getElementById("passwordValid").innerHTML =" ";
+    document.getElementById("passwordValid").innerHTML ="";
 }
     if(passwordregex != passwordreregex){
     document.getElementById("repasswordValid").innerHTML ="Those Passwords didn't match please try again ";
 }
     else{
-    document.getElementById("repasswordValid").innerHTML =" ";
+    document.getElementById("repasswordValid").innerHTML ="";
 }}

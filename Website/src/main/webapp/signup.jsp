@@ -1468,7 +1468,7 @@
 
                                                 <label class="gl-label" for="reg-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" name="email" type="email" id="reg-email" placeholder="Enter E-mail" required onblur="validateEmail()"><label class="gl-label" style='color: red' ; id="emailValid" ></label></div>
+                                                <input class="input-text input-text--primary-style" name="email" type="email" id="reg-email" placeholder="Enter E-mail" required onblur="validateEmail(this.value)"><label class="gl-label" style='color: red' ; id="emailValid" ></label></div>
 
                                             <div class="u-s-m-b-30">
 

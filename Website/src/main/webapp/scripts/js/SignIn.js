@@ -14,9 +14,8 @@ function validateemail()
                    document.getElementById("login-email").value = '';
                 }
             else{
-                document.getElementById("error-email").innerHTML =
+                document.getElementById("error-email").innerHTML = "<span style='color: white;'></span>";
 
-                "<span style='color: white;'></span>";
             }
         }
 

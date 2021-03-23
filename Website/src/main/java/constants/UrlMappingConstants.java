@@ -33,6 +33,8 @@ public class UrlMappingConstants {
 
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
+        serviceMap.put(ServiceNames.EndPoint, new ServiceUrlMapping("EndPoint", "echo"));
+
     }
 
 

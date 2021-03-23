@@ -1,17 +1,15 @@
-var wsocket;
+    var wsocket = new WebSocket("ws://localhost:9090/ITI_Ecommerce_Website_war_exploded/echo");
+    wsocket.onopen = onOpen;
+    wsocket.onmessage = onMessage;
 
    function validateEmail(emailregex){
-
+       console.log(emailregex);
         var emailpattern =  /[A-Za-z._]{3,}@[A-Za-z]{3,}[ . ]{1}[A-Za-z.]{2,6}/;
         if(!emailpattern.test(emailregex)){
          document.getElementById("emailValid").innerHTML ="Please enter a valid form of an email";
     } else{
          document.getElementById("emailValid").innerHTML ="";
-         wsocket = new WebSocket("ws://localhost:9090/ITI_Ecommerce_Website_war_exploded/echo");
-         wsocket.onopen = onOpen;
-         wsocket.onmessage = onMessage();
-         wsocket.send(document.getElementById("reg-email").value);
-
+         wsocket.send(emailregex);
     }
 }
 
@@ -20,8 +18,9 @@ var wsocket;
     }
 
     function onMessage(evt){
-        document.getElementById("emailValid").innerHTML = "<br>" + evt.data;
+        document.getElementById("emailValid").innerHTML = evt.data;
     }
+
     function disconnect(){
         wsocket.close();
     }

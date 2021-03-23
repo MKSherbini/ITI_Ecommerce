@@ -1,13 +1,14 @@
 package utilities;
 
+import managers.DatabaseManager;
 import models.orm.User;
 import providers.repositories.UserRepo;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
-import javax.websocket.server.ServerEndpoint;
+import jakarta.websocket.OnClose;
+import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.Session;
+import jakarta.websocket.server.ServerEndpoint;
 
 import java.io.IOException;
 import java.util.*;
@@ -17,30 +18,31 @@ public class SignupEndpoint {
     private final static Set<Session> vector = new HashSet<>();
     @OnOpen
     public void onOpen(Session session){
-        try {
-            session.getBasicRemote().sendText("connectionEstablished");
+            //session.getBasicRemote().sendText("connectionEstablished");
             vector.add(session);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @OnMessage
     public void onMessage(String msg , Session session){
         try {
+            var db = DatabaseManager.getInstance();
+            db.beginTransaction();
+
             UserRepo userRepo = UserRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
             if (Validator.getInstance().EmailValidation(msg) == true){
                 if (user.isPresent()){
-                session.getBasicRemote().sendText("This Email is Already Registered");
+                    session.getBasicRemote().sendText("This Email is Already Registered");
                 }
                 else {
-                session.getBasicRemote().sendText(" ");
+                    session.getBasicRemote().sendText("");
                 }
             }else{
                 session.getBasicRemote().sendText("Please Enter a Valid Form of an Email");
             }
+
+            db.endTransaction();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

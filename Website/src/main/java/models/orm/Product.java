@@ -30,6 +30,9 @@ import java.util.List;
                 query = "select p from Product p where :category = p.category " +
                         "and p.price between :min and :max " +
                         "and p.name like :name or p.description like :name"),
+        @NamedQuery(
+                name = "Product.getNewArrivals",
+                query = "select p from Product p order by p.arrivalDate desc"),
 })
 
 @Data

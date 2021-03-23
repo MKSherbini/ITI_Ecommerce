@@ -63,4 +63,12 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .list());
     }
 
+    public List<Product> findNewArrivals() {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.getNewArrivals")
+                        .setMaxResults(4)
+                        .list());
+    }
+
 }

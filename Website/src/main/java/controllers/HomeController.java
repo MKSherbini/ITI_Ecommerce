@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import constants.enums.PageNames;
+import models.orm.Product;
 import models.orm.ProductCategory;
 import models.orm.User;
 import providers.repositories.CategoryRepo;
@@ -37,6 +38,10 @@ public class HomeController extends HttpServlet {
         request.setAttribute("categories",categories);
         //todo try to use pagination while getting products
         //todo get new arrivals
+        ProductRepo productRepo = ProductRepo.getInstance();
+        List<Product> newArrivals = productRepo.findNewArrivals();
+        request.setAttribute("newArrivals",newArrivals);
+
         System.out.println("HomeController.doGet");
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.HOME_PAGE)).include(request, response);
         // do verifying

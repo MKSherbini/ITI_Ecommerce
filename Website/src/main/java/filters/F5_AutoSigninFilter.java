@@ -1,5 +1,6 @@
 package filters;
 
+import constants.UrlMappingConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,23 +27,23 @@ public class F5_AutoSigninFilter implements Filter {
         var httpResponse = (HttpServletResponse) response;
 
         String userInfo = CookiesManager.getInstance().readUserInfoCookie(httpRequest);
-        if(userInfo!=null){
+        var userSession = (User) httpRequest.getSession().getAttribute("user");
+        if (userSession == null && userInfo != null) {
             //retrieving user info from cookie
-            String[]splittedUserInfo = userInfo.split(":");
+            String[] splittedUserInfo = userInfo.split(":");
             String email = splittedUserInfo[0];
             String hashedPassword = splittedUserInfo[1];
             //checking email and password with database
-            Optional<User> user = UserRepo.getInstance().findByEmailPassword(email,hashedPassword);
-            if(user.isPresent()){
+            Optional<User> user = UserRepo.getInstance().findByEmailPassword(email, hashedPassword);
+            if (user.isPresent()) {
                 //adding user to session
                 HttpSession session = httpRequest.getSession();
-                session.setAttribute("user",user.get());
-            } else{
+                session.setAttribute("user", user.get());
+            } else {
                 //if user not found in db delete cookie
                 CookiesManager.getInstance().deleteUserInfoCookie(httpResponse);
             }
         }
-
         chain.doFilter(request, response);
     }
 

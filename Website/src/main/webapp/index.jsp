@@ -1,5 +1,7 @@
-<%@ page import="jakarta.servlet.RequestDispatcher" %>
 <!DOCTYPE html>
+<%@ page import="jakarta.servlet.RequestDispatcher" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
 <html class="no-js" lang="en">
 <head>
     <meta charset="UTF-8">

@@ -10,8 +10,9 @@ import lombok.Data;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @NamedQueries({
@@ -51,7 +52,7 @@ public class Product {
     private String imageSrc;
     private int discountPercent;
     @Column(nullable = false)
-    private Date arrivalDate;
+    private Timestamp arrivalDate;
 
     @ManyToOne(optional = false)
     @ToString.Exclude
@@ -66,7 +67,7 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.imageSrc = imageSrc;
-        this.arrivalDate = Date.valueOf(LocalDate.now());
+        this.arrivalDate = new Timestamp(new Date().getTime());
         this.category = category;
     }
 }

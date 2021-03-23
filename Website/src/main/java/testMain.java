@@ -123,7 +123,7 @@ public class testMain {
                     "description" + i,
                     i * 5,
                     "images/product/men/product6.jpg",
-                    categoryRepo.read((long) (i / 5 + 1)).get()));
+                    categoryRepo.findByName("category"+(i/5+1)).get()));
         }
     }
 

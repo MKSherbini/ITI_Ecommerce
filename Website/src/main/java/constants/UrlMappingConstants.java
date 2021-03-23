@@ -33,6 +33,7 @@ public class UrlMappingConstants {
 
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
+        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
     }
 
 
@@ -65,6 +66,10 @@ public class UrlMappingConstants {
 
     public String getControllerUrl(PageNames page) {
         return urlMap.containsKey(page) ? urlMap.get(page).getControllerUrl() : null;
+    }
+
+    public String getServiceUrl(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceUrl() : null;
     }
 
     /**

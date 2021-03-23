@@ -1,5 +1,10 @@
 package managers;
 
+import constants.UrlMappingConstants;
+import constants.enums.PageNames;
+import constants.enums.ServiceNames;
+import jakarta.servlet.ServletException;
+import listeners.ThreadLocalContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -9,6 +14,8 @@ import org.hibernate.service.ServiceRegistry;
 import providers.database.*;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
+import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -53,11 +60,34 @@ public class DatabaseManager {
     }
 
     public <T> T runTransactionWithRet(Function<Session, T> transaction) {
-        T ret = transaction.apply(sessionFactory.getCurrentSession());
-        return ret;
+        try {
+
+            T ret = transaction.apply(sessionFactory.getCurrentSession());
+            return ret;
+        } catch (javax.persistence.PersistenceException e) {
+            e.printStackTrace();
+            handleError();
+        }
+
+        // unreachable
+        return null;
     }
 
     public void runTransaction(Consumer<Session> transaction) {
-        transaction.accept(sessionFactory.getCurrentSession());
+        try {
+            transaction.accept(sessionFactory.getCurrentSession());
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+            handleError();
+        }
+    }
+
+    public void handleError() {
+        // TODO: actually handle this f* error
+//        try {
+//            ThreadLocalContext.forward(ServiceNames.ERROR_REDIRECT);
+//        } catch (IOException | ServletException ioException) {
+//            ioException.printStackTrace();
+//        }
     }
 }

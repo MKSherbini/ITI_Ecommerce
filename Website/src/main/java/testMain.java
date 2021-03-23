@@ -60,7 +60,7 @@ public class testMain {
 //        System.out.println("card = " + card);
 
 
-        CategoryRepo categoryRepo = CategoryRepo.getInstance();
+//        CategoryRepo categoryRepo = CategoryRepo.getInstance();
 //        var cats = categoryRepo.findByName("category1");
 //        System.out.println("cats.size() = " + cats.size());
 //        System.out.println("cats = " + cats);
@@ -69,11 +69,11 @@ public class testMain {
 //            categoryRepo.create(new Category("category" + i));
 //        }
 
-        ProductRepo productRepo = ProductRepo.getInstance();
-        var products = productRepo.readAll();
-        for (var product : products) {
-            product.setDiscountPercent((int) (product.getCategory().getCategoryId() * 5));
-        }
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        var products = productRepo.readAll();
+//        for (var product : products) {
+//            product.setDiscountPercent((int) (product.getCategory().getCategoryId() * 5));
+//        }
 //        productRepo.create(new Product("product" + 21,
 //                21 * 100,
 //                "description" + 21,
@@ -106,8 +106,25 @@ public class testMain {
 //                productRepo.update(product);
 //            }
 //        }
-
+        generateDummyProductsAndCategories();
         db.endTransaction();
+    }
+
+    static void generateDummyProductsAndCategories() {
+        CategoryRepo categoryRepo = CategoryRepo.getInstance();
+//        for (int i = 1; i <= 5; i++) {
+//            categoryRepo.create(new ProductCategory("category" + i));
+//        }
+
+        ProductRepo productRepo = ProductRepo.getInstance();
+        for (int i = 1; i < 21; i++) {
+            productRepo.create(new Product("product" + i,
+                    i * 100,
+                    "description" + i,
+                    i * 5,
+                    "images/product/men/product6.jpg",
+                    categoryRepo.read((long) (i / 5 + 1)).get()));
+        }
     }
 
 }

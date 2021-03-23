@@ -31,12 +31,15 @@ public class SignupEndpoint {
         try {
             UserRepo userRepo = UserRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
-
-            if (user.isPresent()){
+            if (Validator.getInstance().EmailValidation(msg) == true){
+                if (user.isPresent()){
                 session.getBasicRemote().sendText("This Email is Already Registered");
-            }
-            else {
+                }
+                else {
                 session.getBasicRemote().sendText(" ");
+                }
+            }else{
+                session.getBasicRemote().sendText("Please Enter a Valid Form of an Email");
             }
         } catch (IOException e) {
             e.printStackTrace();

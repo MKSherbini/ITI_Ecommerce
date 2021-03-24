@@ -4,6 +4,7 @@ import managers.DatabaseManager;
 import models.orm.ProductCategory;
 import models.orm.Product;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductRepo extends GenericRepo<Product, Long> {
@@ -57,6 +58,29 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByCategoryPriceName")
                         .setParameter("category", productCategory)
+                        .setParameter("min", min)
+                        .setParameter("max", max)
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .list());
+    }
+
+    // extra dammit
+    public List<Product> findByPriceName(int min, int max, String name) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findByPriceName")
+                        .setParameter("min", min)
+                        .setParameter("max", max)
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .list());
+    }
+
+    // extra dammit
+    public List<Product> findByMultiCategoryPriceName(String[] categories, int min, int max, String name) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findByMultiCategoryPriceName")
+                        .setParameterList("categories", categories)
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit

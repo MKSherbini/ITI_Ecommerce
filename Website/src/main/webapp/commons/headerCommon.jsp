@@ -9,20 +9,33 @@
 
                 <!--====== Main Logo ======-->
 
-                <a class="main-logo" href="index.html">
+                <a class="main-logo"
+                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
                     <img src="images/logo/logo-1.png" alt=""></a>
                 <!--====== End - Main Logo ======-->
 
 
                 <!--====== Search Form ======-->
-                <form class="main-form">
+                <form class="main-form"
+                      action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                     <label for="main-search"></label>
 
-                    <input class="input-text input-text--border-radius input-text--style-1" type="text" id="main-search" placeholder="Search">
+                    <input class="input-text input-text--border-radius input-text--style-1"
+                           value="${requestScope.paramSearch}"
+                           type="text" id="main-search" name="search" placeholder="Search">
 
-                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button></form>
+                    <c:forEach items="${requestScope.requestParams}" var="requestParam">
+                        <c:forEach items="${requestParam.value}"
+                                   var="paramValue">
+                            <input type='hidden' name='${requestParam.key}'
+                                   value='${paramValue}'/>
+                        </c:forEach>
+                    </c:forEach>
+
+                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+                </form>
                 <!--====== End - Search Form ======-->
 
 
@@ -42,7 +55,8 @@
                                 <span>Hello,<label style="color: black; font-weight: bold">User</label></span>
                             </c:if>
                             <c:if test="${!empty sessionScope.user}">
-                                <span>Hello,<label style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
+                                <span>Hello, <label
+                                        style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
                             </c:if>
 
 
@@ -110,7 +124,9 @@
 
                                                     <a class="mini-product__link" href="product-detail.html">
 
-                                                        <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></a></div>
+                                                        <img class="u-img-fluid"
+                                                             src="images/product/electronic/product3.jpg" alt=""></a>
+                                                </div>
                                                 <div class="mini-product__info-wrapper">
 
                                                                     <span class="mini-product__category">
@@ -138,7 +154,9 @@
 
                                                     <a class="mini-product__link" href="product-detail.html">
 
-                                                        <img class="u-img-fluid" src="images/product/electronic/product18.jpg" alt=""></a></div>
+                                                        <img class="u-img-fluid"
+                                                             src="images/product/electronic/product18.jpg" alt=""></a>
+                                                </div>
                                                 <div class="mini-product__info-wrapper">
 
                                                                     <span class="mini-product__category">
@@ -166,7 +184,8 @@
 
                                                     <a class="mini-product__link" href="product-detail.html">
 
-                                                        <img class="u-img-fluid" src="images/product/women/product8.jpg" alt=""></a></div>
+                                                        <img class="u-img-fluid" src="images/product/women/product8.jpg"
+                                                             alt=""></a></div>
                                                 <div class="mini-product__info-wrapper">
 
                                                                     <span class="mini-product__category">
@@ -194,7 +213,8 @@
 
                                                     <a class="mini-product__link" href="product-detail.html">
 
-                                                        <img class="u-img-fluid" src="images/product/men/product8.jpg" alt=""></a></div>
+                                                        <img class="u-img-fluid" src="images/product/men/product8.jpg"
+                                                             alt=""></a></div>
                                                 <div class="mini-product__info-wrapper">
 
                                                                     <span class="mini-product__category">
@@ -226,9 +246,11 @@
                                             <span class="subtotal-value">$16</span></div>
                                         <div class="mini-action">
 
-                                            <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
+                                            <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO
+                                                CHECKOUT</a>
 
-                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW CART</a></div>
+                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW
+                                                CART</a></div>
                                     </div>
                                     <!--====== End - Mini Product Statistics ======-->
                                 </div>

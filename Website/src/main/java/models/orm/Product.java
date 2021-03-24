@@ -20,15 +20,25 @@ import java.util.List;
                 query = "select p from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findByPriceRange", // todo handle discount
-                query = "select p from Product p where p.price between :min and :max"),
+                query = "select p from Product p where p.price*(1-(p.discountPercent/ 100)) between :min and :max"),
         @NamedQuery(
                 name = "Product.findByCategory",
                 query = "select p from Product p where :category = p.category"),
         @NamedQuery(
+                name = "Product.findByPriceName",
+                query = "select p from Product p where " +
+                        "p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
+        @NamedQuery(
                 name = "Product.findByCategoryPriceName", // hope we can find a better sol
                 query = "select p from Product p where :category = p.category " +
-                        "and p.price between :min and :max " +
-                        "and p.name like :name or p.description like :name"),
+                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
+        @NamedQuery(
+                name = "Product.findByMultiCategoryPriceName", // hope we can find a better sol
+                query = "select p from Product p where p.category.name in (:categories)  " +
+                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
 })
 
 @Data
@@ -54,7 +64,7 @@ public class Product {
     private Date arrivalDate;
 
     @ManyToOne(optional = false)
-    @ToString.Exclude
+//    @ToString.Exclude
     private ProductCategory category;
 
     public Product() {

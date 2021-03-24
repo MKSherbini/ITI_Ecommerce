@@ -117,13 +117,18 @@ public class testMain {
 //        }
 
         ProductRepo productRepo = ProductRepo.getInstance();
-        for (int i = 1; i < 21; i++) {
-            productRepo.create(new Product("product" + i,
-                    i * 100,
-                    "description" + i,
-                    i * 5,
-                    "images/product/men/product6.jpg",
-                    categoryRepo.read((long) (i / 5 + 1)).get()));
+//        for (int i = 1; i < 21; i++) {
+//            productRepo.create(new Product("product" + i,
+//                    i * 100,
+//                    "description" + i,
+//                    i * 5,
+//                    "images/product/men/product6.jpg",
+//                    categoryRepo.read((long) (i / 5 + 1)).get()));
+//        }
+
+        var products = productRepo.readAll();
+        for (var product : products) {
+            product.setDiscountPercent((int) ((product.getCategory().getCategoryId() - 1) * 5));
         }
     }
 

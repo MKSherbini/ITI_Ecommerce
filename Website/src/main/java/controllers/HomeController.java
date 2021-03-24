@@ -13,7 +13,7 @@ import providers.repositories.UserRepo;
 
 import java.io.IOException;
 
-@WebServlet("/home")
+@WebServlet(urlPatterns = {"/","/home"})
 public class HomeController extends HttpServlet {
     ServletConfig myConfig;
 

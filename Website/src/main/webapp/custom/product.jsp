@@ -18,7 +18,7 @@
                 <a href="shop-side-version-2.jsp">${product.category.name}</a></div>
             <%--product name--%>
             <div class="product-m__name">
-                <a href="product-detail.jsp">${product.name}</a></div>
+                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">${product.name}</a></div>
             <c:choose>
                 <c:when test="${product.discountPercent==0}">
                     <%--product price--%>

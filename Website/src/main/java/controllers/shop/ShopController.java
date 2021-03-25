@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.orm.Product;
 import providers.repositories.CategoryRepo;
 import providers.repositories.ProductRepo;
+import utilities.SafeConverter;
 import utilities.adapters.CategoryAdapter;
 
 import java.io.IOException;
@@ -38,8 +39,8 @@ public class ShopController extends HttpServlet {
         var paramCategories = request.getParameterValues(WebsiteConstants.paramCategoryName);
         var paramSearch = request.getParameter(WebsiteConstants.paramSearchName);
         if (paramSearch == null) paramSearch = "";
-        var paramMinPrice = safeIntParse(request.getParameter(WebsiteConstants.paramMinPriceName), 0);
-        var paramMaxPrice = safeIntParse(request.getParameter(WebsiteConstants.paramMaxPriceName), Integer.MAX_VALUE);
+        var paramMinPrice = SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramMinPriceName), 0);
+        var paramMaxPrice = SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramMaxPriceName), Integer.MAX_VALUE);
 
         var categoryList = CategoryAdapter.copyOrmToDto(categoryRepo.readAll());
         List<Product> productList;
@@ -65,18 +66,6 @@ public class ShopController extends HttpServlet {
 
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SHOP)).include(request, response);
         // do verifying
-    }
-
-    int safeIntParse(String str, int defaultValue) {
-        int param = defaultValue;
-        try {
-            param = Integer.parseInt(str);
-            if (param < 0)
-                param = 0;
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        return param;
     }
 
     public String getServletInfo() {

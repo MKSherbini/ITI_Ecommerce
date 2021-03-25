@@ -216,408 +216,129 @@
                                                     <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2"
                                                             type="submit"></button>
                                                 </div>
+                                            </form>
                                         </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-9 col-md-12">
-                    <div class="shop-p">
-                        <div class="shop-p__toolbar u-s-m-b-30">
-                            <div class="shop-p__meta-wrap u-s-m-b-60">
+                    <div class="col-lg-9 col-md-12">
+                        <div class="shop-p">
+                            <div class="shop-p__toolbar u-s-m-b-30">
+                                <div class="shop-p__meta-wrap u-s-m-b-60">
 
-                                <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
-                                <div class="shop-p__meta-text-2">
+                                    <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
+                                    <div class="shop-p__meta-text-2">
 
-                                    <span>Related Searches:</span>
+                                        <span>Related Searches:</span>
 
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">men's clothing</a>
+                                        <a class="gl-tag btn--e-brand-shadow" href="#">men's clothing</a>
 
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets</a>
+                                        <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets</a>
 
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">books & audible</a></div>
+                                        <a class="gl-tag btn--e-brand-shadow" href="#">books & audible</a></div>
+                                </div>
+                                <div class="shop-p__tool-style">
+                                    <div class="tool-style__group u-s-m-b-8">
+
+                                        <span class="js-shop-grid-target is-active">Grid</span>
+
+                                        <span class="js-shop-list-target">List</span></div>
+                                    <form>
+                                        <div class="tool-style__form-wrap">
+                                            <div class="u-s-m-b-8"><select
+                                                    class="select-box select-box--transparent-b-2">
+                                                <option>Show: 8</option>
+                                                <option selected>Show: 12</option>
+                                                <option>Show: 16</option>
+                                                <option>Show: 28</option>
+                                            </select></div>
+                                            <div class="u-s-m-b-8"><select
+                                                    class="select-box select-box--transparent-b-2">
+                                                <option selected>Sort By: Newest Items</option>
+                                                <option>Sort By: Latest Items</option>
+                                                <option>Sort By: Best Selling</option>
+                                                <option>Sort By: Best Rating</option>
+                                                <option>Sort By: Lowest Price</option>
+                                                <option>Sort By: Highest Price</option>
+                                            </select></div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="shop-p__tool-style">
-                                <div class="tool-style__group u-s-m-b-8">
-
-                                    <span class="js-shop-grid-target is-active">Grid</span>
-
-                                    <span class="js-shop-list-target">List</span></div>
-                                <form>
-                                    <div class="tool-style__form-wrap">
-                                        <div class="u-s-m-b-8"><select
-                                                class="select-box select-box--transparent-b-2">
-                                            <option>Show: 8</option>
-                                            <option selected>Show: 12</option>
-                                            <option>Show: 16</option>
-                                            <option>Show: 28</option>
-                                        </select></div>
-                                        <div class="u-s-m-b-8"><select
-                                                class="select-box select-box--transparent-b-2">
-                                            <option selected>Sort By: Newest Items</option>
-                                            <option>Sort By: Latest Items</option>
-                                            <option>Sort By: Best Selling</option>
-                                            <option>Sort By: Best Rating</option>
-                                            <option>Sort By: Lowest Price</option>
-                                            <option>Sort By: Highest Price</option>
-                                        </select></div>
-                                    </div>
-                                </form>
+                            <div class="shop-p__collection">
+                                <div class="row is-grid-active">
+                                    <c:forEach items="${requestScope.productList}" var="product">
+                                        <%@include file="custom/product.jsp" %>
+                                    </c:forEach>
+                                </div>
                             </div>
-                        </div>
-                        <div class="shop-p__collection">
-                            <div class="row is-grid-active">
-                                <c:forEach items="${requestScope.productList}" var="product">
-                                    <%@include file="custom/product.jsp" %>
-                                </c:forEach>
+                            <div class="u-s-p-y-60">
+
+                                <!--====== Pagination ======-->
+                                <%--                                <ul class="shop-p__pagination">--%>
+                                <%--                                    <li class="is-active">--%>
+
+                                <%--                                        <a href="shop-grid-left.jsp">1</a></li>--%>
+                                <%--                                    <li>--%>
+
+                                <%--                                        <a href="shop-grid-left.jsp">2</a></li>--%>
+                                <%--                                    <li>--%>
+
+                                <%--                                        <a href="shop-grid-left.jsp">3</a></li>--%>
+                                <%--                                    <li>--%>
+
+                                <%--                                        <a href="shop-grid-left.jsp">4</a></li>--%>
+                                <%--                                    <li>--%>
+
+                                <%--                                        <a class="fas fa-angle-right" href="shop-grid-left.jsp"></a></li>--%>
+                                <%--                                </ul>--%>
+                                <!--====== End - Pagination ======-->
                             </div>
-                        </div>
-                        <div class="u-s-p-y-60">
-
-                            <!--====== Pagination ======-->
-                            <%--                                <ul class="shop-p__pagination">--%>
-                            <%--                                    <li class="is-active">--%>
-
-                            <%--                                        <a href="shop-grid-left.jsp">1</a></li>--%>
-                            <%--                                    <li>--%>
-
-                            <%--                                        <a href="shop-grid-left.jsp">2</a></li>--%>
-                            <%--                                    <li>--%>
-
-                            <%--                                        <a href="shop-grid-left.jsp">3</a></li>--%>
-                            <%--                                    <li>--%>
-
-                            <%--                                        <a href="shop-grid-left.jsp">4</a></li>--%>
-                            <%--                                    <li>--%>
-
-                            <%--                                        <a class="fas fa-angle-right" href="shop-grid-left.jsp"></a></li>--%>
-                            <%--                                </ul>--%>
-                            <!--====== End - Pagination ======-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--====== End - Section 1 ======-->
     </div>
-    <!--====== End - Section 1 ======-->
-</div>
-<!--====== End - App Content ======-->
+    <!--====== End - App Content ======-->
 
 
-<!--====== Main Footer ======-->
-<footer>
-    <div class="outer-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="outer-footer__content u-s-m-b-40">
-
-                        <span class="outer-footer__content-title">Contact Us</span>
-                        <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
-
-                            <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
-                        <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
-
-                            <span>(+0) 900 901 904</span></div>
-                        <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
-
-                            <span>contact@domain.com</span></div>
-                        <div class="outer-footer__social">
-                            <ul>
-                                <li>
-
-                                    <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li>
-
-                                    <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li>
-
-                                    <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a>
-                                </li>
-                                <li>
-
-                                    <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-
-                                    <a class="s-gplus--color-hover" href="#"><i
-                                            class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="outer-footer__content u-s-m-b-40">
-
-                                <span class="outer-footer__content-title">Information</span>
-                                <div class="outer-footer__list-wrap">
-                                    <ul>
-                                        <li>
-
-                                            <a href="cart.jsp">Cart</a></li>
-                                        <li>
-
-                                            <a href="dashboard.jsp">Account</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.jsp">Manufacturer</a></li>
-                                        <li>
-
-                                            <a href="dash-payment-option.jsp">Finance</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.jsp">Shop</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="outer-footer__content u-s-m-b-40">
-                                <div class="outer-footer__list-wrap">
-
-                                    <span class="outer-footer__content-title">Our Company</span>
-                                    <ul>
-                                        <li>
-
-                                            <a href="about.jsp">About us</a></li>
-                                        <li>
-
-                                            <a href="contact.jsp">Contact Us</a></li>
-                                        <li>
-
-                                            <a href="index.jsp">Sitemap</a></li>
-                                        <li>
-
-                                            <a href="dash-my-order.jsp">Delivery</a></li>
-                                        <li>
-
-                                            <a href="shop-side-version-2.jsp">Store</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="outer-footer__content">
-
-                        <span class="outer-footer__content-title">Join our Newsletter</span>
-                        <form class="newsletter">
-                            <div class="u-s-m-b-15">
-                                <div class="radio-box newsletter__radio">
-
-                                    <input type="radio" id="male" name="gender">
-                                    <div class="radio-box__state radio-box__state--primary">
-
-                                        <label class="radio-box__label" for="male">Male</label></div>
-                                </div>
-                                <div class="radio-box newsletter__radio">
-
-                                    <input type="radio" id="female" name="gender">
-                                    <div class="radio-box__state radio-box__state--primary">
-
-                                        <label class="radio-box__label" for="female">Female</label></div>
-                                </div>
-                            </div>
-                            <div class="newsletter__group">
-
-                                <label for="newsletter"></label>
-
-                                <input class="input-text input-text--only-white" type="text" id="newsletter"
-                                       placeholder="Enter your Email">
-
-                                <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button>
-                            </div>
-
-                            <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="lower-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="lower-footer__content">
-                        <div class="lower-footer__copyright">
-
-                            <span>Copyright © 2018</span>
-
-                            <a href="index.jsp">Reshop</a>
-
-                            <span>All Right Reserved</span></div>
-                        <div class="lower-footer__payment">
-                            <ul>
-                                <li><i class="fab fa-cc-stripe"></i></li>
-                                <li><i class="fab fa-cc-paypal"></i></li>
-                                <li><i class="fab fa-cc-mastercard"></i></li>
-                                <li><i class="fab fa-cc-visa"></i></li>
-                                <li><i class="fab fa-cc-discover"></i></li>
-                                <li><i class="fab fa-cc-amex"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!--====== Modal Section ======-->
-
-
-<!--====== Quick Look Modal ======-->
-<div class="modal fade" id="quick-look">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal--shadow">
-
-            <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-            <div class="modal-body">
+    <!--====== Main Footer ======-->
+    <footer>
+        <div class="outer-footer">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="outer-footer__content u-s-m-b-40">
 
-                        <!--====== Product Breadcrumb ======-->
-                        <div class="pd-breadcrumb u-s-m-b-30">
-                            <ul class="pd-breadcrumb__list">
-                                <li class="has-separator">
+                            <span class="outer-footer__content-title">Contact Us</span>
+                            <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-                                    <a href="index.hml">Home</a></li>
-                                <li class="has-separator">
+                                <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
+                            <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-                                    <a href="shop-side-version-2.jsp">Electronics</a></li>
-                                <li class="has-separator">
+                                <span>(+0) 900 901 904</span></div>
+                            <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 
-                                    <a href="shop-side-version-2.jsp">DSLR Cameras</a></li>
-                                <li class="is-marked">
-
-                                    <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
-                            </ul>
-                        </div>
-                        <!--====== End - Product Breadcrumb ======-->
-
-
-                        <!--====== Product Detail ======-->
-                        <div class="pd u-s-m-b-30">
-                            <div class="pd-wrap">
-                                <div id="js-product-detail-modal">
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                </div>
-                            </div>
-                            <div class="u-s-m-t-15">
-                                <div id="js-product-detail-modal-thumbnail">
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                    <div>
-
-                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--====== End - Product Detail ======-->
-                    </div>
-                    <div class="col-lg-7">
-
-                        <!--====== Product Right Side Details ======-->
-                        <div class="pd-detail">
-                            <div>
-
-                                <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>
-                            <div>
-                                <div class="pd-detail__inline">
-
-                                    <span class="pd-detail__price">$6.99</span>
-
-                                    <span class="pd-detail__discount">(76% OFF)</span>
-                                    <del class="pd-detail__del">$28.97</del>
-                                </div>
-                            </div>
-                            <div class="u-s-m-b-15">
-                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i
-                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-
-                                    <span class="pd-detail__review u-s-m-l-4">
-
-                                                <a href="product-detail.jsp">23 Reviews</a></span></div>
-                            </div>
-                            <div class="u-s-m-b-15">
-                                <div class="pd-detail__inline">
-
-                                    <span class="pd-detail__stock">200 in stock</span>
-
-                                    <span class="pd-detail__left">Only 2 left</span></div>
-                            </div>
-                            <div class="u-s-m-b-15">
-
-                                <span class="pd-detail__preview-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                            </div>
-                            <div class="u-s-m-b-15">
-                                <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
-
-                                                <a href="signin.jsp">Add to Wishlist</a>
-
-                                                <span class="pd-detail__click-count">(222)</span></span></div>
-                            </div>
-                            <div class="u-s-m-b-15">
-                                <div class="pd-detail__inline">
-
-                                            <span class="pd-detail__click-wrap"><i
-                                                    class="far fa-envelope u-s-m-r-6"></i>
-
-                                                <a href="signin.jsp">Email me When the price drops</a>
-
-                                                <span class="pd-detail__click-count">(20)</span></span></div>
-                            </div>
-                            <div class="u-s-m-b-15">
-                                <ul class="pd-social-list">
+                                <span>contact@domain.com</span></div>
+                            <div class="outer-footer__social">
+                                <ul>
                                     <li>
 
-                                        <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li>
+
+                                        <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li>
+
+                                        <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a>
                                     </li>
                                     <li>
 
-                                        <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-
-                                        <a class="s-insta--color-hover" href="#"><i
-                                                class="fab fa-instagram"></i></a></li>
-                                    <li>
-
-                                        <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a>
+                                        <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     <li>
 
@@ -625,102 +346,380 @@
                                                 class="fab fa-google-plus-g"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
-                                    <div class="pd-detail-inline-2">
-                                        <div class="u-s-m-b-15">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="outer-footer__content u-s-m-b-40">
 
-                                            <!--====== Input Counter ======-->
-                                            <div class="input-counter">
+                                    <span class="outer-footer__content-title">Information</span>
+                                    <div class="outer-footer__list-wrap">
+                                        <ul>
+                                            <li>
 
-                                                <span class="input-counter__minus fas fa-minus"></span>
+                                                <a href="cart.jsp">Cart</a></li>
+                                            <li>
 
-                                                <input class="input-counter__text input-counter--text-primary-style"
-                                                       type="text" value="1" data-min="1" data-max="1000">
+                                                <a href="dashboard.jsp">Account</a></li>
+                                            <li>
 
-                                                <span class="input-counter__plus fas fa-plus"></span></div>
-                                            <!--====== End - Input Counter ======-->
-                                        </div>
-                                        <div class="u-s-m-b-15">
+                                                <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                            <li>
 
-                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
-                                        </div>
+                                                <a href="dash-payment-option.jsp">Finance</a></li>
+                                            <li>
+
+                                                <a href="shop-side-version-2.jsp">Shop</a></li>
+                                        </ul>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            <div class="u-s-m-b-15">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="outer-footer__content u-s-m-b-40">
+                                    <div class="outer-footer__list-wrap">
 
-                                <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
-                                <ul class="pd-detail__policy-list">
-                                    <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+                                        <span class="outer-footer__content-title">Our Company</span>
+                                        <ul>
+                                            <li>
 
-                                        <span>Buyer Protection.</span></li>
-                                    <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+                                                <a href="about.jsp">About us</a></li>
+                                            <li>
 
-                                        <span>Full Refund if you don't receive your order.</span></li>
-                                    <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+                                                <a href="contact.jsp">Contact Us</a></li>
+                                            <li>
 
-                                        <span>Returns accepted if product not as described.</span></li>
+                                                <a href="index.jsp">Sitemap</a></li>
+                                            <li>
+
+                                                <a href="dash-my-order.jsp">Delivery</a></li>
+                                            <li>
+
+                                                <a href="shop-side-version-2.jsp">Store</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="outer-footer__content">
+
+                            <span class="outer-footer__content-title">Join our Newsletter</span>
+                            <form class="newsletter">
+                                <div class="u-s-m-b-15">
+                                    <div class="radio-box newsletter__radio">
+
+                                        <input type="radio" id="male" name="gender">
+                                        <div class="radio-box__state radio-box__state--primary">
+
+                                            <label class="radio-box__label" for="male">Male</label></div>
+                                    </div>
+                                    <div class="radio-box newsletter__radio">
+
+                                        <input type="radio" id="female" name="gender">
+                                        <div class="radio-box__state radio-box__state--primary">
+
+                                            <label class="radio-box__label" for="female">Female</label></div>
+                                    </div>
+                                </div>
+                                <div class="newsletter__group">
+
+                                    <label for="newsletter"></label>
+
+                                    <input class="input-text input-text--only-white" type="text" id="newsletter"
+                                           placeholder="Enter your Email">
+
+                                    <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button>
+                                </div>
+
+                                <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="lower-footer__content">
+                            <div class="lower-footer__copyright">
+
+                                <span>Copyright © 2018</span>
+
+                                <a href="index.jsp">Reshop</a>
+
+                                <span>All Right Reserved</span></div>
+                            <div class="lower-footer__payment">
+                                <ul>
+                                    <li><i class="fab fa-cc-stripe"></i></li>
+                                    <li><i class="fab fa-cc-paypal"></i></li>
+                                    <li><i class="fab fa-cc-mastercard"></i></li>
+                                    <li><i class="fab fa-cc-visa"></i></li>
+                                    <li><i class="fab fa-cc-discover"></i></li>
+                                    <li><i class="fab fa-cc-amex"></i></li>
                                 </ul>
                             </div>
                         </div>
-                        <!--====== End - Product Right Side Details ======-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--====== Modal Section ======-->
+
+
+    <!--====== Quick Look Modal ======-->
+    <div class="modal fade" id="quick-look">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal--shadow">
+
+                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-5">
+
+                            <!--====== Product Breadcrumb ======-->
+                            <div class="pd-breadcrumb u-s-m-b-30">
+                                <ul class="pd-breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="index.hml">Home</a></li>
+                                    <li class="has-separator">
+
+                                        <a href="shop-side-version-2.jsp">Electronics</a></li>
+                                    <li class="has-separator">
+
+                                        <a href="shop-side-version-2.jsp">DSLR Cameras</a></li>
+                                    <li class="is-marked">
+
+                                        <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
+                                </ul>
+                            </div>
+                            <!--====== End - Product Breadcrumb ======-->
+
+
+                            <!--====== Product Detail ======-->
+                            <div class="pd u-s-m-b-30">
+                                <div class="pd-wrap">
+                                    <div id="js-product-detail-modal">
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="u-s-m-t-15">
+                                    <div id="js-product-detail-modal-thumbnail">
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
+                                        <div>
+
+                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--====== End - Product Detail ======-->
+                        </div>
+                        <div class="col-lg-7">
+
+                            <!--====== Product Right Side Details ======-->
+                            <div class="pd-detail">
+                                <div>
+
+                                    <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>
+                                <div>
+                                    <div class="pd-detail__inline">
+
+                                        <span class="pd-detail__price">$6.99</span>
+
+                                        <span class="pd-detail__discount">(76% OFF)</span>
+                                        <del class="pd-detail__del">$28.97</del>
+                                    </div>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+
+                                        <span class="pd-detail__review u-s-m-l-4">
+
+                                                <a href="product-detail.jsp">23 Reviews</a></span></div>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <div class="pd-detail__inline">
+
+                                        <span class="pd-detail__stock">200 in stock</span>
+
+                                        <span class="pd-detail__left">Only 2 left</span></div>
+                                </div>
+                                <div class="u-s-m-b-15">
+
+                                    <span class="pd-detail__preview-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <div class="pd-detail__inline">
+
+                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
+
+                                                <a href="signin.jsp">Add to Wishlist</a>
+
+                                                <span class="pd-detail__click-count">(222)</span></span></div>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <div class="pd-detail__inline">
+
+                                            <span class="pd-detail__click-wrap"><i
+                                                    class="far fa-envelope u-s-m-r-6"></i>
+
+                                                <a href="signin.jsp">Email me When the price drops</a>
+
+                                                <span class="pd-detail__click-count">(20)</span></span></div>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <ul class="pd-social-list">
+                                        <li>
+
+                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-insta--color-hover" href="#"><i
+                                                    class="fab fa-instagram"></i></a></li>
+                                        <li>
+
+                                            <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-gplus--color-hover" href="#"><i
+                                                    class="fab fa-google-plus-g"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="u-s-m-b-15">
+                                    <form class="pd-detail__form">
+                                        <div class="pd-detail-inline-2">
+                                            <div class="u-s-m-b-15">
+
+                                                <!--====== Input Counter ======-->
+                                                <div class="input-counter">
+
+                                                    <span class="input-counter__minus fas fa-minus"></span>
+
+                                                    <input class="input-counter__text input-counter--text-primary-style"
+                                                           type="text" value="1" data-min="1" data-max="1000">
+
+                                                    <span class="input-counter__plus fas fa-plus"></span></div>
+                                                <!--====== End - Input Counter ======-->
+                                            </div>
+                                            <div class="u-s-m-b-15">
+
+                                                <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="u-s-m-b-15">
+
+                                    <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
+                                    <ul class="pd-detail__policy-list">
+                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+
+                                            <span>Buyer Protection.</span></li>
+                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+
+                                            <span>Full Refund if you don't receive your order.</span></li>
+                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+
+                                            <span>Returns accepted if product not as described.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--====== End - Product Right Side Details ======-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--====== End - Quick Look Modal ======-->
+    <!--====== End - Quick Look Modal ======-->
 
 
-<!--====== Add to Cart Modal ======-->
-<div class="modal fade" id="add-to-cart">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-radius modal-shadow">
+    <!--====== Add to Cart Modal ======-->
+    <div class="modal fade" id="add-to-cart">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-radius modal-shadow">
 
-            <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="success u-s-m-b-30">
-                            <div class="success__text-wrap"><i class="fas fa-check"></i>
+                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="success u-s-m-b-30">
+                                <div class="success__text-wrap"><i class="fas fa-check"></i>
 
-                                <span>Item is added successfully!</span></div>
-                            <div class="success__img-wrap">
+                                    <span>Item is added successfully!</span></div>
+                                <div class="success__img-wrap">
 
-                                <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
-                            <div class="success__info-wrap">
+                                    <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
+                                <div class="success__info-wrap">
 
-                                <span class="success__name">Beats Bomb Wireless Headphone</span>
+                                    <span class="success__name">Beats Bomb Wireless Headphone</span>
 
-                                <span class="success__quantity">Quantity: 1</span>
+                                    <span class="success__quantity">Quantity: 1</span>
 
-                                <span class="success__price">$170.00</span></div>
+                                    <span class="success__price">$170.00</span></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="s-option">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="s-option">
 
-                            <span class="s-option__text">1 item (s) in your cart</span>
-                            <div class="s-option__link-box">
+                                <span class="s-option__text">1 item (s) in your cart</span>
+                                <div class="s-option__link-box">
 
-                                <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
-                                    SHOPPING</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
+                                        SHOPPING</a>
 
-                                <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
 
-                                <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
-                                    CHECKOUT</a></div>
+                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
+                                        CHECKOUT</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--====== End - Add to Cart Modal ======-->
-<!--====== End - Modal Section ======-->
+    <!--====== End - Add to Cart Modal ======-->
+    <!--====== End - Modal Section ======-->
 </div>
 <!--====== End - Main App ======-->
 

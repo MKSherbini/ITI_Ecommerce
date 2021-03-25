@@ -24,7 +24,7 @@ public class F1_HomeRedirectFilter implements Filter {
         final String url = httpRequest.getRequestURI();
         final String baseUrl = httpRequest.getContextPath();
 
-        if (url.equals(baseUrl + "/"))
+        if (url.equals(baseUrl + "/") || url.equals(baseUrl))
             httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
         else {
             chain.doFilter(request, response);

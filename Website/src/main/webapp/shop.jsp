@@ -209,8 +209,10 @@
                                                     <c:forEach items="${requestScope.requestParams}" var="requestParam">
                                                         <c:forEach items="${requestParam.value}"
                                                                    var="paramValue">
-                                                            <input type='hidden' name='${requestParam.key}'
-                                                                   value='${paramValue}'/>
+                                                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramMaxPriceName)&&!requestParam.key.equals(WebsiteConstants.paramMinPriceName)}">
+                                                                <input type='hidden' name='${requestParam.key}'
+                                                                       value='${paramValue}'/>
+                                                            </c:if>
                                                         </c:forEach>
                                                     </c:forEach>
                                                     <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2"
@@ -277,23 +279,27 @@
                             <div class="u-s-p-y-60">
 
                                 <!--====== Pagination ======-->
-                                <%--                                <ul class="shop-p__pagination">--%>
-                                <%--                                    <li class="is-active">--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">1</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">2</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">3</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">4</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a class="fas fa-angle-right" href="shop-grid-left.jsp"></a></li>--%>
-                                <%--                                </ul>--%>
+                                <ul class="shop-p__pagination">
+                                    <c:if test="${requestScope.pageHasPrev}">
+                                        <li><a class="fas fa-angle-left" href=""
+                                               data-href="page=${requestScope.paramPageNumber-1}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
+                                        </li>
+                                    </c:if>
+                                    <c:forEach items="${requestScope.pageList}" var="page">
+                                        <li
+                                                <c:if test="${page.selected}">class="is-active"</c:if> >
+                                            <a href="" data-href="page=${page.number}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());">${page.number}</a>
+                                        </li>
+                                    </c:forEach>
+                                    <c:if test="${requestScope.pageHasNext}">
+                                        <li><a class="fas fa-angle-right" href=""
+                                               data-href="page=${requestScope.paramPageNumber+1}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
+                                        </li>
+                                    </c:if>
+                                </ul>
                                 <!--====== End - Pagination ======-->
                             </div>
                         </div>

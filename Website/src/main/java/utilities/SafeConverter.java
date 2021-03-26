@@ -6,7 +6,7 @@ public class SafeConverter {
         try {
             param = Integer.parseInt(str);
             if (param < 0)
-                param = 0;
+                param = defaultValue;
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -18,7 +18,7 @@ public class SafeConverter {
         try {
             param = Long.parseLong(str);
             if (param < 0)
-                param = 0L;
+                param = defaultValue;
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

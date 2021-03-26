@@ -7,6 +7,7 @@ public class WebsiteConstants {
     public static final String paramMinPriceName = "minPrice";
     public static final String paramMaxPriceName = "maxPrice";
     public static final String paramProductId = "ref";
+    public static final String paramPageNumber = "page";
 
     private String WebsiteName = "ChillStore";
 

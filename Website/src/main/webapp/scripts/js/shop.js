@@ -1,6 +1,12 @@
-function setDynamicHref(elem) {
+function setDynamicHref(elem, customParams) {
     let myHref = elem.dataset.href;
-    let params = window.location.search;
+    let params;
+    console.log(customParams);
+    if (customParams !== void 0)
+        params = customParams;
+    else
+        params = window.location.search;
+    console.log(params);
     let exists = params.indexOf(myHref) !== -1;
     let base = window.location.pathname;
     if (exists) {
@@ -29,18 +35,29 @@ function setDynamicHref(elem) {
     elem.href = params;
 }
 
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+function destroyPaginationParams() {
+    let params = window.location.search;
+    let exists = params.indexOf("page") !== -1;
+    let base = window.location.pathname;
+    console.log("exists " + exists);
+    if (exists) {
+        let paramTokens = params.split(/[?&]/);
+        console.log("paramTokens " + paramTokens);
+        params = base;
+        if (paramTokens.length > 2) {
+            let inserted = false;
+            for (let i = 1; i < paramTokens.length; i++) {
+                if (!paramTokens[i].startsWith("page")) {
+                    console.log("paramTokens[i] " + paramTokens[i]);
+                    if (!inserted) {
+                        params += "?" + paramTokens[i];
+                        inserted = true;
+                    } else {
+                        params += "&" + paramTokens[i];
+                    }
+                }
+            }
         }
     }
-    return false;
-};
+    return params;
+}

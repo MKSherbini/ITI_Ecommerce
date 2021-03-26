@@ -9,8 +9,7 @@
 
                 <!--====== Main Logo ======-->
 
-                <a class="main-logo"
-                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
+                <a class="main-logo" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
                     <img src="images/logo/logo-1.png" alt=""></a>
                 <!--====== End - Main Logo ======-->
@@ -26,13 +25,15 @@
                            value="${requestScope.paramSearch}"
                            type="text" id="main-search" name="search" placeholder="Search">
 
-                    <c:forEach items="${requestScope.requestParams}" var="requestParam">
-                        <c:forEach items="${requestParam.value}"
-                                   var="paramValue">
-                            <input type='hidden' name='${requestParam.key}'
-                                   value='${paramValue}'/>
-                        </c:forEach>
-                    </c:forEach>
+<%--                    <c:forEach items="${requestScope.requestParams}" var="requestParam">--%>
+<%--                        <c:forEach items="${requestParam.value}"--%>
+<%--                                   var="paramValue">--%>
+<%--                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramSearchName)}">--%>
+<%--                                <input type='hidden' name='${requestParam.key}'--%>
+<%--                                       value='${paramValue}'/>--%>
+<%--                            </c:if>--%>
+<%--                        </c:forEach>--%>
+<%--                    </c:forEach>--%>
 
                     <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
                 </form>
@@ -52,11 +53,10 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <c:if test="${empty sessionScope.user}">
-                                <span>Hello,<label style="color: black; font-weight: bold">User</label></span>
+                                <span>Hello, <label style="color: black; font-weight: bold">User</label></span>
                             </c:if>
                             <c:if test="${!empty sessionScope.user}">
-                                <span>Hello, <label
-                                        style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
+                                <span>Hello, <label style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
                             </c:if>
 
 
@@ -99,7 +99,7 @@
                             <!--====== List ======-->
                             <li>
 
-                                <a href="index.html"><i class="fas fa-home"></i></a></li>
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i class="fas fa-store-alt"></i></a></li>
                             <li>
 
                                 <a href="wishlist.html"><i class="far fa-heart"></i></a></li>

@@ -4,7 +4,6 @@ import managers.DatabaseManager;
 import models.orm.ProductCategory;
 import models.orm.Product;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ProductRepo extends GenericRepo<Product, Long> {
@@ -26,6 +25,14 @@ public class ProductRepo extends GenericRepo<Product, Long> {
         return instance;
     }
 
+
+    public Object[] findMinMaxPriceLikeName(String name) {
+        return (Object[]) DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findMinMaxPriceLikeName")
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .stream().findAny().get());
+    }
 
     public List<Product> findLikeName(String name) {
         return DatabaseManager.getInstance()

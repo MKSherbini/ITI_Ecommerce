@@ -4,3 +4,4 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="constants.enums.PageNames" %>
+<%@ page import="constants.WebsiteConstants" %>

@@ -15,7 +15,8 @@ public class CategoryDto {
     public CategoryDto() {
     }
 
-    public CategoryDto(String name) {
+    public CategoryDto(String name, int numberOfProducts) {
         this.name = name;
+        this.numberOfProducts = numberOfProducts;
     }
 }

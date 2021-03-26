@@ -14,7 +14,12 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+// todo make pagination db side
+
 @NamedQueries({
+        @NamedQuery(
+                name = "Product.findMinMaxPriceLikeName",
+                query = "select min(p.price), max(p.price) from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like :name"),

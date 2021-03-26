@@ -2,7 +2,7 @@
     <div class="product-m">
         <div class="product-m__thumb">
             <%--product image--%>
-            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.jsp">
+            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">
                 <img class="aspect__img" src="${product.imageSrc}" alt=""></a>
 
             <div class="product-m__quick-look">
@@ -10,7 +10,7 @@
                    data-placement="top" title="Quick Look"></a></div>
 
             <div class="product-m__add-cart">
-                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                <a class="btn--e-brand" onclick="addToCart(${product.productId})" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
         </div>
         <%--product category--%>
         <div class="product-m__content">

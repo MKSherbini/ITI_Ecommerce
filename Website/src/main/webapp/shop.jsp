@@ -680,7 +680,7 @@
 
 
     <!--====== Add to Cart Modal ======-->
-    <div class="modal fade" id="add-to-cart">
+    <div class="modal fade" id="add-to-cart" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-radius modal-shadow">
 
@@ -751,6 +751,21 @@
 <!--====== App ======-->
 <script src="scripts/js/app.js"></script>
 
+<script>
+    function addToCart(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_FETCH)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {
+            // console.log("Data: " + data + "\nStatus: " + status);
+            // console.log(data.name)
+            // if (data.length <= 5) return;
+            // let product = JSON.parse(data);
+            // console.log(product);
+            if (status === 'success')
+                fkingSetModal(product);
+            // setTimeout(fkingSetModal, 500, product);
+        });
+
+    }
+</script>
 <!--====== Noscript ======-->
 <noscript>
     <div class="app-setting">

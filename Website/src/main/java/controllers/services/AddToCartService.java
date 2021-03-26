@@ -1,5 +1,7 @@
-package controllers.shop;
+package controllers.services;
 
+
+import com.google.gson.Gson;
 import constants.UrlMappingConstants;
 import constants.WebsiteConstants;
 import constants.enums.PageNames;
@@ -9,20 +11,17 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import managers.CookiesManager;
 import models.orm.Product;
-import providers.repositories.CategoryRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
-import utilities.adapters.CategoryAdapter;
+import utilities.adapters.ProductAdapter;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/product")
-public class ProductController extends HttpServlet {
-
+@WebServlet("/addToCart")
+public class AddToCartService extends HttpServlet {
     ServletConfig myConfig;
 
     public void init(ServletConfig config) throws ServletException {
@@ -35,7 +34,7 @@ public class ProductController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductRepo productRepo = ProductRepo.getInstance();
-
+        var out = response.getOutputStream();
         var paramProduct = request.getParameter(WebsiteConstants.paramProductId);
         Optional<Product> product = Optional.empty();
         if (paramProduct != null) {
@@ -43,12 +42,12 @@ public class ProductController extends HttpServlet {
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SHOP));
+            out.print("");
             return;
         }
 
-        request.setAttribute("product", product.get());
-        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.PRODUCT)).include(request, response);
+        var productDto = ProductAdapter.copyOrmToDto(product.get());
+        out.print(new Gson().toJson(productDto));
     }
 
     public String getServletInfo() {

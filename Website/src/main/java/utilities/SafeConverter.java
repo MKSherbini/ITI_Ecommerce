@@ -8,7 +8,7 @@ public class SafeConverter {
             if (param < 0)
                 param = defaultValue;
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return param;
     }
@@ -20,7 +20,7 @@ public class SafeConverter {
             if (param < 0)
                 param = defaultValue;
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return param;
     }

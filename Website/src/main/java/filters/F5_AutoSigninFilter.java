@@ -1,5 +1,6 @@
 package filters;
 
+import constants.UrlMappingConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,27 +26,39 @@ public class F5_AutoSigninFilter implements Filter {
 
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;
+        boolean validUrl = UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
+                || UrlMappingConstants.getInstance().isService(httpRequest);
+
+        if (!validUrl) {
+            chain.doFilter(request, response);
+            return;
+        }
 
         String userInfo = CookiesManager.getInstance().readUserInfoCookie(httpRequest);
         var userSession = (User) httpRequest.getSession().getAttribute("user");
+        Optional<User> user;
         if (userSession == null && userInfo != null) {
             //retrieving user info from cookie
             String[] splittedUserInfo = userInfo.split(":");
             String email = splittedUserInfo[0];
             String hashedPassword = splittedUserInfo[1];
             //checking email and password with database
-            Optional<User> user = UserRepo.getInstance().findByEmailPassword(email, hashedPassword);
+            user = UserRepo.getInstance().findByEmailPassword(email, hashedPassword);
             if (user.isPresent()) {
                 //adding user to session
                 HttpSession session = httpRequest.getSession();
                 session.setAttribute("user", user.get());
-                session.setAttribute("cart",
-                        CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(user.get()).get()));
+                userSession = user.get();
             } else {
                 //if user not found in db delete cookie
                 CookiesManager.getInstance().deleteUserInfoCookie(httpResponse);
             }
         }
+
+        if (userSession != null)
+            httpRequest.getSession().setAttribute("cart",
+                    CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(userSession).get()));
+
         chain.doFilter(request, response);
     }
 

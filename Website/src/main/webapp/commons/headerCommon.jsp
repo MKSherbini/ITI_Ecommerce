@@ -111,7 +111,7 @@
 
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                    <span class="total-item-round">2</span></a>
+                                    <span class="total-item-round">${sessionScope.cart.totalItemsCount}</span></a>
 
                                 <!--====== Dropdown ======-->
 
@@ -151,7 +151,8 @@
                                                     </div>
                                                 </div>
 
-                                                <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                                <a class="mini-product__delete-link far fa-trash-alt"
+                                                   onclick="removeFromCart(${item.productId});"></a>
                                             </div>
                                             <!--====== End - Card for mini cart ======-->
 

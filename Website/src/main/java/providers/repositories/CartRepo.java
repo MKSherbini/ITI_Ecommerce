@@ -63,7 +63,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         }
 
         // update price
-        cart.get().setTotalPrice(cart.get().getTotalPrice() + product.getPrice());
+        cart.get().setTotalPrice((int) (cart.get().getTotalPrice() + product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
         update(cart.get());
         DatabaseManager.getInstance().flush();
 
@@ -94,7 +94,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         }
 
         // update price
-        cart.get().setTotalPrice(Math.max(0, cart.get().getTotalPrice() - product.getPrice()));
+        cart.get().setTotalPrice((int) Math.max(0, cart.get().getTotalPrice() - product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
         update(cart.get());
         DatabaseManager.getInstance().flush();
 

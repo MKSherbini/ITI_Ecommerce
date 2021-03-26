@@ -13,7 +13,7 @@ public class CartItemAdapter {
         CartItemDto dto = new CartItemDto();
         dto.setImageSrc(orm.getProduct().getImageSrc());
         dto.setName(orm.getProduct().getName());
-        dto.setPrice(orm.getProduct().getPrice() * (1 - orm.getProduct().getDiscountPercent() / 100));
+        dto.setPrice((int) (orm.getProduct().getPrice() * (1 - orm.getProduct().getDiscountPercent() / 100.0)));
         dto.setCategoryName(orm.getProduct().getCategory().getName());
         dto.setProductQuantity(orm.getProductQuantity());
         dto.setProductId(orm.getProduct().getProductId());

@@ -17,3 +17,13 @@
 
 <!--====== App ======-->
 <link rel="stylesheet" href="styles/css/app.css">
+
+<script>
+    function removeFromCart(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_REMOVE_FROM_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+            console.log(data);
+            if (status === "success")
+                window.location.reload(true);
+        });
+    }
+</script>

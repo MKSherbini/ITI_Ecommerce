@@ -33,7 +33,7 @@ public class ProductAdapter {
     public static AddedToCartDto copyOrmToCartDto(Product productOrm) {
         var productDto = new AddedToCartDto();
         productDto.setName(productOrm.getName());
-        productDto.setPrice(productOrm.getPrice() * (1 - productOrm.getDiscountPercent() / 100));
+        productDto.setPrice((int) (productOrm.getPrice() * (1 - productOrm.getDiscountPercent() / 100.0)));
         productDto.setImageSrc(productOrm.getImageSrc());
         return productDto;
     }

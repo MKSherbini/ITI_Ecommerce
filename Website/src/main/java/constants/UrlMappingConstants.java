@@ -21,6 +21,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp", "signup", "signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
+        urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
 
         // ... add other pages
@@ -34,6 +35,7 @@ public class UrlMappingConstants {
 
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
+        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
     }
 
 
@@ -66,6 +68,10 @@ public class UrlMappingConstants {
 
     public String getControllerUrl(PageNames page) {
         return urlMap.containsKey(page) ? urlMap.get(page).getControllerUrl() : null;
+    }
+
+    public String getServiceUrl(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceUrl() : null;
     }
 
     /**

@@ -5,5 +5,6 @@ public enum PageNames {
     SIGN_IN_PAGE,
     REGISTER_PAGE,
     NOT_FOUND_404,
-    TEST_JSP
+    TEST_JSP,
+    ABOUT_PAGE
 }

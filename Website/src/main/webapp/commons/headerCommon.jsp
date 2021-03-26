@@ -38,6 +38,14 @@
 
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                            <c:if test="${empty sessionScope.user}">
+                                <span>Hello,<label style="color: black; font-weight: bold">User</label></span>
+                            </c:if>
+                            <c:if test="${!empty sessionScope.user}">
+                                <span>Hello,<label style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
+                            </c:if>
+
+
                             <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
                                 <a><i class="far fa-user-circle"></i></a>
@@ -46,26 +54,30 @@
 
                                 <span class="js-menu-toggle"></span>
                                 <ul style="width:120px">
-                                    <li>
+                                    <c:if test="${empty sessionScope.user}">
+                                        <li>
 
-                                        <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                            <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
-                                            <span>Account</span></a></li>
-                                    <li>
+                                                <span>Signup</span></a></li>
+                                        <li>
 
-                                        <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                            <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
-                                            <span>Signup</span></a></li>
-                                    <li>
+                                                <span>Signin</span></a></li>
+                                    </c:if>
+                                    <c:if test="${!empty sessionScope.user}">
+                                        <li>
 
-                                        <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
+                                            <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
-                                            <span>Signin</span></a></li>
-                                    <li>
+                                                <span>Account</span></a></li>
+                                        <li>
 
-                                        <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                            <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
 
-                                            <span>Signout</span></a></li>
+                                                <span>Signout</span></a></li>
+                                    </c:if>
                                 </ul>
                                 <!--====== End - Dropdown ======-->
                             </li>

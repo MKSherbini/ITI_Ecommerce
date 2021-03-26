@@ -1429,59 +1429,36 @@
                                 <div class="l-f-o">
                                     <div class="l-f-o__pad-box">
                                         <h1 class="gl-h1">PERSONAL INFORMATION</h1>
-                                        <form class="l-f-o__form">
-                                            <div class="gl-s-api">
-                                                <div class="u-s-m-b-15">
-
-                                                    <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
-
-                                                        <span>Signup with Facebook</span></button></div>
-                                                <div class="u-s-m-b-30">
-
-                                                    <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
-
-                                                        <span>Signup with Google</span></button></div>
-                                            </div>
+                                        <form class="l-f-o__form" method="post" action="signup">
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-fname">FIRST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="First Name" required></div>
+                                                <input class="input-text input-text--primary-style" name="firstName" type="text" id="reg-fname" placeholder="First Name" required></div>
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-lname">LAST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Last Name" required></div>
+                                                <input class="input-text input-text--primary-style" name="lastName" type="text" id="reg-lname" placeholder="Last Name" required></div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="userName">USERNAME *</label>
+
+                                                <input class="input-text input-text--primary-style" name="userName" type="text" id="userName" placeholder="UserName" required></div>
                                             <div class="gl-inline">
                                                 <div class="u-s-m-b-30">
 
                                                     <!--====== Date of Birth Select-Box ======-->
 
                                                     <span class="gl-label">BIRTHDAY</span>
-                                                    <div class="gl-dob"><select class="select-box select-box--primary-style" name="month" onchange="call()">
-                                                        <option selected>Month</option>
-                                                        <option value="1">Jan</option>
-                                                        <option value="2">Feb</option>
-                                                        <option value="3">Mar</option>
-                                                        <option value="4">Apr</option>
-                                                        <option value="5">May</option>
-                                                        <option value="6">Jun</option>
-                                                        <option value="7">Jul</option>
-                                                        <option value="8">Aug</option>
-                                                        <option value="9">Sep</option>
-                                                        <option value="10">Oct</option>
-                                                        <option value="11">Nov</option>
-                                                        <option value="12">Dec</option>
-                                                        </select><select name="day" class="select-box select-box--primary-style">
-                                                            <option value="">Day</option>
-                                                        </select><select class="select-box select-box--primary-style" name="year" onchange="call()">
-                                                            <option value="">Year</option>
-                                                        </select></div>
+                                                    <div class="gl-dob">
+                                                        <input type="date" name="birthDate">
+                                                    </div>
                                                     <!--====== End - Date of Birth Select-Box ======-->
                                                 </div>
                                                 <div class="u-s-m-b-30">
 
-                                                    <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender">
+                                                    <label class="gl-label" for="gender">GENDER</label><select name="gender" class="select-box select-box--primary-style u-w-100" id="gender">
                                                         <option selected>Select</option>
                                                         <option value="male">Male</option>
                                                         <option value="male">Female</option>
@@ -1491,13 +1468,13 @@
 
                                                 <label class="gl-label" for="reg-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" type="email" id="reg-email" placeholder="Enter E-mail" required onblur="validateEmail()"><label class="gl-label" style='color: red' ; id="emailValid" ></label></div>
+                                                <input class="input-text input-text--primary-style" name="email" type="email" id="reg-email" placeholder="Enter E-mail" required onblur="validateEmail()"><label class="gl-label" style='color: red' ; id="emailValid" ></label></div>
 
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-password">PASSWORD *</label>
 
-                                                <input class="input-text input-text--primary-style" type="password" id="reg-password" placeholder="Enter Password" required maxlength="15" onblur="validatePassword()"><label class="gl-label" style='color: red' ; id="passwordValid"></label></div>
+                                                <input class="input-text input-text--primary-style" name="password" type="password" id="reg-password" placeholder="Enter Password" required maxlength="15" onblur="validatePassword()"><label class="gl-label" style='color: red' ; id="passwordValid"></label></div>
 
                                             <div class="u-s-m-b-15">
 

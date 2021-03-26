@@ -10,8 +10,9 @@ import lombok.Data;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 // todo make pagination db side
@@ -44,6 +45,9 @@ import java.util.List;
                 query = "select p from Product p where p.category.name in (:categories)  " +
                         "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
                         "and (p.name like :name or p.description like :name)"),
+        @NamedQuery(
+                name = "Product.getNewArrivals",
+                query = "select p from Product p order by p.arrivalDate desc"),
 })
 
 @Data
@@ -66,7 +70,7 @@ public class Product {
     private String imageSrc;
     private int discountPercent;
     @Column(nullable = false)
-    private Date arrivalDate;
+    private Timestamp arrivalDate;
 
     @ManyToOne(optional = false)
 //    @ToString.Exclude
@@ -81,7 +85,7 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.imageSrc = imageSrc;
-        this.arrivalDate = Date.valueOf(LocalDate.now());
+        this.arrivalDate = new Timestamp(new Date().getTime());
         this.category = category;
     }
 }

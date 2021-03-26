@@ -34,7 +34,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .list());
     }
 
-    public Optional<ShoppingCart> findShoppingCartByUser(User owner) {
+    private Optional<ShoppingCart> findShoppingCartByUser(User owner) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByUser")
@@ -43,11 +43,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
     }
 
     public Optional<ShoppingCart> addProduct(User user, Product product) {
-        var cart = findShoppingCartByUser(user);
-        if (cart.isEmpty()) {
-            create(new ShoppingCart(user));
-        }
-        cart = findShoppingCartByUser(user);
+        var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
         // cart logic
@@ -75,11 +71,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
     }
 
     public Optional<ShoppingCart> removeProduct(User user, Product product) {
-        var cart = findShoppingCartByUser(user);
-        if (cart.isEmpty()) {
-            create(new ShoppingCart(user));
-        }
-        cart = findShoppingCartByUser(user);
+        var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
         // cart logic
@@ -106,6 +98,16 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         update(cart.get());
         DatabaseManager.getInstance().flush();
 
+        return cart;
+    }
+
+    public Optional<ShoppingCart> GetCartOrCreateOne(User user) {
+        var cart = findShoppingCartByUser(user);
+        if (cart.isEmpty()) {
+            create(new ShoppingCart(user));
+        }
+        cart = findShoppingCartByUser(user);
+        if (cart.isEmpty()) return Optional.empty();
         return cart;
     }
 }

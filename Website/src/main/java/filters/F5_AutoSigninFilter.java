@@ -1,15 +1,15 @@
 package filters;
 
-import constants.UrlMappingConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import managers.CookiesManager;
-import models.dtos.UserDto;
 import models.orm.User;
+import providers.repositories.CartRepo;
 import providers.repositories.UserRepo;
+import utilities.adapters.CartAdapter;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -39,6 +39,8 @@ public class F5_AutoSigninFilter implements Filter {
                 //adding user to session
                 HttpSession session = httpRequest.getSession();
                 session.setAttribute("user", user.get());
+                session.setAttribute("cart",
+                        CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(user.get()).get()));
             } else {
                 //if user not found in db delete cookie
                 CookiesManager.getInstance().deleteUserInfoCookie(httpResponse);

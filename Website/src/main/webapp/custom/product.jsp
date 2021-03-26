@@ -15,7 +15,7 @@
         <%--product category--%>
         <div class="product-m__content">
             <div class="product-m__category">
-                <a href="shop-side-version-2.jsp">${product.category.name}</a></div>
+                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${product.category.name}">${product.category.name}</a></div>
             <%--product name--%>
             <div class="product-m__name">
                 <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">${product.name}</a></div>

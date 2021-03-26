@@ -13,12 +13,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebFilter(filterName = "AuthorizationFilter", urlPatterns = "/*")
-public class F4_AuthorizationFilter implements Filter {
+public class F6_AuthorizationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("F4_AuthorizationFilter.doFilter");
+        System.out.println("F6_AuthorizationFilter.doFilter");
 
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;

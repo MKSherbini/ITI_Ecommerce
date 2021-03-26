@@ -1,15 +1,15 @@
 package constants;
 
+import constants.enums.ServiceNames;
 import jakarta.servlet.http.HttpServletRequest;
-import models.VCUrlMapping;
+import models.urls.ServiceUrlMapping;
+import models.urls.VCUrlMapping;
 import constants.enums.PageNames;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UrlMappingConstants {
     private final Map<PageNames, VCUrlMapping> urlMap = new HashMap<>();
@@ -17,15 +17,27 @@ public class UrlMappingConstants {
 
     {
         urlMap.put(PageNames.HOME_PAGE, new VCUrlMapping("Home", "home", "index.jsp"));
+        urlMap.put(PageNames.SIGN_IN_PAGE, new VCUrlMapping("SignIn", "signin", "signin.jsp"));
+        urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp", "signup", "signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
         urlMap.put(PageNames.TEST_JSP,new VCUrlMapping("testJSP","test","Testtag.jsp"));
         urlMap.put(PageNames.ABOUT_PAGE,new VCUrlMapping("About","about","about.jsp"));
+        urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
+        urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
         // ... add other pages
     }
 
     private final List<String> publicFolders = Arrays.asList(
             "video", "styles", "scripts", "images", "fonts", "audio"
     );
+
+    private final Map<ServiceNames, ServiceUrlMapping> serviceMap = new HashMap<>();
+
+    {
+        serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
+        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
+    }
+
 
     private static volatile UrlMappingConstants instance = null;
 
@@ -58,6 +70,60 @@ public class UrlMappingConstants {
         return urlMap.containsKey(page) ? urlMap.get(page).getControllerUrl() : null;
     }
 
+    public String getServiceUrl(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceUrl() : null;
+    }
+
+    /**
+     * to be a public jsp
+     * you either not exist at all in the list (to handle the resources)
+     * or you exist with a public jsp set to true (index.jsp for example)
+     * each pass one must be true
+     */
+    public boolean isPublic(HttpServletRequest request) {
+        boolean ret = false;
+        final String url = request.getRequestURI();
+        final String baseUrl = request.getContextPath();
+
+        // check if it's a public controller
+        ret |= isPublicControllerUrl(request);
+
+        if (!ret)
+            // check if it's public folder
+            ret |= publicFolders.stream().anyMatch(folder -> url.startsWith(baseUrl + "/" + folder));
+
+        if (!ret)
+            // check if it's a public service
+            ret |= isPublicService(request);
+
+        // sanity check
+        if (ret) {
+            System.out.println(url + " is public");
+        } else {
+            System.out.println(url + " is not public");
+        }
+
+        return ret;
+    }
+
+    public boolean isPublicControllerUrl(HttpServletRequest request) {
+        boolean ret = false;
+        final String url = request.getRequestURI();
+        final String baseUrl = request.getContextPath();
+
+        // check if it's a controller
+        if (!isAbsoluteUrl) {
+            ret = urlMap.values().stream().anyMatch(mapping ->
+                    url.equals(baseUrl + "/" + mapping.getControllerUrl())
+                            && !mapping.isAdminOnly());
+        } else {
+            ret = urlMap.values().stream().anyMatch(mapping ->
+                    url.equals(mapping.getControllerUrl())
+                            && !mapping.isAdminOnly());
+        }
+        return ret;
+    }
+
     public boolean isControllerUrl(HttpServletRequest request) {
         boolean ret = false;
         final String url = request.getRequestURI();
@@ -78,37 +144,27 @@ public class UrlMappingConstants {
         } else {
             ret = urlMap.entrySet().stream().anyMatch(mapping ->
                     url.equals(mapping.getValue().getControllerUrl()));
-
         }
-
         return ret;
     }
 
-    /**
-     * to be a public jsp
-     * you either not exist at all in the list (to handle the resources)
-     * or you exist with a public jsp set to true (index.jsp for example)
-     * each pass one must be true
-     */
-    public boolean isPublic(HttpServletRequest request) {
-        boolean ret = false;
+    public boolean isPublicService(HttpServletRequest request) {
         final String url = request.getRequestURI();
         final String baseUrl = request.getContextPath();
 
-        // check if it's a controller
-        ret |= isControllerUrl(request);
+        return serviceMap.values().stream()
+                .anyMatch(service ->
+                        url.equals(baseUrl + "/" + service.getServiceUrl())
+                                && !service.isAdminOnly());
+    }
 
-        // check if it's public folder
-        ret |= publicFolders.stream().anyMatch(folder -> url.startsWith(baseUrl + "/" + folder));
+    public boolean isService(HttpServletRequest request) {
+        final String url = request.getRequestURI();
+        final String baseUrl = request.getContextPath();
 
-        // sanity check
-        if (ret) {
-            System.out.println(url + " is public");
-        } else {
-            System.out.println(url + " is not public");
-        }
-
-        return ret;
+        return serviceMap.values().stream()
+                .anyMatch(service ->
+                        url.equals(baseUrl + "/" + service.getServiceUrl()));
     }
 
     public void makeUrlMappingAbsolute(String contextPath) {

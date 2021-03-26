@@ -15,7 +15,7 @@ http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
 			<name>product</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
-			<type>models.Product</type>
+			<type>models.orm.Product</type>
 		</attribute>
 	</tag>
 </taglib>  

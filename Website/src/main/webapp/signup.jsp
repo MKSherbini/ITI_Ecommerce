@@ -20,6 +20,7 @@
 
     <!--====== App ======-->
     <link rel="stylesheet" href="styles/css/app.css">
+    <script src="scripts/js/signup.js"></script>
 </head>
 <body class="config">
     <div class="preloader is-active">
@@ -1428,59 +1429,36 @@
                                 <div class="l-f-o">
                                     <div class="l-f-o__pad-box">
                                         <h1 class="gl-h1">PERSONAL INFORMATION</h1>
-                                        <form class="l-f-o__form">
-                                            <div class="gl-s-api">
-                                                <div class="u-s-m-b-15">
-
-                                                    <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
-
-                                                        <span>Signup with Facebook</span></button></div>
-                                                <div class="u-s-m-b-30">
-
-                                                    <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
-
-                                                        <span>Signup with Google</span></button></div>
-                                            </div>
+                                        <form class="l-f-o__form" method="post" action="signup">
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-fname">FIRST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="First Name"></div>
+                                                <input class="input-text input-text--primary-style" name="firstName" type="text" id="reg-fname" placeholder="First Name" required></div>
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-lname">LAST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Last Name"></div>
+                                                <input class="input-text input-text--primary-style" name="lastName" type="text" id="reg-lname" placeholder="Last Name" required></div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="userName">USERNAME *</label>
+
+                                                <input class="input-text input-text--primary-style" name="userName" type="text" id="userName" placeholder="UserName" required></div>
                                             <div class="gl-inline">
                                                 <div class="u-s-m-b-30">
 
                                                     <!--====== Date of Birth Select-Box ======-->
 
                                                     <span class="gl-label">BIRTHDAY</span>
-                                                    <div class="gl-dob"><select class="select-box select-box--primary-style">
-                                                            <option selected>Month</option>
-                                                            <option value="male">January</option>
-                                                            <option value="male">February</option>
-                                                            <option value="male">March</option>
-                                                            <option value="male">April</option>
-                                                        </select><select class="select-box select-box--primary-style">
-                                                            <option selected>Day</option>
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                        </select><select class="select-box select-box--primary-style">
-                                                            <option selected>Year</option>
-                                                            <option value="1991">1991</option>
-                                                            <option value="1992">1992</option>
-                                                            <option value="1993">1993</option>
-                                                            <option value="1994">1994</option>
-                                                        </select></div>
+                                                    <div class="gl-dob">
+                                                        <input type="date" name="birthDate">
+                                                    </div>
                                                     <!--====== End - Date of Birth Select-Box ======-->
                                                 </div>
                                                 <div class="u-s-m-b-30">
 
-                                                    <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender">
+                                                    <label class="gl-label" for="gender">GENDER</label><select name="gender" class="select-box select-box--primary-style u-w-100" id="gender">
                                                         <option selected>Select</option>
                                                         <option value="male">Male</option>
                                                         <option value="male">Female</option>
@@ -1490,15 +1468,22 @@
 
                                                 <label class="gl-label" for="reg-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-email" placeholder="Enter E-mail"></div>
+                                                <input class="input-text input-text--primary-style" name="email" type="email" id="reg-email" placeholder="Enter E-mail" required onblur="validateEmail()"><label class="gl-label" style='color: red' ; id="emailValid" ></label></div>
+
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reg-password">PASSWORD *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-password" placeholder="Enter Password"></div>
+                                                <input class="input-text input-text--primary-style" name="password" type="password" id="reg-password" placeholder="Enter Password" required maxlength="15" onblur="validatePassword()"><label class="gl-label" style='color: red' ; id="passwordValid"></label></div>
+
                                             <div class="u-s-m-b-15">
 
-                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">CREATE</button></div>
+                                                <label class="gl-label" for="reg-repassword">Reenter PASSWORD *</label>
+
+                                                <input class="input-text input-text--primary-style" type="password" id="reg-repassword" placeholder="Reenter Password" required maxlength="15" onblur="validatePassword()"><label class="gl-label" style='color: red' ; id="repasswordValid"></label></div>
+                                            <div class="u-s-m-b-15">
+
+                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">Sign Up</button></div>
 
                                             <a class="gl-link" href="#">Return to Store</a>
                                         </form>
@@ -1532,6 +1517,37 @@
         ga.l = +new Date;
         ga('create', 'UA-XXXXX-Y', 'auto');
         ga('send', 'pageview')
+
+        function call(){
+            var kcyear = document.getElementsByName("year")[0],
+                kcmonth = document.getElementsByName("month")[0],
+                kcday = document.getElementsByName("day")[0];
+
+            var d = new Date();
+            var n = d.getFullYear();
+            for (var i = n; i >= 1950; i--) {
+                var opt = new Option();
+                opt.value = opt.text = i;
+                kcyear.add(opt);
+            }
+            kcyear.addEventListener("change", validate_date);
+            kcmonth.addEventListener("change", validate_date);
+
+            function validate_date() {
+                var y = +kcyear.value, m = kcmonth.value, d = kcday.value;
+                if (m === "2")
+                    var mlength = 28 + (!(y & 3) && ((y % 100) !== 0 || !(y & 15)));
+                else var mlength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m - 1];
+                kcday.length = 0;
+                for (var i = 1; i <= mlength; i++) {
+                    var opt = new Option();
+                    opt.value = opt.text = i;
+                    if (i == d) opt.selected = true;
+                    kcday.add(opt);
+                }
+            }
+            validate_date();
+        }
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 

@@ -12,11 +12,11 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = "Category.findAllNames",
-                query = "select c.name from ProductCategory c"),
+                query = "select c.name from ProductCategory c order by c.name"),
         @NamedQuery(name = "Category.findByName",
-                query = "select c from ProductCategory c where c.name = :name"),
+                query = "select c from ProductCategory c where c.name = :name order by c.name"),
         @NamedQuery(name = "Category.findLikeName",
-                query = "select c from ProductCategory c where c.name like :name")
+                query = "select c from ProductCategory c where c.name like :name order by c.name")
 })
 
 @Data

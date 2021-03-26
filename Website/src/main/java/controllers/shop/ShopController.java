@@ -21,6 +21,7 @@ import utilities.adapters.CategoryAdapter;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -71,7 +72,7 @@ public class ShopController extends HttpServlet {
         productList = productList.stream().skip((long) (paramPageNumber - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
 
         var categoryList = productRepo.findLikeName(paramSearch).stream().map(Product::getCategory).collect(Collectors.groupingBy(ProductCategory::getName))
-                .entrySet().stream().map(stringListEntry -> new CategoryDto(stringListEntry.getKey(), stringListEntry.getValue().size())).collect(Collectors.toList());
+                .entrySet().stream().map(stringListEntry -> new CategoryDto(stringListEntry.getKey(), stringListEntry.getValue().size())).sorted(Comparator.comparing(CategoryDto::getName)).collect(Collectors.toList());
         var pageList = IntStream.rangeClosed(1, numberOfPages).mapToObj(num -> new ShopPageDto(num, num == paramPageNumber)).collect(Collectors.toList());
 
         // retain categories in ui

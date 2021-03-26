@@ -51,7 +51,7 @@
                                             <ul class="shop-w__category-list gl-scroll">
                                                 <c:forEach items="${requestScope.categoryList}" var="category">
                                                     <!--====== Check Box List Item ======-->
-                                                    <li>
+                                                    <li onclick="fkingRunMyHref(this)">
                                                         <a href="" data-href="category=${category.name}"
                                                            onmouseover="setDynamicHref(this)">
                                                             <div class="check-box">

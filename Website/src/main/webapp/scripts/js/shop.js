@@ -61,3 +61,7 @@ function destroyPaginationParams() {
     }
     return params;
 }
+
+function fkingRunMyHref(elem) {
+    window.location = elem.getElementsByTagName('a')[0].href
+}

@@ -115,7 +115,7 @@
 
                                             <label class="gl-label" for="login-password">PASSWORD *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text"
+                                            <input class="input-text input-text--primary-style" type="password"
                                                    name="password" id="login-password" required onblur="validatePass()"
                                                    placeholder="Enter Password">
                                             <label style='color: red' ; id="error-pass"></label>

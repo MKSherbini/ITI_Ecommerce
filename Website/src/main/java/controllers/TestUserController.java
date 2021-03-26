@@ -20,6 +20,7 @@ public class TestUserController extends HttpServlet {
 
     {
         userList.add(new User(1L, "moha", "osos", "kaed", "123456aB*", "mohaelkaed@gmail.com"));
+        userList.add(new User(1L, "moha", "osos", "kaed", "123456aB*", "mohaelkaed@gmail.com"));
         userList.add(new User(2L, "moham","sherbini", "sherbo", "123456aB*", "sherbo@gmail.com"));
     }
 

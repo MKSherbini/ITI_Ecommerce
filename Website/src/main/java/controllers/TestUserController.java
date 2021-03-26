@@ -8,9 +8,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.User;
+import models.orm.User;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 @WebServlet("/testUser")
@@ -19,8 +21,8 @@ public class TestUserController extends HttpServlet {
     List<User> userList = new ArrayList<>();
 
     {
-        userList.add(new User(1L, "moha", "osos", "kaed", "123456aB*", "mohaelkaed@gmail.com"));
-        userList.add(new User(2L, "moham","sherbini", "sherbo", "123456aB*", "sherbo@gmail.com"));
+        userList.add(new User("hadeerelnagar@jdk.ckd", "moha", "123", "kaed", "hdjs",Date.valueOf("1889-06-20")));
+        userList.add(new User("2L@gg.com", "moham","123", "sherbo", "kss", Date.valueOf("1999-03-05")));
     }
 
     public void init(ServletConfig config) throws ServletException {

@@ -6,7 +6,6 @@ public enum PageNames {
     REGISTER_PAGE,
     NOT_FOUND_404,
     TEST_JSP,
-    ABOUT_PAGE
-    TEST_JSP,
-    SHOP,
+    ABOUT_PAGE,
+    SHOP
 }

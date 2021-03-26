@@ -1,5 +1,6 @@
 package utilities.adapters;
 
+import models.dtos.AddedToCartDto;
 import models.dtos.CategoryDto;
 import models.dtos.ProductDto;
 import models.orm.Product;
@@ -28,4 +29,14 @@ public class ProductAdapter {
             productOrms.forEach(categoryOrm -> productDtos.add(copyOrmToDto(categoryOrm)));
         return productDtos;
     }
+
+    public static AddedToCartDto copyOrmToCartDto(Product productOrm) {
+        var productDto = new AddedToCartDto();
+        productDto.setName(productOrm.getName());
+        productDto.setPrice(productOrm.getPrice() * (1 - productOrm.getDiscountPercent() / 100));
+        productDto.setImageSrc(productOrm.getImageSrc());
+        return productDto;
+    }
+
+
 }

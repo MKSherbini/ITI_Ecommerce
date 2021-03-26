@@ -94,7 +94,7 @@ function fkingSetModal(product) {
                         <div class="col-lg-6 col-md-12">
                             <div class="s-option">
 
-                                <span class="s-option__text">1 item (s) in your cart</span>
+                                <span class="s-option__text">${product.totalInCart} item (s) in your cart</span>
                                 <div class="s-option__link-box">
 
                                     <a class="s-option__link btn--e-white-brand-shadow close" data-dismiss="modal">CONTINUE

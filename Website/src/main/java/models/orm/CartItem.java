@@ -1,13 +1,11 @@
 package models.orm;
 
 //import jakarta.persistence.*;
+
 import javax.persistence.*;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Entity
@@ -21,7 +19,8 @@ public class CartItem {
     @Setter(AccessLevel.NONE)
     private Long cartItemId;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
     private ShoppingCart cart;
 
     @OneToOne
@@ -29,4 +28,13 @@ public class CartItem {
 
     @Column(nullable = false)
     private int productQuantity;
+
+    public CartItem() {
+    }
+
+    public CartItem(ShoppingCart cart, Product product) {
+        this.cart = cart;
+        this.product = product;
+        this.productQuantity = 1;
+    }
 }

@@ -106,8 +106,22 @@ public class testMain {
 //                productRepo.update(product);
 //            }
 //        }
-        generateDummyProductsAndCategories();
+//        generateDummyProductsAndCategories();
+
+//        testCart();
         db.endTransaction();
+    }
+
+    private static void testCart() {
+        ProductRepo productRepo = ProductRepo.getInstance();
+        UserRepo userRepo = UserRepo.getInstance();
+        CartRepo cartRepo = CartRepo.getInstance();
+        var product = productRepo.read(22L);
+        var user = userRepo.read(1L);
+        var cart = cartRepo.addProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
+        cart = cartRepo.removeProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
     }
 
     static void generateDummyProductsAndCategories() {

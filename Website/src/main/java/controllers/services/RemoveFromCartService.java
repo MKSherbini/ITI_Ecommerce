@@ -2,20 +2,16 @@ package controllers.services;
 
 
 import com.google.gson.Gson;
-import constants.UrlMappingConstants;
 import constants.WebsiteConstants;
-import constants.enums.PageNames;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import managers.CookiesManager;
 import models.orm.CartItem;
 import models.orm.Product;
 import models.orm.User;
-import providers.repositories.CartItemRepo;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
@@ -24,8 +20,8 @@ import utilities.adapters.ProductAdapter;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/addToCart")
-public class AddToCartService extends HttpServlet {
+@WebServlet("/removeFromCart")
+public class RemoveFromCartService extends HttpServlet {
     ServletConfig myConfig;
 
     public void init(ServletConfig config) throws ServletException {
@@ -52,7 +48,7 @@ public class AddToCartService extends HttpServlet {
             out.print("{'status':'bad'}");
             return;
         }
-        var cart = cartRepo.addProduct(user, product.get());
+        var cart = cartRepo.removeProduct(user, product.get());
         if (cart.isEmpty()) {
             out.print("{'status':'bad'}");
             return;

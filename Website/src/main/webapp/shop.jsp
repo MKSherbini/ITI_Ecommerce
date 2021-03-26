@@ -753,7 +753,7 @@
 
 <script>
     function addToCart(productId) {
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_FETCH)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {
             // console.log("Data: " + data + "\nStatus: " + status);
             // console.log(data.name)
             // if (data.length <= 5) return;
@@ -763,7 +763,6 @@
                 fkingSetModal(product);
             // setTimeout(fkingSetModal, 500, product);
         });
-
     }
 </script>
 <!--====== Noscript ======-->

@@ -1,6 +1,7 @@
 package models.orm;
 
 //import jakarta.persistence.*;
+
 import javax.persistence.*;
 
 
@@ -43,4 +44,12 @@ public class ShoppingCart {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
+
+    public ShoppingCart() {
+    }
+
+    public ShoppingCart(User owner) {
+        this.owner = owner;
+        this.isHistory = false;
+    }
 }

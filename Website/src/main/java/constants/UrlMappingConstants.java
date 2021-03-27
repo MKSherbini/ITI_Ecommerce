@@ -24,6 +24,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.ABOUT_PAGE,new VCUrlMapping("About","about","about.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
+        urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
         // ... add other pages
     }
 

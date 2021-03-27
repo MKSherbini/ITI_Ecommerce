@@ -9,31 +9,31 @@
                         <span class="outer-footer__content-title">Contact Us</span>
                         <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-                            <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
+                            <span>28 Smart Village Giza , Egypt</span></div>
                         <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-                            <span>(+0) 900 901 904</span></div>
+                            <span>(+20) 102 312 2579</span></div>
                         <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 
-                            <span>contact@domain.com</span></div>
+                            <span>contact@ludus.com</span></div>
                         <div class="outer-footer__social">
-                            <ul>
+                          <%--  <ul>
                                 <li>
 
-                                    <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <a class="s-fb--color-hover" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
                                 <li>
 
-                                    <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <a class="s-tw--color-hover" href="www.twitter.com"><i class="fab fa-twitter"></i></a></li>
                                 <li>
 
-                                    <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a></li>
+                                    <a class="s-youtube--color-hover" href="www.youtube.com"><i class="fab fa-youtube"></i></a></li>
                                 <li>
 
-                                    <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <a class="s-insta--color-hover" href="www.instgram.com"><i class="fab fa-instagram"></i></a></li>
                                 <li>
 
                                     <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
+                            </ul>--%>
                         </div>
                     </div>
                 </div>
@@ -72,10 +72,10 @@
                                     <ul>
                                         <li>
 
-                                            <a href="about.jsp">About us</a></li>
+                                            <a href="about">About us</a></li>
                                         <li>
 
-                                            <a href="contact.jsp">Contact Us</a></li>
+                                            <a href="/contact">Contact Us</a></li>
                                         <li>
 
                                             <a href="index.jsp">Sitemap</a></li>

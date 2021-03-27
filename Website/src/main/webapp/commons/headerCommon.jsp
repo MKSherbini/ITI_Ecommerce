@@ -133,7 +133,7 @@
 
                                                             <img class="u-img-fluid"
                                                                  src="${item.imageSrc}"
-                                                                 alt=""></a>
+                                                                 alt="${item.name}"></a>
                                                     </div>
                                                     <div class="mini-product__info-wrapper">
 
@@ -174,7 +174,7 @@
                                             <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO
                                                 CHECKOUT</a>
 
-                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW
+                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
                                                 CART</a></div>
                                     </div>
                                     <!--====== End - Mini Product Statistics ======-->

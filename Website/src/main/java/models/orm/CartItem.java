@@ -19,7 +19,7 @@ public class CartItem {
     @Setter(AccessLevel.NONE)
     private Long cartItemId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @ToString.Exclude
     private ShoppingCart cart;
 

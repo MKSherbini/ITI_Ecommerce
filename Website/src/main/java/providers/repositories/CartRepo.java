@@ -42,7 +42,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .stream().findAny());
     }
 
-    private Optional<ShoppingCart> findShoppingCartByDummyUser(DummyUser dummyOwner) {
+    public Optional<ShoppingCart> findShoppingCartByDummyUser(DummyUser dummyOwner) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByDummyUser")
@@ -102,12 +102,12 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 cart.get().getCartItems().remove(currentCartItem.get());
                 DatabaseManager.getInstance().flush();
             }
-        }
 
-        // update price
-        cart.get().setTotalPrice((int) Math.max(0, cart.get().getTotalPrice() - product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
-        update(cart.get());
-        DatabaseManager.getInstance().flush();
+            // update price
+            cart.get().setTotalPrice((int) Math.max(0, cart.get().getTotalPrice() - product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
+            update(cart.get());
+            DatabaseManager.getInstance().flush();
+        }
 
         return cart;
     }

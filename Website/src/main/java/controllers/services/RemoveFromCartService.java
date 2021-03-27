@@ -61,6 +61,12 @@ public class RemoveFromCartService extends HttpServlet {
         }
 
         DatabaseManager.getInstance().flush();
+
+        if (user == null)
+            cart = cartRepo.findShoppingCartByDummyUser(dummyUser);
+        else
+            cart = cartRepo.findShoppingCartByUser(user);
+
         var cartItems = cart.get().getCartItems();
 
 //        cartItems.add()

@@ -26,4 +26,20 @@
                 window.location.reload(true);
         });
     }
+
+    function incrementFromCart(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+            console.log(data);
+            // if (status === "success")
+            //     window.location.reload(true);
+        });
+    }
+
+    function decrementFromCart(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_REMOVE_FROM_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+            console.log(data);
+            // if (status === "success")
+            //     window.location.reload(true);
+        });
+    }
 </script>

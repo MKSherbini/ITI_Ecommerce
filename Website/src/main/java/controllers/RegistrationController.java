@@ -63,7 +63,7 @@ public class RegistrationController extends HttpServlet {
                 System.out.println("Where dafuq is dummyUser");
             }
 
-            request.getRequestDispatcher("signin").include(request, response);
+            request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(PageNames.SIGN_IN_PAGE)).include(request, response);
 
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
         }

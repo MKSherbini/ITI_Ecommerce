@@ -74,8 +74,16 @@ public class UrlMappingConstants {
         return urlMap.containsKey(page) ? urlMap.get(page).getControllerUrl() : null;
     }
 
+    public String getControllerName(PageNames page) {
+        return urlMap.containsKey(page) ? urlMap.get(page).getControllerName() : null;
+    }
+
     public String getServiceUrl(ServiceNames service) {
         return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceUrl() : null;
+    }
+
+    public String getServiceName(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceName() : null;
     }
 
     /**
@@ -178,8 +186,8 @@ public class UrlMappingConstants {
             var key = entry.getKey();
             var value = entry.getValue();
             var newValue = new VCUrlMapping(value.getTitle(),
-                    contextPath + "/" + value.getControllerUrl(),
-                    /*contextPath + "/" + */ value.getViewUrl());
+                    contextPath + "/" + value.getControllerUrl(), value.getControllerUrl(),
+                    /*contextPath + "/" + */ value.getViewUrl(), value.isAdminOnly());
             urlMap.put(key, newValue);
         }
         System.out.println("urlMap = " + urlMap);

@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import managers.DatabaseManager;
 import models.orm.*;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
@@ -59,6 +60,7 @@ public class RemoveFromCartService extends HttpServlet {
             return;
         }
 
+        DatabaseManager.getInstance().flush();
         var cartItems = cart.get().getCartItems();
 
 //        cartItems.add()

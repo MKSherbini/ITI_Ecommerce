@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.CookiesManager;
+import managers.DatabaseManager;
 import models.orm.*;
 import providers.repositories.CartItemRepo;
 import providers.repositories.CartRepo;
@@ -63,6 +64,7 @@ public class AddToCartService extends HttpServlet {
             return;
         }
 
+        DatabaseManager.getInstance().flush();
         var cartItems = cart.get().getCartItems();
 
 //        cartItems.add()

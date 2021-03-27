@@ -44,11 +44,11 @@
 
                                     <span class="empty__text-2">Related searches:
 
-                                            <a href="shop-side-version-2.jsp">men's clothing</a>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">men's clothing</a>
 
-                                            <a href="shop-side-version-2.jsp">mobiles & tablets</a>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">mobiles & tablets</a>
 
-                                            <a href="shop-side-version-2.jsp">books & audible</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">books & audible</a></span>
                                     <form class="empty__search-form"
                                           action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
@@ -130,13 +130,13 @@
                                                 <a href="dashboard.jsp">Account</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                             <li>
 
                                                 <a href="dash-payment-option.jsp">Finance</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Shop</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                                 <a href="dash-my-order.jsp">Delivery</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Store</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -1425,7 +1425,7 @@
 
                                                     We're trusted by millions, because we don't just deliver to your doorstep, we were born here. With Ludus.com you'll always be getting a good deal - with exceptional service that makes your shopping experience as easy and seamless as possible.
 
-                                                    This is Souq.com – the power is in your hands.</p>
+                                                    This is Ludus.com - the power is in your hands.</p>
                                             </div>
 
                                             <a class="about__link btn--e-secondary" href="index.jsp" target="_blank">Shop Now</a>

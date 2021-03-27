@@ -9,9 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.orm.CartItem;
-import models.orm.Product;
-import models.orm.User;
+import models.orm.*;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
@@ -37,6 +35,7 @@ public class RemoveFromCartService extends HttpServlet {
         ProductRepo productRepo = ProductRepo.getInstance();
         CartRepo cartRepo = CartRepo.getInstance();
         User user = (User) request.getSession().getAttribute("user");
+        DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
         var out = response.getOutputStream();
         var paramProduct = request.getParameter(WebsiteConstants.paramProductId);
         Optional<Product> product = Optional.empty();
@@ -44,11 +43,17 @@ public class RemoveFromCartService extends HttpServlet {
             product = productRepo.read(SafeConverter.safeLongParse(paramProduct, 0L));
         }
 
-        if (user == null || paramProduct == null || product.isEmpty()) {
+        if (paramProduct == null || product.isEmpty()) {
             out.print("{'status':'bad'}");
             return;
         }
-        var cart = cartRepo.removeProduct(user, product.get());
+
+        Optional<ShoppingCart> cart;
+        if (user == null)
+            cart = cartRepo.removeProduct(dummyUser, product.get());
+        else
+            cart = cartRepo.removeProduct(user, product.get());
+
         if (cart.isEmpty()) {
             out.print("{'status':'bad'}");
             return;

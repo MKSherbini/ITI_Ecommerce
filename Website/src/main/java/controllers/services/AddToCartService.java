@@ -12,9 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.CookiesManager;
-import models.orm.CartItem;
-import models.orm.Product;
-import models.orm.User;
+import models.orm.*;
 import providers.repositories.CartItemRepo;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
@@ -41,6 +39,7 @@ public class AddToCartService extends HttpServlet {
         ProductRepo productRepo = ProductRepo.getInstance();
         CartRepo cartRepo = CartRepo.getInstance();
         User user = (User) request.getSession().getAttribute("user");
+        DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
         var out = response.getOutputStream();
         var paramProduct = request.getParameter(WebsiteConstants.paramProductId);
         Optional<Product> product = Optional.empty();
@@ -48,11 +47,17 @@ public class AddToCartService extends HttpServlet {
             product = productRepo.read(SafeConverter.safeLongParse(paramProduct, 0L));
         }
 
-        if (user == null || paramProduct == null || product.isEmpty()) {
+        if (paramProduct == null || product.isEmpty()) {
             out.print("{'status':'bad'}");
             return;
         }
-        var cart = cartRepo.addProduct(user, product.get());
+
+        Optional<ShoppingCart> cart;
+        if (user == null)
+            cart = cartRepo.addProduct(dummyUser, product.get());
+        else
+            cart = cartRepo.addProduct(user, product.get());
+
         if (cart.isEmpty()) {
             out.print("{'status':'bad'}");
             return;
@@ -62,6 +67,7 @@ public class AddToCartService extends HttpServlet {
 
 //        cartItems.add()
         var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
+        // todo fix this count not reflecting last change
         if (cartItems.size() > 0)
             addedProductDto.setTotalInCart(cartItems.stream().mapToInt(CartItem::getProductQuantity).sum());
 

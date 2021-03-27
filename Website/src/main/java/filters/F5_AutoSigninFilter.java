@@ -7,8 +7,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import managers.CookiesManager;
+import managers.DatabaseManager;
+import models.orm.DummyUser;
+import models.orm.ShoppingCart;
 import models.orm.User;
 import providers.repositories.CartRepo;
+import providers.repositories.DummyUserRepo;
 import providers.repositories.UserRepo;
 import utilities.adapters.CartAdapter;
 
@@ -34,6 +38,7 @@ public class F5_AutoSigninFilter implements Filter {
             return;
         }
 
+        // try user auto login
         String userInfo = CookiesManager.getInstance().readUserInfoCookie(httpRequest);
         var userSession = (User) httpRequest.getSession().getAttribute("user");
         Optional<User> user;
@@ -55,11 +60,39 @@ public class F5_AutoSigninFilter implements Filter {
             }
         }
 
-        if (userSession != null)
+        if (userSession != null) {
             httpRequest.getSession().setAttribute("cart",
                     CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(userSession).get()));
+        } else {
+            // handle dummy user
+            var dummyUserId = CookiesManager.getInstance().readDummyUserInfoCookie(httpRequest);
 
+            if (dummyUserId.isPresent()) {
+                var dummyUser = DummyUserRepo.getInstance().read(dummyUserId.get());
+                if (dummyUser.isPresent()) {
+                    var cartDto = CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(dummyUser.get()).get());
+                    httpRequest.getSession().setAttribute("cart", cartDto);
+                    httpRequest.getSession().setAttribute("dummyUser", dummyUser.get());
+                } else {
+                    createDummyUser(httpRequest, httpResponse);
+                }
+            } else {
+                createDummyUser(httpRequest, httpResponse);
+            }
+        }
         chain.doFilter(request, response);
+    }
+
+    private void createDummyUser(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+        var dummyUser = new DummyUser();
+        var cart = new ShoppingCart(dummyUser);
+        CartRepo.getInstance().create(cart);
+        dummyUser.setCart(cart);
+        DummyUserRepo.getInstance().create(dummyUser);
+        var cartDto = CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(dummyUser).get());
+        httpRequest.getSession().setAttribute("cart", cartDto);
+        httpRequest.getSession().setAttribute("dummyUser", dummyUser);
+        CookiesManager.getInstance().writeDummyUserInfoCookie(httpResponse, dummyUser.getDummyId());
     }
 
 }

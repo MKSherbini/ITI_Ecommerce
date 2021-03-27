@@ -8,6 +8,7 @@ import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.sql.Date;
 import java.util.List;
@@ -19,6 +20,12 @@ import java.util.List;
         @NamedQuery(
                 name = "ShoppingCart.findShoppingCartByUser",
                 query = "from ShoppingCart where owner = :user and isHistory = false"),
+        @NamedQuery(
+                name = "ShoppingCart.findShoppingCartByDummyUser",
+                query = "from ShoppingCart where dummyOwner = :dummyOwner and isHistory = false"),
+        @NamedQuery(
+                name = "ShoppingCart.updateDummyToUser",
+                query = "update ShoppingCart c set c.dummyOwner=null, c.owner = :owner where c.dummyOwner = :dummyOwner and c.isHistory = false"),
 })
 @Data
 @Entity
@@ -39,6 +46,10 @@ public class ShoppingCart {
     @ManyToOne
     private User owner;
 
+    @OneToOne
+    @ToString.Exclude
+    private DummyUser dummyOwner;
+
     @OneToMany(mappedBy = "cart",
             orphanRemoval = true,
             fetch = FetchType.LAZY,
@@ -50,6 +61,11 @@ public class ShoppingCart {
 
     public ShoppingCart(User owner) {
         this.owner = owner;
+        this.isHistory = false;
+    }
+
+    public ShoppingCart(DummyUser dummyOwner) {
+        this.dummyOwner = dummyOwner;
         this.isHistory = false;
     }
 }

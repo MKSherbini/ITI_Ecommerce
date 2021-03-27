@@ -34,7 +34,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .list());
     }
 
-    private Optional<ShoppingCart> findShoppingCartByUser(User owner) {
+    public Optional<ShoppingCart> findShoppingCartByUser(User owner) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByUser")
@@ -42,10 +42,24 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .stream().findAny());
     }
 
-    public Optional<ShoppingCart> addProduct(User user, Product product) {
-        var cart = GetCartOrCreateOne(user);
-        if (cart.isEmpty()) return Optional.empty();
+    private Optional<ShoppingCart> findShoppingCartByDummyUser(DummyUser dummyOwner) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
+                        .createNamedQuery("ShoppingCart.findShoppingCartByDummyUser")
+                        .setParameter("dummyOwner", dummyOwner)
+                        .stream().findAny());
+    }
 
+    public void updateDummyToUser(DummyUser dummyOwner, User owner) {
+        DatabaseManager.getInstance()
+                .runTransaction(session -> session
+                        .createNamedQuery("ShoppingCart.updateDummyToUser")
+                        .setParameter("dummyOwner", dummyOwner)
+                        .setParameter("owner", owner)
+                        .executeUpdate());
+    }
+
+    private Optional<ShoppingCart> addToShoppingCart(Product product, Optional<ShoppingCart> cart) {
         // cart logic
         var cartItems = cart.get().getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
@@ -70,10 +84,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         return cart;
     }
 
-    public Optional<ShoppingCart> removeProduct(User user, Product product) {
-        var cart = GetCartOrCreateOne(user);
-        if (cart.isEmpty()) return Optional.empty();
-
+    private Optional<ShoppingCart> removeFromShoppingCart(Product product, Optional<ShoppingCart> cart) {
         // cart logic
         var cartItems = cart.get().getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
@@ -101,6 +112,20 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         return cart;
     }
 
+    public Optional<ShoppingCart> addProduct(User user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return addToShoppingCart(product, cart);
+    }
+
+    public Optional<ShoppingCart> removeProduct(User user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return removeFromShoppingCart(product, cart);
+    }
+
     public Optional<ShoppingCart> GetCartOrCreateOne(User user) {
         var cart = findShoppingCartByUser(user);
         if (cart.isEmpty()) {
@@ -109,5 +134,29 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         cart = findShoppingCartByUser(user);
         if (cart.isEmpty()) return Optional.empty();
         return cart;
+    }
+
+    public Optional<ShoppingCart> GetCartOrCreateOne(DummyUser user) {
+        var cart = findShoppingCartByDummyUser(user);
+        if (cart.isEmpty()) {
+            create(new ShoppingCart(user));
+        }
+        cart = findShoppingCartByDummyUser(user);
+        if (cart.isEmpty()) return Optional.empty();
+        return cart;
+    }
+
+    public Optional<ShoppingCart> addProduct(DummyUser user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return addToShoppingCart(product, cart);
+    }
+
+    public Optional<ShoppingCart> removeProduct(DummyUser user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return removeFromShoppingCart(product, cart);
     }
 }

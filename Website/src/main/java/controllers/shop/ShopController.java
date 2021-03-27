@@ -16,10 +16,8 @@ import models.orm.ProductCategory;
 import providers.repositories.CategoryRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
-import utilities.adapters.CategoryAdapter;
 
 import java.io.IOException;
-import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -95,7 +93,10 @@ public class ShopController extends HttpServlet {
 
 
         // render ui
-        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SHOP)).include(request, response);
+        if (productList.size() == 0)
+            request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.EMPTY_SHOP)).include(request, response);
+        else
+            request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SHOP)).include(request, response);
     }
 
     public String getServletInfo() {

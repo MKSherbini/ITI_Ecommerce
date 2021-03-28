@@ -22,6 +22,9 @@ import java.util.List;
                 name = "Product.findMinMaxPriceLikeName",
                 query = "select min(p.price), max(p.price) from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
+                name = "Product.findMinMaxPriceCategoryName",
+                query = "select min(p.price), max(p.price) from Product p where p.category.name in (:categories) and p.name like :name or p.description like :name"),
+        @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(

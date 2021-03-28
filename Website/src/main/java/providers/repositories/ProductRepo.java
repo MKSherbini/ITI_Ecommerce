@@ -35,6 +35,15 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .getResultList().stream().findAny().get());
     }
 
+    public Object[] findMinMaxPriceCategoryName(String[] categories, String name) {
+        return (Object[]) DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findMinMaxPriceCategoryName")
+                        .setParameter("categories", Arrays.asList(categories))
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .getResultList().stream().findAny().get());
+    }
+
     public List<Product> findLikeName(String name) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session

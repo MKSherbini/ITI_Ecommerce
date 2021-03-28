@@ -83,8 +83,8 @@ public class ShopController extends HttpServlet {
         request.setAttribute("categoryList", categoryList);
         request.setAttribute("paramSearch", paramSearch);
         request.setAttribute("requestParams", request.getParameterMap());
-        request.setAttribute("paramMinPrice", paramMinPrice);
-        request.setAttribute("paramMaxPrice", paramMaxPrice);
+        request.setAttribute("paramMinPrice", productList.stream().mapToInt(Product::getPrice).min().orElse(paramMinPrice));
+        request.setAttribute("paramMaxPrice", productList.stream().mapToInt(Product::getPrice).max().orElse(paramMaxPrice));
         request.setAttribute("numberOfPages", numberOfPages);
         request.setAttribute("pageList", pageList);
         request.setAttribute("pageHasNext", paramPageNumber < numberOfPages);

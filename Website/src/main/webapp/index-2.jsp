@@ -980,7 +980,7 @@
                                                 <ul style="width:118px">
                                                     <li>
 
-                                                        <a href="index.jsp">Home 1</a></li>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home 1</a></li>
                                                     <li>
 
                                                         <a href="index-2.jsp">Home 2</a></li>
@@ -1089,7 +1089,7 @@
                                                         <a href="empty-search.jsp">Empty Search</a></li>
                                                     <li>
 
-                                                        <a href="empty-cart.jsp">Empty Cart</a></li>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Empty Cart</a></li>
                                                     <li>
 
                                                         <a href="empty-wishlist.jsp">Empty Wishlist</a></li>
@@ -1161,7 +1161,7 @@
                                             </li>
                                             <li>
 
-                                                <a href="cart.jsp">Cart</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                             <li>
 
                                                 <a href="wishlist.jsp">Wishlist</a></li>
@@ -1382,7 +1382,7 @@
 
                                                     <a class="mini-link btn--e-brand-b-2" href="checkout.jsp">PROCEED TO CHECKOUT</a>
 
-                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.jsp">VIEW CART</a></div>
+                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a></div>
                                             </div>
                                             <!--====== End - Mini Product Statistics ======-->
                                         </div>
@@ -5704,7 +5704,7 @@
 
                                         <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
 
-                                        <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
+                                        <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
                                         <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO CHECKOUT</a></div>
                                 </div>

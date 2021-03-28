@@ -43,7 +43,7 @@
 
                         <!--====== Main Logo ======-->
 
-                        <a class="main-logo" href="index.jsp">
+                        <a class="main-logo" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
                             <img src="images/logo/logo-1.png" alt=""></a>
                         <!--====== End - Main Logo ======-->
@@ -229,28 +229,28 @@
                                                             <span class="js-menu-toggle"></span></li>
                                                         <li>
 
-                                                            <a href="index.jsp"><i class="fas fa-utensils u-s-m-r-6"></i>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-utensils u-s-m-r-6"></i>
 
                                                                 <span>Food & Supplies</span></a>
 
                                                             <span class="js-menu-toggle"></span></li>
                                                         <li>
 
-                                                            <a href="index.jsp"><i class="fas fa-couch u-s-m-r-6"></i>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-couch u-s-m-r-6"></i>
 
                                                                 <span>Furniture & Decor</span></a>
 
                                                             <span class="js-menu-toggle"></span></li>
                                                         <li>
 
-                                                            <a href="index.jsp"><i class="fas fa-football-ball u-s-m-r-6"></i>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-football-ball u-s-m-r-6"></i>
 
                                                                 <span>Sports & Game</span></a>
 
                                                             <span class="js-menu-toggle"></span></li>
                                                         <li>
 
-                                                            <a href="index.jsp"><i class="fas fa-heartbeat u-s-m-r-6"></i>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-heartbeat u-s-m-r-6"></i>
 
                                                                 <span>Beauty & Health</span></a>
 
@@ -952,7 +952,7 @@
                                                 <ul style="width:118px">
                                                     <li>
 
-                                                        <a href="index.jsp">Home 1</a></li>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home 1</a></li>
                                                     <li>
 
                                                         <a href="index-2.jsp">Home 2</a></li>
@@ -1061,7 +1061,7 @@
                                                         <a href="empty-search.jsp">Empty Search</a></li>
                                                     <li>
 
-                                                        <a href="empty-cart.jsp">Empty Cart</a></li>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Empty Cart</a></li>
                                                     <li>
 
                                                         <a href="empty-wishlist.jsp">Empty Wishlist</a></li>
@@ -1133,7 +1133,7 @@
                                             </li>
                                             <li>
 
-                                                <a href="cart.jsp">Cart</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                             <li>
 
                                                 <a href="wishlist.jsp">Wishlist</a></li>
@@ -1211,7 +1211,7 @@
                                 <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                                     <li>
 
-                                        <a href="index.jsp"><i class="fas fa-home"></i></a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-home"></i></a></li>
                                     <li>
 
                                         <a href="wishlist.jsp"><i class="far fa-heart"></i></a></li>
@@ -1354,7 +1354,7 @@
 
                                                     <a class="mini-link btn--e-brand-b-2" href="checkout.jsp">PROCEED TO CHECKOUT</a>
 
-                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.jsp">VIEW CART</a></div>
+                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a></div>
                                             </div>
                                             <!--====== End - Mini Product Statistics ======-->
                                         </div>
@@ -1389,7 +1389,7 @@
                                 <ul class="breadcrumb__list">
                                     <li class="has-separator">
 
-                                        <a href="index.jsp">Home</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
                                         <a href="dash-my-order.jsp">My Account</a></li>

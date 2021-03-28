@@ -2399,7 +2399,7 @@
                                     <ul>
                                         <li>
 
-                                            <a href="cart.jsp">Cart</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                         <li>
 
                                             <a href="dashboard.jsp">Account</a></li>
@@ -2430,7 +2430,7 @@
                                             <a href="contact.jsp">Contact Us</a></li>
                                         <li>
 
-                                            <a href="index.jsp">Sitemap</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
                                         <li>
 
                                             <a href="dash-my-order.jsp">Delivery</a></li>
@@ -2490,7 +2490,7 @@
 
                             <span>Copyright © 2018</span>
 
-                            <a href="index.jsp">Reshop</a>
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Reshop</a>
 
                             <span>All Right Reserved</span></div>
                         <div class="lower-footer__payment">

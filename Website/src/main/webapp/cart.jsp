@@ -157,7 +157,7 @@
                                         <span>CONTINUE SHOPPING</span></a></div>
                                 <div class="route-box__g2">
 
-                                    <a class="route-box__link" href="cart.jsp"><i class="fas fa-trash"></i>
+                                    <a class="route-box__link" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i class="fas fa-trash"></i>
 
                                         <span>CLEAR CART</span></a>
 
@@ -227,7 +227,7 @@
                                             <div class="u-s-m-b-30">
 
                                                 <a class="f-cart__ship-link btn--e-transparent-brand-b-2"
-                                                   href="cart.jsp">CALCULATE SHIPPING</a></div>
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">CALCULATE SHIPPING</a></div>
 
                                             <span class="gl-text">Note: There are some countries where free shipping is available otherwise our flat rate charges or country delivery charges will be apply.</span>
                                         </div>

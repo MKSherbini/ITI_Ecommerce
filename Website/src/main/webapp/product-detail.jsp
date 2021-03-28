@@ -1260,7 +1260,7 @@
                                     <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
                                         SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
                                     <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
                                         CHECKOUT</a></div>

@@ -44,11 +44,11 @@
 
                                     <span class="empty__text-2">Related searches:
 
-                                            <a href="shop-side-version-2.jsp">men's clothing</a>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">men's clothing</a>
 
-                                            <a href="shop-side-version-2.jsp">mobiles & tablets</a>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">mobiles & tablets</a>
 
-                                            <a href="shop-side-version-2.jsp">books & audible</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">books & audible</a></span>
                                     <form class="empty__search-form"
                                           action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 

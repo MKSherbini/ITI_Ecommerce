@@ -47,7 +47,7 @@
 
                                             <span class="u-c-brand">$1050.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
 
                                             <span class="u-c-brand">$380.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
 
                                             <span class="u-c-brand">$550.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--square">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-1.jpg" alt="">
@@ -136,7 +136,7 @@
                             </a></div>
                         <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--1286-890">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-2.jpg" alt="">
@@ -144,7 +144,7 @@
                             </a></div>
                         <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--1286-890">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-3.jpg" alt="">
@@ -152,7 +152,7 @@
                             </a></div>
                         <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--square">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-4.jpg" alt="">
@@ -320,7 +320,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -376,7 +376,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -432,7 +432,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -488,7 +488,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -544,7 +544,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -600,7 +600,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -656,7 +656,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -712,7 +712,7 @@
 
                                             <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-o__name">
 
@@ -817,7 +817,7 @@
 
                                 <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                 <span class="product-o__name">
 
@@ -873,7 +873,7 @@
 
                                 <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                 <span class="product-o__name">
 
@@ -970,7 +970,7 @@
 
                                                 <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp"
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"
                                                        style="text-transform:capitalize">${category.name}</a></span>
 
                                                 <span class="product-o__name">
@@ -1032,7 +1032,7 @@
 
                                 <span class="product-o__category">
 
-                                            <a href="shop-side-version-2.jsp">${product.category.name}</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">${product.category.name}</a></span>
 
                                 <span class="product-o__name">
 
@@ -1086,7 +1086,7 @@
 
                         <%--                                    <span class="product-o__category">--%>
 
-                        <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
+                        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
 
                         <%--                                    <span class="product-o__name">--%>
 
@@ -1138,7 +1138,7 @@
 
                         <%--                                    <span class="product-o__category">--%>
 
-                        <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
+                        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
 
                         <%--                                    <span class="product-o__name">--%>
 
@@ -1190,7 +1190,7 @@
 
                         <%--                                    <span class="product-o__category">--%>
 
-                        <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
+                        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
 
                         <%--                                    <span class="product-o__name">--%>
 
@@ -1242,7 +1242,7 @@
 
                         <%--                                    <span class="product-o__category">--%>
 
-                        <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
+                        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
 
                         <%--                                    <span class="product-o__name">--%>
 
@@ -1294,7 +1294,7 @@
 
                         <%--                                    <span class="product-o__category">--%>
 
-                        <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
+                        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
 
                         <%--                                    <span class="product-o__name">--%>
 
@@ -1344,7 +1344,7 @@
 
                             <span class="banner-bg__text-block banner-bg__text-3 u-c-secondary">Enjoy Free Shipping when you buy 2 items and above!</span>
 
-                            <a class="banner-bg__shop-now btn--e-secondary" href="shop-side-version-2.jsp">Shop
+                            <a class="banner-bg__shop-now btn--e-secondary" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop
                                 Now</a>
                         </div>
                     </div>
@@ -1416,7 +1416,7 @@
 
                             <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                             <span class="product-o__name">
 
@@ -1468,7 +1468,7 @@
 
                             <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                             <span class="product-o__name">
 
@@ -1520,7 +1520,7 @@
 
                             <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                             <span class="product-o__name">
 
@@ -1572,7 +1572,7 @@
 
                             <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                             <span class="product-o__name">
 
@@ -1605,7 +1605,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                        <a class="promotion" href="shop-side-version-2.jsp">
+                        <a class="promotion" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                             <div class="aspect aspect--bg-grey aspect--square">
 
                                 <img class="aspect__img promotion__img" src="images/promo/promo-img-1.jpg" alt="">
@@ -1625,7 +1625,7 @@
                         </a></div>
                     <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                        <a class="promotion" href="shop-side-version-2.jsp">
+                        <a class="promotion" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                             <div class="aspect aspect--bg-grey aspect--square">
 
                                 <img class="aspect__img promotion__img" src="images/promo/promo-img-2.jpg" alt="">
@@ -1645,7 +1645,7 @@
                         </a></div>
                     <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                        <a class="promotion" href="shop-side-version-2.jsp">
+                        <a class="promotion" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                             <div class="aspect aspect--bg-grey aspect--square">
 
                                 <img class="aspect__img promotion__img" src="images/promo/promo-img-3.jpg" alt="">
@@ -1694,7 +1694,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1716,7 +1716,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1738,7 +1738,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1768,7 +1768,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1792,7 +1792,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1816,7 +1816,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1852,7 +1852,7 @@
 
                                             <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1879,7 +1879,7 @@
 
                                             <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -1906,7 +1906,7 @@
 
                                             <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                             <span class="product-l__name">
 
@@ -2304,32 +2304,32 @@
                     <div class="owl-carousel" id="brand-slider" data-item="5">
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b1.png" alt=""></a></div>
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b2.png" alt=""></a></div>
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b3.png" alt=""></a></div>
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b4.png" alt=""></a></div>
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b5.png" alt=""></a></div>
                         <div class="brand-slide">
 
-                            <a href="shop-side-version-2.jsp">
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                 <img src="images/brand/b6.png" alt=""></a></div>
                     </div>
@@ -2405,13 +2405,13 @@
                                             <a href="dashboard.jsp">Account</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                         <li>
 
                                             <a href="dash-payment-option.jsp">Finance</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Shop</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -2436,7 +2436,7 @@
                                             <a href="dash-my-order.jsp">Delivery</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Store</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -2531,13 +2531,13 @@
                                     <a href="index.hml">Home</a></li>
                                 <li class="has-separator">
 
-                                    <a href="shop-side-version-2.jsp">Electronics</a></li>
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>
                                 <li class="has-separator">
 
-                                    <a href="shop-side-version-2.jsp">DSLR Cameras</a></li>
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>
                                 <li class="is-marked">
 
-                                    <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
                             </ul>
                         </div>
                         <!--====== End - Product Breadcrumb ======-->
@@ -2773,7 +2773,7 @@
                 <div class="row u-s-m-x-0">
                     <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
 
-                        <a class="new-l__img-wrap u-d-block" href="shop-side-version-2.jsp">
+                        <a class="new-l__img-wrap u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                             <img class="u-img-fluid u-d-block" src="images/newsletter/newsletter.jpg" alt=""></a>
                     </div>

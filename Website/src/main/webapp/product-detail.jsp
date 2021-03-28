@@ -1262,7 +1262,7 @@
 
                                     <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
+                                    <a class="s-option__link btn--e-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED TO
                                         CHECKOUT</a></div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 package providers.repositories;
 
+import constants.enums.PaymentMethod;
 import managers.DatabaseManager;
 import models.orm.*;
 
@@ -158,5 +159,32 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         if (cart.isEmpty()) return Optional.empty();
 
         return removeFromShoppingCart(product, cart);
+    }
+
+    public Optional<ShoppingCart> submitOrder(User user, PaymentMethod paymentMethod) {
+        // find cart
+        var cart = findShoppingCartByUser(user);
+        if (cart.isEmpty()) return Optional.empty();
+        var price = cart.get().getTotalPrice() * 1.15;
+//        switch (paymentMethod) {
+//            case BANK:
+//            case CASH:
+//            case CHECK:
+//                break;
+//            case CARD:
+//                break;
+//        }
+
+        // find balance
+        var balance = user.getCredit();
+        // todo check other methods
+        System.out.println("balance = " + balance);
+        System.out.println("price = " + price);
+        if (balance < price) return Optional.empty();
+        user.setCredit(user.getCredit() - price);
+        cart.get().setIsHistory(true);
+        UserRepo.getInstance().update(user);
+
+        return cart;
     }
 }

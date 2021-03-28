@@ -60,7 +60,7 @@ public class User {
     private List<ShoppingCart> carts;
 
     @Column(nullable = false)
-    int credit;
+    double credit;
 
     public User() {
     }

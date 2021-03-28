@@ -270,9 +270,9 @@
                                             </div>
                                             <div>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}" class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
                                                     CHECKOUT
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

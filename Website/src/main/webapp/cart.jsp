@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>

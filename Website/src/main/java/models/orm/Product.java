@@ -15,21 +15,36 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+// todo make pagination db side
+
 @NamedQueries({
+        @NamedQuery(
+                name = "Product.findMinMaxPriceLikeName",
+                query = "select min(p.price), max(p.price) from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findByPriceRange", // todo handle discount
-                query = "select p from Product p where p.price between :min and :max"),
+                query = "select p from Product p where p.price*(1-(p.discountPercent/ 100)) between :min and :max"),
         @NamedQuery(
                 name = "Product.findByCategory",
                 query = "select p from Product p where :category = p.category"),
         @NamedQuery(
+                name = "Product.findByPriceName",
+                query = "select p from Product p where " +
+                        "p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
+        @NamedQuery(
                 name = "Product.findByCategoryPriceName", // hope we can find a better sol
                 query = "select p from Product p where :category = p.category " +
-                        "and p.price between :min and :max " +
-                        "and p.name like :name or p.description like :name"),
+                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
+        @NamedQuery(
+                name = "Product.findByMultiCategoryPriceName", // hope we can find a better sol
+                query = "select p from Product p where p.category.name in (:categories)  " +
+                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and (p.name like :name or p.description like :name)"),
         @NamedQuery(
                 name = "Product.getNewArrivals",
                 query = "select p from Product p order by p.arrivalDate desc"),
@@ -58,7 +73,7 @@ public class Product {
     private Timestamp arrivalDate;
 
     @ManyToOne(optional = false)
-    @ToString.Exclude
+//    @ToString.Exclude
     private ProductCategory category;
 
     public Product() {

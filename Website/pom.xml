@@ -23,6 +23,12 @@
             <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
             <url>https://github.com/MKSherbini</url>
         </developer>
+        <developer>
+            <id>100</id>
+            <name>HadeerElnaggar</name>
+            <email>hadeerelnaggar@hotmail.com</email>
+            <url>https://github.com/hadeerelnaggar</url>
+        </developer>
     </developers>
 
     <properties>
@@ -81,6 +87,12 @@
         </dependency>
 
         <!-- json manipulation -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>

@@ -37,6 +37,7 @@
         <mapping class="models.orm.FakeCreditCard"/>
         <mapping class="models.orm.ScratchCard"/>
         <mapping class="models.orm.Developer"/>
+        <mapping class="models.orm.DummyUser"/>
     </session-factory>
 </hibernate-configuration>
 

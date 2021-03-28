@@ -9,7 +9,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.DatabaseManager;
+import models.orm.DummyUser;
 import models.orm.User;
+import providers.repositories.CartRepo;
+import providers.repositories.DummyUserRepo;
 import providers.repositories.UserRepo;
 import utilities.Hashator;
 
@@ -41,6 +44,8 @@ public class RegistrationController extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String userName = request.getParameter("userName");
         String birthDateParam = request.getParameter("birthDate");
+        DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
+
         if (email != null && password != null && firstName != null && lastName != null && userName != null && birthDateParam != null) {
             Date birthDate = null;
             birthDate = Date.valueOf(birthDateParam);
@@ -49,7 +54,18 @@ public class RegistrationController extends HttpServlet {
             User user = new User(email, userName, hashedPassword, firstName, lastName, birthDate);
             UserRepo userRepo = UserRepo.getInstance();
             userRepo.create(user);
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
+
+            // hijack the dummy user
+            if (dummyUser != null) {
+                CartRepo.getInstance().updateDummyToUser(dummyUser, user);
+                DummyUserRepo.getInstance().delete(dummyUser);
+            } else {
+                System.out.println("Where dafuq is dummyUser");
+            }
+
+            request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(PageNames.SIGN_IN_PAGE)).include(request, response);
+
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
         }
     }
 }

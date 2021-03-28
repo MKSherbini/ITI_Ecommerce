@@ -3,12 +3,14 @@ package models.urls;
 public class ServiceUrlMapping {
     private final String title;
     private final String serviceUrl;
+    private final String serviceName;
     private final boolean isAdminOnly;
 
 
     public ServiceUrlMapping(String title, String serviceUrl, boolean isAdminOnly) {
         this.title = title;
         this.serviceUrl = serviceUrl;
+        this.serviceName = serviceUrl;
         this.isAdminOnly = isAdminOnly;
     }
 
@@ -22,6 +24,10 @@ public class ServiceUrlMapping {
 
     public String getServiceUrl() {
         return serviceUrl;
+    }
+
+    public String getServiceName() {
+        return serviceName;
     }
 
     public boolean isAdminOnly() {

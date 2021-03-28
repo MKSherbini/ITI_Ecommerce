@@ -54,6 +54,10 @@ public class DatabaseManager {
         sessionFactory.getCurrentSession().getTransaction().begin();
     }
 
+    public void flush() {
+        sessionFactory.getCurrentSession().flush();
+    }
+
     public void endTransaction() {
         sessionFactory.getCurrentSession().getTransaction().commit();
         sessionFactory.getCurrentSession().close();

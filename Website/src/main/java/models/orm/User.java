@@ -3,6 +3,7 @@ package models.orm;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
+import lombok.ToString;
 
 //import jakarta.persistence.*;
 import javax.persistence.*;
@@ -47,9 +48,11 @@ public class User {
 
     private Date birthdate;
 
+    @ToString.Exclude
     @ManyToMany
     private List<ProductCategory> interests;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "owner",
             orphanRemoval = true,
             fetch = FetchType.LAZY,

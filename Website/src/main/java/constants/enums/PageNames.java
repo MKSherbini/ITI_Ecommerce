@@ -9,4 +9,7 @@ public enum PageNames {
     ABOUT_PAGE,
     SHOP,
     CONTACT_US
+    SHOP, PRODUCT,
+    EMPTY_SHOP, CART, EMPTY_CART, TEST_USER_JSP
+
 }

@@ -9,20 +9,35 @@
 
                 <!--====== Main Logo ======-->
 
-                <a class="main-logo" href="index.html">
+                <a class="main-logo"
+                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
                     <img src="images/logo/logo-1.png" alt=""></a>
                 <!--====== End - Main Logo ======-->
 
 
                 <!--====== Search Form ======-->
-                <form class="main-form">
+                <form class="main-form"
+                      action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                     <label for="main-search"></label>
 
-                    <input class="input-text input-text--border-radius input-text--style-1" type="text" id="main-search" placeholder="Search">
+                    <input class="input-text input-text--border-radius input-text--style-1"
+                           value="${requestScope.paramSearch}"
+                           type="text" id="main-search" name="search" placeholder="Search">
 
-                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button></form>
+                    <%--                    <c:forEach items="${requestScope.requestParams}" var="requestParam">--%>
+                    <%--                        <c:forEach items="${requestParam.value}"--%>
+                    <%--                                   var="paramValue">--%>
+                    <%--                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramSearchName)}">--%>
+                    <%--                                <input type='hidden' name='${requestParam.key}'--%>
+                    <%--                                       value='${paramValue}'/>--%>
+                    <%--                            </c:if>--%>
+                    <%--                        </c:forEach>--%>
+                    <%--                    </c:forEach>--%>
+
+                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+                </form>
                 <!--====== End - Search Form ======-->
 
 
@@ -39,10 +54,11 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <c:if test="${empty sessionScope.user}">
-                                <span>Hello,<label style="color: black; font-weight: bold">User</label></span>
+                                <span>Hello, <label style="color: black; font-weight: bold">User</label></span>
                             </c:if>
                             <c:if test="${!empty sessionScope.user}">
-                                <span>Hello,<label style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
+                                <span>Hello, <label
+                                        style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
                             </c:if>
 
 
@@ -74,7 +90,8 @@
                                                 <span>Account</span></a></li>
                                         <li>
 
-                                            <a href="signout"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                            <a href="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.SIGN_OUT)}"><i
+                                                    class="fas fa-lock-open u-s-m-r-6"></i>
 
                                                 <span>Signout</span></a></li>
                                     </c:if>
@@ -85,7 +102,8 @@
                             <!--====== List ======-->
                             <li>
 
-                                <a href="index.html"><i class="fas fa-home"></i></a></li>
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i
+                                        class="fas fa-store-alt"></i></a></li>
                             <li>
 
                                 <a href="wishlist.html"><i class="far fa-heart"></i></a></li>
@@ -93,7 +111,7 @@
 
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                    <span class="total-item-round">2</span></a>
+                                    <span class="total-item-round">${sessionScope.cart.totalItemsCount}</span></a>
 
                                 <!--====== Dropdown ======-->
 
@@ -103,116 +121,43 @@
                                     <!--====== Mini Product Container ======-->
                                     <div class="mini-product-container gl-scroll u-s-m-b-15">
 
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
+                                        <c:forEach items="${sessionScope.cart.cartItems}" var="item">
 
-                                                    <a class="mini-product__link" href="product-detail.html">
+                                            <!--====== Card for mini cart ======-->
+                                            <div class="card-mini-product">
+                                                <div class="mini-product">
+                                                    <div class="mini-product__image-wrapper">
 
-                                                        <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></a></div>
-                                                <div class="mini-product__info-wrapper">
+                                                        <a class="mini-product__link"
+                                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${item.productId}">
 
-                                                                    <span class="mini-product__category">
-
-                                                                        <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                                    <span class="mini-product__name">
-
-                                                                        <a href="product-detail.html">Yellow Wireless Headphone</a></span>
-
-                                                    <span class="mini-product__quantity">1 x</span>
-
-                                                    <span class="mini-product__price">$8</span></div>
-                                            </div>
-
-                                            <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                        </div>
-                                        <!--====== End - Card for mini cart ======-->
-
-
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
-
-                                                    <a class="mini-product__link" href="product-detail.html">
-
-                                                        <img class="u-img-fluid" src="images/product/electronic/product18.jpg" alt=""></a></div>
-                                                <div class="mini-product__info-wrapper">
+                                                            <img class="u-img-fluid"
+                                                                 src="${item.imageSrc}"
+                                                                 alt="${item.name}"></a>
+                                                    </div>
+                                                    <div class="mini-product__info-wrapper">
 
                                                                     <span class="mini-product__category">
 
-                                                                        <a href="shop-side-version-2.html">Electronics</a></span>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${item.categoryName}">${item.categoryName}</a></span>
 
-                                                    <span class="mini-product__name">
+                                                        <span class="mini-product__name">
 
-                                                                        <a href="product-detail.html">Nikon DSLR Camera 4k</a></span>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${item.productId}">${item.name}</a></span>
 
-                                                    <span class="mini-product__quantity">1 x</span>
+                                                        <span class="mini-product__quantity">${item.productQuantity} x</span>
 
-                                                    <span class="mini-product__price">$8</span></div>
+                                                        <span class="mini-product__price">$${item.price}</span>
+                                                    </div>
+                                                </div>
+
+                                                <a class="mini-product__delete-link far fa-trash-alt"
+                                                   onclick="removeFromCart(${item.productId});"></a>
                                             </div>
+                                            <!--====== End - Card for mini cart ======-->
 
-                                            <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                        </div>
-                                        <!--====== End - Card for mini cart ======-->
+                                        </c:forEach>
 
-
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
-
-                                                    <a class="mini-product__link" href="product-detail.html">
-
-                                                        <img class="u-img-fluid" src="images/product/women/product8.jpg" alt=""></a></div>
-                                                <div class="mini-product__info-wrapper">
-
-                                                                    <span class="mini-product__category">
-
-                                                                        <a href="shop-side-version-2.html">Women Clothing</a></span>
-
-                                                    <span class="mini-product__name">
-
-                                                                        <a href="product-detail.html">New Dress D Nice Elegant</a></span>
-
-                                                    <span class="mini-product__quantity">1 x</span>
-
-                                                    <span class="mini-product__price">$8</span></div>
-                                            </div>
-
-                                            <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                        </div>
-                                        <!--====== End - Card for mini cart ======-->
-
-
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
-
-                                                    <a class="mini-product__link" href="product-detail.html">
-
-                                                        <img class="u-img-fluid" src="images/product/men/product8.jpg" alt=""></a></div>
-                                                <div class="mini-product__info-wrapper">
-
-                                                                    <span class="mini-product__category">
-
-                                                                        <a href="shop-side-version-2.html">Men Clothing</a></span>
-
-                                                    <span class="mini-product__name">
-
-                                                                        <a href="product-detail.html">New Fashion D Nice Elegant</a></span>
-
-                                                    <span class="mini-product__quantity">1 x</span>
-
-                                                    <span class="mini-product__price">$8</span></div>
-                                            </div>
-
-                                            <a class="mini-product__delete-link far fa-trash-alt"></a>
-                                        </div>
-                                        <!--====== End - Card for mini cart ======-->
                                     </div>
                                     <!--====== End - Mini Product Container ======-->
 
@@ -223,12 +168,14 @@
 
                                             <span class="subtotal-text">SUBTOTAL</span>
 
-                                            <span class="subtotal-value">$16</span></div>
+                                            <span class="subtotal-value">$${sessionScope.cart.totalPrice}</span></div>
                                         <div class="mini-action">
 
-                                            <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
+                                            <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO
+                                                CHECKOUT</a>
 
-                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW CART</a></div>
+                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                                CART</a></div>
                                     </div>
                                     <!--====== End - Mini Product Statistics ======-->
                                 </div>

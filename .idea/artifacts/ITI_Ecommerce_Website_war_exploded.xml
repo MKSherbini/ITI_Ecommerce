@@ -24,6 +24,7 @@
           <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:2.0.0" />
           <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:3.0.0" />
           <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:3.0.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
           <element id="library" level="project" name="Maven: jakarta.json:jakarta.json-api:1.1.5" />
           <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.1.4" />
           <element id="library" level="project" name="Maven: javax.json.bind:javax.json.bind-api:1.0" />

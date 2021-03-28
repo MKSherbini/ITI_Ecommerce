@@ -6,6 +6,8 @@
 <head>
     <title>${applicationScope.urlMappingConstants.getTitle(PageNames.SHOP)}</title>
     <%@include file="commons/headCommon.jsp" %>
+    <script>document.write('<script src="scripts/js/shop.js?dev=' + new Date().getTime() + '"\><\/script>');</script>
+    <%--    <script  src="scripts/js/shop.js?time="></script>--%>
 </head>
 <body class="config">
 <div class="preloader is-active">
@@ -47,574 +49,25 @@
                                         </div>
                                         <div class="shop-w__wrap collapse show" id="s-category">
                                             <ul class="shop-w__category-list gl-scroll">
-                                                <li class="has-list">
-
-                                                    <a href="#">Electronics</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(23)</span>
-
-                                                    <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
-                                                    <ul style="display:block">
-                                                        <li class="has-list">
-
-                                                            <a href="#">3D Printer & Supplies</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">3d Printer</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printing Pen</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printing Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printer Module Board</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Home Audio & Video</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">TV Boxes</a></li>
-                                                                <li>
-
-                                                                    <a href="#">TV Receiver & Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printing Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printer Module Board</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Media Players</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Earphones</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Mp3 Players</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Speakers & Radios</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Microphones</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Video Game Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Nintendo Video Games Accessories</a>
-                                                                </li>
-                                                                <li>
-
-                                                                    <a href="#">Sony Video Games Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Xbox Video Games Accessories</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Security & Protection</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Security Cameras</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Alarm System</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Security Gadgets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">CCTV Security Accessories</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Home Audio & Video</a>
-
-                                                            <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
-                                                            <ul style="display:block">
-                                                                <li>
-
-                                                                    <a href="#">TV Boxes</a></li>
-                                                                <li>
-
-                                                                    <a href="#">TV Receiver & Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printing Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">3d Printer Module Board</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Photography & Camera</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Digital Cameras</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Sport Camera & Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Camera Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Lenses & Accessories</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Arduino Compatible</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Raspberry Pi & Orange Pi</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Module Board</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Smart Robot</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Board Kits</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">DSLR Camera</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Nikon Camera</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Canon Camera</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Sony Camera</a></li>
-                                                                <li>
-
-                                                                    <a href="#">DSLR Lenses</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Necessary Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Flash Cards</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Memory Cards</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Flash Pins</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Compact Discs</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-list">
-
-                                                    <a href="#">Women's Clothing</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(5)</span>
-
-                                                    <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                    <ul>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Hot Categories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Dresses</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Blouses & Shirts</a></li>
-                                                                <li>
-
-                                                                    <a href="#">T-shirts</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Rompers</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Intimates</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Bras</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Brief Sets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Bustiers & Corsets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Panties</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Wedding & Events</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Wedding Dresses</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Evening Dresses</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Prom Dresses</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Flower Dresses</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Bottoms</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Skirts</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Shorts</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Leggings</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Jeans</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Outwear</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Blazers</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Basic Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Trench</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Leather & Suede</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Jackets</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Denim Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Trucker Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Windbreaker Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Leather Jackets</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Tech Accessories</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Headwear</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Baseball Caps</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Belts</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Other Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Bags</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Wallets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Watches</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Sunglasses</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-list">
-
-                                                    <a href="#">Men's Clothing</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(5)</span>
-
-                                                    <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                    <ul>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Hot Sale</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">T-Shirts</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Tank Tops</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Polo</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Shirts</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Outwear</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Hoodies</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Trench</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Parkas</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Sweaters</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Bottoms</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Casual Pants</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Cargo Pants</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Jeans</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Shorts</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Underwear</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Boxers</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Briefs</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Robes</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Socks</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Jackets</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Denim Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Trucker Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Windbreaker Jackets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Leather Jackets</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Sunglasses</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Pilot</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Wayfarer</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Square</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Round</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Eyewear Frames</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Scarves</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Hats</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Belts</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="has-list">
-
-                                                            <a href="#">Other Accessories</a>
-
-                                                            <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                            <ul>
-                                                                <li>
-
-                                                                    <a href="#">Bags</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Wallets</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Watches</a></li>
-                                                                <li>
-
-                                                                    <a href="#">Tech Accessories</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-
-                                                    <a href="#">Food & Supplies</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(0)</span></li>
-                                                <li>
-
-                                                    <a href="#">Furniture & Decor</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(0)</span></li>
-                                                <li>
-
-                                                    <a href="#">Sports & Game</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(0)</span></li>
-                                                <li>
-
-                                                    <a href="#">Beauty & Health</a>
-
-                                                    <span class="category-list__text u-s-m-l-6">(0)</span></li>
+                                                <c:forEach items="${requestScope.categoryList}" var="category">
+                                                    <!--====== Check Box List Item ======-->
+                                                    <li onclick="fkingRunMyHref(this)">
+                                                        <a href="" data-href="category=${category.name}"
+                                                           onmouseover="setDynamicHref(this)">
+                                                            <div class="check-box">
+                                                                <input type="checkbox" id="${category.name}"
+                                                                <c:if test="${category.selected}">
+                                                                       checked</c:if>>
+                                                                <div class="check-box__state check-box__state--primary">
+                                                                    <label class="check-box__label"
+                                                                           for="${category.name}">${category.name}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <span class="category-list__text u-s-m-l-6">(${category.numberOfProducts})</span>
+                                                        </a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                     </div>
@@ -739,245 +192,33 @@
 
                                                         <label for="price-min"></label>
 
-                                                        <input class="input-text input-text--primary-style" type="text"
+                                                        <input class="input-text input-text--primary-style"
+                                                               type="number" name="minPrice"
+                                                               value="${requestScope.paramMinPrice}"
+                                                               required
                                                                id="price-min" placeholder="Min"></div>
                                                     <div>
 
                                                         <label for="price-max"></label>
 
-                                                        <input class="input-text input-text--primary-style" type="text"
+                                                        <input class="input-text input-text--primary-style"
+                                                               type="number" name="maxPrice"
+                                                               value="${requestScope.paramMaxPrice}"
+                                                               required
                                                                id="price-max" placeholder="Max"></div>
-                                                    <div>
-
-                                                        <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2"
-                                                                type="submit"></button>
-                                                    </div>
+                                                    <c:forEach items="${requestScope.requestParams}" var="requestParam">
+                                                        <c:forEach items="${requestParam.value}"
+                                                                   var="paramValue">
+                                                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramMaxPriceName)&&!requestParam.key.equals(WebsiteConstants.paramMinPriceName)}">
+                                                                <input type='hidden' name='${requestParam.key}'
+                                                                       value='${paramValue}'/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </c:forEach>
+                                                    <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2"
+                                                            type="submit"></button>
                                                 </div>
                                             </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="u-s-m-b-30">
-                                    <div class="shop-w">
-                                        <div class="shop-w__intro-wrap">
-                                            <h1 class="shop-w__h">MANUFACTURER</h1>
-
-                                            <span class="fas fa-minus shop-w__toggle" data-target="#s-manufacturer"
-                                                  data-toggle="collapse"></span>
-                                        </div>
-                                        <div class="shop-w__wrap collapse show" id="s-manufacturer">
-                                            <ul class="shop-w__list-2">
-                                                <li>
-                                                    <div class="list__content">
-
-                                                        <input type="checkbox" checked>
-
-                                                        <span>Calvin Klein</span></div>
-
-                                                    <span class="shop-w__total-text">(23)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="list__content">
-
-                                                        <input type="checkbox">
-
-                                                        <span>Diesel</span></div>
-
-                                                    <span class="shop-w__total-text">(2)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="list__content">
-
-                                                        <input type="checkbox">
-
-                                                        <span>Polo</span></div>
-
-                                                    <span class="shop-w__total-text">(2)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="list__content">
-
-                                                        <input type="checkbox">
-
-                                                        <span>Tommy Hilfiger</span></div>
-
-                                                    <span class="shop-w__total-text">(9)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="list__content">
-
-                                                        <input type="checkbox">
-
-                                                        <span>Ndoge</span></div>
-
-                                                    <span class="shop-w__total-text">(3)</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="u-s-m-b-30">
-                                    <div class="shop-w">
-                                        <div class="shop-w__intro-wrap">
-                                            <h1 class="shop-w__h">COLOR</h1>
-
-                                            <span class="fas fa-minus shop-w__toggle" data-target="#s-color"
-                                                  data-toggle="collapse"></span>
-                                        </div>
-                                        <div class="shop-w__wrap collapse show" id="s-color">
-                                            <ul class="shop-w__list gl-scroll">
-                                                <li>
-                                                    <div class="color__check">
-
-                                                        <input type="checkbox" id="jet">
-
-                                                        <label class="color__check-label" for="jet"
-                                                               style="background-color: #333333"></label></div>
-
-                                                    <span class="shop-w__total-text">(2)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="color__check">
-
-                                                        <input type="checkbox" id="folly">
-
-                                                        <label class="color__check-label" for="folly"
-                                                               style="background-color: #FF0055"></label></div>
-
-                                                    <span class="shop-w__total-text">(4)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="color__check">
-
-                                                        <input type="checkbox" id="yellow">
-
-                                                        <label class="color__check-label" for="yellow"
-                                                               style="background-color: #FFFF00"></label></div>
-
-                                                    <span class="shop-w__total-text">(6)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="color__check">
-
-                                                        <input type="checkbox" id="granite-gray">
-
-                                                        <label class="color__check-label" for="granite-gray"
-                                                               style="background-color: #605F5E"></label></div>
-
-                                                    <span class="shop-w__total-text">(8)</span>
-                                                </li>
-                                                <li>
-                                                    <div class="color__check">
-
-                                                        <input type="checkbox" id="space-cadet">
-
-                                                        <label class="color__check-label" for="space-cadet"
-                                                               style="background-color: #1D3461"></label></div>
-
-                                                    <span class="shop-w__total-text">(10)</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="u-s-m-b-30">
-                                    <div class="shop-w">
-                                        <div class="shop-w__intro-wrap">
-                                            <h1 class="shop-w__h">SIZE</h1>
-
-                                            <span class="fas fa-minus collapsed shop-w__toggle" data-target="#s-size"
-                                                  data-toggle="collapse"></span>
-                                        </div>
-                                        <div class="shop-w__wrap collapse" id="s-size">
-                                            <ul class="shop-w__list gl-scroll">
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="xs">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="xs">XS</label></div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(2)</span>
-                                                </li>
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="small">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="small">Small</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(4)</span>
-                                                </li>
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="medium">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="medium">Medium</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(6)</span>
-                                                </li>
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="large">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="large">Large</label>
-                                                        </div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(8)</span>
-                                                </li>
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="xl">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="xl">XL</label></div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(10)</span>
-                                                </li>
-                                                <li>
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="xxl">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="xxl">XXL</label></div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <span class="shop-w__total-text">(12)</span>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -1038,23 +279,27 @@
                             <div class="u-s-p-y-60">
 
                                 <!--====== Pagination ======-->
-                                <%--                                <ul class="shop-p__pagination">--%>
-                                <%--                                    <li class="is-active">--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">1</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">2</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">3</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a href="shop-grid-left.jsp">4</a></li>--%>
-                                <%--                                    <li>--%>
-
-                                <%--                                        <a class="fas fa-angle-right" href="shop-grid-left.jsp"></a></li>--%>
-                                <%--                                </ul>--%>
+                                <ul class="shop-p__pagination">
+                                    <c:if test="${requestScope.pageHasPrev}">
+                                        <li><a class="fas fa-angle-left" href=""
+                                               data-href="page=${requestScope.paramPageNumber-1}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
+                                        </li>
+                                    </c:if>
+                                    <c:forEach items="${requestScope.pageList}" var="page">
+                                        <li
+                                                <c:if test="${page.selected}">class="is-active"</c:if> >
+                                            <a href="" data-href="page=${page.number}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());">${page.number}</a>
+                                        </li>
+                                    </c:forEach>
+                                    <c:if test="${requestScope.pageHasNext}">
+                                        <li><a class="fas fa-angle-right" href=""
+                                               data-href="page=${requestScope.paramPageNumber+1}"
+                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
+                                        </li>
+                                    </c:if>
+                                </ul>
                                 <!--====== End - Pagination ======-->
                             </div>
                         </div>
@@ -1119,19 +364,19 @@
                                         <ul>
                                             <li>
 
-                                                <a href="cart.jsp">Cart</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                             <li>
 
                                                 <a href="dashboard.jsp">Account</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                             <li>
 
                                                 <a href="dash-payment-option.jsp">Finance</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Shop</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1150,13 +395,13 @@
                                                 <a href="contact.jsp">Contact Us</a></li>
                                             <li>
 
-                                                <a href="index.jsp">Sitemap</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
                                             <li>
 
                                                 <a href="dash-my-order.jsp">Delivery</a></li>
                                             <li>
 
-                                                <a href="shop-side-version-2.jsp">Store</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1210,7 +455,7 @@
 
                                 <span>Copyright © 2018</span>
 
-                                <a href="index.jsp">Reshop</a>
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Reshop</a>
 
                                 <span>All Right Reserved</span></div>
                             <div class="lower-footer__payment">
@@ -1251,13 +496,13 @@
                                         <a href="index.hml">Home</a></li>
                                     <li class="has-separator">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>
                                     <li class="has-separator">
 
-                                        <a href="shop-side-version-2.jsp">DSLR Cameras</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>
                                     <li class="is-marked">
 
-                                        <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
                                 </ul>
                             </div>
                             <!--====== End - Product Breadcrumb ======-->
@@ -1434,6 +679,7 @@
     <!--====== End - Quick Look Modal ======-->
 
 
+
     <!--====== Add to Cart Modal ======-->
     <div class="modal fade" id="add-to-cart">
         <div class="modal-dialog modal-dialog-centered">
@@ -1449,29 +695,27 @@
                                     <span>Item is added successfully!</span></div>
                                 <div class="success__img-wrap">
 
-                                    <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
+                                    <img id="modal-add-img" class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
                                 <div class="success__info-wrap">
 
-                                    <span class="success__name">Beats Bomb Wireless Headphone</span>
+                                    <span id="modal-add-name" class="success__name">Beats Bomb Wireless Headphone</span>
 
                                     <span class="success__quantity">Quantity: 1</span>
 
-                                    <span class="success__price">$170.00</span></div>
+                                    <span id="modal-add-price" class="success__price">$170.00</span></div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="s-option">
 
-                                <span class="s-option__text">1 item (s) in your cart</span>
+                                <span id="modal-add-itemsCount" class="s-option__text">1 item (s) in your cart</span>
                                 <div class="s-option__link-box">
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
-                                        SHOPPING</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
-                                        CHECKOUT</a></div>
+                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a></div>
                             </div>
                         </div>
                     </div>
@@ -1480,6 +724,7 @@
         </div>
     </div>
     <!--====== End - Add to Cart Modal ======-->
+
     <!--====== End - Modal Section ======-->
 </div>
 <!--====== End - Main App ======-->
@@ -1506,6 +751,20 @@
 <!--====== App ======-->
 <script src="scripts/js/app.js"></script>
 
+<script>
+    function addToCart(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {
+            // console.log("Data: " + data + "\nStatus: " + status);
+            // console.log(data.name)
+            // if (data.length <= 5) return;
+            // let product = JSON.parse(data);
+            // console.log(product);
+            if (status === 'success')
+                // fkingSetModal(product);
+                setTimeout(fkingSetModal, 500, product);
+        });
+    }
+</script>
 <!--====== Noscript ======-->
 <noscript>
     <div class="app-setting">

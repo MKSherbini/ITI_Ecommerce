@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import org.jboss.logging.Logger;
 import providers.repositories.*;
+import utilities.adapters.CartAdapter;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -60,7 +61,7 @@ public class testMain {
 //        System.out.println("card = " + card);
 
 
-        CategoryRepo categoryRepo = CategoryRepo.getInstance();
+//        CategoryRepo categoryRepo = CategoryRepo.getInstance();
 //        var cats = categoryRepo.findByName("category1");
 //        System.out.println("cats.size() = " + cats.size());
 //        System.out.println("cats = " + cats);
@@ -69,11 +70,11 @@ public class testMain {
 //            categoryRepo.create(new Category("category" + i));
 //        }
 
-        ProductRepo productRepo = ProductRepo.getInstance();
-        var products = productRepo.readAll();
-        for (var product : products) {
-            product.setDiscountPercent((int) (product.getCategory().getCategoryId() * 5));
-        }
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        var products = productRepo.readAll();
+//        for (var product : products) {
+//            product.setDiscountPercent((int) (product.getCategory().getCategoryId() * 5));
+//        }
 //        productRepo.create(new Product("product" + 21,
 //                21 * 100,
 //                "description" + 21,
@@ -106,8 +107,83 @@ public class testMain {
 //                productRepo.update(product);
 //            }
 //        }
+//        generateDummyProductsAndCategories();
+//        testCart();
 
+//        testDummyCreate();
+//        testDummyCart();
+
+//        DummyUser dummyUser = DummyUserRepo.getInstance().read(2L).get();
+//        DummyUserRepo.getInstance().delete(dummyUser);
+
+//        testDummyHijack();
         db.endTransaction();
+    }
+
+    private static void testDummyHijack() {
+        var dummyUser = DummyUserRepo.getInstance().read(3L);
+        var user = UserRepo.getInstance().read(1L);
+        System.out.println("hijack = " + CartRepo.getInstance().findShoppingCartByUser(user.get()).get().getTotalPrice());
+        CartRepo.getInstance().updateDummyToUser(dummyUser.get(), user.get());
+        DummyUserRepo.getInstance().delete(dummyUser.get());
+        System.out.println("hijack = " + CartRepo.getInstance().findShoppingCartByUser(user.get()).get().getTotalPrice());
+    }
+
+
+    private static void testDummyCreate() {
+        var dummyUser = new DummyUser();
+        var cart = new ShoppingCart(dummyUser);
+        CartRepo.getInstance().create(cart);
+        dummyUser.setCart(cart);
+        DummyUserRepo.getInstance().create(dummyUser);
+        var cartDto = CartAdapter.copyOrmToDto(CartRepo.getInstance().GetCartOrCreateOne(dummyUser).get());
+        System.out.println("cartDto = " + cartDto);
+    }
+
+    private static void testDummyCart() {
+        ProductRepo productRepo = ProductRepo.getInstance();
+        DummyUserRepo userRepo = DummyUserRepo.getInstance();
+        CartRepo cartRepo = CartRepo.getInstance();
+        var product = productRepo.read(22L);
+        var user = userRepo.read(1L);
+        var cart = cartRepo.addProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
+        cart = cartRepo.removeProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
+    }
+
+    private static void testCart() {
+        ProductRepo productRepo = ProductRepo.getInstance();
+        UserRepo userRepo = UserRepo.getInstance();
+        CartRepo cartRepo = CartRepo.getInstance();
+        var product = productRepo.read(22L);
+        var user = userRepo.read(1L);
+        var cart = cartRepo.addProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
+        cart = cartRepo.removeProduct(user.get(), product.get());
+        System.out.println("cart = " + cart);
+    }
+
+    static void generateDummyProductsAndCategories() {
+        CategoryRepo categoryRepo = CategoryRepo.getInstance();
+//        for (int i = 1; i <= 5; i++) {
+//            categoryRepo.create(new ProductCategory("category" + i));
+//        }
+
+        ProductRepo productRepo = ProductRepo.getInstance();
+//        for (int i = 1; i < 21; i++) {
+//            productRepo.create(new Product("product" + i,
+//                    i * 100,
+//                    "description" + i,
+//                    i * 5,
+//                    "images/product/men/product6.jpg",
+//                    categoryRepo.read((long) (i / 5 + 1)).get()));
+//        }
+
+        var products = productRepo.readAll();
+        for (var product : products) {
+            product.setDiscountPercent((int) ((product.getCategory().getCategoryId() - 1) * 5));
+        }
     }
 
 }

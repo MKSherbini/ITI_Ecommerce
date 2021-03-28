@@ -6,6 +6,13 @@ public enum PageNames {
     REGISTER_PAGE,
     NOT_FOUND_404,
     TEST_JSP,
+    ABOUT_PAGE,
     SHOP,
     Account,
+    CONTACT_US,
+    PRODUCT,
+    EMPTY_SHOP,
+    CART,
+    EMPTY_CART,
+    TEST_USER_JSP,
 }

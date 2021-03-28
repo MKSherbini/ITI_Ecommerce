@@ -1,6 +1,8 @@
 package providers.repositories;
 
-public class CartItemRepo extends GenericRepo<CartItemRepo, Long> {
+import models.orm.CartItem;
+
+public class CartItemRepo extends GenericRepo<CartItem, Long> {
     private static volatile CartItemRepo instance = null;
 
     private CartItemRepo() {

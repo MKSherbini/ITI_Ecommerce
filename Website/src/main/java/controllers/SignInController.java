@@ -33,7 +33,12 @@ public class SignInController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // do preparing
         System.out.println("SignInController.doGet");
-        CookiesManager.getInstance().readUserInfoCookie(request);
+        var user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+            return;
+        }
+
         // todo if already logged in, redirect to home page
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         System.out.println("SignInController.doGet");
@@ -45,24 +50,24 @@ public class SignInController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
-        UserRepo userRepo = UserRepo.getInstance();
-        Optional<User> user = userRepo.findByEmailPassword(email,password);
-        if (email != null &&
-                password != null &&
-                user.isPresent()) {
-            if (rememberMe != null && rememberMe.equals("true")) {
-                String hashedPassword = Hashator.getInstance().hash(password);
-                // todo hash both email and password together in one String with reversible hashing before saving it in cookie
-                CookiesManager.getInstance().writeUserInfoCookie(response, email, hashedPassword);
-            }
-            HttpSession session = request.getSession();
-            session.setAttribute("user",user.get());
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
-            return;
-        } else {
-            request.setAttribute("userError", true);
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
 
+        if (email != null && password != null) {
+            UserRepo userRepo = UserRepo.getInstance();
+            String hashedPassword = Hashator.getInstance().hash(password);
+            Optional<User> user = userRepo.findByEmailPassword(email, hashedPassword);
+            if (user.isPresent()) {
+                if (rememberMe != null && rememberMe.equals("true")) {
+                    // todo hash both email and password together in one String with reversible hashing before saving it in cookie
+                    CookiesManager.getInstance().writeUserInfoCookie(response, email, hashedPassword);
+                }
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user.get());
+                response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+                return;
+            } else {
+                request.setAttribute("userError", true);
+                response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
+            }
         }
 
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);

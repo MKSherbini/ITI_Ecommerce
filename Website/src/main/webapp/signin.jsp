@@ -118,6 +118,8 @@
                                             <input class="input-text input-text--primary-style" type="password"
                                                    name="password" id="login-password" required onblur="validatePass(this.value)"
                                                    placeholder="Enter Password" >
+
+
                                             <label style='color: red' ; id="error-pass"></label>
                                         </div>
                                         <div class="gl-inline">
@@ -157,22 +159,26 @@
     </div>
     <!--====== End - App Content ======-->
 
-    <!--====== Main Footer ======-->
-    <%@ include file="loginfooter.jsp" %>
 
-</div>
-<!--====== End - Main App ======-->
-<!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
-<script>
-    window.ga = function () {
-        ga.q.push(arguments)
-    };
-    ga.q = [];
-    ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview')
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <!--====== Footer ======-->
+        <jsp:include page="commons/footerCommon.jsp"/>
+        <!--====== End - Footer ======-->
+
+    </div>
+    <!--====== End - Main App ======-->
+
+
+    <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+    <script>
+        window.ga = function() {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 <!--====== Vendor Js ======-->
 <script src="scripts/js/vendor.js"></script>

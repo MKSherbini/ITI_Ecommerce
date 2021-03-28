@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import providers.database.Database;
 import providers.database.DatabaseFactory;
 import providers.database.DatabaseServerType;
+import utilities.SafeConverter;
 
 import java.net.http.HttpRequest;
 import java.util.Arrays;
@@ -35,6 +36,7 @@ public class CookiesManager {
     private static final int secondsToDays = 60 * 60 * 24;
     private static final int defaultAgeInDays = 14;
     private static final String defaultUserInfoKey = "sb";
+    private static final String defaultDummyUserInfoKey = "nb";
 
 
     public Optional<String> readCookie(HttpServletRequest request, String key) {
@@ -65,13 +67,32 @@ public class CookiesManager {
         writeCookie(response, defaultUserInfoKey, encodedUserInfo, defaultAgeInDays);
     }
 
-    public void readUserInfoCookie(HttpServletRequest request) {
+    public void writeDummyUserInfoCookie(HttpServletResponse response, Long id) {
+        String userInfo = id.toString() + ":" + "some random bs to make it look long and important and some more random bs to make it look long and important";
+        String encodedUserInfo = Base64.getEncoder().encodeToString(userInfo.getBytes());
+
+        writeCookie(response, defaultDummyUserInfoKey, encodedUserInfo, defaultAgeInDays);
+    }
+
+    public String readUserInfoCookie(HttpServletRequest request) {
         var cookie = readCookie(request, defaultUserInfoKey);
         if (cookie.isPresent()) {
-            var value = new String(Base64.getDecoder().decode(cookie.get()));
-            System.out.println("value.split(\":\") = " + Arrays.toString(value.split(":")));
+            return new String(Base64.getDecoder().decode(cookie.get()));
         } else {
-            System.out.println("no UserInfoCookie was found");
+            return null;
+        }
+    }
+
+    public Optional<Long> readDummyUserInfoCookie(HttpServletRequest request) {
+        var cookie = readCookie(request, defaultDummyUserInfoKey);
+        if (cookie.isPresent()) {
+            var splits = new String(Base64.getDecoder().decode(cookie.get())).split(":");
+            if (splits.length != 2) return Optional.empty();
+            var ret = SafeConverter.safeLongParse(splits[0], -1L);
+            if (ret == -1) return Optional.empty();
+            return Optional.of(ret);
+        } else {
+            return Optional.empty();
         }
     }
 

@@ -26,6 +26,14 @@ public class ProductRepo extends GenericRepo<Product, Long> {
     }
 
 
+    public Object[] findMinMaxPriceLikeName(String name) {
+        return (Object[]) DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findMinMaxPriceLikeName")
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .stream().findAny().get());
+    }
+
     public List<Product> findLikeName(String name) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
@@ -60,6 +68,37 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit
+                        .list());
+    }
+
+    // extra dammit
+    public List<Product> findByPriceName(int min, int max, String name) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findByPriceName")
+                        .setParameter("min", min)
+                        .setParameter("max", max)
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .list());
+    }
+
+    // extra dammit
+    public List<Product> findByMultiCategoryPriceName(String[] categories, int min, int max, String name) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.findByMultiCategoryPriceName")
+                        .setParameterList("categories", categories)
+                        .setParameter("min", min)
+                        .setParameter("max", max)
+                        .setParameter("name", "%" + name + "%") // dammit
+                        .list());
+    }
+
+    public List<Product> findNewArrivals() {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> session
+                        .createNamedQuery("Product.getNewArrivals")
+                        .setMaxResults(4)
                         .list());
     }
 

@@ -21,7 +21,7 @@
 <a href="search2.jsp" class="btn btn-primary">search2</a>
 
 <footer>
-    <%@include file="commons/footerCommon.jsp" %>
+    <jsp:include page="commons/footerCommon.jsp" flush="true"/>
 </footer>
 </body>
 </html>

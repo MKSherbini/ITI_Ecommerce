@@ -211,21 +211,21 @@
                                                         <ul>
                                                             <li class="js-active">
 
-                                                                <a href="shop-side-version-2.jsp"><i class="fas fa-tv u-s-m-r-6"></i>
+                                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i class="fas fa-tv u-s-m-r-6"></i>
 
                                                                     <span>Electronics</span></a>
 
                                                                 <span class="js-menu-toggle js-toggle-mark"></span></li>
                                                             <li>
 
-                                                                <a href="shop-side-version-2.jsp"><i class="fas fa-female u-s-m-r-6"></i>
+                                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i class="fas fa-female u-s-m-r-6"></i>
 
                                                                     <span>Women's Clothing</span></a>
 
                                                                 <span class="js-menu-toggle"></span></li>
                                                             <li>
 
-                                                                <a href="shop-side-version-2.jsp"><i class="fas fa-male u-s-m-r-6"></i>
+                                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i class="fas fa-male u-s-m-r-6"></i>
 
                                                                     <span>Men's Clothing</span></a>
 
@@ -270,155 +270,73 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">3D PRINTER & SUPPLIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">3D PRINTER & SUPPLIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">3d Printer</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">3d Printer</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">3d Printing Pen</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">3d Printing Pen</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">3d Printing Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">3d Printing Accessories</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">3d Printer Module Board</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">3d Printer Module Board</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">HOME AUDIO & VIDEO</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">HOME AUDIO & VIDEO</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">TV Boxes</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">TV Boxes</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">TC Receiver & Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">TC Receiver & Accessories</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Display Dongle</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Display Dongle</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Home Theater System</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Home Theater System</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">MEDIA PLAYERS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">MEDIA PLAYERS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Earphones</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Earphones</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Mp3 Players</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Mp3 Players</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Speakers & Radios</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Speakers & Radios</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Microphones</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Microphones</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">VIDEO GAME ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">VIDEO GAME ACCESSORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Nintendo Video Games Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nintendo Video Games Accessories</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Sony Video Games Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Sony Video Games Accessories</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Xbox Video Games Accessories</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <!--====== End - Mega Menu Row ======-->
-                                                        <br>
-
-                                                        <!--====== Mega Menu Row ======-->
-                                                        <div class="row">
-                                                            <div class="col-lg-3">
-                                                                <ul>
-                                                                    <li class="mega-list-title">
-
-                                                                        <a href="shop-side-version-2.jsp">SECURITY & PROTECTION</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Security Cameras</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Alarm System</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Security Gadgets</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">CCTV Security & Accessories</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <ul>
-                                                                    <li class="mega-list-title">
-
-                                                                        <a href="shop-side-version-2.jsp">PHOTOGRAPHY & CAMERA</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Digital Cameras</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Sport Camera & Accessories</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Camera Accessories</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Lenses & Accessories</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <ul>
-                                                                    <li class="mega-list-title">
-
-                                                                        <a href="shop-side-version-2.jsp">ARDUINO COMPATIBLE</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Raspberry Pi & Orange Pi</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Module Board</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Smart Robot</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Board Kits</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <ul>
-                                                                    <li class="mega-list-title">
-
-                                                                        <a href="shop-side-version-2.jsp">DSLR Camera</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Canon Camera</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">Sony Camera</a></li>
-                                                                    <li>
-
-                                                                        <a href="shop-side-version-2.jsp">DSLR Lenses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Xbox Video Games Accessories</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -431,25 +349,107 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">NECESSARY ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SECURITY & PROTECTION</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Flash Cards</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Security Cameras</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Memory Cards</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Alarm System</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Flash Pins</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Security Gadgets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Compact Discs</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">CCTV Security & Accessories</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <ul>
+                                                                    <li class="mega-list-title">
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">PHOTOGRAPHY & CAMERA</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Digital Cameras</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Sport Camera & Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Camera Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Lenses & Accessories</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <ul>
+                                                                    <li class="mega-list-title">
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">ARDUINO COMPATIBLE</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Raspberry Pi & Orange Pi</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Module Board</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Smart Robot</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Board Kits</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <ul>
+                                                                    <li class="mega-list-title">
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Canon Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Sony Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Lenses</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <!--====== End - Mega Menu Row ======-->
+                                                        <br>
+
+                                                        <!--====== Mega Menu Row ======-->
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <ul>
+                                                                    <li class="mega-list-title">
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">NECESSARY ACCESSORIES</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Flash Cards</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Memory Cards</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Flash Pins</a></li>
+                                                                    <li>
+
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Compact Discs</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-9 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-0.jpg" alt=""></a></div>
                                                             </div>
@@ -467,14 +467,14 @@
                                                             <div class="col-lg-6 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-1.jpg" alt=""></a></div>
                                                             </div>
                                                             <div class="col-lg-6 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-2.jpg" alt=""></a></div>
                                                             </div>
@@ -488,76 +488,76 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">HOT CATEGORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">HOT CATEGORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Dresses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Dresses</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Blouses & Shirts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Blouses & Shirts</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">T-shirts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">T-shirts</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Rompers</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Rompers</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">INTIMATES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">INTIMATES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Bras</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Bras</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Brief Sets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Brief Sets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Bustiers & Corsets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Bustiers & Corsets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Panties</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Panties</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">WEDDING & EVENTS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">WEDDING & EVENTS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Wedding Dresses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Wedding Dresses</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Evening Dresses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Evening Dresses</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Prom Dresses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Prom Dresses</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Flower Dresses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Flower Dresses</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">BOTTOMS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">BOTTOMS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Skirts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Skirts</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Shorts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shorts</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Leggings</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Leggings</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Jeans</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Jeans</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -570,76 +570,76 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">OUTWEAR</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">OUTWEAR</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Blazers</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Blazers</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Basics Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Basics Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Trench</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Trench</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Leather & Suede</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Leather & Suede</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">JACKETS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">JACKETS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Denim Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Denim Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Trucker Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Trucker Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Windbreaker Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Windbreaker Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Leather Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Leather Jackets</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">ACCESSORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Tech Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Tech Accessories</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Headwear</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Headwear</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Baseball Caps</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Baseball Caps</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Belts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Belts</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">OTHER ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">OTHER ACCESSORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Bags</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Bags</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Wallets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Wallets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Watches</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Watches</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Sunglasses</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Sunglasses</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -651,14 +651,14 @@
                                                             <div class="col-lg-9 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-3.jpg" alt=""></a></div>
                                                             </div>
                                                             <div class="col-lg-3 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-4.jpg" alt=""></a></div>
                                                             </div>
@@ -676,21 +676,21 @@
                                                             <div class="col-lg-4 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-5.jpg" alt=""></a></div>
                                                             </div>
                                                             <div class="col-lg-4 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-6.jpg" alt=""></a></div>
                                                             </div>
                                                             <div class="col-lg-4 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-7.jpg" alt=""></a></div>
                                                             </div>
@@ -704,76 +704,76 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">HOT SALE</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">HOT SALE</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">T-Shirts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">T-Shirts</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Tank Tops</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Tank Tops</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Polo</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Polo</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Shirts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shirts</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">OUTWEAR</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">OUTWEAR</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Hoodies</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Hoodies</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Trench</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Trench</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Parkas</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Parkas</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Sweaters</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Sweaters</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">BOTTOMS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">BOTTOMS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Casual Pants</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Casual Pants</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Cargo Pants</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Cargo Pants</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Jeans</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Jeans</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Shorts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shorts</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">UNDERWEAR</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">UNDERWEAR</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Boxers</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Boxers</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Briefs</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Briefs</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Robes</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Robes</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Socks</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Socks</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -786,76 +786,76 @@
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">JACKETS</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">JACKETS</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Denim Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Denim Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Trucker Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Trucker Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Windbreaker Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Windbreaker Jackets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Leather Jackets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Leather Jackets</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">SUNGLASSES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SUNGLASSES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Pilot</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Pilot</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Wayfarer</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Wayfarer</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Square</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Square</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Round</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Round</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">ACCESSORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Eyewear Frames</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Eyewear Frames</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Scarves</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Scarves</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Hats</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Hats</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Belts</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Belts</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <ul>
                                                                     <li class="mega-list-title">
 
-                                                                        <a href="shop-side-version-2.jsp">OTHER ACCESSORIES</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">OTHER ACCESSORIES</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Bags</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Bags</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Wallets</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Wallets</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Watches</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Watches</a></li>
                                                                     <li>
 
-                                                                        <a href="shop-side-version-2.jsp">Tech Accessories</a></li>
+                                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Tech Accessories</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -867,14 +867,14 @@
                                                             <div class="col-lg-6 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-8.jpg" alt=""></a></div>
                                                             </div>
                                                             <div class="col-lg-6 mega-image">
                                                                 <div class="mega-banner">
 
-                                                                    <a class="u-d-block" href="shop-side-version-2.jsp">
+                                                                    <a class="u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                                                         <img class="u-img-fluid u-d-block" src="images/banners/banner-mega-9.jpg" alt=""></a></div>
                                                             </div>
@@ -936,7 +936,7 @@
                                     <ul class="ah-list ah-list--design2 ah-list--link-color-white">
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">NEW ARRIVALS</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">NEW ARRIVALS</a></li>
                                         <li class="has-dropdown">
 
                                             <a>PAGES<i class="fas fa-angle-down u-s-m-l-6"></i></a>
@@ -955,7 +955,7 @@
                                                     <ul style="width:118px">
                                                         <li>
 
-                                                            <a href="index.jsp">Home 1</a></li>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home 1</a></li>
                                                         <li>
 
                                                             <a href="index-2.jsp">Home 2</a></li>
@@ -1064,7 +1064,7 @@
                                                             <a href="empty-search.jsp">Empty Search</a></li>
                                                         <li>
 
-                                                            <a href="empty-cart.jsp">Empty Cart</a></li>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Empty Cart</a></li>
                                                         <li>
 
                                                             <a href="empty-wishlist.jsp">Empty Wishlist</a></li>
@@ -1110,7 +1110,7 @@
                                                             <a href="shop-grid-full.jsp">Shop Grid Full Width</a></li>
                                                         <li>
 
-                                                            <a href="shop-side-version-2.jsp">Shop Side Version 2</a></li>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop Side Version 2</a></li>
                                                     </ul>
                                                     <!--====== End - Dropdown ======-->
                                                 </li>
@@ -1136,7 +1136,7 @@
                                                 </li>
                                                 <li>
 
-                                                    <a href="cart.jsp">Cart</a></li>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                                 <li>
 
                                                     <a href="wishlist.jsp">Wishlist</a></li>
@@ -1186,10 +1186,10 @@
                                         </li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">VALUE OF THE DAY</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">VALUE OF THE DAY</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">GIFT CARDS</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">GIFT CARDS</a></li>
                                     </ul>
                                     <!--====== End - List ======-->
                                 </div>
@@ -1244,7 +1244,7 @@
 
                                                                 <span class="mini-product__category">
 
-                                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                                 <span class="mini-product__name">
 
@@ -1272,7 +1272,7 @@
 
                                                                 <span class="mini-product__category">
 
-                                                                    <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                                 <span class="mini-product__name">
 
@@ -1300,7 +1300,7 @@
 
                                                                 <span class="mini-product__category">
 
-                                                                    <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                                 <span class="mini-product__name">
 
@@ -1328,7 +1328,7 @@
 
                                                                 <span class="mini-product__category">
 
-                                                                    <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                                 <span class="mini-product__name">
 
@@ -1357,7 +1357,7 @@
 
                                                         <a class="mini-link btn--e-brand-b-2" href="checkout.jsp">PROCEED TO CHECKOUT</a>
 
-                                                        <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.jsp">VIEW CART</a></div>
+                                                        <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a></div>
                                                 </div>
                                                 <!--====== End - Mini Product Statistics ======-->
                                             </div>
@@ -1403,7 +1403,7 @@
 
                                                 <span class="u-c-brand">$100.00</span></span>
 
-                                            <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a></div>
+                                            <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1426,7 +1426,7 @@
 
                                                 <span class="u-c-brand">$100.00</span></span>
 
-                                            <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a></div>
+                                            <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1449,7 +1449,7 @@
 
                                                 <span class="u-c-brand">$100.00</span></span>
 
-                                            <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a></div>
+                                            <a class="shop-now-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP NOW</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -1474,7 +1474,7 @@
                                         <img class="aspect__img" src="images/promo/promo-img-4.jpg" alt=""></div>
                                     <div class="promotion-o__content">
 
-                                        <a class="promotion-o__link btn--e-white-brand" href="shop-side-version-2.jsp">Women's Clothing</a></div>
+                                        <a class="promotion-o__link btn--e-white-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women's Clothing</a></div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
@@ -1484,7 +1484,7 @@
                                         <img class="aspect__img" src="images/promo/promo-img-5.jpg" alt=""></div>
                                     <div class="promotion-o__content">
 
-                                        <a class="promotion-o__link btn--e-white-brand" href="shop-side-version-2.jsp">Fashion Accessories</a></div>
+                                        <a class="promotion-o__link btn--e-white-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Fashion Accessories</a></div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
@@ -1494,7 +1494,7 @@
                                         <img class="aspect__img" src="images/promo/promo-img-6.jpg" alt=""></div>
                                     <div class="promotion-o__content">
 
-                                        <a class="promotion-o__link btn--e-white-brand" href="shop-side-version-2.jsp">Men's Clothing</a></div>
+                                        <a class="promotion-o__link btn--e-white-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men's Clothing</a></div>
                                 </div>
                             </div>
                         </div>
@@ -1515,7 +1515,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
 
-                                    <a class="i3-banner" href="shop-side-version-2.jsp">
+                                    <a class="i3-banner" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                         <div class="aspect aspect--bg-grey-fb aspect--square">
 
                                             <img class="aspect__img i3-banner__img" src="images/banners/i3-banner-1.jpg" alt=""></div>
@@ -1540,7 +1540,7 @@
 
                                                         <span class="product-short__category">
 
-                                                            <a href="shop-side-version-2.jsp">Women Clothing</a></span></div>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1562,13 +1562,13 @@
 
                                                         <span class="product-short__category">
 
-                                                            <a href="shop-side-version-2.jsp">Men Clothing</a></span></div>
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
 
-                                            <a class="i3-banner" href="shop-side-version-2.jsp">
+                                            <a class="i3-banner" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                                 <div class="aspect aspect--bg-grey-fb aspect--1048-334">
 
                                                     <img class="aspect__img i3-banner__img" src="images/banners/i3-banner-2.jpg" alt=""></div>
@@ -1636,7 +1636,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1677,7 +1677,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1718,7 +1718,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1759,7 +1759,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1800,7 +1800,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1841,7 +1841,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1882,7 +1882,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -1923,7 +1923,7 @@
 
                                         <span class="product-r__category">
 
-                                            <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
                                         <div class="product-r__n-p-wrap">
 
                                             <span class="product-r__name">
@@ -2016,7 +2016,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2059,7 +2059,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2102,7 +2102,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2145,7 +2145,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2188,7 +2188,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2231,7 +2231,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2274,7 +2274,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2317,7 +2317,7 @@
 
                                                     <span class="product-bs__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-bs__name">
 
@@ -2390,7 +2390,7 @@
 
                                             <span class="product-short__category">
 
-                                                <a href="shop-side-version-2.jsp">Women Clothing</a></span></div>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -2412,7 +2412,7 @@
 
                                             <span class="product-short__category">
 
-                                                <a href="shop-side-version-2.jsp">Women Clothing</a></span></div>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -2434,7 +2434,7 @@
 
                                             <span class="product-short__category">
 
-                                                <a href="shop-side-version-2.jsp">Women Clothing</a></span></div>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -2456,7 +2456,7 @@
 
                                             <span class="product-short__category">
 
-                                                <a href="shop-side-version-2.jsp">Women Clothing</a></span></div>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -2491,7 +2491,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2511,7 +2511,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Men Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Men Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2531,7 +2531,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2559,7 +2559,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2581,7 +2581,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2603,7 +2603,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2634,7 +2634,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2656,7 +2656,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2678,7 +2678,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Women Clothing</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Women Clothing</a></span>
 
                                                     <span class="product-l__name">
 
@@ -2711,32 +2711,32 @@
                             <div class="owl-carousel" id="brand-slider" data-item="5">
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b1.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b2.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b3.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b4.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b5.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b6.png" alt=""></a></div>
                             </div>
@@ -2752,162 +2752,8 @@
 
 
         <!--====== Main Footer ======-->
-        <footer>
-            <div class="outer-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="outer-footer__content u-s-m-b-40">
-
-                                <span class="outer-footer__content-title">Contact Us</span>
-                                <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
-
-                                    <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
-                                <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
-
-                                    <span>(+0) 900 901 904</span></div>
-                                <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
-
-                                    <span>contact@domain.com</span></div>
-                                <div class="outer-footer__social">
-                                    <ul>
-                                        <li>
-
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li>
-
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li>
-
-                                            <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a></li>
-                                        <li>
-
-                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li>
-
-                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="outer-footer__content u-s-m-b-40">
-
-                                        <span class="outer-footer__content-title">Information</span>
-                                        <div class="outer-footer__list-wrap">
-                                            <ul>
-                                                <li>
-
-                                                    <a href="cart.jsp">Cart</a></li>
-                                                <li>
-
-                                                    <a href="dashboard.jsp">Account</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Manufacturer</a></li>
-                                                <li>
-
-                                                    <a href="dash-payment-option.jsp">Finance</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Shop</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="outer-footer__content u-s-m-b-40">
-                                        <div class="outer-footer__list-wrap">
-
-                                            <span class="outer-footer__content-title">Our Company</span>
-                                            <ul>
-                                                <li>
-
-                                                    <a href="about.jsp">About us</a></li>
-                                                <li>
-
-                                                    <a href="contact.jsp">Contact Us</a></li>
-                                                <li>
-
-                                                    <a href="index-3.jsp">Sitemap</a></li>
-                                                <li>
-
-                                                    <a href="dash-my-order.jsp">Delivery</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Store</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="outer-footer__content">
-
-                                <span class="outer-footer__content-title">Join our Newsletter</span>
-                                <form class="newsletter">
-                                    <div class="u-s-m-b-15">
-                                        <div class="radio-box newsletter__radio">
-
-                                            <input type="radio" id="male" name="gender">
-                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="male">Male</label></div>
-                                        </div>
-                                        <div class="radio-box newsletter__radio">
-
-                                            <input type="radio" id="female" name="gender">
-                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="female">Female</label></div>
-                                        </div>
-                                    </div>
-                                    <div class="newsletter__group">
-
-                                        <label for="newsletter"></label>
-
-                                        <input class="input-text input-text--only-white" type="text" id="newsletter" placeholder="Enter your Email">
-
-                                        <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button></div>
-
-                                    <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="lower-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="lower-footer__content">
-                                <div class="lower-footer__copyright">
-
-                                    <span>Copyright © 2018</span>
-
-                                    <a href="index-3.jsp">Reshop</a>
-
-                                    <span>All Right Reserved</span></div>
-                                <div class="lower-footer__payment">
-                                    <ul>
-                                        <li><i class="fab fa-cc-stripe"></i></li>
-                                        <li><i class="fab fa-cc-paypal"></i></li>
-                                        <li><i class="fab fa-cc-mastercard"></i></li>
-                                        <li><i class="fab fa-cc-visa"></i></li>
-                                        <li><i class="fab fa-cc-discover"></i></li>
-                                        <li><i class="fab fa-cc-amex"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="commons/footerCommon.jsp" flush="true"  />
+        <!--====== Main Footer ======-->
 
         <!--====== Modal Section ======-->
 
@@ -2930,13 +2776,13 @@
                                             <a href="index.hml">Home</a></li>
                                         <li class="has-separator">
 
-                                            <a href="shop-side-version-2.jsp">Electronics</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>
                                         <li class="has-separator">
 
-                                            <a href="shop-side-version-2.jsp">DSLR Cameras</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>
                                         <li class="is-marked">
 
-                                            <a href="shop-side-version-2.jsp">Nikon Cameras</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
                                     </ul>
                                 </div>
                                 <!--====== End - Product Breadcrumb ======-->
@@ -3133,7 +2979,7 @@
 
                                         <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
 
-                                        <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW CART</a>
+                                        <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
                                         <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO CHECKOUT</a></div>
                                 </div>
@@ -3156,7 +3002,7 @@
                         <div class="row u-s-m-x-0">
                             <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
 
-                                <a class="new-l__img-wrap u-d-block" href="shop-side-version-2.jsp">
+                                <a class="new-l__img-wrap u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                     <img class="u-img-fluid u-d-block" src="images/newsletter/newsletter.jpg" alt=""></a></div>
                             <div class="col-lg-6 new-l__col-2">

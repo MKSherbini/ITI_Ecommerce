@@ -20,9 +20,18 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.SIGN_IN_PAGE, new VCUrlMapping("SignIn", "signin", "signin.jsp"));
         urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp", "signup", "signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
+//        urlMap.put(PageNames.TEST_JSP,new VCUrlMapping("testJSP","test","Testtag.jsp"));
+        urlMap.put(PageNames.ABOUT_PAGE,new VCUrlMapping("About","about","about.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
         urlMap.put(PageNames.Account,new VCUrlMapping("Account","account","dashboard.jsp"));
+        urlMap.put(PageNames.EMPTY_SHOP, new VCUrlMapping("No results", "shop", "empty-search.jsp"));
+        urlMap.put(PageNames.PRODUCT, new VCUrlMapping("Product", "product", "product-detail.jsp"));
+        urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
+        urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
+        urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
+        urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
+
         // ... add other pages
     }
 
@@ -35,7 +44,10 @@ public class UrlMappingConstants {
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
         serviceMap.put(ServiceNames.EndPoint, new ServiceUrlMapping("EndPoint", "echo"));
-
+        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
+        serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
+        serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));
+        serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));
 
     }
 
@@ -69,6 +81,18 @@ public class UrlMappingConstants {
 
     public String getControllerUrl(PageNames page) {
         return urlMap.containsKey(page) ? urlMap.get(page).getControllerUrl() : null;
+    }
+
+    public String getControllerName(PageNames page) {
+        return urlMap.containsKey(page) ? urlMap.get(page).getControllerName() : null;
+    }
+
+    public String getServiceUrl(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceUrl() : null;
+    }
+
+    public String getServiceName(ServiceNames service) {
+        return serviceMap.containsKey(service) ? serviceMap.get(service).getServiceName() : null;
     }
 
     /**
@@ -171,8 +195,8 @@ public class UrlMappingConstants {
             var key = entry.getKey();
             var value = entry.getValue();
             var newValue = new VCUrlMapping(value.getTitle(),
-                    contextPath + "/" + value.getControllerUrl(),
-                    /*contextPath + "/" + */ value.getViewUrl());
+                    contextPath + "/" + value.getControllerUrl(), value.getControllerUrl(),
+                    /*contextPath + "/" + */ value.getViewUrl(), value.isAdminOnly());
             urlMap.put(key, newValue);
         }
         System.out.println("urlMap = " + urlMap);

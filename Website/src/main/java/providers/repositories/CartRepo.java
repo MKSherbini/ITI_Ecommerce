@@ -32,7 +32,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("ShoppingCart.findHistoryByUser")
                         .setParameter("user", user)
-                        .list());
+                        .getResultList());
     }
 
     public Optional<ShoppingCart> findShoppingCartByUser(User owner) {
@@ -40,7 +40,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByUser")
                         .setParameter("user", owner)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public Optional<ShoppingCart> findShoppingCartByDummyUser(DummyUser dummyOwner) {
@@ -48,7 +48,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByDummyUser")
                         .setParameter("dummyOwner", dummyOwner)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public void updateDummyToUser(DummyUser dummyOwner, User owner) {

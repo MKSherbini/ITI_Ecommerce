@@ -19,7 +19,6 @@ import java.sql.Date;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "fake_credit_cards")
 public class FakeCreditCard {
 

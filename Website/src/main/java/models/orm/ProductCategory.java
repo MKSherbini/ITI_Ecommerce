@@ -21,7 +21,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "categories")
 public class ProductCategory {
     @Id

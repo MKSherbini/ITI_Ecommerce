@@ -9,7 +9,6 @@ import lombok.*;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "cart_items")
 public class CartItem {
 

@@ -29,7 +29,6 @@ import java.util.List;
 })
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "shopping_carts")
 public class ShoppingCart {
     @Id

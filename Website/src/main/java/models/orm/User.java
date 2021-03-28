@@ -22,7 +22,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "users")
 public class User {
 

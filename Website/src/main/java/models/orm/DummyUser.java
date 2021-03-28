@@ -15,7 +15,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "dummyusers")
 public class DummyUser {
 

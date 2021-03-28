@@ -1,11 +1,6 @@
 import managers.DatabaseManager;
 import models.orm.*;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
-import org.hibernate.service.ServiceRegistry;
+
 import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
@@ -26,7 +21,7 @@ public class testMain {
 //        session.save(user);
 //        System.out.println("user = " + user);
 //        Query q = session.createQuery("from User");
-//        List<User> users = q.list();
+//        List<User> users = q.getResultList();
 //        for (User user : users) {
 //            System.out.println("user = " + user);
 //        }

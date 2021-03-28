@@ -52,7 +52,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "products")
 public class Product {
 

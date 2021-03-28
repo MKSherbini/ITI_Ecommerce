@@ -19,7 +19,6 @@ import lombok.Setter;
         )
     })
 @Data
-@jakarta.persistence.Entity
 @Table(name = "developer")
 public class Developer {
 

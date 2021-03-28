@@ -1,41 +1,31 @@
 package managers;
 
-import constants.UrlMappingConstants;
-import constants.enums.PageNames;
-import constants.enums.ServiceNames;
-import jakarta.servlet.ServletException;
-import listeners.ThreadLocalContext;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.service.ServiceRegistry;
-import providers.database.*;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.sql.SQLException;
+import java.util.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.criteria.Subquery;
+
 
 public class DatabaseManager {
     private static volatile DatabaseManager instance = null;
-    private final SessionFactory sessionFactory;
-    private Session currentSession;
+    private final EntityManager entityManager;
+    public static void main(String[] args) {
+        DatabaseManager.getInstance().beginTransaction();
+    }
 
     private DatabaseManager() {
         if (instance != null)
             throw new RuntimeException("Use getInstance(), reflection is not allowed");
-        ServiceRegistry standardRegistry =
-                new StandardServiceRegistryBuilder()
-                        .configure("/hibernate.cfg.xml") // can be ignored
-                        .build();
-        Metadata metadata =
-                new MetadataSources(standardRegistry)
-                        .buildMetadata();
-        sessionFactory =
-                metadata.getSessionFactoryBuilder().build();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceEcommerce");
+        entityManager = emf.createEntityManager();
     }
 
     public static DatabaseManager getInstance() {
@@ -50,23 +40,21 @@ public class DatabaseManager {
     }
 
     public void beginTransaction() {
-        sessionFactory.openSession();
-        sessionFactory.getCurrentSession().getTransaction().begin();
+        entityManager.getTransaction().begin();
     }
 
     public void flush() {
-        sessionFactory.getCurrentSession().flush();
+        entityManager.flush();
     }
 
     public void endTransaction() {
-        sessionFactory.getCurrentSession().getTransaction().commit();
-        sessionFactory.getCurrentSession().close();
+        entityManager.getTransaction().commit();
     }
 
-    public <T> T runTransactionWithRet(Function<Session, T> transaction) {
+    public <T> T runTransactionWithRet(Function<EntityManager, T> transaction) {
         try {
 
-            T ret = transaction.apply(sessionFactory.getCurrentSession());
+            T ret = transaction.apply(entityManager);
             return ret;
         } catch (javax.persistence.PersistenceException e) {
             e.printStackTrace();
@@ -77,9 +65,9 @@ public class DatabaseManager {
         return null;
     }
 
-    public void runTransaction(Consumer<Session> transaction) {
+    public void runTransaction(Consumer<EntityManager> transaction) {
         try {
-            transaction.accept(sessionFactory.getCurrentSession());
+            transaction.accept(entityManager);
         } catch (PersistenceException e) {
             e.printStackTrace();
             handleError();
@@ -88,10 +76,10 @@ public class DatabaseManager {
 
     public void handleError() {
         // TODO: actually handle this f* error
-//        try {
-//            ThreadLocalContext.forward(ServiceNames.ERROR_REDIRECT);
-//        } catch (IOException | ServletException ioException) {
-//            ioException.printStackTrace();
-//        }
+        // try {
+        // ThreadLocalContext.forward(ServiceNames.ERROR_REDIRECT);
+        // } catch (IOException | ServletException ioException) {
+        // ioException.printStackTrace();
+        // }
     }
 }

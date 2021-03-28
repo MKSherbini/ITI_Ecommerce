@@ -4,6 +4,7 @@ import managers.DatabaseManager;
 import models.orm.ProductCategory;
 import models.orm.Product;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductRepo extends GenericRepo<Product, Long> {
@@ -31,7 +32,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findMinMaxPriceLikeName")
                         .setParameter("name", "%" + name + "%") // dammit
-                        .stream().findAny().get());
+                        .getResultList().stream().findAny().get());
     }
 
     public List<Product> findLikeName(String name) {
@@ -39,7 +40,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findLikeName")
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 
     public List<Product> findByPriceRange(int min, int max) {
@@ -48,7 +49,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .createNamedQuery("Product.findByPriceRange")
                         .setParameter("min", min)
                         .setParameter("max", max)
-                        .list());
+                        .getResultList());
     }
 
     public List<Product> findByCategory(ProductCategory productCategory) {
@@ -56,7 +57,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByCategory")
                         .setParameter("category", productCategory)
-                        .list());
+                        .getResultList());
     }
 
     // extra dammit
@@ -68,7 +69,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 
     // extra dammit
@@ -79,7 +80,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 
     // extra dammit
@@ -87,11 +88,11 @@ public class ProductRepo extends GenericRepo<Product, Long> {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByMultiCategoryPriceName")
-                        .setParameterList("categories", categories)
+                        .setParameter("categories", Arrays.asList(categories))
                         .setParameter("min", min)
                         .setParameter("max", max)
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 
     public List<Product> findNewArrivals() {
@@ -99,7 +100,7 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.getNewArrivals")
                         .setMaxResults(4)
-                        .list());
+                        .getResultList());
     }
 
 }

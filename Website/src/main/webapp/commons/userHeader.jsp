@@ -49,7 +49,7 @@
                                 <ul style="width:120px">
                                     <li>
 
-                                        <a href="dashboard"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                        <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                             <span>Account</span></a></li>
                                     <li>

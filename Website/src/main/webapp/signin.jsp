@@ -106,7 +106,7 @@
 
 
                                             <input class="input-text input-text--primary-style" type="text" name="email"
-                                                   id="login-email" required onblur="validateemail()"
+                                                   id="login-email" required onblur="validateemail(this.value)"
                                                    placeholder="Enter E-mail">
                                             <label style='color: red' ; id="error-email"></label>
 
@@ -115,9 +115,9 @@
 
                                             <label class="gl-label" for="login-password">PASSWORD *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text"
-                                                   name="password" id="login-password" required onblur="validatePass()"
-                                                   placeholder="Enter Password">
+                                            <input class="input-text input-text--primary-style" type="password"
+                                                   name="password" id="login-password" required onblur="validatePass(this.value)"
+                                                   placeholder="Enter Password" >
                                             <label style='color: red' ; id="error-pass"></label>
                                         </div>
                                         <div class="gl-inline">

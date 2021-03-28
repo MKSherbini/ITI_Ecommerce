@@ -22,6 +22,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
+        urlMap.put(PageNames.Account,new VCUrlMapping("Account","account","dashboard.jsp"));
         // ... add other pages
     }
 
@@ -34,6 +35,7 @@ public class UrlMappingConstants {
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
         serviceMap.put(ServiceNames.EndPoint, new ServiceUrlMapping("EndPoint", "echo"));
+
 
     }
 

@@ -984,7 +984,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard.jsp">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="dashboard">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +992,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard.jsp">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="dashboard">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1392,7 +1392,7 @@
                                         <a href="index.jsp">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dashboard.jsp">My Account</a></li>
+                                        <a href="dashboard">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1420,7 +1420,7 @@
                                             <ul class="dash__f-list">
                                                 <li>
 
-                                                    <a class="dash-active" href="dashboard.jsp">Manage My Account</a></li>
+                                                    <a class="dash-active" href="dashboard">Manage My Account</a></li>
                                                 <li>
 
                                                     <a href="dash-my-profile.jsp">My Profile</a></li>

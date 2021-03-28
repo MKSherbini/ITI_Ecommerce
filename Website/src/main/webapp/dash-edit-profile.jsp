@@ -1488,18 +1488,18 @@
                                                 <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <form class="dash-edit-p">
+                                                    <form class="dash-edit-p" action="account" method="post">
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
 
                                                                 <label class="gl-label" for="reg-fname">FIRST NAME *</label>
 
-                                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="John"></div>
+                                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" name="reg-fname"></div>
                                                             <div class="u-s-m-b-30">
 
                                                                 <label class="gl-label" for="reg-lname">LAST NAME *</label>
 
-                                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Doe"></div>
+                                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" name="reg-lname" ></div>
                                                         </div>
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
@@ -1507,7 +1507,7 @@
                                                                 <!--====== Date of Birth Select-Box ======-->
 
                                                                 <span class="gl-label">BIRTHDAY</span>
-                                                                <div class="gl-dob"><select class="select-box select-box--primary-style">
+                                                                <div class="gl-dob"><select class="select-box select-box--primary-style" name="bdate">
                                                                         <option selected>Month</option>
                                                                         <option value="male">January</option>
                                                                         <option value="male">February</option>
@@ -1530,7 +1530,7 @@
                                                             </div>
                                                             <div class="u-s-m-b-30">
 
-                                                                <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender">
+                                                                <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender" name="geneder">
                                                                     <option selected>Select</option>
                                                                     <option value="male">Male</option>
                                                                     <option value="male">Female</option>
@@ -1539,19 +1539,19 @@
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
                                                                 <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
-
-                                                                <span class="dash__text">johndoe@domain.com</span>
                                                                 <div class="dash__link dash__link--secondary">
-
-                                                                    <a href="#">Change</a></div>
+                                                                    <input class="input-text input-text--primary-style" type="email" id="email" name="email" >
+                                                                    <%--<a href="#">Change</a>--%>
+                                                                </div>
                                                             </div>
                                                             <div class="u-s-m-b-30">
                                                                 <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
                                                                 <span class="dash__text">Please enter your mobile</span>
                                                                 <div class="dash__link dash__link--secondary">
-
-                                                                    <a href="#">Add</a></div>
+                                                                    <input class="input-text input-text--primary-style" type="number" id="mobile" name="mobile">
+                                                                    <%--<a href="#">Add</a>--%>
+                                                                </div>
                                                             </div>
                                                         </div>
 

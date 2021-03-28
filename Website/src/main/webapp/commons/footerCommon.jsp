@@ -1,187 +1,157 @@
-<!-- Footer -->
-<footer class="bg-dark text-center text-white">
-    <!-- Grid container -->
-    <div class="container p-4">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-            <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-facebook-f"></i
-            ></a>
+<!--====== Main Footer ======-->
+<footer>
+    <div class="outer-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="outer-footer__content u-s-m-b-40">
 
-            <!-- Twitter -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-twitter"></i
-            ></a>
+                        <span class="outer-footer__content-title">Contact Us</span>
+                        <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-            <!-- Google -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-google"></i
-            ></a>
+                            <span>28 Smart Village Giza , Egypt</span></div>
+                        <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-            <!-- Instagram -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-instagram"></i
-            ></a>
+                            <span>(+20) 102 312 2579</span></div>
+                        <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 
-            <!-- Linkedin -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-linkedin-in"></i
-            ></a>
+                            <span>contact@ludus.com</span></div>
+                        <div class="outer-footer__social">
+                          <%--  <ul>
+                                <li>
 
-            <!-- Github -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-github"></i
-            ></a>
-        </section>
-        <!-- Section: Social media -->
+                                    <a class="s-fb--color-hover" href="www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                                <li>
 
-        <!-- Section: Form -->
-        <section class="">
-            <form action="">
-                <!--Grid row-->
-                <div class="row d-flex justify-content-center">
-                    <!--Grid column-->
-                    <div class="col-auto">
-                        <p class="pt-2">
-                            <strong>Sign up for our newsletter</strong>
-                        </p>
-                    </div>
-                    <!--Grid column-->
+                                    <a class="s-tw--color-hover" href="www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+                                <li>
 
-                    <!--Grid column-->
-                    <div class="col-md-5 col-12">
-                        <!-- Email input -->
-                        <div class="form-outline form-white mb-4">
-                            <input type="email" id="form5Example2" class="form-control"/>
-                            <label class="form-label" for="form5Example2">Email address</label>
+                                    <a class="s-youtube--color-hover" href="www.youtube.com"><i class="fab fa-youtube"></i></a></li>
+                                <li>
+
+                                    <a class="s-insta--color-hover" href="www.instgram.com"><i class="fab fa-instagram"></i></a></li>
+                                <li>
+
+                                    <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>--%>
                         </div>
                     </div>
-                    <!--Grid column-->
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="outer-footer__content u-s-m-b-40">
 
-                    <!--Grid column-->
-                    <div class="col-auto">
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-outline-light mb-4">
-                            Subscribe
-                        </button>
+                                <span class="outer-footer__content-title">Information</span>
+                                <div class="outer-footer__list-wrap">
+                                    <ul>
+                                        <li>
+
+                                            <a href="cart.jsp">Cart</a></li>
+                                        <li>
+
+                                            <a href="dashboard.jsp">Account</a></li>
+                                        <li>
+
+                                            <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                        <li>
+
+                                            <a href="dash-payment-option.jsp">Finance</a></li>
+                                        <li>
+
+                                            <a href="shop-side-version-2.jsp">Shop</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="outer-footer__content u-s-m-b-40">
+                                <div class="outer-footer__list-wrap">
+
+                                    <span class="outer-footer__content-title">Our Company</span>
+                                    <ul>
+                                        <li>
+
+                                            <a href="about">About us</a></li>
+                                        <li>
+
+                                            <a href="/contact">Contact Us</a></li>
+                                        <li>
+
+                                            <a href="index.jsp">Sitemap</a></li>
+                                        <li>
+
+                                            <a href="dash-my-order.jsp">Delivery</a></li>
+                                        <li>
+
+                                            <a href="shop-side-version-2.jsp">Store</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!--Grid column-->
                 </div>
-                <!--Grid row-->
-            </form>
-        </section>
-        <!-- Section: Form -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="outer-footer__content">
 
-        <!-- Section: Text -->
-        <section class="mb-4">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                eum harum corrupti dicta, aliquam sequi voluptate quas.
-            </p>
-        </section>
-        <!-- Section: Text -->
+                        <span class="outer-footer__content-title">Join our Newsletter</span>
+                        <form class="newsletter">
+                            <div class="u-s-m-b-15">
+                                <div class="radio-box newsletter__radio">
 
-        <!-- Section: Links -->
-        <section class="">
-            <!--Grid row-->
-            <div class="row">
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
+                                    <input type="radio" id="male" name="gender">
+                                    <div class="radio-box__state radio-box__state--primary">
 
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
+                                        <label class="radio-box__label" for="male">Male</label></div>
+                                </div>
+                                <div class="radio-box newsletter__radio">
+
+                                    <input type="radio" id="female" name="gender">
+                                    <div class="radio-box__state radio-box__state--primary">
+
+                                        <label class="radio-box__label" for="female">Female</label></div>
+                                </div>
+                            </div>
+                            <div class="newsletter__group">
+
+                                <label for="newsletter"></label>
+
+                                <input class="input-text input-text--only-white" type="text" id="newsletter" placeholder="Enter your Email">
+
+                                <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button></div>
+
+                            <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
+                        </form>
+                    </div>
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--Grid column-->
             </div>
-            <!--Grid row-->
-        </section>
-        <!-- Section: Links -->
+        </div>
     </div>
-    <!-- Grid container -->
+    <div class="lower-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="lower-footer__content">
+                        <div class="lower-footer__copyright">
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        &copy; 2020 Copyright:
-        <a class="text-white" href="http://www.iti.gov.eg/iti/home">iti.gov.eg</a>
+                            <span>Copyright © 2018</span>
+
+                            <a href="index.jsp">Reshop</a>
+
+                            <span>All Right Reserved</span></div>
+                        <div class="lower-footer__payment">
+                            <ul>
+                                <li><i class="fab fa-cc-stripe"></i></li>
+                                <li><i class="fab fa-cc-paypal"></i></li>
+                                <li><i class="fab fa-cc-mastercard"></i></li>
+                                <li><i class="fab fa-cc-visa"></i></li>
+                                <li><i class="fab fa-cc-discover"></i></li>
+                                <li><i class="fab fa-cc-amex"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Copyright -->
 </footer>
-<!-- Footer -->

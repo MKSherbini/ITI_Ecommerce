@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -1413,9 +1414,18 @@
                                 <div class="about">
                                     <div class="about__container">
                                         <div class="about__info">
-                                            <h2 class="about__h2">Welcome to Reshop Store!</h2>
+                                            <h2 class="about__h2">Welcome to Ludus Store!</h2>
                                             <div class="about__p-wrap">
-                                                <p class="about__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                                <p class="about__p">About Ludus.com
+                                                    Welcome to Ludus.com - the Middle East's online marketplace.
+
+                                                    We connect people and products - opening up a world of possibility. From bracelets and backpacks to tablets and toy cars - we give you access to everything you need and want. Our range is unparalleled, and our prices unbeatable.
+
+                                                    Driven by smart technology, everything we do is designed to put the power directly in your hands - giving you the freedom to shop however, whenever and wherever you like.
+
+                                                    We're trusted by millions, because we don't just deliver to your doorstep, we were born here. With Ludus.com you'll always be getting a good deal - with exceptional service that makes your shopping experience as easy and seamless as possible.
+
+                                                    This is Ludus.com - the power is in your hands.</p>
                                             </div>
 
                                             <a class="about__link btn--e-secondary" href="index.jsp" target="_blank">Shop Now</a>
@@ -1453,126 +1463,42 @@
                 <div class="section__content">
                     <div class="container">
                         <div class="row">
+
+                            <c:if test="${!empty requestScope.developers}">
+                            <c:forEach items="${requestScope.developers}" var="developer">
                             <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
                                 <div class="team-member u-h-100">
                                     <div class="team-member__wrap">
                                         <div class="aspect aspect--bg-grey-fb aspect--square">
+<%--                                            //todo present the developer data here  --%>
 
-                                            <img class="aspect__img team-member__img" src="images/about/member-1.jpg" alt=""></div>
+                                            <img class="aspect__img team-member__img" src="images/about/developer.jpg" alt=""></div>
                                         <div class="team-member__social-wrap">
                                             <ul class="team-member__social-list">
                                                 <li>
 
-                                                    <a class="s-tw--bgcolor-hover" href="#"><i class="fab fa-twitter"></i></a></li>
+                                                    <a class="s-tw--bgcolor-hover" href="${developer.twitter}"><i class="fab fa-twitter"></i></a></li>
                                                 <li>
 
-                                                    <a class="s-fb--bgcolor-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <a class="s-fb--bgcolor-hover" href="${developer.facebook}"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li>
 
-                                                    <a class="s-insta--bgcolor-hover" href="#"><i class="fab fa-instagram"></i></a></li>
+                                                    <a class="s-insta--bgcolor-hover" href="${developer.instgram}"><i class="fab fa-instagram"></i></a></li>
                                                 <li>
 
-                                                    <a class="s-linked--bgcolor-hover" href="#"><i class="fab fa-linkedin"></i></a></li>
+                                                    <a class="s-linked--bgcolor-hover" href="${developer.linkedIn}"><i class="fab fa-linkedin"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="team-member__info">
 
-                                        <span class="team-member__name">Ahnan Bashri</span>
+                                        <span class="team-member__name">${developer.name}</span>
 
-                                        <span class="team-member__job-title">Manager</span></div>
+                                        <span class="team-member__job-title">${developer.job}</span></div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
-                                <div class="team-member u-h-100">
-                                    <div class="team-member__wrap">
-                                        <div class="aspect aspect--bg-grey-fb aspect--square">
-
-                                            <img class="aspect__img team-member__img" src="images/about/member-2.jpg" alt=""></div>
-                                        <div class="team-member__social-wrap">
-                                            <ul class="team-member__social-list">
-                                                <li>
-
-                                                    <a class="s-tw--bgcolor-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-fb--bgcolor-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-insta--bgcolor-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-linked--bgcolor-hover" href="#"><i class="fab fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="team-member__info">
-
-                                        <span class="team-member__name">Joseph Min</span>
-
-                                        <span class="team-member__job-title">UI, Designer</span></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
-                                <div class="team-member u-h-100">
-                                    <div class="team-member__wrap">
-                                        <div class="aspect aspect--bg-grey-fb aspect--square">
-
-                                            <img class="aspect__img team-member__img" src="images/about/member-3.jpg" alt=""></div>
-                                        <div class="team-member__social-wrap">
-                                            <ul class="team-member__social-list">
-                                                <li>
-
-                                                    <a class="s-tw--bgcolor-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-fb--bgcolor-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-insta--bgcolor-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-linked--bgcolor-hover" href="#"><i class="fab fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="team-member__info">
-
-                                        <span class="team-member__name">Mike Pipe</span>
-
-                                        <span class="team-member__job-title">App, Architect</span></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
-                                <div class="team-member u-h-100">
-                                    <div class="team-member__wrap">
-                                        <div class="aspect aspect--bg-grey-fb aspect--square">
-
-                                            <img class="aspect__img team-member__img" src="images/about/member-4.jpg" alt=""></div>
-                                        <div class="team-member__social-wrap">
-                                            <ul class="team-member__social-list">
-                                                <li>
-
-                                                    <a class="s-tw--bgcolor-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-fb--bgcolor-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-insta--bgcolor-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                                <li>
-
-                                                    <a class="s-linked--bgcolor-hover" href="#"><i class="fab fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="team-member__info">
-
-                                        <span class="team-member__name">Klronr Jim</span>
-
-                                        <span class="team-member__job-title">Team Leader</span></div>
-                                </div>
-                            </div>
+                            </c:forEach>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -1677,162 +1603,8 @@
 
 
         <!--====== Main Footer ======-->
-        <footer>
-            <div class="outer-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="outer-footer__content u-s-m-b-40">
-
-                                <span class="outer-footer__content-title">Contact Us</span>
-                                <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
-
-                                    <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
-                                <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
-
-                                    <span>(+0) 900 901 904</span></div>
-                                <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
-
-                                    <span>contact@domain.com</span></div>
-                                <div class="outer-footer__social">
-                                    <ul>
-                                        <li>
-
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li>
-
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li>
-
-                                            <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a></li>
-                                        <li>
-
-                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li>
-
-                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="outer-footer__content u-s-m-b-40">
-
-                                        <span class="outer-footer__content-title">Information</span>
-                                        <div class="outer-footer__list-wrap">
-                                            <ul>
-                                                <li>
-
-                                                    <a href="cart.jsp">Cart</a></li>
-                                                <li>
-
-                                                    <a href="dashboard.jsp">Account</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Manufacturer</a></li>
-                                                <li>
-
-                                                    <a href="dash-payment-option.jsp">Finance</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Shop</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="outer-footer__content u-s-m-b-40">
-                                        <div class="outer-footer__list-wrap">
-
-                                            <span class="outer-footer__content-title">Our Company</span>
-                                            <ul>
-                                                <li>
-
-                                                    <a href="about.jsp">About us</a></li>
-                                                <li>
-
-                                                    <a href="contact.jsp">Contact Us</a></li>
-                                                <li>
-
-                                                    <a href="index.jsp">Sitemap</a></li>
-                                                <li>
-
-                                                    <a href="dash-my-order.jsp">Delivery</a></li>
-                                                <li>
-
-                                                    <a href="shop-side-version-2.jsp">Store</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="outer-footer__content">
-
-                                <span class="outer-footer__content-title">Join our Newsletter</span>
-                                <form class="newsletter">
-                                    <div class="u-s-m-b-15">
-                                        <div class="radio-box newsletter__radio">
-
-                                            <input type="radio" id="male" name="gender">
-                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="male">Male</label></div>
-                                        </div>
-                                        <div class="radio-box newsletter__radio">
-
-                                            <input type="radio" id="female" name="gender">
-                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="female">Female</label></div>
-                                        </div>
-                                    </div>
-                                    <div class="newsletter__group">
-
-                                        <label for="newsletter"></label>
-
-                                        <input class="input-text input-text--only-white" type="text" id="newsletter" placeholder="Enter your Email">
-
-                                        <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button></div>
-
-                                    <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="lower-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="lower-footer__content">
-                                <div class="lower-footer__copyright">
-
-                                    <span>Copyright © 2018</span>
-
-                                    <a href="index.jsp">Reshop</a>
-
-                                    <span>All Right Reserved</span></div>
-                                <div class="lower-footer__payment">
-                                    <ul>
-                                        <li><i class="fab fa-cc-stripe"></i></li>
-                                        <li><i class="fab fa-cc-paypal"></i></li>
-                                        <li><i class="fab fa-cc-mastercard"></i></li>
-                                        <li><i class="fab fa-cc-visa"></i></li>
-                                        <li><i class="fab fa-cc-discover"></i></li>
-                                        <li><i class="fab fa-cc-amex"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="commons/footerCommon.jsp" flush="true"/>
+        <!-- ======Main Footer End ============-->
     </div>
     <!--====== End - Main App ======-->
 

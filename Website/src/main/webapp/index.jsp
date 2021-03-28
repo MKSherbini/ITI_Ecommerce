@@ -2344,6 +2344,9 @@
 <!--====== End - App Content ======-->
 
 
+        <!--=======footer=============>
+        <@!
+        <!-====== Modal Section ======-->
 <!--====== Main Footer ======-->
 <footer>
     <div class="outer-footer">
@@ -2811,6 +2814,7 @@
 </div>
 <!--====== End - Main App ======-->
 
+<jsp:include page="commons/footerCommon.jsp" flush="true"  />
 
 <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
 <script>

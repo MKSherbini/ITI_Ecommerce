@@ -8,8 +8,8 @@ public enum PageNames {
     TEST_JSP,
     ABOUT_PAGE,
     SHOP,
-    CONTACT_US
-    SHOP, PRODUCT,
+    CONTACT_US,
+    PRODUCT,
     EMPTY_SHOP, CART, EMPTY_CART, TEST_USER_JSP
 
 }

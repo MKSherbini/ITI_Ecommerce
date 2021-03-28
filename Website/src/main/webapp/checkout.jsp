@@ -394,19 +394,23 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>SHIPPING</td>
-                                                    <td>$${sessionScope.cart.totalPrice*0.1}</td>
+                                                    <td>
+                                                        $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.1)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>TAX</td>
-                                                    <td>$${sessionScope.cart.totalPrice*0.05}</td>
+                                                    <td>
+                                                        $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.05)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>SUBTOTAL</td>
-                                                    <td>$${sessionScope.cart.totalPrice}</td>
+                                                    <td>
+                                                        $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>GRAND TOTAL</td>
-                                                    <td>$${sessionScope.cart.totalPrice*1.15}</td>
+                                                    <td>
+                                                        $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*1.15)}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>

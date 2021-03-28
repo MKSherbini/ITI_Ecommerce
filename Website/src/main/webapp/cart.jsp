@@ -157,7 +157,9 @@
                                         <span>CONTINUE SHOPPING</span></a></div>
                                 <div class="route-box__g2">
 
-                                    <a class="route-box__link" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i class="fas fa-trash"></i>
+                                    <a class="route-box__link"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i
+                                            class="fas fa-trash"></i>
 
                                         <span>CLEAR CART</span></a>
 
@@ -227,7 +229,8 @@
                                             <div class="u-s-m-b-30">
 
                                                 <a class="f-cart__ship-link btn--e-transparent-brand-b-2"
-                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">CALCULATE SHIPPING</a></div>
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">CALCULATE
+                                                    SHIPPING</a></div>
 
                                             <span class="gl-text">Note: There are some countries where free shipping is available otherwise our flat rate charges or country delivery charges will be apply.</span>
                                         </div>
@@ -251,26 +254,31 @@
                                                     <tbody>
                                                     <tr>
                                                         <td>SHIPPING</td>
-                                                        <td>$${sessionScope.cart.totalPrice*0.1}</td>
+                                                        <td>
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.1)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>TAX</td>
-                                                        <td>$${sessionScope.cart.totalPrice*0.05}</td>
+                                                        <td>
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.05)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SUBTOTAL</td>
-                                                        <td>$${sessionScope.cart.totalPrice}</td>
+                                                        <td>
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>GRAND TOTAL</td>
-                                                        <td>$${sessionScope.cart.totalPrice*1.15}</td>
+                                                        <td>
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*1.15)}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                             <div>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}" class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}"
+                                                   class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
                                                     CHECKOUT
                                                 </a>
                                             </div>
@@ -289,11 +297,11 @@
     <!--====== End - App Content ======-->
 
 
-        <!--====== Main Footer ======-->
-        <jsp:include page="commons/footerCommon.jsp" flush="true"  />
-        <!--====== Main Footer ======-->
-    </div>
-    <!--====== End - Main App ======-->
+    <!--====== Main Footer ======-->
+    <jsp:include page="commons/footerCommon.jsp" flush="true"/>
+    <!--====== Main Footer ======-->
+</div>
+<!--====== End - Main App ======-->
 
 
 <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->

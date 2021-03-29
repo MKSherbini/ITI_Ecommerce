@@ -111,7 +111,7 @@
 
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                    <span class="total-item-round">${sessionScope.cart.totalItemsCount}</span></a>
+                                    <span class="total-item-round cart-total-itemsCount">${sessionScope.cart.totalItemsCount}</span></a>
 
                                 <!--====== Dropdown ======-->
 
@@ -145,7 +145,7 @@
 
                                                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${item.productId}">${item.name}</a></span>
 
-                                                        <span class="mini-product__quantity">${item.productQuantity} x</span>
+                                                        <span class="mini-product__quantity product-${item.productId}-productQuantity">${item.productQuantity} x</span>
 
                                                         <span class="mini-product__price">$${item.price}</span>
                                                     </div>
@@ -168,13 +168,16 @@
 
                                             <span class="subtotal-text">SUBTOTAL</span>
 
-                                            <span class="subtotal-value">$${sessionScope.cart.totalPrice}</span></div>
+                                            <span class="subtotal-value cart-total-price">$${sessionScope.cart.totalPrice}</span></div>
                                         <div class="mini-action">
 
-                                            <a class="mini-link btn--e-brand-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED TO
+                                            <a class="mini-link btn--e-brand-b-2"
+                                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                                TO
                                                 CHECKOUT</a>
 
-                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                            <a class="mini-link btn--e-transparent-secondary-b-2"
+                                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
                                                 CART</a></div>
                                     </div>
                                     <!--====== End - Mini Product Statistics ======-->

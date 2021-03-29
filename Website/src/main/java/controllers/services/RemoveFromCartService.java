@@ -9,7 +9,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import managers.DatabaseManager;
 import models.orm.*;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
@@ -71,12 +70,8 @@ public class RemoveFromCartService extends HttpServlet {
 
 //        CartRepo.getInstance().refresh(cart.get());
 //        request.getSession().setAttribute("cart", cart.get());
-        var cartItems = cart.get().getCartItems();
-
 //        cartItems.add()
-        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
-        if (cartItems.size() > 0)
-            addedProductDto.setTotalInCart(cartItems.stream().mapToInt(CartItem::getProductQuantity).sum());
+        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get(), cart.get());
 
         out.print(new Gson().toJson(addedProductDto));
     }

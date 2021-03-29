@@ -10,7 +10,7 @@
                    data-placement="top" title="Quick Look"></a></div>
 
             <div class="product-m__add-cart">
-                <a class="btn--e-brand" onclick="addToCart(${product.productId})" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                <a class="btn--e-brand" onclick="incrementFromCart(${product.productId})" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
         </div>
         <%--product category--%>
         <div class="product-m__content">

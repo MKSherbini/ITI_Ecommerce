@@ -30,6 +30,7 @@
     function incrementFromCart(productId) {
         $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
             console.log(data);
+            updateCartUi(data, productId);
             // if (status === "success")
             //     window.location.reload(true);
         });
@@ -38,8 +39,25 @@
     function decrementFromCart(productId) {
         $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_REMOVE_FROM_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
             console.log(data);
+            updateCartUi(data, productId);
             // if (status === "success")
             //     window.location.reload(true);
+        });
+    }
+
+    function updateCartUi(addedItemDto, productId) {
+        if (fkingSetModal !== void 0)
+            fkingSetModal(addedItemDto);
+        console.log(addedItemDto);
+        console.log(productId);
+        $(".cart-total-price").each(function (i, el) {
+            $(el).text(addedItemDto.totalPrice);
+        });
+        $(`.product-\${productId}-productQuantity`).each(function (i, el) {
+            $(el).text(addedItemDto.currentQuantity);
+        });
+        $(".cart-total-itemsCount").each(function (i, el) {
+            $(el).text(addedItemDto.totalInCart);
         });
     }
 </script>

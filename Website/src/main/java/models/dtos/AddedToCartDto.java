@@ -8,6 +8,8 @@ import java.sql.Date;
 public class AddedToCartDto {
     private String name;
     private int price;
+    private int totalPrice;
+    private int currentQuantity;
     private int totalInCart;
     private String imageSrc;
 }

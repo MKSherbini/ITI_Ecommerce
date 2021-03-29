@@ -79,12 +79,7 @@ public class AddToCartService extends HttpServlet {
         // todo fk this, why did I fking have to call fking refresh?
 //        request.getSession().setAttribute("cart", cart.get());
 
-        var cartItems = cart.get().getCartItems();
-
-        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
-        // todo fix this count not reflecting last change
-        if (cartItems.size() > 0)
-            addedProductDto.setTotalInCart(cartItems.stream().mapToInt(CartItem::getProductQuantity).sum());
+        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get(), cart.get());
 
         out.print(new Gson().toJson(addedProductDto));
     }

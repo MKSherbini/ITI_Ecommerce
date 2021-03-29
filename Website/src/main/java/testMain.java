@@ -4,6 +4,7 @@ import models.orm.*;
 import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
+import utilities.adapters.GenericAdapter;
 
 import java.sql.Date;
 import java.sql.SQLException;

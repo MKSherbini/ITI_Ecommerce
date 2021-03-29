@@ -29,7 +29,7 @@
 
     function incrementFromCart(productId, addQuantity) {
         addQuantity = addQuantity || 1;
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId + "&" + addQuantity, function (data, status) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId + "&${WebsiteConstants.paramAddProductQuantityName}=" + addQuantity, function (data, status) {
             console.log(data);
             updateCartUi(data, productId);
             // if (status === "success")
@@ -47,8 +47,8 @@
     }
 
     function updateCartUi(addedItemDto, productId) {
-        if (fkingSetModal !== void 0)
-            fkingSetModal(addedItemDto);
+        if (window.fkingSetModal !== void 0)
+            window.fkingSetModal(addedItemDto);
         console.log(addedItemDto);
         console.log(productId);
         $(".cart-total-price").each(function (i, el) {

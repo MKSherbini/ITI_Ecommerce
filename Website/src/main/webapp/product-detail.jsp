@@ -183,8 +183,11 @@
 
                                                 <span class="input-counter__minus fas fa-minus"></span>
 
-                                                <input class="input-counter__text input-counter--text-primary-style"
-                                                       type="text" name="${WebsiteConstants.paramAddProductQuantityName}" value="1" data-min="1"
+                                                <input id="counter"
+                                                       class="input-counter__text input-counter--text-primary-style"
+                                                       type="text"
+                                                       name="${WebsiteConstants.paramAddProductQuantityName}" value="1"
+                                                       data-min="1"
                                                        data-max="1000">
 
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
@@ -192,7 +195,10 @@
                                         </div>
                                         <div class="u-s-m-b-15">
 
-                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
+                                            <button class="btn btn--e-brand-b-2" type="button"
+                                                    onclick="incrementFromCart(${requestScope.product.productId},$(counter).val());">
+                                                Add to Cart
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

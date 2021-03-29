@@ -45,24 +45,26 @@ public class AddToCartService extends HttpServlet {
         DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
         var out = response.getOutputStream();
         var paramProduct = request.getParameter(WebsiteConstants.paramProductId);
+        var paramAddProductQuantityName = Math.max(1, SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramAddProductQuantityName), 1));
+
         Optional<Product> product = Optional.empty();
         if (paramProduct != null) {
             product = productRepo.read(SafeConverter.safeLongParse(paramProduct, 0L));
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
         Optional<ShoppingCart> cart;
         if (user == null)
-            cart = cartRepo.addProduct(dummyUser, product.get());
+            cart = cartRepo.addProduct(dummyUser, product.get(), paramAddProductQuantityName);
         else
-            cart = cartRepo.addProduct(user, product.get());
+            cart = cartRepo.addProduct(user, product.get(), paramAddProductQuantityName);
 
         if (cart.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 

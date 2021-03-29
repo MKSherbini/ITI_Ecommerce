@@ -2,7 +2,8 @@
     <div class="product-m">
         <div class="product-m__thumb">
             <%--product image--%>
-            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">
+            <a class="aspect aspect--bg-grey aspect--square u-d-block"
+               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">
                 <img class="aspect__img" src="${product.imageSrc}" alt=""></a>
 
             <div class="product-m__quick-look">
@@ -10,15 +11,18 @@
                    data-placement="top" title="Quick Look"></a></div>
 
             <div class="product-m__add-cart">
-                <a class="btn--e-brand" onclick="incrementFromCart(${product.productId})" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                <a class="btn--e-brand" onclick="incrementFromCart(${product.productId})" data-modal="modal"
+                   data-modal-id="#add-to-cart">Add to Cart</a></div>
         </div>
         <%--product category--%>
         <div class="product-m__content">
             <div class="product-m__category">
-                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${product.category.name}">${product.category.name}</a></div>
+                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${product.category.name}">${product.category.name}</a>
+            </div>
             <%--product name--%>
             <div class="product-m__name">
-                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">${product.name}</a></div>
+                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">${product.name}</a>
+            </div>
             <c:choose>
                 <c:when test="${product.discountPercent==0}">
                     <%--product price--%>

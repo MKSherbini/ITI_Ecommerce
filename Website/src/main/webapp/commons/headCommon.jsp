@@ -27,8 +27,9 @@
         });
     }
 
-    function incrementFromCart(productId) {
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+    function incrementFromCart(productId, addQuantity) {
+        addQuantity = addQuantity || 1;
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId + "&" + addQuantity, function (data, status) {
             console.log(data);
             updateCartUi(data, productId);
             // if (status === "success")

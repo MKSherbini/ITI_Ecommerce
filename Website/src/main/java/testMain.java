@@ -1,15 +1,10 @@
-import managers.DatabaseManager;
 import models.orm.*;
 
 import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
-import utilities.adapters.GenericAdapter;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
 
 public class testMain {
     static Logger log = Logger.getLogger(testMain.class.getName());
@@ -132,10 +127,10 @@ public class testMain {
         UserRepo userRepo = UserRepo.getInstance();
         var user = userRepo.read(1L);
         var product = productRepo.read(23L);
-        var cart = cartRepo.addProduct(user.get(), product.get());
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart.get());
         System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
-        cart = cartRepo.addProduct(user.get(), product.get());
+        cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart.get());
         System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
 //        testDummyHijack();
@@ -168,7 +163,7 @@ public class testMain {
         CartRepo cartRepo = CartRepo.getInstance();
         var product = productRepo.read(22L);
         var user = userRepo.read(1L);
-        var cart = cartRepo.addProduct(user.get(), product.get());
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
         cart = cartRepo.removeProduct(user.get(), product.get());
         System.out.println("cart = " + cart);
@@ -180,7 +175,7 @@ public class testMain {
         CartRepo cartRepo = CartRepo.getInstance();
         var product = productRepo.read(22L);
         var user = userRepo.read(1L);
-        var cart = cartRepo.addProduct(user.get(), product.get());
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
         cart = cartRepo.removeProduct(user.get(), product.get());
         System.out.println("cart = " + cart);

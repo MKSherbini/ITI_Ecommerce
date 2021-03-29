@@ -44,7 +44,7 @@ public class RemoveFromCartService extends HttpServlet {
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
@@ -55,7 +55,7 @@ public class RemoveFromCartService extends HttpServlet {
             cart = cartRepo.removeProduct(user, product.get());
 
         if (cart.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 

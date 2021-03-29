@@ -60,7 +60,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .executeUpdate());
     }
 
-    private Optional<ShoppingCart> addToShoppingCart(Product product, ShoppingCart cart) {
+    private Optional<ShoppingCart> addToShoppingCart(Product product, ShoppingCart cart, int addQuantity) {
         // cart logic
         refresh(cart);
         var cartItems = cart.getCartItems();
@@ -72,14 +72,15 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         CartItemRepo cartItemRepo = CartItemRepo.getInstance();
         if (currentCartItem.isEmpty()) {
             var newItem = new CartItem(cart, product);
+            newItem.setProductQuantity(addQuantity);
             cartItemRepo.create(newItem);
         } else {
-            currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() + 1);
+            currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() + addQuantity);
             cartItemRepo.update(currentCartItem.get());
         }
 
         // update price
-        cart.setTotalPrice((int) (cart.getTotalPrice() + product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
+        cart.setTotalPrice((int) (cart.getTotalPrice() + addQuantity * product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
         update(cart);
 //        DatabaseManager.getInstance().flush();
 
@@ -127,11 +128,11 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         return Optional.of(cart);
     }
 
-    public Optional<ShoppingCart> addProduct(User user, Product product) {
+    public Optional<ShoppingCart> addProduct(User user, Product product, int addQuantity) {
         var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
-        return addToShoppingCart(product, cart.get());
+        return addToShoppingCart(product, cart.get(), addQuantity);
     }
 
     public Optional<ShoppingCart> removeProduct(User user, Product product) {
@@ -168,11 +169,11 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         return cart;
     }
 
-    public Optional<ShoppingCart> addProduct(DummyUser user, Product product) {
+    public Optional<ShoppingCart> addProduct(DummyUser user, Product product, int addQuantity) {
         var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
-        return addToShoppingCart(product, cart.get());
+        return addToShoppingCart(product, cart.get(), addQuantity);
     }
 
     public Optional<ShoppingCart> removeProduct(DummyUser user, Product product) {

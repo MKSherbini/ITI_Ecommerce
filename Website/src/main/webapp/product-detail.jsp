@@ -171,7 +171,10 @@
                                             <span class="pd-detail__click-count">(20)</span></span></div>
                             </div>
                             <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
+                                <form class="pd-detail__form"
+                                      action="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}">
+                                    <input type="hidden" name="${WebsiteConstants.paramProductId}"
+                                           value="${requestScope.product.productId}"/>
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
 
@@ -181,7 +184,8 @@
                                                 <span class="input-counter__minus fas fa-minus"></span>
 
                                                 <input class="input-counter__text input-counter--text-primary-style"
-                                                       type="text" value="1" data-min="1" data-max="1000">
+                                                       type="text" name="${WebsiteConstants.paramAddProductQuantityName}" value="1" data-min="1"
+                                                       data-max="1000">
 
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
@@ -1024,9 +1028,9 @@
     <!--====== End - App Content ======-->
 
 
-        <!--====== Footer ======-->
-        <jsp:include page="commons/footerCommon.jsp"/>
-        <!--====== End - Footer ======-->
+    <!--====== Footer ======-->
+    <jsp:include page="commons/footerCommon.jsp"/>
+    <!--====== End - Footer ======-->
 
     <!--====== Modal Section ======-->
 
@@ -1260,9 +1264,13 @@
                                     <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
                                         SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                        CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED TO
+                                    <a class="s-option__link btn--e-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                        TO
                                         CHECKOUT</a></div>
                             </div>
                         </div>

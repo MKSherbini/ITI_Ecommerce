@@ -1,4 +1,5 @@
 import managers.DatabaseManager;
+import managers.FirebaseManager;
 import models.orm.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -10,6 +11,7 @@ import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -20,9 +22,14 @@ public class testMain {
 
 
     public static void main(String[] args) throws SQLException {
-        var db = DatabaseManager.getInstance();
-        db.beginTransaction();
-
+//        var db = DatabaseManager.getInstance();
+//        db.beginTransaction();
+//        FirebaseManager firebaseManager = new FirebaseManager();
+//        try{
+//            System.out.println(firebaseManager.uploadFileToStorage());
+//        }catch(IOException e){
+//            e.printStackTrace();
+//        }
 //        session.save(user);
 //        System.out.println("user = " + user);
 //        Query q = session.createQuery("from User");
@@ -117,7 +124,7 @@ public class testMain {
 //        DummyUserRepo.getInstance().delete(dummyUser);
 
 //        testDummyHijack();
-        db.endTransaction();
+//        db.endTransaction();
     }
 
     private static void testDummyHijack() {

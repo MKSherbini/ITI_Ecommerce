@@ -29,8 +29,8 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
         urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
         urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
-
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
+        urlMap.put(PageNames.ADD_PRODUCT,new VCUrlMapping("Add Product","addproduct","add-product.jsp"));
         // ... add other pages
     }
 

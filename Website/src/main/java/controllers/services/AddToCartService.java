@@ -13,11 +13,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.CookiesManager;
 import managers.DatabaseManager;
+import models.dtos.CartDto;
 import models.orm.*;
 import providers.repositories.CartItemRepo;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
+import utilities.adapters.CartAdapter;
 import utilities.adapters.ProductAdapter;
 
 import java.io.IOException;
@@ -71,9 +73,14 @@ public class AddToCartService extends HttpServlet {
         else
             cart = cartRepo.findShoppingCartByUser(user);
 
+//        System.out.println("cart = " + cart.get().getCartItems());
+//        CartRepo.getInstance().refresh(cart.get());
+//        System.out.println("cart = " + cart.get().getCartItems());
+        // todo fk this, why did I fking have to call fking refresh?
+//        request.getSession().setAttribute("cart", cart.get());
+
         var cartItems = cart.get().getCartItems();
 
-//        cartItems.add()
         var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
         // todo fix this count not reflecting last change
         if (cartItems.size() > 0)

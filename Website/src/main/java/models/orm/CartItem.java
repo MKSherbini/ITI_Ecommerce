@@ -9,7 +9,9 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name = "cart_items")
+@Table(name = "cart_items", uniqueConstraints =
+@UniqueConstraint(columnNames = {"cart_shoppingCartId", "product_productId"}))
+
 public class CartItem {
 
     @Id
@@ -18,7 +20,7 @@ public class CartItem {
     @Setter(AccessLevel.NONE)
     private Long cartItemId;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @ToString.Exclude
     private ShoppingCart cart;
 

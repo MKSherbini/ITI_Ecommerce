@@ -42,7 +42,7 @@ public class ShoppingCart {
     private Date orderTime;
     private Boolean isHistory;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private User owner;
 
     @OneToOne
@@ -51,7 +51,7 @@ public class ShoppingCart {
 
     @OneToMany(mappedBy = "cart",
             orphanRemoval = true,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
 

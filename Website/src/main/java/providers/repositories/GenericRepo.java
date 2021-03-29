@@ -21,6 +21,10 @@ public abstract class GenericRepo<T, ID> {
         DatabaseManager.getInstance().runTransaction(session -> session.persist(obj));
     }
 
+    public void refresh(T obj) {
+        DatabaseManager.getInstance().runTransaction(session -> session.refresh(obj));
+    }
+
     public Optional<T> read(ID id) {
         return DatabaseManager.getInstance().runTransactionWithRet(session -> Optional.ofNullable(session.find(persistentClass, id)));
     }

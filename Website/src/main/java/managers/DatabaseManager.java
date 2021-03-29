@@ -49,6 +49,7 @@ public class DatabaseManager {
     }
 
     public void endTransaction() {
+        entityManager.flush();
         entityManager.getTransaction().commit();
     }
 

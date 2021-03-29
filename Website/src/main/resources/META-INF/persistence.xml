@@ -2,7 +2,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="persistenceEcommerce" transaction-type="RESOURCE_LOCAL">
-        <!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>models.orm.Address</class>
         <class>models.orm.Admin</class>
         <class>models.orm.CartItem</class>

@@ -74,7 +74,7 @@ public class Product {
     @Column(nullable = false)
     private Timestamp arrivalDate;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 //    @ToString.Exclude
     private ProductCategory category;
 

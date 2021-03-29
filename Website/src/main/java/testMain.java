@@ -118,7 +118,25 @@ public class testMain {
 
 //        DummyUser dummyUser = DummyUserRepo.getInstance().read(2L).get();
 //        DummyUserRepo.getInstance().delete(dummyUser);
+//        CartItemRepo cartItemRepo = CartItemRepo.getInstance();
+//        var item = cartItemRepo.read(1L);
+//        System.out.println("item = " + item.get());
+//        item.get().setProductQuantity(5);
+//        cartItemRepo.update(item.get());
+//        System.out.println("item = " + cartItemRepo.read(1L).get());
 
+        ProductRepo productRepo = ProductRepo.getInstance();
+        CartItemRepo cartItemRepo = CartItemRepo.getInstance();
+        CartRepo cartRepo = CartRepo.getInstance();
+        UserRepo userRepo = UserRepo.getInstance();
+        var user = userRepo.read(1L);
+        var product = productRepo.read(23L);
+        var cart = cartRepo.addProduct(user.get(), product.get());
+        System.out.println("cart = " + cart.get());
+        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
+        cart = cartRepo.addProduct(user.get(), product.get());
+        System.out.println("cart = " + cart.get());
+        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
 //        testDummyHijack();
 //        db.endTransaction();
     }

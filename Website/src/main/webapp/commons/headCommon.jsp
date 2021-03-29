@@ -51,14 +51,23 @@
             window.fkingSetModal(addedItemDto);
         console.log(addedItemDto);
         console.log(productId);
-        $(".cart-total-price").each(function (i, el) {
-            $(el).text(addedItemDto.totalPrice);
-        });
         $(`.product-\${productId}-productQuantity`).each(function (i, el) {
             $(el).text(addedItemDto.currentQuantity);
         });
         $(".cart-total-itemsCount").each(function (i, el) {
             $(el).text(addedItemDto.totalInCart);
+        });
+        $(".cart-total-price").each(function (i, el) {
+            $(el).text("$" + parseInt(addedItemDto.totalPrice).toFixed(2));
+        });
+        $(".cart-shipping-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 0.1).toFixed(2));
+        });
+        $(".cart-tax-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 0.05).toFixed(2));
+        });
+        $(".cart-full-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 1.15).toFixed(2));
         });
     }
 </script>

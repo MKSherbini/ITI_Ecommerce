@@ -19,8 +19,8 @@ import utilities.adapters.ProductAdapter;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/removeFromCart")
-public class RemoveFromCartService extends HttpServlet {
+@WebServlet("/removeCartItem")
+public class RemoveCartItemService extends HttpServlet {
     ServletConfig myConfig;
 
     public void init(ServletConfig config) throws ServletException {
@@ -51,16 +51,16 @@ public class RemoveFromCartService extends HttpServlet {
 
         Optional<ShoppingCart> cart;
         if (user == null)
-            cart = cartRepo.removeProduct(dummyUser, product.get());
+            cart = cartRepo.removeCartItem(dummyUser, product.get());
         else
-            cart = cartRepo.removeProduct(user, product.get());
+            cart = cartRepo.removeCartItem(user, product.get());
 
         if (cart.isEmpty()) {
             out.print("{'status':'bad'}");
             return;
         }
 
-//        DatabaseManager.getInstance().flush();
+        //DatabaseManager.getInstance().flush();
 
         if (user == null)
             cart = cartRepo.findShoppingCartByDummyUser(dummyUser);

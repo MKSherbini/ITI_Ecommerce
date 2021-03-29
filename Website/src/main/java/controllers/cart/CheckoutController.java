@@ -27,7 +27,11 @@ public class CheckoutController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ThreadLocalContext.includeView(PageNames.CHECKOUT);
+        var cartDto = (CartDto) request.getSession().getAttribute("cart");
+        if (cartDto.getCartItems().size() == 0)
+            ThreadLocalContext.includeView(PageNames.EMPTY_CART);
+        else
+            ThreadLocalContext.includeView(PageNames.CHECKOUT);
     }
 
     public String getServletInfo() {

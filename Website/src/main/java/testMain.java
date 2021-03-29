@@ -15,8 +15,8 @@ public class testMain {
 
 
     public static void main(String[] args) throws SQLException {
-        var db = DatabaseManager.getInstance();
-        db.beginTransaction();
+//        var db = DatabaseManager.getInstance();
+//        db.beginTransaction();
 
 //        session.save(user);
 //        System.out.println("user = " + user);
@@ -108,11 +108,19 @@ public class testMain {
 //        testDummyCreate();
 //        testDummyCart();
 
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        UserRepo userRepo = UserRepo.getInstance();
+//        CartRepo cartRepo = CartRepo.getInstance();
+//        var product = productRepo.read(22L);
+//        var user = userRepo.read(1L);
+//        System.out.println("user = " + user);
+//        System.out.println("product = " + product);
+
 //        DummyUser dummyUser = DummyUserRepo.getInstance().read(2L).get();
 //        DummyUserRepo.getInstance().delete(dummyUser);
 
 //        testDummyHijack();
-        db.endTransaction();
+//        db.endTransaction();
     }
 
     private static void testDummyHijack() {

@@ -152,7 +152,7 @@
                                                 </div>
 
                                                 <a class="mini-product__delete-link far fa-trash-alt"
-                                                   onclick="removeFromCart(${item.productId});"></a>
+                                                   onclick="removeCartItem(${item.productId});"></a>
                                             </div>
                                             <!--====== End - Card for mini cart ======-->
 

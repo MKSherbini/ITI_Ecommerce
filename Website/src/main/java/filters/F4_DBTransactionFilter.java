@@ -22,19 +22,20 @@ public class F4_DBTransactionFilter implements Filter {
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;
 
-        boolean validUrl = UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
-                || UrlMappingConstants.getInstance().isService(httpRequest);
-
-        if (validUrl) {
-            var db = DatabaseManager.getInstance();
-            db.beginTransaction();
-
-            chain.doFilter(request, response);
-
-            db.endTransaction();
-        } else {
-            chain.doFilter(request, response);
-        }
+//        boolean validUrl = UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
+//                || UrlMappingConstants.getInstance().isService(httpRequest);
+//
+//        if (validUrl) {
+//            var db = DatabaseManager.getInstance();
+//            db.beginTransaction();
+//
+//            chain.doFilter(request, response);
+//
+//            db.endTransaction();
+//        } else {
+//            chain.doFilter(request, response);
+//        }
+        chain.doFilter(request, response);
     }
 
 }

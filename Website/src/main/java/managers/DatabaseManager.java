@@ -17,6 +17,7 @@ import javax.persistence.criteria.Subquery;
 public class DatabaseManager {
     private static volatile DatabaseManager instance = null;
     private final EntityManager entityManager;
+
     public static void main(String[] args) {
         DatabaseManager.getInstance().beginTransaction();
     }
@@ -43,7 +44,7 @@ public class DatabaseManager {
         entityManager.getTransaction().begin();
     }
 
-    public void flush() {
+    private void flush() {
         entityManager.flush();
     }
 
@@ -53,8 +54,9 @@ public class DatabaseManager {
 
     public <T> T runTransactionWithRet(Function<EntityManager, T> transaction) {
         try {
-
+            beginTransaction();
             T ret = transaction.apply(entityManager);
+            endTransaction();
             return ret;
         } catch (javax.persistence.PersistenceException e) {
             e.printStackTrace();
@@ -67,7 +69,9 @@ public class DatabaseManager {
 
     public void runTransaction(Consumer<EntityManager> transaction) {
         try {
+            beginTransaction();
             transaction.accept(entityManager);
+            endTransaction();
         } catch (PersistenceException e) {
             e.printStackTrace();
             handleError();

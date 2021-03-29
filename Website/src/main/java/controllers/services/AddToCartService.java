@@ -64,7 +64,7 @@ public class AddToCartService extends HttpServlet {
             return;
         }
 
-        DatabaseManager.getInstance().flush();
+        //DatabaseManager.getInstance().flush();
 
         if (user == null)
             cart = cartRepo.findShoppingCartByDummyUser(dummyUser);

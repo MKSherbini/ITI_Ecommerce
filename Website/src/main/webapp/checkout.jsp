@@ -360,7 +360,7 @@
                                                     </div>
 
                                                     <a class="o-card__del far fa-trash-alt"
-                                                       onclick="removeFromCart(${item.productId});"></a>
+                                                       onclick="removeCartItem(${item.productId});"></a>
                                                 </div>
                                             </c:forEach>
                                         </div>

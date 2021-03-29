@@ -136,7 +136,7 @@
                                                 <div class="table-p__del-wrap">
 
                                                     <a class="far fa-trash-alt table-p__delete-link"
-                                                       onclick="removeFromCart(${item.productId});"></a></div>
+                                                       onclick="removeCartItem(${item.productId});"></a></div>
                                             </td>
                                         </tr>
                                         <!--====== End - Row ======-->

@@ -46,11 +46,25 @@
         });
     }
 
+    <%--function cartui() {--%>
+    <%--    $.get("${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MINI_CART)}", function (data, status) {--%>
+    <%--        console.log(data);--%>
+    <%--        // updateCartUi(data, productId);--%>
+    <%--        // if (status === "success")--%>
+    <%--        //     window.location.reload(true);--%>
+    <%--    });--%>
+    <%--}--%>
+
+    <%--setTimeout(cartui, 1000);--%>
+
     function updateCartUi(addedItemDto, productId) {
         if (window.fkingSetModal !== void 0)
             window.fkingSetModal(addedItemDto);
         console.log(addedItemDto);
         console.log(productId);
+        if (addedItemDto.addedQuantity === addedItemDto.currentQuantity)
+            window.location.reload(true);
+
         $(`.product-\${productId}-productQuantity`).each(function (i, el) {
             $(el).text(addedItemDto.currentQuantity);
         });

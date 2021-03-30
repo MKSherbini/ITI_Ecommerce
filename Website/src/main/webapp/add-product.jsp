@@ -29,9 +29,33 @@
                     <div class="col-lg-6 col-md-8 u-s-m-b-30">
                         <div class="l-f-o">
                             <div class="l-f-o__pad-box">
+                                <h1 class="gl-h1">Add New Category</h1>
+                                <form class="l-f-o__form" action="addcategory" method="post" name="addcategory">
+                                    <div class="gl-inline">
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="categoryName">Category Name *</label>
+
+                                            <input class="input-text input-text--primary-style" type="text"
+                                                   name="categoryName"
+                                                   id="categoryName" required
+                                                   placeholder="Enter Product Name">
+                                            <label style='color: red' id="error-categoryName"></label>
+                                        </div>
+                                        <div class="u-s-m-b-30">
+                                            <button class="btn btn--e-transparent-brand-b-2" type="submit">Add New Category
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="l-f-o">
+                            <div class="l-f-o__pad-box">
 
                                 <h1 class="gl-h1">Add New Product</h1>
-                                <form class="l-f-o__form" action="addproduct" method="post" name="addproduct" enctype="multipart/form-data"
+                                <form class="l-f-o__form" action="addproduct" method="post" name="addproduct"
+                                      enctype="multipart/form-data"
                                       id="addproduct">
                                     <div class="u-s-m-b-30">
 
@@ -88,7 +112,8 @@
 
                                         <label class="gl-label" for="quantity">Product Quantity *</label>
 
-                                        <input class="input-text input-text--primary-style" type="number" name="quantity"
+                                        <input class="input-text input-text--primary-style" type="number"
+                                               name="quantity"
                                                id="quantity" required onblur="validateemail()"
                                                placeholder="Enter Product Quantity">
                                         <label style='color: red' id="error-quantity"></label>
@@ -98,7 +123,8 @@
 
                                         <label class="gl-label" for="discount">Product Discount Percentage *</label>
 
-                                        <input class="input-text input-text--primary-style" type="number" name="discount"
+                                        <input class="input-text input-text--primary-style" type="number"
+                                               name="discount"
                                                id="discount" required onblur="validateemail()"
                                                placeholder="Enter Product Quantity">
                                         <label style='color: red' id="error-discount"></label>

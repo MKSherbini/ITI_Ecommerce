@@ -10,16 +10,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-import managers.FirebaseManager;
-import models.orm.Developer;
+import managers.FireStorageManager;
 import models.orm.Product;
 import models.orm.ProductCategory;
 import providers.repositories.CategoryRepo;
-import providers.repositories.DeveloperRepo;
 import providers.repositories.ProductRepo;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 @WebServlet("/addproduct")
@@ -50,8 +47,8 @@ public class AddProductController extends HttpServlet {
         int price = Integer.parseInt(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         int discount = Integer.parseInt(request.getParameter("discount"));
-        FirebaseManager firebaseManager = new FirebaseManager();
-        String downloadLink = firebaseManager.uploadFileToStorage(imagePart.getInputStream().readAllBytes());
+        FireStorageManager fireStorageManager = new FireStorageManager();
+        String downloadLink = fireStorageManager.uploadFileToStorage(imagePart.getInputStream().readAllBytes());
         System.out.println(request.getContextPath());
         Optional<ProductCategory> productCategory = CategoryRepo.getInstance().findByName(categoryName);
         if(productCategory.isPresent()) {

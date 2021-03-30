@@ -1,21 +1,9 @@
-import managers.DatabaseManager;
-import managers.FirebaseManager;
 import models.orm.*;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
-import org.hibernate.service.ServiceRegistry;
 import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
 
-import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
 
 public class testMain {
     static Logger log = Logger.getLogger(testMain.class.getName());

@@ -159,6 +159,8 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
             create(new ShoppingCart(user));
         }
         cart = findShoppingCartByUser(user);
+        System.out.println("cart optional = " + cart);
+        System.out.println("user optional = " + user);
         if (cart.isEmpty()) return Optional.empty();
         return cart;
     }

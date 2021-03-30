@@ -124,7 +124,7 @@
 
                                                         <input class="input-counter__text input-counter--text-primary-style"
                                                                type="text" value="${item.productQuantity}" data-min="1"
-                                                               data-max="1000">
+                                                               data-max="${item.productQuantityMax}">
 
                                                         <span class="input-counter__plus fas fa-plus"
                                                               onclick="incrementFromCart(${item.productId});"></span>

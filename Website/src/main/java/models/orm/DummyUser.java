@@ -24,7 +24,8 @@ public class DummyUser {
     @Setter(AccessLevel.NONE)
     private Long dummyId;
 
-    @OneToOne(optional = false)
+    @OneToOne(mappedBy = "dummyOwner")
+//            , optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private ShoppingCart cart;
 
     @Column(nullable = false)

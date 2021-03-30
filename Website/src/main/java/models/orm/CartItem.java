@@ -14,7 +14,7 @@ import lombok.*;
                 query = "update CartItem c set c.productQuantity=c.product.quantity where c.productQuantity>c.product.quantity"),
         @NamedQuery(
                 name = "CartItem.findTotalPriceByCart",
-                query = "select sum(c.productQuantity*c.product.price*(1-c.product.discountPercent/100.0)) from CartItem c where c.cart = :cart"),
+                query = "select coalesce(sum(c.productQuantity*c.product.price*(1-c.product.discountPercent/100.0)),0) from CartItem c where c.cart = :cart"),
 })
 
 @Data

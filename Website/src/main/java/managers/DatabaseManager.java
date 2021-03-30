@@ -1,16 +1,12 @@
 package managers;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceException;
+import javax.persistence.*;
 import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.sql.SQLException;
 import java.util.*;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.Subquery;
 
 
@@ -27,6 +23,7 @@ public class DatabaseManager {
             throw new RuntimeException("Use getInstance(), reflection is not allowed");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceEcommerce");
         entityManager = emf.createEntityManager();
+        entityManager.setFlushMode(FlushModeType.AUTO);
     }
 
     public static DatabaseManager getInstance() {
@@ -50,7 +47,7 @@ public class DatabaseManager {
     }
 
     public void endTransaction() {
-        entityManager.flush();
+//        entityManager.flush();
         entityManager.getTransaction().commit();
     }
 

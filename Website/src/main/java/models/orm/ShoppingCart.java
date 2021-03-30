@@ -37,7 +37,7 @@ public class ShoppingCart {
     @Setter(AccessLevel.NONE)
     private Long shoppingCartId;
 
-    private int totalPrice;
+    private double totalPrice;
     private String paymentMethod;
     private Date orderTime;
     private Boolean isHistory;

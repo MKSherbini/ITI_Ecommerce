@@ -41,7 +41,8 @@ public class DatabaseManager {
     }
 
     public void beginTransaction() {
-        entityManager.getTransaction().begin();
+        if (!entityManager.getTransaction().isActive())
+            entityManager.getTransaction().begin();
     }
 
     private void flush() {

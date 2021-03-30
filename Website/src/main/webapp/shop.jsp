@@ -697,9 +697,9 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="success u-s-m-b-30">
-                                <div class="success__text-wrap"><i class="fas fa-check"></i>
+                                <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
 
-                                    <span>Item is added successfully!</span></div>
+                                    <span id="modal-add-msg">Item is added successfully!</span></div>
                                 <div class="success__img-wrap">
 
                                     <img id="modal-add-img" class="u-img-fluid"

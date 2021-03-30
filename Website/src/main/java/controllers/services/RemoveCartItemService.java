@@ -66,7 +66,7 @@ public class RemoveCartItemService extends HttpServlet {
         else
             cart = cartRepo.findShoppingCartByUser(user);
 
-        request.getSession().setAttribute("cart", cart.get());
+//        request.getSession().setAttribute("cart", cart.get());
 
 //        CartRepo.getInstance().refresh(cart.get());
 //        request.getSession().setAttribute("cart", cart.get());

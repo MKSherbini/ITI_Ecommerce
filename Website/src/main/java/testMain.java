@@ -128,11 +128,11 @@ public class testMain {
         var user = userRepo.read(1L);
         var product = productRepo.read(23L);
         var cart = cartRepo.addProduct(user.get(), product.get(), 1);
-        System.out.println("cart = " + cart.get());
-        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
-        cart = cartRepo.addProduct(user.get(), product.get(), 1);
-        System.out.println("cart = " + cart.get());
-        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
+//        System.out.println("cart = " + cart.get());
+//        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
+//        cart = cartRepo.addProduct(user.get(), product.get(), 1);
+//        System.out.println("cart = " + cart.get());
+//        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
 //        testDummyHijack();
 //        db.endTransaction();
     }
@@ -165,8 +165,8 @@ public class testMain {
         var user = userRepo.read(1L);
         var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
-        cart = cartRepo.removeProduct(user.get(), product.get());
-        System.out.println("cart = " + cart);
+//        cart = cartRepo.removeProduct(user.get(), product.get());
+//        System.out.println("cart = " + cart);
     }
 
     private static void testCart() {
@@ -177,8 +177,8 @@ public class testMain {
         var user = userRepo.read(1L);
         var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
-        cart = cartRepo.removeProduct(user.get(), product.get());
-        System.out.println("cart = " + cart);
+//        cart = cartRepo.removeProduct(user.get(), product.get());
+//        System.out.println("cart = " + cart);
     }
 
     static void generateDummyProductsAndCategories() {

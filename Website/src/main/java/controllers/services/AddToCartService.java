@@ -57,18 +57,19 @@ public class AddToCartService extends HttpServlet {
             return;
         }
 
-        Optional<ShoppingCart> cart;
+        int addedItems = 0;
         if (user == null)
-            cart = cartRepo.addProduct(dummyUser, product.get(), paramAddProductQuantityName);
+            addedItems = cartRepo.addProduct(dummyUser, product.get(), paramAddProductQuantityName);
         else
-            cart = cartRepo.addProduct(user, product.get(), paramAddProductQuantityName);
+            addedItems = cartRepo.addProduct(user, product.get(), paramAddProductQuantityName);
 
-        if (cart.isEmpty()) {
+        if (addedItems == -1) {
             out.print("{\"status\":\"bad\"}");
             return;
         }
 
         //DatabaseManager.getInstance().flush();
+        Optional<ShoppingCart> cart;
 
         if (user == null)
             cart = cartRepo.findShoppingCartByDummyUser(dummyUser);
@@ -82,6 +83,7 @@ public class AddToCartService extends HttpServlet {
 //        request.getSession().setAttribute("cart", cart.get());
 
         var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get(), cart.get());
+        addedProductDto.setAddedQuantity(addedItems);
 
         out.print(new Gson().toJson(addedProductDto));
     }

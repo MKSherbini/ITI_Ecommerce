@@ -21,7 +21,9 @@ public class AddCategoryController extends HttpServlet {
         if(categoryName!=null){
             ProductCategory category = new ProductCategory(categoryName);
             CategoryRepo.getInstance().create(category);
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.ADD_PRODUCT));
+            response.setStatus(200);
+            return;
         }
+        response.setStatus(500);
     }
 }

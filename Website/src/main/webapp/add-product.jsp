@@ -30,24 +30,6 @@
                         <div class="l-f-o">
                             <div class="l-f-o__pad-box">
                                 <h1 class="gl-h1">Add New Category</h1>
-                                <form class="l-f-o__form" action="addcategory" method="post" name="addcategory">
-                                    <div class="gl-inline">
-                                        <div class="u-s-m-b-30">
-
-                                            <label class="gl-label" for="categoryName">Category Name *</label>
-
-                                            <input class="input-text input-text--primary-style" type="text"
-                                                   name="categoryName"
-                                                   id="categoryName" required
-                                                   placeholder="Enter Product Name">
-                                            <label style='color: red' id="error-categoryName"></label>
-                                        </div>
-                                        <div class="u-s-m-b-30">
-                                            <button class="btn btn--e-transparent-brand-b-2" type="submit">Add New Category
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                         <div class="l-f-o">
@@ -91,12 +73,27 @@
                                     <div class="u-s-m-b-30">
 
                                         <%-- select categoryy--%>
-                                        <select name="category" required>
+                                        <select name="category" id="categoriesList" required>
                                             <c:forEach items="${requestScope.categories}" var="category">
                                                 <option name="category" value="${category}">${category}</option>
                                             </c:forEach>
                                         </select>
                                         <!--====== End - Check Box ======-->
+                                    </div>
+                                    <div class="gl-inline">
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="categoryName">Category Name *</label>
+                                            <input class="input-text input-text--primary-style" type="text"
+                                                   name="categoryName"
+                                                   id="categoryName" required
+                                                   placeholder="Enter Product Name">
+                                            <label style='color: red' id="error-categoryName"></label>
+                                        </div>
+                                        <div class="u-s-m-b-30">
+                                            <button class="btn btn--e-transparent-brand-b-2" onclick="addCategory(event)">Add New Category
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="u-s-m-b-30">
 
@@ -154,6 +151,8 @@
 
 <!--====== App ======-->
 <script src="scripts/js/app.js"></script>
+
+<script src="scripts/js/Addproduct.js"></script>
 
 <!--====== Noscript ======-->
 <noscript>

@@ -1437,7 +1437,7 @@
 
                                                     <span class="gl-label">BIRTHDAY</span>
                                                     <div class="gl-dob">
-                                                        <input type="date" name="birthDate">
+                                                        <input type="date" name="birthDate" class="select-box select-box--primary-style u-w-100">
                                                     </div>
                                                     <!--====== End - Date of Birth Select-Box ======-->
                                                 </div>

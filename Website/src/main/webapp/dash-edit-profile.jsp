@@ -1500,31 +1500,16 @@
 
                                                                 <!--====== Date of Birth Select-Box ======-->
 
+
                                                                 <span class="gl-label">BIRTHDAY</span>
-                                                                <div class="gl-dob"><select class="select-box select-box--primary-style" name="bdate">
-                                                                        <option selected>Month</option>
-                                                                        <option value="male">January</option>
-                                                                        <option value="male">February</option>
-                                                                        <option value="male">March</option>
-                                                                        <option value="male">April</option>
-                                                                    </select><select class="select-box select-box--primary-style">
-                                                                        <option selected>Day</option>
-                                                                        <option value="01">01</option>
-                                                                        <option value="02">02</option>
-                                                                        <option value="03">03</option>
-                                                                        <option value="04">04</option>
-                                                                    </select><select class="select-box select-box--primary-style">
-                                                                        <option selected>Year</option>
-                                                                        <option value="1991">1991</option>
-                                                                        <option value="1992">1992</option>
-                                                                        <option value="1993">1993</option>
-                                                                        <option value="1994">1994</option>
-                                                                    </select></div>
+                                                                <div class="gl-dob">
+                                                                    <input class="select-box select-box--primary-style" type="date" name="birthDate" value="${sessionScope.user.birthdate}">
                                                                 <!--====== End - Date of Birth Select-Box ======-->
+                                                                </div>
                                                             </div>
                                                             <div class="u-s-m-b-30">
 
-                                                                <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender" name="geneder">
+                                                                <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender" name="gender">
                                                                     <option selected>Select</option>
                                                                     <option value="male">Male</option>
                                                                     <option value="male">Female</option>
@@ -1544,6 +1529,15 @@
                                                                 <div class="dash__link dash__link--secondary">
                                                                     <input class="input-text input-text--primary-style" id="mobile" name="mobile">
                                                                     <%--<a href="#">Add</a>--%>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="gl-inline">
+                                                            <div class="u-s-m-b-30">
+                                                                <h2 class="dash__h2 u-s-m-b-8">User Name *</h2>
+                                                                <div class="dash__link dash__link--secondary">
+                                                                    <input class="input-text input-text--primary-style" type="text" id="username" name="userName" required value="${sessionScope.user.userName}">
+                                                                    <%--<a href="#">Change</a>--%>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -13,8 +13,10 @@ import jakarta.servlet.http.HttpSession;
 import lombok.SneakyThrows;
 import models.orm.User;
 import providers.repositories.UserRepo;
+import java.sql.Date;
 
 import java.io.IOException;
+
 
 @WebServlet("/editProfile")
 public class EditProfileController extends HttpServlet {
@@ -31,10 +33,9 @@ public class EditProfileController extends HttpServlet {
         if (user != null) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.EditProfile));
             requestDispatcher.include(request, response);
-        } else {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerUrl(PageNames.Profile));
-            requestDispatcher.forward(request, response);
+            return;
         }
+        response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.Profile));
     }
 
     @SneakyThrows
@@ -44,18 +45,20 @@ public class EditProfileController extends HttpServlet {
         User editedUser = (User) session.getAttribute("user");
         String firstName = request.getParameter("reg-fname");
         String lastName = request.getParameter("reg-lname");
-        String birthDate = request.getParameter("bdate");
-        // Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(birthDate);
-        String gender = request.getParameter("geneder");
+        String userName = request.getParameter("userName");
+        String birthDate = request.getParameter("birthDate");
+        Date date = Date.valueOf(birthDate);
         String email = request.getParameter("email");
+        String gender = request.getParameter("gender");
         String mobile = request.getParameter("mobile");
 
         UserRepo userRepo = UserRepo.getInstance();
-        if (firstName != null && lastName != null && email != null) {
+        if (firstName != null && lastName != null && email != null && userName!=null) {
             editedUser.setFirstName(firstName);
             editedUser.setLastName(lastName);
             editedUser.setEmail(email);
-            // editedUser.setBirthdate(date);
+            editedUser.setUserName(userName);
+            editedUser.setBirthdate(date);
         }
         userRepo.update(editedUser);
         response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.Profile));

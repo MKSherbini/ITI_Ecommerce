@@ -9,6 +9,8 @@ public enum PageNames {
     ABOUT_PAGE,
     SHOP,
     Account,
+    EditProfile,
+    Profile,
     CONTACT_US,
     PRODUCT,
     EMPTY_SHOP,

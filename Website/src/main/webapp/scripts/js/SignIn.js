@@ -1,6 +1,3 @@
-var wsocket = new WebSocket("ws://localhost:9090/ITI_Ecommerce_Website_war_exploded/echo");
-wsocket.onopen = onOpen;
-wsocket.onmessage = onMessage;
 
         function validateemail(email)
         {
@@ -19,20 +16,10 @@ wsocket.onmessage = onMessage;
                 }
             else{
                 document.getElementById("error-email").innerHTML = "<span style='color: white;'></span>";
-                wsocket.send(email);
+
             }
         }
-function onOpen(){
-    console.log("connection established");
-}
 
-function onMessage(evt){
-    document.getElementById("error-email").innerHTML = evt.data;
-}
-
-function disconnect(){
-    wsocket.close();
-}
 
 
 function validatePass()

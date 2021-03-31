@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -82,7 +83,7 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
@@ -984,7 +985,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="account">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +993,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="account">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1000,7 +1001,7 @@
                                                         <ul style="width:180px">
                                                             <li>
 
-                                                                <a href="dash-edit-profile.jsp">Edit Profile</a></li>
+                                                                <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
                                                                 <a href="dash-address-book.jsp">Edit Address Book</a></li>
@@ -1012,7 +1013,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                        <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
                                                         <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
@@ -1392,7 +1393,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dashboard">My Account</a></li>
+                                        <a href="account">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1416,14 +1417,21 @@
                                     <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                         <div class="dash__pad-1">
 
-                                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                            <c:if test="${empty sessionScope.user}">
+                                                <span class="dash__text u-s-m-b-16">Hello,User</span>
+                                            </c:if>
+
+                                            <c:if test="${!empty sessionScope.user}">
+                                                <span class="dash__text u-s-m-b-16">Hello, ${sessionScope.user.userName}</span>
+                                            </c:if>
+
                                             <ul class="dash__f-list">
                                                 <li>
 
-                                                    <a class="dash-active" href="dashboard">Manage My Account</a></li>
+                                                    <a class="dash-active" href="account">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                    <a href="profile">My Profile</a></li>
                                                 <li>
 
                                                     <a href="dash-address-book.jsp">Address Book</a></li>
@@ -1490,7 +1498,7 @@
                                                             <h2 class="dash__h2 u-s-m-b-8">PERSONAL PROFILE</h2>
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
-                                                                <a href="dash-edit-profile.jsp">Edit</a></div>
+                                                                <a href="editProfile">Edit</a></div>
 
                                                             <span class="dash__text">John Doe</span>
 
@@ -1653,7 +1661,7 @@
 
                                 <span class="gl-modal-text">I have read and understood</span>
 
-                                <a class="d_modal__link" href="dashboard.jsp">Ludus Privacy Policy</a>
+                                <a class="d_modal__link" href="account">Ludus Privacy Policy</a>
                             </div>
                             <div class="gl-modal-btn-group">
 

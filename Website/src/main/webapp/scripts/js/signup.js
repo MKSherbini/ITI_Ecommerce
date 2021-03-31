@@ -4,7 +4,7 @@
 
    function validateEmail(emailregex){
        console.log(emailregex);
-        var emailpattern =  /(^[A-Za-z0-9._-]+@[A-Za-z0-9]+\\.[A-Za-z]{2,6}$)| [ \\t\\n]*/;
+        var emailpattern =  /^[A-Za-z0-9+_.-]+@(.+)$/;
         if(!emailpattern.test(emailregex)){
          document.getElementById("emailValid").innerHTML ="Please enter a valid form of an email";
     } else{

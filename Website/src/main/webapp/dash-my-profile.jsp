@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -82,7 +83,7 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
@@ -984,7 +985,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard.jsp">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="account">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +993,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard.jsp">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="account">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1000,7 +1001,7 @@
                                                         <ul style="width:180px">
                                                             <li>
 
-                                                                <a href="dash-edit-profile.jsp">Edit Profile</a></li>
+                                                                <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
                                                                 <a href="dash-address-book.jsp">Edit Address Book</a></li>
@@ -1012,7 +1013,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                        <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
                                                         <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
@@ -1392,7 +1393,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dash-my-profile.jsp">My Account</a></li>
+                                        <a href="profile">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1416,14 +1417,20 @@
                                     <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                         <div class="dash__pad-1">
 
-                                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                            <c:if test="${empty sessionScope.user}">
+                                                <span class="dash__text u-s-m-b-16">Hello,User</span>
+                                            </c:if>
+
+                                            <c:if test="${!empty sessionScope.user}">
+                                                <span class="dash__text u-s-m-b-16">Hello, ${sessionScope.user.userName}</span>
+                                            </c:if>
                                             <ul class="dash__f-list">
                                                 <li>
 
-                                                    <a href="dashboard.jsp">Manage My Account</a></li>
+                                                    <a href="account">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a class="dash-active" href="dash-my-profile.jsp">My Profile</a></li>
+                                                    <a class="dash-active" href="profile">My Profile</a></li>
                                                 <li>
 
                                                     <a href="dash-address-book.jsp">Address Book</a></li>
@@ -1480,55 +1487,93 @@
                                 <div class="col-lg-9 col-md-12">
                                     <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
                                         <div class="dash__pad-2">
+                                            <c:if test="${empty sessionScope.user}">
                                             <h1 class="dash__h1 u-s-m-b-14">My Profile</h1>
-
                                             <span class="dash__text u-s-m-b-30">Look all your info, you could customize your profile.</span>
                                             <div class="row">
                                                 <div class="col-lg-4 u-s-m-b-30">
                                                     <h2 class="dash__h2 u-s-m-b-8">Full Name</h2>
 
-                                                    <span class="dash__text">John Doe</span>
+                                                    <span class="dash__text">User Name</span>
                                                 </div>
                                                 <div class="col-lg-4 u-s-m-b-30">
                                                     <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
 
-                                                    <span class="dash__text">johndoe@domain.com</span>
-                                                    <div class="dash__link dash__link--secondary">
+                                                    <span class="dash__text">example@example.com</span>
 
-                                                        <a href="#">Change</a></div>
                                                 </div>
                                                 <div class="col-lg-4 u-s-m-b-30">
                                                     <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
-                                                    <span class="dash__text">Please enter your mobile</span>
-                                                    <div class="dash__link dash__link--secondary">
+                                                    <span class="dash__text">+2-011-11111111</span>
 
-                                                        <a href="#">Add</a></div>
                                                 </div>
                                                 <div class="col-lg-4 u-s-m-b-30">
                                                     <h2 class="dash__h2 u-s-m-b-8">Birthday</h2>
 
-                                                    <span class="dash__text">1991-02-02</span>
+                                                    <span class="dash__text">YYYY-MM-DD</span>
                                                 </div>
                                                 <div class="col-lg-4 u-s-m-b-30">
                                                     <h2 class="dash__h2 u-s-m-b-8">Gender</h2>
 
-                                                    <span class="dash__text">Male</span>
+                                                    <span class="dash__text">F/M</span>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="dash__link dash__link--secondary u-s-m-b-30">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
 
-                                                        <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
-                                                    <div class="u-s-m-b-16">
+                                                        <div class="u-s-m-b-16">
 
-                                                        <a class="dash__custom-link btn--e-transparent-brand-b-2" href="dash-edit-profile.jsp">Edit Profile</a></div>
-                                                    <div>
+                                                            <a class="dash__custom-link btn--e-transparent-brand-b-2" href="signin">Sign In</a></div>
+                                                        <div>
 
-                                                        <a class="dash__custom-link btn--e-brand-b-2" href="#">Change Password</a></div>
+                                                            <a class="dash__custom-link btn--e-brand-b-2" href="signup">Register</a></div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </c:if>
+
+                                            <c:if test="${!empty sessionScope.user}">
+                                                <h1 class="dash__h1 u-s-m-b-14">My Profile</h1>
+                                                <span class="dash__text u-s-m-b-30">Look all your info, Press Edit Profile for any changes.</span>
+                                                <div class="row">
+                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                        <h2 class="dash__h2 u-s-m-b-8">Full Name</h2>
+
+                                                        <span class="dash__text">${sessionScope.user.userName}</span>
+                                                    </div>
+                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                        <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
+
+                                                        <span class="dash__text">${sessionScope.user.email}</span>
+
+                                                    </div>
+                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                        <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
+
+                                                        <span class="dash__text">+2-011-11111111</span>
+
+                                                    </div>
+                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                        <h2 class="dash__h2 u-s-m-b-8">Birthday</h2>
+
+                                                        <span class="dash__text">${sessionScope.user.birthdate}</span>
+                                                    </div>
+                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                        <h2 class="dash__h2 u-s-m-b-8">Gender</h2>
+
+                                                        <span class="dash__text">F/M</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+
+                                                        <div class="u-s-m-b-16">
+
+                                                            <a class="dash__custom-link btn--e-transparent-brand-b-2" href="editProfile">Edit Profile</a></div>
+                                                    </div>
+                                                </div>
+                                            </c:if>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1561,7 +1606,7 @@
 
                                 <span class="gl-modal-text">I have read and understood</span>
 
-                                <a class="d_modal__link" href="dash-my-profile.jsp">Ludus Privacy Policy</a>
+                                <a class="d_modal__link" href="profile">Ludus Privacy Policy</a>
                             </div>
                             <div class="gl-modal-btn-group">
 

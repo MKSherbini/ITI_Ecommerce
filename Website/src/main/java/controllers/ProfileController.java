@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/account")
-public class AccountController extends HttpServlet {
+@WebServlet("/profile")
+public class ProfileController extends HttpServlet {
     ServletConfig myConfig;
 
     public void init(ServletConfig config) throws ServletException {
@@ -27,7 +27,7 @@ public class AccountController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.Account)).include(request, response);
+        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.Profile)).include(request, response);
 
     }
 

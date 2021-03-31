@@ -1,25 +1,11 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="images/favicon.png" rel="shortcut icon">
-    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
-
-    <!--====== Google Font ======-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-
-    <!--====== Vendor Css ======-->
-    <link rel="stylesheet" href="styles/css/vendor.css">
-
-    <!--====== Utility-Spacing ======-->
-    <link rel="stylesheet" href="styles/css/utility.css">
-
-    <!--====== App ======-->
-    <link rel="stylesheet" href="styles/css/app.css">
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.EditProfile)}</title>
+    <%@include file="commons/headCommon.jsp" %>
 </head>
 <body class="config">
     <div class="preloader is-active">
@@ -82,7 +68,7 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
@@ -984,7 +970,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard.jsp">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="account">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +978,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard.jsp">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="account">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1000,7 +986,7 @@
                                                         <ul style="width:180px">
                                                             <li>
 
-                                                                <a href="dash-edit-profile.jsp">Edit Profile</a></li>
+                                                                <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
                                                                 <a href="dash-address-book.jsp">Edit Address Book</a></li>
@@ -1012,7 +998,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                        <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
                                                         <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
@@ -1392,7 +1378,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dash-edit-profile.jsp">My Account</a></li>
+                                        <a href="editProfile">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1416,14 +1402,21 @@
                                     <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                         <div class="dash__pad-1">
 
-                                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                            <c:if test="${empty sessionScope.user}">
+                                            <span class="dash__text u-s-m-b-16">Hello,User</span>
+                                            </c:if>
+
+                                            <c:if test="${!empty sessionScope.user}">
+                                                <span class="dash__text u-s-m-b-16">Hello, ${sessionScope.user.userName}</span>
+                                            </c:if>
+
                                             <ul class="dash__f-list">
                                                 <li>
 
-                                                    <a class="dash-active" href="dashboard.jsp">Manage My Account</a></li>
+                                                    <a class="dash-active" href="account">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                    <a href="profile">My Profile</a></li>
                                                 <li>
 
                                                     <a href="dash-address-book.jsp">Address Book</a></li>
@@ -1488,18 +1481,19 @@
                                                 <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <form class="dash-edit-p" action="account" method="post">
+                                                    <form class="dash-edit-p" action="editProfile" method="post">
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
 
                                                                 <label class="gl-label" for="reg-fname">FIRST NAME *</label>
 
-                                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" name="reg-fname"></div>
+                                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" name="reg-fname" required value="${sessionScope.user.firstName}">
+                                                            </div>
                                                             <div class="u-s-m-b-30">
 
                                                                 <label class="gl-label" for="reg-lname">LAST NAME *</label>
 
-                                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" name="reg-lname" ></div>
+                                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" name="reg-lname" required value="${sessionScope.user.lastName}"></div>
                                                         </div>
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
@@ -1538,24 +1532,23 @@
                                                         </div>
                                                         <div class="gl-inline">
                                                             <div class="u-s-m-b-30">
-                                                                <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
+                                                                <h2 class="dash__h2 u-s-m-b-8">E-mail *</h2>
                                                                 <div class="dash__link dash__link--secondary">
-                                                                    <input class="input-text input-text--primary-style" type="email" id="email" name="email" >
+                                                                    <input class="input-text input-text--primary-style" type="email" id="email" name="email" required value="${sessionScope.user.email}">
                                                                     <%--<a href="#">Change</a>--%>
                                                                 </div>
                                                             </div>
                                                             <div class="u-s-m-b-30">
                                                                 <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
-                                                                <span class="dash__text">Please enter your mobile</span>
                                                                 <div class="dash__link dash__link--secondary">
-                                                                    <input class="input-text input-text--primary-style" type="number" id="mobile" name="mobile">
+                                                                    <input class="input-text input-text--primary-style" id="mobile" name="mobile">
                                                                     <%--<a href="#">Add</a>--%>
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <button class="btn btn--e-brand-b-2" type="submit">SAVE</button>
+                                                        <button class="btn btn--e-brand-b-2">SAVE</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -1589,7 +1582,7 @@
 
                                 <span class="gl-modal-text">I have read and understood</span>
 
-                                <a class="d_modal__link" href="dash-edit-profile.jsp">Ludus Privacy Policy</a>
+                                <a class="d_modal__link" href="editProfile">Ludus Privacy Policy</a>
                             </div>
                             <div class="gl-modal-btn-group">
 

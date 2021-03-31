@@ -24,6 +24,8 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.ABOUT_PAGE,new VCUrlMapping("About","about","about.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
+        urlMap.put(PageNames.EditProfile,new VCUrlMapping("EditProfile","editProfile","dash-edit-profile.jsp"));
+        urlMap.put(PageNames.Profile,new VCUrlMapping("Profile","profile","dash-my-profile.jsp"));
         urlMap.put(PageNames.Account,new VCUrlMapping("Account","account","dashboard.jsp"));
         urlMap.put(PageNames.EMPTY_SHOP, new VCUrlMapping("No results", "shop", "empty-search.jsp"));
         urlMap.put(PageNames.PRODUCT, new VCUrlMapping("Product", "product", "product-detail.jsp"));

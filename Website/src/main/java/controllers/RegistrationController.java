@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import managers.DatabaseManager;
 import models.orm.DummyUser;
 import models.orm.User;
 import providers.repositories.CartRepo;
@@ -17,8 +16,6 @@ import providers.repositories.UserRepo;
 import utilities.Hashator;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.sql.Date;
 
 @WebServlet("/signup")

@@ -1,10 +1,10 @@
 package constants;
 
+import constants.enums.PageNames;
 import constants.enums.ServiceNames;
 import jakarta.servlet.http.HttpServletRequest;
 import models.urls.ServiceUrlMapping;
 import models.urls.VCUrlMapping;
-import constants.enums.PageNames;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,7 +45,8 @@ public class UrlMappingConstants {
 
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
-        serviceMap.put(ServiceNames.EndPoint, new ServiceUrlMapping("EndPoint", "echo"));
+        serviceMap.put(ServiceNames.SignUpEndPoint, new ServiceUrlMapping("SignUpEndPoint", "echo"));
+        serviceMap.put(ServiceNames.SignInEndPoint, new ServiceUrlMapping("SignInEndPoint", "inEcho"));
         serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
         serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
         serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));

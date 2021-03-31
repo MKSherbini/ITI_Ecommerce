@@ -3,7 +3,8 @@ package constants.enums;
 public enum ServiceNames {
 
     SIGN_OUT,
-    EndPoint,
+    SignUpEndPoint,
+    SignInEndPoint,
     ERROR_REDIRECT,
     PRODUCT_FETCH,
     PRODUCT_ADD_TO_CART,

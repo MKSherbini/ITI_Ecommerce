@@ -1,5 +1,4 @@
 package utilities;
-
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
@@ -14,13 +13,14 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-@ServerEndpoint("/echo")
-public class SignupEndpoint {
+@ServerEndpoint("/inEcho")
+public class SignInEndpoint {
+
     private final static Set<Session> vector = new HashSet<>();
     @OnOpen
     public void onOpen(Session session){
-            //session.getBasicRemote().sendText("connectionEstablished");
-            vector.add(session);
+        //session.getBasicRemote().sendText("connectionEstablished");
+        vector.add(session);
     }
 
     @OnMessage
@@ -32,8 +32,8 @@ public class SignupEndpoint {
             UserRepo userRepo = UserRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
             if (Validator.getInstance().EmailValidation(msg) == true){
-                if (user.isPresent()){
-                    session.getBasicRemote().sendText("This Email is Already Registered");
+                if (user.isEmpty()){
+                    session.getBasicRemote().sendText("Couldn't find your email");
                 }
                 else {
                     session.getBasicRemote().sendText("");
@@ -54,4 +54,5 @@ public class SignupEndpoint {
         vector.remove(session);
         System.out.println("closed"+ session.getId());
     }
+
 }

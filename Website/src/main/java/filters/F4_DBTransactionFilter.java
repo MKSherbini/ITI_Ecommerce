@@ -1,14 +1,12 @@
 package filters;
 
 import constants.UrlMappingConstants;
-import constants.enums.PageNames;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.DatabaseManager;
 
-import java.io.File;
 import java.io.IOException;
 
 @WebFilter(filterName = "DBTransactionFilter", urlPatterns = "/*")
@@ -22,20 +20,21 @@ public class F4_DBTransactionFilter implements Filter {
         var httpRequest = (HttpServletRequest) request;
         var httpResponse = (HttpServletResponse) response;
 
-//        boolean validUrl = UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
-//                || UrlMappingConstants.getInstance().isService(httpRequest);
-//
-//        if (validUrl) {
-//            var db = DatabaseManager.getInstance();
-//            db.beginTransaction();
-//
+        boolean validUrl = UrlMappingConstants.getInstance().isControllerUrl(httpRequest)
+                || UrlMappingConstants.getInstance().isService(httpRequest);
+
+        if (validUrl) {
+            var db = DatabaseManager.getInstance();
+            db.beginSession();
+
+            chain.doFilter(request, response);
+
+            db.endSession();
+        } else {
+            chain.doFilter(request, response);
+        }
 //            chain.doFilter(request, response);
-//
-//            db.endTransaction();
-//        } else {
-//            chain.doFilter(request, response);
-//        }
-        chain.doFilter(request, response);
     }
 
 }
+

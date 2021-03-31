@@ -1,10 +1,12 @@
 package utilities.adapters;
 
+import managers.DatabaseManager;
 import models.dtos.AddedToCartDto;
 import models.dtos.ProductDto;
 import models.orm.CartItem;
 import models.orm.Product;
 import models.orm.ShoppingCart;
+import providers.repositories.CartRepo;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -31,6 +33,8 @@ public class ProductAdapter {
     }
 
     public static AddedToCartDto copyOrmToCartDto(Product productOrm, ShoppingCart cart) {
+//        DatabaseManager.getInstance().flush();
+        CartRepo.getInstance().refresh(cart); // todo is this necessary?
         var productDto = new AddedToCartDto();
         var cartItems = cart.getCartItems();
         productDto.setName(productOrm.getName());

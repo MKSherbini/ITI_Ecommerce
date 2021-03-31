@@ -6,6 +6,8 @@
 <head>
     <title>${applicationScope.urlMappingConstants.getTitle(PageNames.HOME_PAGE)}</title>
     <%@include file="commons/headCommon.jsp" %>
+    <script>document.write('<script src="scripts/js/shop.js?dev=' + new Date().getTime() + '"\><\/script>');</script>
+
 </head>
 <body class="config">
 <div class="preloader is-active">
@@ -235,7 +237,8 @@
 
                                                                     <a data-modal="modal" data-modal-id="#add-to-cart"
                                                                        data-tooltip="tooltip" data-placement="top"
-                                                                       title="Add to Cart"><i
+                                                                       title="Add to Cart"
+                                                                       onclick="incrementFromCart(${product.productId});"><i
                                                                             class="fas fa-plus-circle"></i></a></li>
                                                                 <li>
 
@@ -257,12 +260,12 @@
 
                                                     <span class="product-o__category">
 
-                                                    <a href="shop-side-version-2.jsp"
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${product.category.name}"
                                                        style="text-transform:capitalize">${category.name}</a></span>
 
                                                     <span class="product-o__name">
 
-                                                    <a href="product-detail.jsp"
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}"
                                                        style="text-transform:capitalize">${product.name}</a></span>
                                                         <%--                                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i--%>
                                                         <%--                                                            class="fas fa-star"></i><i class="fas fa-star"></i><i--%>
@@ -270,9 +273,22 @@
 
                                                         <%--                                                        <span class="product-o__review">(23)</span></div>--%>
 
-                                                    <span class="product-o__price">$${product.price*(product.discountPercent/100)}
+                                                    <c:choose>
+                                                        <c:when test="${product.discountPercent==0}">
+                                                            <%--product price--%>
+                                                            <%--                                                            <div class="product-m__price">${product.price}</div>--%>
+                                                            <span class="product-o__price">$${product.price}</span>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <%--product price--%>
+                                                            <%--                                                            <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}--%>
+                                                            <%--                                                                <span class="product-m__discount">${product.price}</span></div>--%>
+                                                            <span class="product-o__price">$${product.price * (1-(product.discountPercent/ 100))}
+                                                            <span class="product-o__discount"
+                                                                  style="color: #ff4500;">$${product.price}</span></span>
+                                                        </c:otherwise>
+                                                    </c:choose>
 
-                                                    <span class="product-o__discount">$${product.price}</span></span>
                                                 </div>
                                             </div>
                                         </c:forEach>
@@ -282,8 +298,10 @@
                             <div class="col-lg-12">
                                 <div class="load-more filter__grid-wrapper" style="margin: auto; max-width: 16%;">
                                     <c:forEach items="${requestScope.categories}" var="category">
-                                            <button class="btn btn--e-brand filter__item ${category.name}">See More
-                                            </button>
+                                        <button class="btn btn--e-brand filter__item ${category.name}"
+                                                onclick="window.location=window.location.protocol+'//'+window.location.host+'${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${category.name}';">
+                                            See More
+                                        </button>
 
                                     </c:forEach>
                                 </div>
@@ -2099,36 +2117,40 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="success u-s-m-b-30">
-                                    <div class="success__text-wrap"><i class="fas fa-check"></i>
+                                    <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
 
-                                        <span>Item is added successfully!</span></div>
+                                        <span id="modal-add-msg">Item is added successfully!</span></div>
                                     <div class="success__img-wrap">
 
-                                        <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt="">
-                                    </div>
+                                        <img id="modal-add-img" class="u-img-fluid"
+                                             src="images/product/electronic/product1.jpg" alt=""></div>
                                     <div class="success__info-wrap">
 
-                                        <span class="success__name">Beats Bomb Wireless Headphone</span>
+                                        <span id="modal-add-name"
+                                              class="success__name">Beats Bomb Wireless Headphone</span>
 
                                         <span class="success__quantity">Quantity: 1</span>
 
-                                        <span class="success__price">$170.00</span></div>
+                                        <span id="modal-add-price" class="success__price">$170.00</span></div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="s-option">
 
-                                    <span class="s-option__text">1 item (s) in your cart</span>
+                                    <span id="modal-add-itemsCount"
+                                          class="s-option__text">1 item (s) in your cart</span>
                                     <div class="s-option__link-box">
 
                                         <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
                                             SHOPPING</a>
 
-                                        <a class="s-option__link btn--e-white-brand-shadow" href="cart.jsp">VIEW
+                                        <a class="s-option__link btn--e-white-brand-shadow"
+                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
                                             CART</a>
 
-                                        <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
-                                            CHECKOUT</a></div>
+                                        <a class="s-option__link btn--e-brand-shadow"
+                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                            TO CHECKOUT</a></div>
                                 </div>
                             </div>
                         </div>
@@ -2191,49 +2213,49 @@
         <!--====== End - Modal Section ======-->
     </div>
 </div>
-    <!--====== End - Main App ======-->
+<!--====== End - Main App ======-->
 
 
-    <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
-    <script>
-        window.ga = function () {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview')
-    </script>
+<!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+<script>
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+</script>
 
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
-    <!--====== Vendor Js ======-->
-    <script src="scripts/js/vendor.js"></script>
+<!--====== Vendor Js ======-->
+<script src="scripts/js/vendor.js"></script>
 
-    <!--====== jQuery Shopnav plugin ======-->
-    <script src="scripts/js/jquery.shopnav.js"></script>
+<!--====== jQuery Shopnav plugin ======-->
+<script src="scripts/js/jquery.shopnav.js"></script>
 
-    <!--====== App ======-->
-    <script src="scripts/js/app.js"></script>
-    <script>
-        document.getElementsByClassName("spongebob")[0].click();
-    </script>
-    <!--====== Noscript ======-->
-    <noscript>
-        <div class="app-setting">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="app-setting__wrap">
-                            <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
+<!--====== App ======-->
+<script src="scripts/js/app.js"></script>
+<script>
+    document.getElementsByClassName("spongebob")[0].click();
+</script>
+<!--====== Noscript ======-->
+<noscript>
+    <div class="app-setting">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="app-setting__wrap">
+                        <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
 
-                            <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
-                        </div>
+                        <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
                     </div>
                 </div>
             </div>
         </div>
-    </noscript>
+    </div>
+</noscript>
 
 </body>
 </html>

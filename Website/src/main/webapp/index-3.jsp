@@ -1142,7 +1142,7 @@
                                                     <a href="wishlist.jsp">Wishlist</a></li>
                                                 <li>
 
-                                                    <a href="checkout.jsp">Checkout</a></li>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">Checkout</a></li>
                                                 <li>
 
                                                     <a href="faq.jsp">FAQ</a></li>
@@ -1355,7 +1355,7 @@
                                                         <span class="subtotal-value">$16</span></div>
                                                     <div class="mini-action">
 
-                                                        <a class="mini-link btn--e-brand-b-2" href="checkout.jsp">PROCEED TO CHECKOUT</a>
+                                                        <a class="mini-link btn--e-brand-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED TO CHECKOUT</a>
 
                                                         <a class="mini-link btn--e-transparent-secondary-b-2" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a></div>
                                                 </div>
@@ -2981,7 +2981,7 @@
 
                                         <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
 
-                                        <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO CHECKOUT</a></div>
+                                        <a class="s-option__link btn--e-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED TO CHECKOUT</a></div>
                                 </div>
                             </div>
                         </div>

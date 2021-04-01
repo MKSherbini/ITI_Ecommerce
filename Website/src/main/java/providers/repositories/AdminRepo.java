@@ -32,6 +32,6 @@ public class AdminRepo extends GenericRepo<Admin, Long> {
                         .createNamedQuery("Admin.findByEmailPassword")
                         .setParameter("email", email)
                         .setParameter("password", password)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 }

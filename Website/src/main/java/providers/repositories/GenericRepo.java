@@ -21,12 +21,16 @@ public abstract class GenericRepo<T, ID> {
         DatabaseManager.getInstance().runTransaction(session -> session.persist(obj));
     }
 
+    public void refresh(T obj) {
+        DatabaseManager.getInstance().runTransaction(session -> session.refresh(obj));
+    }
+
     public Optional<T> read(ID id) {
         return DatabaseManager.getInstance().runTransactionWithRet(session -> Optional.ofNullable(session.find(persistentClass, id)));
     }
 
     public List<T> readAll() {
-        return DatabaseManager.getInstance().runTransactionWithRet(session -> (List<T>) session.createQuery("from " + persistentClass.getSimpleName()).list());
+        return DatabaseManager.getInstance().runTransactionWithRet(session -> (List<T>) session.createQuery("from " + persistentClass.getSimpleName()).getResultList());
     }
 
     public Optional<T> update(T obj) { // you can never be too careful

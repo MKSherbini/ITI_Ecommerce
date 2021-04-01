@@ -29,6 +29,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
         urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
         urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
+        urlMap.put(PageNames.Error, new VCUrlMapping("error", "error", "error.jsp"));
 
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
         // ... add other pages
@@ -42,7 +43,7 @@ public class UrlMappingConstants {
 
     {
         serviceMap.put(ServiceNames.SIGN_OUT, new ServiceUrlMapping("SignOut", "signout"));
-        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("Error Redirect", "errorRedirect"));
+        serviceMap.put(ServiceNames.ERROR_REDIRECT, new ServiceUrlMapping("ErrorHandler Redirect", "errorRedirect"));
         serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
         serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));
         serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));

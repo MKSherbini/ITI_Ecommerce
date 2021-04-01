@@ -11,6 +11,7 @@ import constants.enums.PageNames;
 import managers.CookiesManager;
 import models.orm.User;
 import providers.repositories.UserRepo;
+import utilities.ErrorHandler;
 import utilities.Hashator;
 
 import java.io.*;
@@ -66,10 +67,8 @@ public class SignInController extends HttpServlet {
                 return;
             } else {
                 request.setAttribute("userError", true);
-                response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
             }
         }
-
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         // do verifying
     }

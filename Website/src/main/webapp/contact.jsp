@@ -1,25 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="jakarta.servlet.RequestDispatcher" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="images/favicon.png" rel="shortcut icon">
-    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
-
-    <!--====== Google Font ======-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-
-    <!--====== Vendor Css ======-->
-    <link rel="stylesheet" href="styles/css/vendor.css">
-
-    <!--====== Utility-Spacing ======-->
-    <link rel="stylesheet" href="styles/css/utility.css">
-
-    <!--====== App ======-->
-    <link rel="stylesheet" href="styles/css/app.css">
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.CONTACT_US)}</title>
+    <%@include file="commons/headCommon.jsp" %>
+    <script src="scripts/js/validation_contact_form.js" type="text/javascript"></script>
 </head>
 <body class="config">
     <div class="preloader is-active">
@@ -1488,29 +1476,29 @@
                                     <div class="contact-area__heading">
                                         <h2>Get In Touch</h2>
                                     </div>
-                                    <form class="contact-f" method="post" action="index.jsp">
+                                    <form class="contact-f" method="post" name="contact_form" action="index.jsp" ">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 u-h-100">
                                                 <div class="u-s-m-b-30">
 
                                                     <label for="c-name"></label>
 
-                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-name" placeholder="Name (Required)" required></div>
+                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" name="customerName" id="c-name" placeholder="Name (Required)" required></div>
                                                 <div class="u-s-m-b-30">
 
                                                     <label for="c-email"></label>
 
-                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email" placeholder="Email (Required)" required></div>
+                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email" name="email" placeholder="Email (Required)" required></div>
                                                 <div class="u-s-m-b-30">
 
                                                     <label for="c-subject"></label>
 
-                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-subject" placeholder="Subject (Required)" required></div>
+                                                    <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-subject"  name="subject" placeholder="Subject (Required)" required></div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 u-h-100">
                                                 <div class="u-s-m-b-30">
 
-                                                    <label for="c-message"></label><textarea class="text-area text-area--border-radius text-area--primary-style" id="c-message" placeholder="Compose a Message (Required)" required></textarea></div>
+                                                    <label for="c-message"></label><textarea class="text-area text-area--border-radius text-area--primary-style" id="c-message" name="message" placeholder="Compose a Message (Required)" required></textarea></div>
                                             </div>
                                             <div class="col-lg-12">
 

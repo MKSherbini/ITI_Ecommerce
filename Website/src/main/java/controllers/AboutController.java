@@ -8,13 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import managers.DatabaseManager;
-import models.orm.Developer;
+import providers.repositories.CustomerReviewRepo;
 import providers.repositories.DeveloperRepo;
 
-import javax.transaction.Transaction;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/about")
 public class AboutController extends HttpServlet {
@@ -30,11 +27,13 @@ public class AboutController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //todo solve the problem of named query of the developer repo
-
-        List<Developer> developers = DeveloperRepo.getInstance().findAll();
-        request.setAttribute(DEVELOPERS_NAME,developers);
+        System.out.println("donget");
+        request.setAttribute(DEVELOPERS_NAME,DeveloperRepo.getInstance().readAll());
+        System.out.println("donget");
+        request.setAttribute("reviews", CustomerReviewRepo.getInstance().readAll());
+        System.out.println("donget");
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.ABOUT_PAGE)).include(request,response);
+
     }
 
     public String getServletInfo() {

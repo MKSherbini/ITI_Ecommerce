@@ -24,7 +24,7 @@ public class ContactUsController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.HOME_PAGE)).include(request,response);
+        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.CONTACT_US)).include(request,response);
     }
 
     public String getServletInfo() {

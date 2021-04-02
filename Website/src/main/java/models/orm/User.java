@@ -58,6 +58,12 @@ public class User {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<ShoppingCart> carts;
+    @ToString.Exclude
+    @OneToMany(mappedBy = "subscriber",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<CustomerReview> reviews;
 
     @Column(nullable = false)
     int credit;

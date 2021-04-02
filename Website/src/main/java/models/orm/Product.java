@@ -73,7 +73,7 @@ public class Product {
     private Timestamp arrivalDate;
 
     @ManyToOne(optional = false)
-//    @ToString.Exclude
+    @ToString.Exclude
     private ProductCategory category;
 
     public Product() {

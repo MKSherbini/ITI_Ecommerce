@@ -49,17 +49,13 @@
 
                                             <a href="cart.jsp">Cart</a></li>
                                         <li>
-
+<%--                                            // todo link  to the account of the user --%>
                                             <a href="dashboard.jsp">Account</a></li>
-                                        <li>
 
-                                            <a href="shop-side-version-2.jsp">Manufacturer</a></li>
-                                        <li>
 
-                                            <a href="dash-payment-option.jsp">Finance</a></li>
                                         <li>
-
-                                            <a href="shop-side-version-2.jsp">Shop</a></li>
+                                            <%--                                            // todo link  to the home --%>
+                                            <a href="home">Shop</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,16 +71,14 @@
                                             <a href="about">About us</a></li>
                                         <li>
 
-                                            <a href="/contact">Contact Us</a></li>
-                                        <li>
+                                            <a href="contact">Contact Us</a></li>
 
-                                            <a href="index.jsp">Sitemap</a></li>
                                         <li>
-
+                                            <%-- // todo link  to the orders page  --%>
                                             <a href="dash-my-order.jsp">Delivery</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Store</a></li>
+                                            <a href="home">Store</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -134,9 +128,9 @@
                     <div class="lower-footer__content">
                         <div class="lower-footer__copyright">
 
-                            <span>Copyright © 2018</span>
+                            <span>Copyright © 2021 </span>
 
-                            <a href="index.jsp">Reshop</a>
+                            <a href="home">Ludus</a>
 
                             <span>All Right Reserved</span></div>
                         <div class="lower-footer__payment">

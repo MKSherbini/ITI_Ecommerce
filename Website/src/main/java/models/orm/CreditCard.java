@@ -12,15 +12,18 @@ import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(
-                name = "FakeCreditCard.findValidCard",
-                query = "select c from FakeCreditCard c where c.cardNumber = :cardNumber and c.cvv = :cvv and c.expireDate = :expireDate"),
+                name = "CreditCard.findValidCard",
+                query = "select c from CreditCard c where c.cardNumber = :cardNumber and c.cvv = :cvv and c.expireDate = :expireDate"),
+        @NamedQuery(
+                name = "CreditCard.findCardsByUser",
+                query = "select c from CreditCard c where c.owner = :owner"),
 
 })
 
 @Data
 @Entity
-@Table(name = "fake_credit_cards")
-public class FakeCreditCard {
+@Table(name = "credit_cards")
+public class CreditCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +31,7 @@ public class FakeCreditCard {
     @Setter(AccessLevel.NONE)
     private Long cardId;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String cardNumber;
 
     @Column(nullable = false)
@@ -41,14 +44,21 @@ public class FakeCreditCard {
     @Column(nullable = false)
     private int balance;
 
-    public FakeCreditCard() {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, updatable = false)
+    private User owner;
+
+    private boolean isDefault;
+
+    public CreditCard() {
 
     }
 
-    public FakeCreditCard(String cardNumber, String cvv, Date expireDate, int balance) {
+    public CreditCard(String cardNumber, String cvv, Date expireDate, int balance, User owner) {
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.expireDate = expireDate;
         this.balance = balance;
+        this.owner = owner;
     }
 }

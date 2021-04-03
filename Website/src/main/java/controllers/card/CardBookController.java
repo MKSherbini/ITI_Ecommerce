@@ -10,6 +10,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import listeners.ThreadLocalContext;
 import models.dtos.CartDto;
+import models.dtos.CreditCardDto;
+import models.orm.User;
+import providers.repositories.CartRepo;
+import providers.repositories.CreditCardRepo;
+import utilities.adapters.CreditCardAdapter;
 
 import java.io.IOException;
 
@@ -27,6 +32,13 @@ public class CardBookController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            return;
+        }
+        request.setAttribute("cards", CreditCardAdapter.copyOrmToDto(CreditCardRepo.getInstance().findCardsByUser(user)));
+        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
         ThreadLocalContext.includeView(PageNames.CARD_BOOK);
     }
 

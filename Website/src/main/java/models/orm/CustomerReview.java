@@ -17,7 +17,6 @@ import java.sql.Date;
 })
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "customer_review")
 public class CustomerReview {
     @Id

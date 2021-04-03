@@ -16,7 +16,6 @@ import java.util.List;
 })*/
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "subscriber")
 public class Subscriber {
     @Id

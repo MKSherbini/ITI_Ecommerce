@@ -47,12 +47,14 @@
                                 <div class="outer-footer__list-wrap">
                                     <ul>
                                         <li>
-                                            <a href="cart">Cart</a></li>
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                         <li>
 <%--                                            // todo link  to the account of the user --%>
                                             <a href="account">Account</a></li>
 
 
+                                            <li><a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                         <li>
                                             <%--                                            // todo link  to the home --%>
                                             <a href="shop">Shop</a></li>
@@ -73,12 +75,13 @@
 
                                             <a href="contact">Contact Us</a></li>
 
+                                            <li><a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
                                         <li>
                                             <%-- // todo link  to the orders page  --%>
                                             <a href="dash-my-order.jsp">Delivery</a></li>
                                         <li>
 
-                                            <a href="home">Store</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -130,7 +133,7 @@
 
                             <span>Copyright © 2021 </span>
 
-                            <a href="home">Ludus</a>
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Reshop</a>
 
                             <span>All Right Reserved</span></div>
                         <div class="lower-footer__payment">

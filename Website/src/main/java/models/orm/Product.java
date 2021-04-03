@@ -22,6 +22,9 @@ import java.util.List;
                 name = "Product.findMinMaxPriceLikeName",
                 query = "select min(p.price), max(p.price) from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
+                name = "Product.findMinMaxPriceCategoryName",
+                query = "select min(p.price), max(p.price) from Product p where p.category.name in (:categories) and p.name like :name or p.description like :name"),
+        @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
@@ -52,7 +55,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "products")
 public class Product {
 
@@ -72,8 +74,8 @@ public class Product {
     @Column(nullable = false)
     private Timestamp arrivalDate;
 
-    @ManyToOne(optional = false)
-    @ToString.Exclude
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+//    @ToString.Exclude
     private ProductCategory category;
 
     public Product() {

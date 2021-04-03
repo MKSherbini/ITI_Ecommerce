@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -21,7 +22,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "categories")
 public class ProductCategory {
     @Id
@@ -35,7 +35,7 @@ public class ProductCategory {
 
     @OneToMany(mappedBy = "category")
     @ToString.Exclude
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public ProductCategory() {
     }

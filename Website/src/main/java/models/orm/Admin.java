@@ -16,7 +16,6 @@ import lombok.Setter;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "admins")
 public class Admin {
 

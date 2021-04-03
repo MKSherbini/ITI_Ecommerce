@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class CartDto {
-    private int totalPrice;
+    private double totalPrice;
     private int totalItemsCount;
     private List<CartItemDto> cartItems;
 }

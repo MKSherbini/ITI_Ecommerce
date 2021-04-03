@@ -34,7 +34,7 @@ public class HomeController extends HttpServlet {
         //todo get all categories
         CategoryRepo categoryRepo = CategoryRepo.getInstance();
         List<ProductCategory> categories = categoryRepo.readAll();
-        request.setAttribute("categories",categories);
+        request.setAttribute("categories", categories);
         //todo try to use pagination while getting products
         //todo get new arrivals
         ProductRepo productRepo = ProductRepo.getInstance();

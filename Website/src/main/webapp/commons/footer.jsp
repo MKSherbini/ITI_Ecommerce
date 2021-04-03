@@ -47,19 +47,19 @@
                                     <ul>
                                         <li>
 
-                                            <a href="cart.jsp">Cart</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                         <li>
 
                                             <a href="dashboard.jsp">Account</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Manufacturer</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                         <li>
 
                                             <a href="dash-payment-option.jsp">Finance</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Shop</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -78,13 +78,13 @@
                                             <a href="contact.jsp">Contact Us</a></li>
                                         <li>
 
-                                            <a href="index.jsp">Sitemap</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
                                         <li>
 
                                             <a href="dash-my-order.jsp">Delivery</a></li>
                                         <li>
 
-                                            <a href="shop-side-version-2.jsp">Store</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
 
                             <span>Copyright © 2018</span>
 
-                            <a href="index.jsp">Reshop</a>
+                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Reshop</a>
 
                             <span>All Right Reserved</span></div>
                         <div class="lower-footer__payment">

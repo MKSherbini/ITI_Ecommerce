@@ -15,8 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
-@Table(name = "dummyusers")
+@Table(name = "dummy_users")
 public class DummyUser {
 
     @Id
@@ -25,7 +24,8 @@ public class DummyUser {
     @Setter(AccessLevel.NONE)
     private Long dummyId;
 
-    @OneToOne(optional = false)
+    @OneToOne(mappedBy = "dummyOwner")
+//            , optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private ShoppingCart cart;
 
     @Column(nullable = false)

@@ -69,7 +69,6 @@ public class AddProductController extends HttpServlet {
             }
             ProductRepo.getInstance().create(product);
         }
-
     }
         public String getServletInfo() {
         return null;

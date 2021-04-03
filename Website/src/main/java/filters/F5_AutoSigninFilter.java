@@ -89,14 +89,15 @@ public class F5_AutoSigninFilter implements Filter {
         if (userSession == null) {
             var cart = CartRepo.getInstance().GetCartOrCreateOne((DummyUser) httpRequest.getSession().getAttribute("dummyUser")).get();
 //            CartItemRepo.getInstance().updateByProductLimits();
-            CartRepo.getInstance().refresh(cart);
+//            CartRepo.getInstance().refresh(cart);
             cart.getCartItems().forEach(cartItem -> cartItem.setProductQuantity(Math.min(cartItem.getProduct().getQuantity(), cartItem.getProductQuantity())));
             cart.setTotalPrice(CartItemRepo.getInstance().findTotalPriceByCart(cart));
             httpRequest.getSession().setAttribute("cart", CartAdapter.copyOrmToDto(cart));
         } else {
             var cart = CartRepo.getInstance().GetCartOrCreateOne(userSession).get();
 //            CartItemRepo.getInstance().updateByProductLimits();
-            CartRepo.getInstance().refresh(cart);
+//            CartRepo.getInstance().refresh(cart);
+            System.out.println("cart debug = " + cart);
             cart.getCartItems().forEach(cartItem -> cartItem.setProductQuantity(Math.min(cartItem.getProduct().getQuantity(), cartItem.getProductQuantity())));
             cart.setTotalPrice(CartItemRepo.getInstance().findTotalPriceByCart(cart));
             httpRequest.getSession().setAttribute("cart", CartAdapter.copyOrmToDto(cart));
@@ -111,7 +112,9 @@ public class F5_AutoSigninFilter implements Filter {
         dummyUser.setCart(cart);
         DummyUserRepo.getInstance().create(dummyUser);
         System.out.println("dummyUser = " + dummyUser);
+        System.out.println("dummyCart = " + cart);
         DummyUserRepo.getInstance().refresh(dummyUser);
+        System.out.println("dummyUser = " + dummyUser);
 //        cart = CartRepo.getInstance().GetCartOrCreateOne(dummyUser).get();
 //        var cartDto = CartAdapter.copyOrmToDto(cart);
 //        cart.setTotalPrice(CartItemRepo.getInstance().findTotalPriceByCart(cart));

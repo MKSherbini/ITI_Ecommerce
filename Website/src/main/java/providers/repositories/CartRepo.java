@@ -62,7 +62,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
 
     private int addToShoppingCart(Product product, ShoppingCart cart, int addQuantity) {
         // cart logic
-        refresh(cart);
+//        refresh(cart);
         var cartItems = cart.getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
         if (cartItems != null)
@@ -88,7 +88,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         update(cart);
 //        DatabaseManager.getInstance().flush();
 
-        refresh(cart);
+//        refresh(cart);
         return addQuantity;
     }
 
@@ -98,7 +98,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
 
     private Optional<ShoppingCart> removeFromShoppingCart(Product product, ShoppingCart cart, boolean fullCartItem) {
         // cart logic
-        refresh(cart);
+//        refresh(cart);
         var cartItems = cart.getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
         if (cartItems != null)
@@ -128,7 +128,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
 //            DatabaseManager.getInstance().flush();
         }
 
-        refresh(cart);
+//        refresh(cart);
         return Optional.of(cart);
     }
 
@@ -154,6 +154,9 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
     }
 
     public Optional<ShoppingCart> GetCartOrCreateOne(User user) {
+//        UserRepo.getInstance().update(user);
+//        UserRepo.getInstance().refresh(user); // todo fk jpa
+        user = UserRepo.getInstance().read(user.getUserId()).get();
         var cart = findShoppingCartByUser(user);
         if (cart.isEmpty()) {
             create(new ShoppingCart(user));
@@ -200,7 +203,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         // find cart
         var cart = findShoppingCartByUser(user);
         if (cart.isEmpty()) return Optional.empty();
-        refresh(cart.get());
+//        refresh(cart.get());
         var price = cart.get().getTotalPrice() * 1.15;
 //        switch (paymentMethod) {
 //            case BANK:

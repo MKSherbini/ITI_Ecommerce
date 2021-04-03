@@ -44,7 +44,6 @@ public class AddProductController extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
-        Part imagePart = request.getPart("image");
         Collection<Part> productImagesParts = request.getParts();
         String productDescription = request.getParameter("productDescription");
         String categoryName = request.getParameter("category");
@@ -54,28 +53,21 @@ public class AddProductController extends HttpServlet {
         FireStorageManager fireStorageManager = FireStorageManager.getInstance();
         List<ProductImage> productImages = new ArrayList<>();
         int count = 1;
-        for (Part image:
-                productImagesParts) {
+        for (Part image: productImagesParts) {
             if(image.getName().contains("image") && !image.getSubmittedFileName().equals("")){
-                System.out.println(image.getName());
                 String downloadLink = fireStorageManager.uploadFileToStorage(image.getInputStream().readAllBytes(), name+count);
                 productImages.add(new ProductImage(downloadLink));
                 count++;
-                System.out.println(count);
             }
-
         }
-        System.out.println(request.getContextPath());
         Optional<ProductCategory> productCategory = CategoryRepo.getInstance().findByName(categoryName);
         if(productCategory.isPresent()) {
             Product product = new Product(name, price, productDescription, quantity, discount, productCategory.get(),productImages);
-            ProductRepo.getInstance().create(product);
+            product.setImageSrc(productImages.get(0).getDownloadLink());
             for(int i=0;i<productImages.size();i++){
                 productImages.get(i).setProduct(product);
-//                ProductImageRepo.getInstance().create(productImages.get(i));
             }
             ProductRepo.getInstance().create(product);
-
         }
 
     }

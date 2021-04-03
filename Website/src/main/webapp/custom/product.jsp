@@ -23,17 +23,17 @@
             <div class="product-m__name">
                 <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${product.productId}">${product.name}</a>
             </div>
-            <c:choose>
-                <c:when test="${product.discountPercent==0}">
-                    <%--product price--%>
-                    <div class="product-m__price">${product.price}</div>
-                </c:when>
-                <c:otherwise>
-                    <%--product price--%>
-                    <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}
-                        <span class="product-m__discount">${product.price}</span></div>
-                </c:otherwise>
-            </c:choose>
+<%--            <c:choose>--%>
+<%--                <c:when test="${product.discountPercent==0}">--%>
+<%--                    &lt;%&ndash;product price&ndash;%&gt;--%>
+<%--                    <div class="product-m__price">${product.price}</div>--%>
+<%--                </c:when>--%>
+<%--                <c:otherwise>--%>
+<%--                    &lt;%&ndash;product price&ndash;%&gt;--%>
+<%--                    <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}--%>
+<%--                        <span class="product-m__discount">${product.price}</span></div>--%>
+<%--                </c:otherwise>--%>
+<%--            </c:choose>--%>
             <%--product description--%>
             <div class="product-m__hover">
                 <div class="product-m__preview-description">

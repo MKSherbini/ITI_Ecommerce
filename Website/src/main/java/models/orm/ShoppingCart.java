@@ -11,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -29,7 +30,6 @@ import java.util.List;
 })
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "shopping_carts")
 public class ShoppingCart {
     @Id
@@ -38,23 +38,23 @@ public class ShoppingCart {
     @Setter(AccessLevel.NONE)
     private Long shoppingCartId;
 
-    private int totalPrice;
+    private double totalPrice;
     private String paymentMethod;
     private Date orderTime;
     private Boolean isHistory;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private User owner;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @ToString.Exclude
     private DummyUser dummyOwner;
 
     @OneToMany(mappedBy = "cart",
             orphanRemoval = true,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
-    private List<CartItem> cartItems;
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public ShoppingCart() {
     }

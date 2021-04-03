@@ -32,13 +32,15 @@ public class HomeController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // do preparing
+        //todo get all categories
         CategoryRepo categoryRepo = CategoryRepo.getInstance();
         List<ProductCategory> categories = categoryRepo.readAll();
-        request.setAttribute("categories",categories);
-
+        request.setAttribute("categories", categories);
+        //todo try to use pagination while getting products
+        //todo get new arrivals
         ProductRepo productRepo = ProductRepo.getInstance();
         List<Product> newArrivals = productRepo.findNewArrivals();
-        request.setAttribute("newArrivals",newArrivals);
+        request.setAttribute("newArrivals", newArrivals);
 
         System.out.println("HomeController.doGet");
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.HOME_PAGE)).include(request, response);

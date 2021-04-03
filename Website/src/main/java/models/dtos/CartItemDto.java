@@ -8,6 +8,7 @@ import java.sql.Date;
 public class CartItemDto {
     private Long productId;
     private int productQuantity;
+    private int productQuantityMax;
     private String name;
     private int price;
     private String imageSrc;

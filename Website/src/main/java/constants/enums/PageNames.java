@@ -10,10 +10,7 @@ public enum PageNames {
     SHOP,
     CONTACT_US,
     PRODUCT,
-    EMPTY_SHOP,
-    CART,
-    EMPTY_CART,
+    EMPTY_SHOP, CART, EMPTY_CART, CHECKOUT, MINI_CART, TEST_USER_JSP,
     ADD_PRODUCT,
-    TEST_USER_JSP
 
 }

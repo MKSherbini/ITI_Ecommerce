@@ -52,4 +52,16 @@ public final class ThreadLocalContext implements AutoCloseable {
         getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getServiceUrl(service)).forward(getCurrentInstance().request, getCurrentInstance().response);
     }
 
+    public static void includeView(PageNames page) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(page)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void include(PageNames page) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(page)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void include(ServiceNames service) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getServiceName(service)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
 }

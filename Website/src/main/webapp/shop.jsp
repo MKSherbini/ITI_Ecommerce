@@ -364,19 +364,22 @@
                                         <ul>
                                             <li>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a>
+                                            </li>
                                             <li>
 
                                                 <a href="dashboard.jsp">Account</a></li>
                                             <li>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a>
+                                            </li>
                                             <li>
 
                                                 <a href="dash-payment-option.jsp">Finance</a></li>
                                             <li>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -395,13 +398,15 @@
                                                 <a href="contact.jsp">Contact Us</a></li>
                                             <li>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a>
+                                            </li>
                                             <li>
 
                                                 <a href="dash-my-order.jsp">Delivery</a></li>
                                             <li>
 
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -496,13 +501,16 @@
                                         <a href="index.hml">Home</a></li>
                                     <li class="has-separator">
 
-                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a>
+                                    </li>
                                     <li class="has-separator">
 
-                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR
+                                            Cameras</a></li>
                                     <li class="is-marked">
 
-                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon
+                                            Cameras</a></li>
                                 </ul>
                             </div>
                             <!--====== End - Product Breadcrumb ======-->
@@ -679,7 +687,6 @@
     <!--====== End - Quick Look Modal ======-->
 
 
-
     <!--====== Add to Cart Modal ======-->
     <div class="modal fade" id="add-to-cart">
         <div class="modal-dialog modal-dialog-centered">
@@ -690,12 +697,13 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="success u-s-m-b-30">
-                                <div class="success__text-wrap"><i class="fas fa-check"></i>
+                                <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
 
-                                    <span>Item is added successfully!</span></div>
+                                    <span id="modal-add-msg">Item is added successfully!</span></div>
                                 <div class="success__img-wrap">
 
-                                    <img id="modal-add-img" class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
+                                    <img id="modal-add-img" class="u-img-fluid"
+                                         src="images/product/electronic/product1.jpg" alt=""></div>
                                 <div class="success__info-wrap">
 
                                     <span id="modal-add-name" class="success__name">Beats Bomb Wireless Headphone</span>
@@ -711,11 +719,16 @@
                                 <span id="modal-add-itemsCount" class="s-option__text">1 item (s) in your cart</span>
                                 <div class="s-option__link-box">
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
+                                        SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                        CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a></div>
+                                    <a class="s-option__link btn--e-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                        TO CHECKOUT</a></div>
                             </div>
                         </div>
                     </div>
@@ -751,20 +764,20 @@
 <!--====== App ======-->
 <script src="scripts/js/app.js"></script>
 
-<script>
-    function addToCart(productId) {
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {
-            // console.log("Data: " + data + "\nStatus: " + status);
-            // console.log(data.name)
-            // if (data.length <= 5) return;
-            // let product = JSON.parse(data);
-            // console.log(product);
-            if (status === 'success')
-                // fkingSetModal(product);
-                setTimeout(fkingSetModal, 500, product);
-        });
-    }
-</script>
+<%--<script>--%>
+<%--    function addToCart(productId) {--%>
+<%--        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (product, status) {--%>
+<%--            // console.log("Data: " + data + "\nStatus: " + status);--%>
+<%--            // console.log(data.name)--%>
+<%--            // if (data.length <= 5) return;--%>
+<%--            // let product = JSON.parse(data);--%>
+<%--            // console.log(product);--%>
+<%--            // if (status === 'success')--%>
+<%--            // fkingSetModal(product);--%>
+<%--            // setTimeout(fkingSetModal, 500, product);--%>
+<%--        });--%>
+<%--    }--%>
+<%--</script>--%>
 <!--====== Noscript ======-->
 <noscript>
     <div class="app-setting">

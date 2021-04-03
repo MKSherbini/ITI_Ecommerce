@@ -6,6 +6,7 @@
 <head>
     <title>${applicationScope.urlMappingConstants.getTitle(PageNames.PRODUCT)}</title>
     <%@include file="commons/headCommon.jsp" %>
+    <script>document.write('<script src="scripts/js/shop.js?dev=' + new Date().getTime() + '"\><\/script>');</script>
 </head>
 
 <body class="config">
@@ -143,10 +144,18 @@
                             </div>
                             <div class="u-s-m-b-15">
                                 <div class="pd-detail__inline">
+                                    <c:choose>
+                                        <c:when test="${requestScope.product.quantity>10}">
 
-                                    <span class="pd-detail__stock">200 in stock</span>
+                                            <span class="pd-detail__stock">${requestScope.product.quantity} in stock</span>
+                                        </c:when>
+                                        <c:otherwise>
 
-                                    <span class="pd-detail__left">Only 2 left</span></div>
+                                            <span class="pd-detail__left">Only ${requestScope.product.quantity} left</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+
                             </div>
                             <div class="u-s-m-b-15">
 
@@ -171,7 +180,10 @@
                                             <span class="pd-detail__click-count">(20)</span></span></div>
                             </div>
                             <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
+                                <form class="pd-detail__form"
+                                      action="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}">
+                                    <input type="hidden" name="${WebsiteConstants.paramProductId}"
+                                           value="${requestScope.product.productId}"/>
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
 
@@ -180,15 +192,24 @@
 
                                                 <span class="input-counter__minus fas fa-minus"></span>
 
-                                                <input class="input-counter__text input-counter--text-primary-style"
-                                                       type="text" value="1" data-min="1" data-max="1000">
+                                                <input id="counter"
+                                                       class="input-counter__text input-counter--text-primary-style"
+                                                       type="text"
+                                                       name="${WebsiteConstants.paramAddProductQuantityName}" value="1"
+                                                       data-min="1"
+                                                       data-max="1000">
 
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
                                         </div>
                                         <div class="u-s-m-b-15">
 
-                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
+                                            <button class="btn btn--e-brand-b-2" type="button"
+                                                    onclick="incrementFromCart(${requestScope.product.productId},$(counter).val());"
+                                                    data-modal="modal"
+                                                    data-modal-id="#add-to-cart">
+                                                Add to Cart
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1024,9 +1045,9 @@
     <!--====== End - App Content ======-->
 
 
-        <!--====== Footer ======-->
-        <jsp:include page="commons/footerCommon.jsp"/>
-        <!--====== End - Footer ======-->
+    <!--====== Footer ======-->
+    <jsp:include page="commons/footerCommon.jsp"/>
+    <!--====== End - Footer ======-->
 
     <!--====== Modal Section ======-->
 
@@ -1188,7 +1209,8 @@
                                                     <span class="input-counter__minus fas fa-minus"></span>
 
                                                     <input class="input-counter__text input-counter--text-primary-style"
-                                                           type="text" value="1" data-min="1" data-max="1000">
+                                                           type="text" value="1" data-min="1"
+                                                           data-max="${requestScope.product.quantity}">
 
                                                     <span class="input-counter__plus fas fa-plus"></span></div>
                                                 <!--====== End - Input Counter ======-->
@@ -1236,34 +1258,38 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="success u-s-m-b-30">
-                                <div class="success__text-wrap"><i class="fas fa-check"></i>
+                                <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
 
-                                    <span>Item is added successfully!</span></div>
+                                    <span id="modal-add-msg">Item is added successfully!</span></div>
                                 <div class="success__img-wrap">
 
-                                    <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
+                                    <img id="modal-add-img" class="u-img-fluid"
+                                         src="images/product/electronic/product1.jpg" alt=""></div>
                                 <div class="success__info-wrap">
 
-                                    <span class="success__name">Beats Bomb Wireless Headphone</span>
+                                    <span id="modal-add-name" class="success__name">Beats Bomb Wireless Headphone</span>
 
                                     <span class="success__quantity">Quantity: 1</span>
 
-                                    <span class="success__price">$170.00</span></div>
+                                    <span id="modal-add-price" class="success__price">$170.00</span></div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="s-option">
 
-                                <span class="s-option__text">1 item (s) in your cart</span>
+                                <span id="modal-add-itemsCount" class="s-option__text">1 item (s) in your cart</span>
                                 <div class="s-option__link-box">
 
                                     <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
                                         SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                        CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
-                                        CHECKOUT</a></div>
+                                    <a class="s-option__link btn--e-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                        TO CHECKOUT</a></div>
                             </div>
                         </div>
                     </div>
@@ -1272,6 +1298,7 @@
         </div>
     </div>
     <!--====== End - Add to Cart Modal ======-->
+
     <!--====== End - Modal Section ======-->
 </div>
 <!--====== End - Main App ======-->

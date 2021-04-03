@@ -21,7 +21,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.REGISTER_PAGE, new VCUrlMapping("SignUp", "signup", "signup.jsp"));
         urlMap.put(PageNames.NOT_FOUND_404, new VCUrlMapping("Not Found", "404", "404.jsp"));
 //        urlMap.put(PageNames.TEST_JSP,new VCUrlMapping("testJSP","test","Testtag.jsp"));
-        urlMap.put(PageNames.ABOUT_PAGE,new VCUrlMapping("About","about","about.jsp"));
+        urlMap.put(PageNames.ABOUT_PAGE, new VCUrlMapping("About", "about", "about.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
         urlMap.put(PageNames.EMPTY_SHOP, new VCUrlMapping("No results", "shop", "empty-search.jsp"));
@@ -29,6 +29,8 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
         urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
         urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
+        urlMap.put(PageNames.CHECKOUT, new VCUrlMapping("Check out", "checkout", "checkout.jsp"));
+//        urlMap.put(PageNames.MINI_CART, new VCUrlMapping("Mini Cart", "miniCart", "custom/mini-cart.jsp"));
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
         urlMap.put(PageNames.ADD_PRODUCT,new VCUrlMapping("Add Product","addproduct","add-product.jsp"));
         // ... add other pages
@@ -46,6 +48,8 @@ public class UrlMappingConstants {
         serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
         serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));
         serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));
+        serviceMap.put(ServiceNames.REMOVE_CART_ITEM, new ServiceUrlMapping("Remove cart item", "removeCartItem"));
+        serviceMap.put(ServiceNames.PAYMENT, new ServiceUrlMapping("Checkout Payment", "payment"));
         serviceMap.put(ServiceNames.CATEGORY_ADD, new ServiceUrlMapping("Add new Category","addcategory"));
     }
 

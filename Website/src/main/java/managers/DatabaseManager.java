@@ -1,29 +1,29 @@
 package managers;
 
+import listeners.ThreadLocalContext;
+
 import javax.persistence.*;
-import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.sql.SQLException;
-import java.util.*;
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.Subquery;
 
 
 public class DatabaseManager {
     private static volatile DatabaseManager instance = null;
-    private final EntityManager entityManager;
+    private final EntityManagerFactory emf;
+    //    private final EntityManager entityManager;
+    private static final ThreadLocal<EntityManager> entityManagerInstance = new ThreadLocal<>();
 
     public static void main(String[] args) {
-        DatabaseManager.getInstance().beginTransaction();
+        DatabaseManager.getInstance().beginSession();
     }
 
     private DatabaseManager() {
         if (instance != null)
             throw new RuntimeException("Use getInstance(), reflection is not allowed");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceEcommerce");
-        entityManager = emf.createEntityManager();
-        entityManager.setFlushMode(FlushModeType.AUTO);
+        emf = Persistence.createEntityManagerFactory("persistenceEcommerce");
+//        entityManager = emf.createEntityManager();
+//        entityManager.setFlushMode(FlushModeType.AUTO);
     }
 
     public static DatabaseManager getInstance() {
@@ -37,25 +37,30 @@ public class DatabaseManager {
         return instance;
     }
 
-    public void beginTransaction() {
-        if (!entityManager.getTransaction().isActive())
-            entityManager.getTransaction().begin();
+    public void beginSession() {
+//        if (!entityManager.getTransaction().isActive())
+        var entityManager = emf.createEntityManager();
+        entityManagerInstance.set(entityManager);
+        entityManager.getTransaction().begin();
     }
 
-    private void flush() {
+    public void flush() {
+        entityManagerInstance.get().flush();
+        entityManagerInstance.get().getTransaction().commit();
+    }
+
+    public void endSession() {
+        var entityManager = entityManagerInstance.get();
         entityManager.flush();
-    }
-
-    public void endTransaction() {
-//        entityManager.flush();
         entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     public <T> T runTransactionWithRet(Function<EntityManager, T> transaction) {
         try {
-            beginTransaction();
-            T ret = transaction.apply(entityManager);
-            endTransaction();
+//            beginSession();
+            T ret = transaction.apply(entityManagerInstance.get());
+//            endSession();
             return ret;
         } catch (javax.persistence.PersistenceException e) {
             e.printStackTrace();
@@ -68,9 +73,9 @@ public class DatabaseManager {
 
     public void runTransaction(Consumer<EntityManager> transaction) {
         try {
-            beginTransaction();
-            transaction.accept(entityManager);
-            endTransaction();
+//            beginSession();
+            transaction.accept(entityManagerInstance.get());
+//            endSession();
         } catch (PersistenceException e) {
             e.printStackTrace();
             handleError();

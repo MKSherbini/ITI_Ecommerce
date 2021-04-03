@@ -11,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -53,7 +54,7 @@ public class ShoppingCart {
             orphanRemoval = true,
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
-    private List<CartItem> cartItems;
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public ShoppingCart() {
     }

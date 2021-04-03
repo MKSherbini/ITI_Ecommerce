@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -34,7 +35,7 @@ public class ProductCategory {
 
     @OneToMany(mappedBy = "category")
     @ToString.Exclude
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public ProductCategory() {
     }

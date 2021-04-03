@@ -222,7 +222,6 @@
             <artifactId>jakarta.faces-api</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>

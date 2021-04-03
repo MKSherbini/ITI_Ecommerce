@@ -46,6 +46,7 @@ public class UrlMappingConstants {
         serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
         serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));
         serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));
+        serviceMap.put(ServiceNames.REGISTER_SUBSCRIBER, new ServiceUrlMapping("Subscriber Registration", "registerSubscriber"));
     }
 
 

@@ -53,6 +53,7 @@ public class EmailUtil {
         props.put("mail.smtp.port", "587"); //TLS Port
         props.put("mail.smtp.auth", "true"); //enable authentication
         props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         //create Authenticator object to pass in Session.getInstance argument
         Authenticator auth = new Authenticator() {
            protected PasswordAuthentication getPasswordAuthentication() {

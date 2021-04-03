@@ -1,26 +1,26 @@
 package providers.repositories;
 
 import managers.DatabaseManager;
+import models.orm.CustomerMessage;
 import models.orm.CustomerReview;
 import models.orm.ShoppingCart;
 import models.orm.Subscriber;
-import models.orm.User;
 
 import java.util.List;
 
-public class SubscriberRepo extends GenericRepo<Subscriber, Long> {
-    private static volatile SubscriberRepo instance = null;
+public class CustomerMessageRepo extends GenericRepo<CustomerMessage, Long> {
+    private static volatile CustomerMessageRepo instance = null;
 
-    private SubscriberRepo() {
+    private CustomerMessageRepo() {
         if (instance != null)
             throw new RuntimeException("Use getInstance(), reflection is not allowed");
     }
 
-    public static SubscriberRepo getInstance() {
+    public static CustomerMessageRepo getInstance() {
         if (instance == null) {
-            synchronized (SubscriberRepo.class) {
+            synchronized (CustomerMessageRepo.class) {
                 if (instance == null) {
-                    instance = new SubscriberRepo();
+                    instance = new CustomerMessageRepo();
                 }
             }
         }
@@ -28,10 +28,10 @@ public class SubscriberRepo extends GenericRepo<Subscriber, Long> {
     }
 
 
-    public List<ShoppingCart> findReviewsByUser(Subscriber subscriber) {
+    public List<ShoppingCart> findMessageBySubscriber(Subscriber subscriber) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
-                        .createNamedQuery("CustomerReview.findReviewsByUser")
+                        .createNamedQuery("CustomerMessage.findMessageBySubscriber")
                         .setParameter("subscriber", subscriber)
                         .list());
     }
@@ -39,7 +39,7 @@ public class SubscriberRepo extends GenericRepo<Subscriber, Long> {
     public List<CustomerReview> findAllReviews() {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session ->  session
-                        .createNamedQuery("CustomerReview.findAllReviews")
+                        .createNamedQuery("CustomerMessage.findAllReviews")
                         .list());
     }
 

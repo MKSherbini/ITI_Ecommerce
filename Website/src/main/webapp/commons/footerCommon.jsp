@@ -1,4 +1,5 @@
 <!--====== Main Footer ======-->
+<script src="scripts/js/footer.js" type="text/javascript"></script>
 <footer>
     <div class="outer-footer">
         <div class="container">
@@ -46,16 +47,15 @@
                                 <div class="outer-footer__list-wrap">
                                     <ul>
                                         <li>
-
-                                            <a href="cart.jsp">Cart</a></li>
+                                            <a href="cart">Cart</a></li>
                                         <li>
 <%--                                            // todo link  to the account of the user --%>
-                                            <a href="dashboard.jsp">Account</a></li>
+                                            <a href="account">Account</a></li>
 
 
                                         <li>
                                             <%--                                            // todo link  to the home --%>
-                                            <a href="home">Shop</a></li>
+                                            <a href="shop">Shop</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,18 +89,18 @@
                     <div class="outer-footer__content">
 
                         <span class="outer-footer__content-title">Join our Newsletter</span>
-                        <form class="newsletter">
+                        <form class="newsletter" id="subscibe_form">
                             <div class="u-s-m-b-15">
                                 <div class="radio-box newsletter__radio">
 
-                                    <input type="radio" id="male" name="gender">
+                                    <input type="radio" id="male" name="gender" value="Male">
                                     <div class="radio-box__state radio-box__state--primary">
 
                                         <label class="radio-box__label" for="male">Male</label></div>
                                 </div>
                                 <div class="radio-box newsletter__radio">
 
-                                    <input type="radio" id="female" name="gender">
+                                    <input type="radio" id="female" name="gender" value="Female">
                                     <div class="radio-box__state radio-box__state--primary">
 
                                         <label class="radio-box__label" for="female">Female</label></div>
@@ -113,8 +113,8 @@
                                 <input class="input-text input-text--only-white" type="text" id="newsletter" placeholder="Enter your Email">
 
                                 <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button></div>
-
-                            <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
+                            <span class="newsletter__text ui-state-error-text" display="none" id="error_message">you must choose Gender and enter valid email like : example@gmail.com .</span>
+                            <span class="newsletter__text" id="success_message">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
                         </form>
                     </div>
                 </div>

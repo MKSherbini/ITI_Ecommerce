@@ -26,15 +26,17 @@ public class Subscriber {
     @Column(name = "fname")
     private String firstName ;
     private String email;
+    private String gender ;
     private Date date;
 
 
     public Subscriber() {
     }
-    public Subscriber (String firstName , String  email , Date date ){
+    public Subscriber (String firstName , String  email , Date date, String gender ){
         this . firstName = firstName ;
         this . email = email ;
         this . date = date ;
+        this . gender = gender ;
     }
 
     @ToString.Exclude
@@ -43,6 +45,12 @@ public class Subscriber {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<CustomerReview> reviews;
+    @ToString.Exclude
+    @OneToMany(mappedBy = "subscriber",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<CustomerReview> messages;
 
 
 }

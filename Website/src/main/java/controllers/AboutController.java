@@ -27,11 +27,11 @@ public class AboutController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("donget");
+
         request.setAttribute(DEVELOPERS_NAME,DeveloperRepo.getInstance().readAll());
-        System.out.println("donget");
+
         request.setAttribute("reviews", CustomerReviewRepo.getInstance().readAll());
-        System.out.println("donget");
+
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.ABOUT_PAGE)).include(request,response);
 
     }

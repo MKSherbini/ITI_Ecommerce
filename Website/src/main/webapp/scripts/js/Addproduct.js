@@ -17,3 +17,20 @@ function addCategory(e){
     req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     req.send("categoryName="+categoryName.value);
 }
+// function changeImage(){
+//     var file = document.getElementById("image");
+//     var image = document.getElementById("productImage");
+//     image.src = file.innerText;
+// }
+function changeImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageResult')
+                .attr('src', e.target.result)
+                .attr('hidden',false);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}

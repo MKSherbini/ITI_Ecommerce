@@ -57,7 +57,7 @@
         <!--            <groupId>jakarta.platform</groupId>-->
         <!--            <artifactId>jakarta.jakartaee-web-api</artifactId>-->
         <!--            <version>${jakarta.jstl.version}</version>-->
-        <!--            <optional>true</optional>-->
+        <!--            -->
         <!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>jakarta.platform</groupId>-->
@@ -180,7 +180,7 @@
             <version>7.1.1</version>
         </dependency>
 
-<!--        used for file upload to get data beside it-->
+        <!--        used for file upload to get data beside it-->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -207,28 +207,27 @@
             <artifactId>jakarta.servlet-api</artifactId>
             <version>5.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet.jsp</groupId>
             <artifactId>jakarta.servlet.jsp-api</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.el</groupId>
             <artifactId>jakarta.el-api</artifactId>
             <version>4.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.faces</groupId>
@@ -241,70 +240,70 @@
             <artifactId>jakarta.ws.rs-api</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.websocket</groupId>
             <artifactId>jakarta.websocket-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>jakarta.json</groupId>-->
-<!--            <artifactId>jakarta.json-api</artifactId>-->
-<!--            <version>2.0.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.json.bind</groupId>-->
-<!--            <artifactId>jakarta.json.bind-api</artifactId>-->
-<!--            <version>2.0.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.json</groupId>-->
+        <!--            <artifactId>jakarta.json-api</artifactId>-->
+        <!--            <version>2.0.0</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--            -->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.json.bind</groupId>-->
+        <!--            <artifactId>jakarta.json.bind-api</artifactId>-->
+        <!--            <version>2.0.0</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--            -->
+        <!--        </dependency>-->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.ejb</groupId>
             <artifactId>jakarta.ejb-api</artifactId>
             <version>4.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.transaction</groupId>
             <artifactId>jakarta.transaction-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>jakarta.persistence</groupId>-->
-<!--            <artifactId>jakarta.persistence-api</artifactId>-->
-<!--            <version>3.0.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.validation</groupId>-->
-<!--            <artifactId>jakarta.validation-api</artifactId>-->
-<!--            <version>3.0.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.persistence</groupId>-->
+        <!--            <artifactId>jakarta.persistence-api</artifactId>-->
+        <!--            <version>3.0.0</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--            -->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.validation</groupId>-->
+        <!--            <artifactId>jakarta.validation-api</artifactId>-->
+        <!--            <version>3.0.0</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--            -->
+        <!--        </dependency>-->
         <dependency>
             <groupId>jakarta.interceptor</groupId>
             <artifactId>jakarta.interceptor-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.enterprise</groupId>
@@ -317,35 +316,35 @@
                     <groupId>jakarta.inject</groupId>
                 </exclusion>
             </exclusions>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.authentication</groupId>
             <artifactId>jakarta.authentication-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>jakarta.security.enterprise</groupId>
             <artifactId>jakarta.security.enterprise-api</artifactId>
             <version>2.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.faces</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
-            <optional>true</optional>
+
         </dependency>
     </dependencies>
 

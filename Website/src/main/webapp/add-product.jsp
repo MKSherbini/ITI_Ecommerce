@@ -51,12 +51,12 @@
 
                                     </div>
                                     <div class="u-s-m-b-30">
-
+                                        <img id="imageResult" hidden="true" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block" width="150" height="150">
                                         <label class="gl-label" for="image">Product Image *</label>
 
-                                        <input class="input-text input-text--primary-style" type="file" name="image"
+                                        <input class="form-control-file" type="file" name="image"
                                                id="image" required onblur="validateemail()"
-                                               placeholder="Enter Product Image">
+                                               placeholder="Enter Product Image" onchange="changeImage(this)">
                                         <label style='color: red' id="error-image"></label>
 
                                     </div>
@@ -123,7 +123,7 @@
                                         <input class="input-text input-text--primary-style" type="number"
                                                name="discount"
                                                id="discount" required onblur="validateemail()"
-                                               placeholder="Enter Product Quantity">
+                                               placeholder="Enter Product Discount Percentage">
                                         <label style='color: red' id="error-discount"></label>
 
                                     </div>

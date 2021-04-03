@@ -5,6 +5,7 @@ package models.orm;
 import javax.persistence.*;
 
 
+import com.sun.el.stream.Optional;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -78,17 +79,36 @@ public class Product {
 //    @ToString.Exclude
     private ProductCategory category;
 
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
+    private List<ProductImage> productImages;
+
     public Product() {
     }
 
-    public Product(String name, int price, String description, int quantity, String imageSrc, ProductCategory category) {
+    public Product(String name, int price, String description, int quantity, ProductCategory category) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
-        this.imageSrc = imageSrc;
         this.arrivalDate = new Timestamp(new Date().getTime());
         this.category = category;
+    }
+
+    public Product(String name, int price, String description, int quantity, int discountPercent, ProductCategory category, List<ProductImage> productImages) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.discountPercent = discountPercent;
+        this.arrivalDate = new Timestamp(new Date().getTime());
+        this.category = category;
+        this.productImages = productImages;
+    }
+
+    public void setProductImages(List<String> downloadLinks){
+        for(int i=0;i<downloadLinks.size();i++){
+            productImages.add(new ProductImage(downloadLinks.get(i),this));
+        }
     }
 }
 

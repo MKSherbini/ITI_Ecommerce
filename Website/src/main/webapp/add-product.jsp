@@ -30,6 +30,21 @@
                         <div class="l-f-o">
                             <div class="l-f-o__pad-box">
                                 <h1 class="gl-h1">Add New Category</h1>
+                                <div class="gl-inline">
+                                    <div class="u-s-m-b-30">
+
+                                        <label class="gl-label" for="categoryName">Category Name </label>
+                                        <input class="input-text input-text--primary-style" type="text"
+                                               name="categoryName"
+                                               id="categoryName"
+                                               placeholder="Enter Product Name">
+                                        <label style='color: red' id="error-categoryName"></label>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <button class="btn btn--e-transparent-brand-b-2" onclick="addCategory(event)">Add New Category
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="l-f-o">
@@ -51,13 +66,18 @@
 
                                     </div>
                                     <div class="u-s-m-b-30">
-                                        <img id="imageResult" hidden="true" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block" width="150" height="150">
+                                        <div id="images">
+                                            <img id="imageResult" hidden="true" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block" width="150" height="150">
+                                        </div>
                                         <label class="gl-label" for="image">Product Image *</label>
 
+                                        <div id="inputs">
                                         <input class="form-control-file" type="file" name="image"
-                                               id="image" required onblur="validateemail()"
-                                               placeholder="Enter Product Image" onchange="changeImage(this)">
+                                               id="image" required onblur="validateemail()" accept="image/*"
+                                               placeholder="Add Product Image" onchange="changeImage(this)">
                                         <label style='color: red' id="error-image"></label>
+
+                                        </div>
 
                                     </div>
                                     <div class="u-s-m-b-30">
@@ -80,28 +100,13 @@
                                         </select>
                                         <!--====== End - Check Box ======-->
                                     </div>
-                                    <div class="gl-inline">
-                                        <div class="u-s-m-b-30">
-
-                                            <label class="gl-label" for="categoryName">Category Name *</label>
-                                            <input class="input-text input-text--primary-style" type="text"
-                                                   name="categoryName"
-                                                   id="categoryName" required
-                                                   placeholder="Enter Product Name">
-                                            <label style='color: red' id="error-categoryName"></label>
-                                        </div>
-                                        <div class="u-s-m-b-30">
-                                            <button class="btn btn--e-transparent-brand-b-2" onclick="addCategory(event)">Add New Category
-                                            </button>
-                                        </div>
-                                    </div>
                                     <div class="u-s-m-b-30">
 
                                         <label class="gl-label" for="price">Product Price *</label>
 
                                         <input class="input-text input-text--primary-style" type="number" name="price"
                                                id="price" required onblur="validateemail()"
-                                               placeholder="Enter Product Price">
+                                               placeholder="Enter Product Price" min="0">
                                         <label style='color: red' id="error-price"></label>
 
                                     </div>
@@ -112,7 +117,7 @@
                                         <input class="input-text input-text--primary-style" type="number"
                                                name="quantity"
                                                id="quantity" required onblur="validateemail()"
-                                               placeholder="Enter Product Quantity">
+                                               placeholder="Enter Product Quantity" min="0">
                                         <label style='color: red' id="error-quantity"></label>
 
                                     </div>
@@ -123,7 +128,7 @@
                                         <input class="input-text input-text--primary-style" type="number"
                                                name="discount"
                                                id="discount" required onblur="validateemail()"
-                                               placeholder="Enter Product Discount Percentage">
+                                               placeholder="Enter Product Discount Percentage" min="0">
                                         <label style='color: red' id="error-discount"></label>
 
                                     </div>

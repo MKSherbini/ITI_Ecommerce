@@ -22,14 +22,18 @@ function addCategory(e){
 //     var image = document.getElementById("productImage");
 //     image.src = file.innerText;
 // }
+var imagesCount = 1;
 function changeImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#imageResult')
-                .attr('src', e.target.result)
-                .attr('hidden',false);
+            $('#images')
+                .append("<img src='"+e.target.result+"' height='150' width='150' style='margin: 10px'/>");
+            input.hidden = true;
+            $('#inputs')
+                .append("<input type='file' name='image"+imagesCount+"' onchange='changeImage(this)'/> ");
+            imagesCount++;
         };
         reader.readAsDataURL(input.files[0]);
     }

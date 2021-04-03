@@ -56,8 +56,9 @@
 
                                             <li><a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a></li>
                                         <li>
-                                            <%--                                            // todo link  to the home --%>
-                                            <a href="shop">Shop</a></li>
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
+
                                     </ul>
                                 </div>
                             </div>

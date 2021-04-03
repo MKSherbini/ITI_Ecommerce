@@ -32,7 +32,7 @@
             <!--====== Primary Nav ======-->
             <div class="primary-nav">
 
-                <!--====== Main Logo ======-->
+                        <a class="main-logo" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
                 <a class="main-logo"
                    href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">

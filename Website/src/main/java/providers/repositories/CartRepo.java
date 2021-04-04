@@ -211,14 +211,17 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         System.out.println("price = " + price);
 
         switch (paymentMethod) {
-            case BANK:
             case CASH:
+                break;
+            case BANK:
             case CHECK:
                 if (balance < price) return Optional.empty();
                 user.setCredit(user.getCredit() - price);
                 break;
             case CARD:
-                var card = CreditCardRepo.getInstance().getUserCreditCard(user).get().getFakeCreditCard();
+                var creditCard = CreditCardRepo.getInstance().getUserCreditCard(user);
+                if (creditCard.isEmpty()) return Optional.empty();
+                var card = creditCard.get().getFakeCreditCard();
                 if (balance + card.getBalance() < price) return Optional.empty();
                 var fromUser = Math.min(price, balance);
                 user.setCredit(user.getCredit() - fromUser);

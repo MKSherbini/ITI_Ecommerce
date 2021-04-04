@@ -69,7 +69,7 @@ public class Product {
     private int price;
     private String description;
     private int quantity;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "VARCHAR(750)")
     private String imageSrc;
     private int discountPercent;
     @Column(nullable = false)
@@ -106,9 +106,9 @@ public class Product {
         this.productImages = productImages;
     }
 
-    public void setProductImages(List<String> downloadLinks){
-        for(int i=0;i<downloadLinks.size();i++){
-            productImages.add(new ProductImage(downloadLinks.get(i),this));
+    public void setProductImages(List<String> downloadLinks) {
+        for (int i = 0; i < downloadLinks.size(); i++) {
+            productImages.add(new ProductImage(downloadLinks.get(i), this));
         }
     }
 }

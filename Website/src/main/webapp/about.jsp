@@ -1,26 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="jakarta.servlet.RequestDispatcher" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="images/favicon.png" rel="shortcut icon">
-    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.ABOUT_PAGE)}</title>
+    <%@include file="commons/headCommon.jsp" %>
 
-    <!--====== Google Font ======-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-
-    <!--====== Vendor Css ======-->
-    <link rel="stylesheet" href="styles/css/vendor.css">
-
-    <!--====== Utility-Spacing ======-->
-    <link rel="stylesheet" href="styles/css/utility.css">
-
-    <!--====== App ======-->
-    <link rel="stylesheet" href="styles/css/app.css">
 </head>
 <body class="config">
     <div class="preloader is-active">
@@ -36,144 +23,170 @@
         <header class="header--style-1 header--box-shadow">
 
             <!--====== Nav 1 ======-->
-            <nav class="primary-nav primary-nav-wrapper--border">
-                <div class="container">
+            <!-- <%@include file="commons/headerCommon.jsp" %> -->
 
-                    <!--====== Primary Nav ======-->
-                    <div class="primary-nav">
+                 <!--====== Nav 1 ======-->
+    <nav class="primary-nav primary-nav-wrapper--border">
+        <div class="container">
 
-                        <!--====== Main Logo ======-->
+            <!--====== Primary Nav ======-->
+            <div class="primary-nav">
 
                         <a class="main-logo" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
 
-                            <img src="images/logo/logo-1.png" alt=""></a>
-                        <!--====== End - Main Logo ======-->
+                <a class="main-logo"
+                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">
+
+                    <img src="images/logo/logo-1.png" alt=""></a>
+                <!--====== End - Main Logo ======-->
 
 
-                        <!--====== Search Form ======-->
-                        <form class="main-form">
+                <!--====== Search Form ======-->
+                <form class="main-form"
+                      action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
-                            <label for="main-search"></label>
+                    <label for="main-search"></label>
 
-                            <input class="input-text input-text--border-radius input-text--style-1" type="text" id="main-search" placeholder="Search">
+                    <input class="input-text input-text--border-radius input-text--style-1"
+                           value="${requestScope.paramSearch}"
+                           type="text" id="main-search" name="search" placeholder="Search">
 
-                            <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button></form>
-                        <!--====== End - Search Form ======-->
+                    <%--                    <c:forEach items="${requestScope.requestParams}" var="requestParam">--%>
+                    <%--                        <c:forEach items="${requestParam.value}"--%>
+                    <%--                                   var="paramValue">--%>
+                    <%--                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramSearchName)}">--%>
+                    <%--                                <input type='hidden' name='${requestParam.key}'--%>
+                    <%--                                       value='${paramValue}'/>--%>
+                    <%--                            </c:if>--%>
+                    <%--                        </c:forEach>--%>
+                    <%--                    </c:forEach>--%>
+
+                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+                </form>
+                <!--====== End - Search Form ======-->
 
 
-                        <!--====== Dropdown Main plugin ======-->
-                        <div class="menu-init" id="navigation">
+                <!--====== Dropdown Main plugin ======-->
+                <div class="menu-init" id="navigation">
 
-                            <button class="btn btn--icon toggle-button fas fa-cogs" type="button"></button>
+                    <button class="btn btn--icon toggle-button fas fa-cogs" type="button"></button>
 
-                            <!--====== Menu ======-->
-                            <div class="ah-lg-mode">
+                    <!--====== Menu ======-->
+                    <div class="ah-lg-mode">
 
-                                <span class="ah-close">✕ Close</span>
+                        <span class="ah-close">✕ Close</span>
 
-                                <!--====== List ======-->
-                                <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
-                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
+                        <!--====== List ======-->
+                        <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                            <c:if test="${empty sessionScope.user}">
+                                <span>Hello, <label style="color: black; font-weight: bold">User</label></span>
+                            </c:if>
+                            <c:if test="${!empty sessionScope.user}">
+                                <span>Hello, <label
+                                        style="color: black; font-weight: bold">${sessionScope.user.userName}</label></span>
+                            </c:if>
 
-                                        <a><i class="far fa-user-circle"></i></a>
 
-                                        <!--====== Dropdown ======-->
+                            <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
 
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:120px">
-                                            <li>
+                                <a><i class="far fa-user-circle"></i></a>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                <!--====== Dropdown ======-->
 
-                                                    <span>Account</span></a></li>
-                                            <li>
+                                <span class="js-menu-toggle"></span>
+                                <ul style="width:120px">
+                                    <c:if test="${empty sessionScope.user}">
+                                        <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                            <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
-                                                    <span>Signup</span></a></li>
-                                            <li>
+                                                <span>Signup</span></a></li>
+                                        <li>
 
-                                                <a href="signin.jsp"><i class="fas fa-lock u-s-m-r-6"></i>
+                                            <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
-                                                    <span>Signin</span></a></li>
-                                            <li>
+                                                <span>Signin</span></a></li>
+                                    </c:if>
+                                    <c:if test="${!empty sessionScope.user}">
+                                        <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                            <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
-                                                    <span>Signout</span></a></li>
-                                        </ul>
-                                        <!--====== End - Dropdown ======-->
-                                    </li>
-                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Settings">
+                                                <span>Account</span></a></li>
+                                        <li>
 
-                                        <a><i class="fas fa-user-cog"></i></a>
+                                            <a href="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.SIGN_OUT)}"><i
+                                                    class="fas fa-lock-open u-s-m-r-6"></i>
 
-                                        <!--====== Dropdown ======-->
-
-                                        <span class="js-menu-toggle"></span>
-                                        <ul style="width:120px">
-                                            <li class="has-dropdown has-dropdown--ul-right-100">
-
-                                                <a>Language<i class="fas fa-angle-down u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:120px">
-                                                    <li>
-
-                                                        <a class="u-c-brand">ENGLISH</a></li>
-                                                    <li>
-
-                                                        <a>ARABIC</a></li>
-                                                    <li>
-
-                                                        <a>FRANCAIS</a></li>
-                                                    <li>
-
-                                                        <a>ESPANOL</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                            <li class="has-dropdown has-dropdown--ul-right-100">
-
-                                                <a>Currency<i class="fas fa-angle-down u-s-m-l-6"></i></a>
-
-                                                <!--====== Dropdown ======-->
-
-                                                <span class="js-menu-toggle"></span>
-                                                <ul style="width:225px">
-                                                    <li>
-
-                                                        <a class="u-c-brand">$ - US DOLLAR</a></li>
-                                                    <li>
-
-                                                        <a>£ - BRITISH POUND STERLING</a></li>
-                                                    <li>
-
-                                                        <a>€ - EURO</a></li>
-                                                </ul>
-                                                <!--====== End - Dropdown ======-->
-                                            </li>
-                                        </ul>
-                                        <!--====== End - Dropdown ======-->
-                                    </li>
-                                    <li data-tooltip="tooltip" data-placement="left" title="Contact">
-
-                                        <a href="tel:+0900901904"><i class="fas fa-phone-volume"></i></a></li>
-                                    <li data-tooltip="tooltip" data-placement="left" title="Mail">
-
-                                        <a href="mailto:contact@domain.com"><i class="far fa-envelope"></i></a></li>
+                                                <span>Signout</span></a></li>
+                                    </c:if>
                                 </ul>
-                                <!--====== End - List ======-->
-                            </div>
-                            <!--====== End - Menu ======-->
-                        </div>
-                        <!--====== End - Dropdown Main plugin ======-->
+                                <!--====== End - Dropdown ======-->
+                            </li>
+
+                            <!--====== List ======-->
+                            <li>
+
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i
+                                        class="fas fa-store-alt"></i></a></li>
+                            <li>
+
+                                <a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                            <li class="has-dropdown">
+
+                                <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
+
+                                    <span class="total-item-round cart-total-itemsCount">${sessionScope.cart.totalItemsCount}</span></a>
+
+                                <!--====== Dropdown ======-->
+
+                                <span class="js-menu-toggle"></span>
+                                <div id="mini-cart" class="mini-cart">
+
+                                    <!--====== Mini Product Container ======-->
+                                    <%@include file="../custom/mini-cart.jsp" %>
+                                    <!--====== End - Mini Product Container ======-->
+
+
+                                    <!--====== Mini Product Statistics ======-->
+                                    <div class="mini-product-stat">
+                                        <div class="mini-total">
+
+                                            <span class="subtotal-text">SUBTOTAL</span>
+
+                                            <span class="subtotal-value cart-total-price">$${sessionScope.cart.totalPrice}</span>
+                                        </div>
+                                        <div class="mini-action">
+
+                                            <a class="mini-link btn--e-brand-b-2"
+                                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                                TO
+                                                CHECKOUT</a>
+
+                                            <a class="mini-link btn--e-transparent-secondary-b-2"
+                                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                                CART</a></div>
+                                    </div>
+                                    <!--====== End - Mini Product Statistics ======-->
+                                </div>
+                                <!--====== End - Dropdown ======-->
+                            </li>
+                        </ul>
+                        <!--====== End - List ======-->
                     </div>
-                    <!--====== End - Primary Nav ======-->
+                    </ul>
+                    <!--====== End - List ======-->
+
                 </div>
-            </nav>
+                <!--====== End - Menu ======-->
+            </div>
+            <!--====== End - Dropdown Main plugin ======-->
+        </div>
+        <!--====== End - Primary Nav ======-->
+        </div>
+    </nav>
+    <!--====== End - Nav 1 ======-->
+
             <!--====== End - Nav 1 ======-->
 
 
@@ -1534,62 +1547,30 @@
                         <!--====== Testimonial Slider ======-->
                         <div class="slider-fouc">
                             <div class="owl-carousel" id="testimonial-slider">
+
+                                <c:if test="${!empty requestScope.reviews}">
+                                    <c:forEach items="${requestScope.reviews}" var="review">
+
+
+
                                 <div class="testimonial">
                                     <div class="testimonial__img-wrap">
-
+<%--                                        //todo ger the user image here --%>
                                         <img class="testimonial__img" src="images/about/test-1.jpg" alt=""></div>
                                     <div class="testimonial__content-wrap">
 
                                         <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
                                         <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+                                            <p>${review.review}</p>
                                         </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
+                                        <span class="testimonial__author">${review.subscriber.firstName}</span>
+<%--                                        <span class="testimonial__author">Mohammed ali</span>--%>
                                     </div>
                                 </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
+                                    </c:forEach>
+                                </c:if>
 
-                                        <img class="testimonial__img" src="images/about/test-2.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
 
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="images/about/test-3.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="images/about/test-4.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!--====== End - Testimonial Slider ======-->

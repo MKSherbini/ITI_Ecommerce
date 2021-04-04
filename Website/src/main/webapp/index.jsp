@@ -1746,88 +1746,32 @@
                 <div class="section__content">
                     <div class="container">
 
-                        <!--====== Testimonial Slider ======-->
-                        <div class="slider-fouc">
-                            <div class="owl-carousel" id="testimonial-slider">
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
+                <!--====== Testimonial Slider ======-->
+                <div class="slider-fouc">
+                    <div class="owl-carousel" id="testimonial-slider">
+                        //
+                        <c:if test="${!empty requestScope.reviews}">
+                            <c:forEach items="${requestScope.reviews}" var="review">
 
-                                        <img class="testimonial__img" src="images/about/test-1.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
+                            <div class="testimonial">
+                            <div class="testimonial__img-wrap">
 
-                                        <span class="testimonial__double-quote"><i
-                                                class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia
-                                                and
-                                                Consonantia, there live the blind texts. Separated they live in
-                                                Bookmarksgrove right at the coast of the Semantics, a large language
-                                                ocean."</p>
-                                        </blockquote>
+                                <img class="testimonial__img" src="images/about/customer.jpg" alt=""></div>
+                            <div class="testimonial__content-wrap">
 
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
+                                <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                <blockquote class="testimonial__block-quote">
+                                    <p>${review.review}</p>
+                                </blockquote>
 
-                                        <img class="testimonial__img" src="images/about/test-2.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i
-                                                class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia
-                                                and
-                                                Consonantia, there live the blind texts. Separated they live in
-                                                Bookmarksgrove right at the coast of the Semantics, a large language
-                                                ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="images/about/test-3.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i
-                                                class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia
-                                                and
-                                                Consonantia, there live the blind texts. Separated they live in
-                                                Bookmarksgrove right at the coast of the Semantics, a large language
-                                                ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="images/about/test-4.jpg" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i
-                                                class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia
-                                                and
-                                                Consonantia, there live the blind texts. Separated they live in
-                                                Bookmarksgrove right at the coast of the Semantics, a large language
-                                                ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
+                        
+                                <span class="testimonial__author">${review.subscriber.firstName} </span>
                             </div>
                         </div>
-                        <!--====== End - Testimonial Slider ======-->
+                        
+                            </c:forEach>
+                        </c:if>
+
                     </div>
                 </div>
                 <!--====== End - Section Content ======-->
@@ -1887,8 +1831,9 @@
         <!--====== End - App Content ======-->
 
 
-        <!--====== Main Footer ======-->
-        <%@include file="commons/footerCommon.jsp" %>
+        <!--=======footer=============>
+        <jsp:include page="commons/footerCommon.jsp"/>
+        <!-====== Modal Section ======-->
 
 
         <!--====== Modal Section ======-->

@@ -62,6 +62,9 @@ public class F5_AutoSigninFilter implements Filter {
         }
 
         if (userSession != null) {
+            var tempUser = UserRepo.getInstance().read(userSession.getUserId());
+//            UserRepo.getInstance().refresh(tempUser.get());
+            httpRequest.getSession().setAttribute("user", tempUser.get());
 //            var cart = CartRepo.getInstance().GetCartOrCreateOne(userSession).get();
 //            cart.setTotalPrice(CartItemRepo.getInstance().findTotalPriceByCart(cart));
 //            httpRequest.getSession().setAttribute("cart",

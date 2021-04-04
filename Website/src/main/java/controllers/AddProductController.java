@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import listeners.ThreadLocalContext;
 import managers.FireStorageManager;
 import models.orm.Product;
 import models.orm.ProductCategory;
@@ -39,7 +40,7 @@ public class AddProductController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("categories", CategoryRepo.getInstance().findAllNames());
-        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.ADD_PRODUCT)).include(request,response);
+        request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.ADD_PRODUCT)).include(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,27 +54,30 @@ public class AddProductController extends HttpServlet {
         FireStorageManager fireStorageManager = FireStorageManager.getInstance();
         List<ProductImage> productImages = new ArrayList<>();
         int count = 1;
-        for (Part image: productImagesParts) {
-            if(image.getName().contains("image") && !image.getSubmittedFileName().equals("")){
-                String downloadLink = fireStorageManager.uploadFileToStorage(image.getInputStream().readAllBytes(), name+count);
+        for (Part image : productImagesParts) {
+            if (image.getName().contains("image") && !image.getSubmittedFileName().equals("")) {
+                String downloadLink = fireStorageManager.uploadFileToStorage(image.getInputStream().readAllBytes(), name + count);
                 productImages.add(new ProductImage(downloadLink));
                 count++;
             }
         }
         Optional<ProductCategory> productCategory = CategoryRepo.getInstance().findByName(categoryName);
-        if(productCategory.isPresent()) {
-            Product product = new Product(name, price, productDescription, quantity, discount, productCategory.get(),productImages);
+        if (productCategory.isPresent()) {
+            Product product = new Product(name, price, productDescription, quantity, discount, productCategory.get(), productImages);
             product.setImageSrc(productImages.get(0).getDownloadLink());
-            for(int i=0;i<productImages.size();i++){
+            for (int i = 0; i < productImages.size(); i++) {
                 productImages.get(i).setProduct(product);
             }
             ProductRepo.getInstance().create(product);
         }
+        ThreadLocalContext.sendRedirect(PageNames.ADD_PRODUCT);
     }
-        public String getServletInfo() {
+
+    public String getServletInfo() {
         return null;
     }
 
-    public void destroy() {}
+    public void destroy() {
+    }
 
 }

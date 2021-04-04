@@ -21,33 +21,33 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(
                 name = "Product.findMinMaxPriceLikeName",
-                query = "select min(p.price), max(p.price) from Product p where p.name like :name or p.description like :name"),
+                query = "select min(p.price*(1-(p.discountPercent/ 100.0))), max(p.price*(1-(p.discountPercent/ 100.0))) from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findMinMaxPriceCategoryName",
-                query = "select min(p.price), max(p.price) from Product p where p.category.name in (:categories) and p.name like :name or p.description like :name"),
+                query = "select min(p.price*(1-(p.discountPercent/ 100.0))), max(p.price*(1-(p.discountPercent/ 100.0))) from Product p where p.category.name in (:categories) and p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findLikeName",
                 query = "select p from Product p where p.name like :name or p.description like :name"),
         @NamedQuery(
                 name = "Product.findByPriceRange", // todo handle discount
-                query = "select p from Product p where p.price*(1-(p.discountPercent/ 100)) between :min and :max"),
+                query = "select p from Product p where p.price*(1-(p.discountPercent/ 100.0)) between :min and :max"),
         @NamedQuery(
                 name = "Product.findByCategory",
                 query = "select p from Product p where :category = p.category"),
         @NamedQuery(
                 name = "Product.findByPriceName",
                 query = "select p from Product p where " +
-                        "p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "p.price*(1-(p.discountPercent/ 100.0)) between :min and :max " +
                         "and (p.name like :name or p.description like :name)"),
         @NamedQuery(
                 name = "Product.findByCategoryPriceName", // hope we can find a better sol
                 query = "select p from Product p where :category = p.category " +
-                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and p.price*(1-(p.discountPercent/ 100.0)) between :min and :max " +
                         "and (p.name like :name or p.description like :name)"),
         @NamedQuery(
                 name = "Product.findByMultiCategoryPriceName", // hope we can find a better sol
                 query = "select p from Product p where p.category.name in (:categories)  " +
-                        "and p.price*(1-(p.discountPercent/ 100)) between :min and :max " +
+                        "and p.price*(1-(p.discountPercent/ 100.0)) between :min and :max " +
                         "and (p.name like :name or p.description like :name)"),
         @NamedQuery(
                 name = "Product.getNewArrivals",

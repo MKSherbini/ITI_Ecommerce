@@ -80,6 +80,7 @@ public class Product {
     private ProductCategory category;
 
     @OneToMany(mappedBy = "product", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
+    @ToString.Exclude
     private List<ProductImage> productImages;
 
     public Product() {

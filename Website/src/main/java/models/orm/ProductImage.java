@@ -3,6 +3,7 @@ package models.orm;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class ProductImage {
     @JoinColumn(name = "product",
             foreignKey = @ForeignKey(name = "productId")
     )
+    @ToString.Exclude
     private Product product;
 
     public ProductImage(){

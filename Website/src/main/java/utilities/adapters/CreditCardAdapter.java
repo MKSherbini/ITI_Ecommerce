@@ -14,10 +14,10 @@ public class CreditCardAdapter {
     public static CreditCardDto copyOrmToDto(CreditCard orm) {
         var dto = new CreditCardDto();
         dto.setId(orm.getCardId());
-        dto.setBalance(orm.getBalance());
-        dto.setCardNumberEnds(orm.getCardNumber().substring(orm.getCardNumber().length() - 4));
+        dto.setBalance(orm.getFakeCreditCard().getBalance());
+        dto.setCardNumberEnds(orm.getFakeCreditCard().getCardNumber().substring(orm.getFakeCreditCard().getCardNumber().length() - 4));
         dto.setDefaultCard(orm.isDefault());
-        dto.setExpireDate(orm.getExpireDate());
+        dto.setExpireDate(orm.getFakeCreditCard().getExpireDate());
         return dto;
     }
 

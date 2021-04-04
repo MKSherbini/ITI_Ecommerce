@@ -16,6 +16,6 @@ public class CreditCardDto {
     private Long id;
     private String cardNumberEnds;
     private Date expireDate;
-    private int balance;
+    private double balance;
     private boolean defaultCard;
 }

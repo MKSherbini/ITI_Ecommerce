@@ -60,7 +60,7 @@ public class CardAddController extends HttpServlet {
             return;
         }
         var card = valid.get();
-        CreditCardRepo.getInstance().create(new CreditCard(card.getCardNumber(), card.getCvv(), card.getExpireDate(), card.getBalance(), user));
+        CreditCardRepo.getInstance().create(new CreditCard(card, user));
         ThreadLocalContext.sendRedirect(PageNames.CARD_BOOK);
     }
 

@@ -48,12 +48,27 @@ public class CreditCardRepo extends GenericRepo<CreditCard, Long> {
     }
 
     public boolean charge(CreditCard card, int amount) {
-        if (card.getBalance() < amount ||
-                card.getExpireDate().getTime() < Date.valueOf(LocalDate.now()).getTime())
+        if (card.getFakeCreditCard().getBalance() < amount ||
+                card.getFakeCreditCard().getExpireDate().getTime() < Date.valueOf(LocalDate.now()).getTime())
             return false;
 
-        card.setBalance(card.getBalance() - amount);
+        card.getFakeCreditCard().setBalance(card.getFakeCreditCard().getBalance() - amount);
         update(card);
         return true;
     }
+
+    public Optional<CreditCard> getUserCreditCard(User user) {
+        var cards = findCardsByUser(user);
+        if (cards.size() == 0) return Optional.empty();
+
+        CreditCard defaultCard = cards.get(0); // of get the card with most money any way idc
+        for (var card : cards) {
+            if (card.isDefault()) {
+                defaultCard = card;
+                break;
+            }
+        }
+        return Optional.of(defaultCard);
+    }
+
 }

@@ -39,7 +39,7 @@ public class FakeCreditCard {
     private Date expireDate;
 
     @Column(nullable = false)
-    private int balance;
+    private double balance;
 
     public FakeCreditCard() {
 

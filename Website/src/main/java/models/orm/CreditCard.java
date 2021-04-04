@@ -13,7 +13,7 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(
                 name = "CreditCard.findValidCard",
-                query = "select c from CreditCard c where c.cardNumber = :cardNumber and c.cvv = :cvv and c.expireDate = :expireDate"),
+                query = "select c from CreditCard c where c.fakeCreditCard.cardNumber = :cardNumber and c.fakeCreditCard.cvv = :cvv and c.fakeCreditCard.expireDate = :expireDate"),
         @NamedQuery(
                 name = "CreditCard.findCardsByUser",
                 query = "select c from CreditCard c where c.owner = :owner"),
@@ -31,18 +31,9 @@ public class CreditCard {
     @Setter(AccessLevel.NONE)
     private Long cardId;
 
-    @Column(nullable = false)
-    private String cardNumber;
-
-    @Column(nullable = false)
-    private String cvv;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date expireDate;
-
-    @Column(nullable = false)
-    private int balance;
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(nullable = false, updatable = false)
+    private FakeCreditCard fakeCreditCard;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, updatable = false)
@@ -54,11 +45,9 @@ public class CreditCard {
 
     }
 
-    public CreditCard(String cardNumber, String cvv, Date expireDate, int balance, User owner) {
-        this.cardNumber = cardNumber;
-        this.cvv = cvv;
-        this.expireDate = expireDate;
-        this.balance = balance;
+    public CreditCard(FakeCreditCard fakeCreditCard, User owner) {
+        this.fakeCreditCard = fakeCreditCard;
         this.owner = owner;
     }
+
 }

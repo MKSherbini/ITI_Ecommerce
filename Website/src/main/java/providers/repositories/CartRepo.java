@@ -205,22 +205,28 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         if (cart.isEmpty()) return Optional.empty();
 //        refresh(cart.get());
         var price = cart.get().getTotalPrice() * 1.15;
-//        switch (paymentMethod) {
-//            case BANK:
-//            case CASH:
-//            case CHECK:
-//                break;
-//            case CARD:
-//                break;
-//        }
-
         // find balance
         var balance = user.getCredit();
-        // todo check other methods
         System.out.println("balance = " + balance);
         System.out.println("price = " + price);
-        if (balance < price) return Optional.empty();
-        user.setCredit(user.getCredit() - price);
+
+        switch (paymentMethod) {
+            case BANK:
+            case CASH:
+            case CHECK:
+                if (balance < price) return Optional.empty();
+                user.setCredit(user.getCredit() - price);
+                break;
+            case CARD:
+                var card = CreditCardRepo.getInstance().getUserCreditCard(user).get().getFakeCreditCard();
+                if (balance + card.getBalance() < price) return Optional.empty();
+                var fromUser = Math.min(price, balance);
+                user.setCredit(user.getCredit() - fromUser);
+                price -= fromUser;
+                card.setBalance(card.getBalance() - price);
+                break;
+        }
+
         cart.get().setIsHistory(true);
         UserRepo.getInstance().update(user);
         update(cart.get());

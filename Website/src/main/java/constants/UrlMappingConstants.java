@@ -191,7 +191,7 @@ public class UrlMappingConstants {
         return ret;
     }
 
-    public boolean isPublicService(HttpServletRequest request) {
+    public boolean isPublicService(HttpServletRequest  request) {
         final String url = request.getRequestURI();
         final String baseUrl = request.getContextPath();
 

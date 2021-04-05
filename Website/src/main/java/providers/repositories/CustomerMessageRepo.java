@@ -28,19 +28,19 @@ public class CustomerMessageRepo extends GenericRepo<CustomerMessage, Long> {
     }
 
 
-    public List<ShoppingCart> findMessageBySubscriber(Subscriber subscriber) {
+    public List<CustomerMessage> findMessageBySubscriber(Subscriber subscriber) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("CustomerMessage.findMessageBySubscriber")
                         .setParameter("subscriber", subscriber)
-                        .list());
+                        .getResultList());
     }
 
-    public List<CustomerReview> findAllReviews() {
+    public List<CustomerMessage> findAllReviews() {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session ->  session
-                        .createNamedQuery("CustomerMessage.findAllReviews")
-                        .list());
+                        .createNamedQuery("CustomerMessage.findAllMessages")
+                        .getResultList());
     }
 
 

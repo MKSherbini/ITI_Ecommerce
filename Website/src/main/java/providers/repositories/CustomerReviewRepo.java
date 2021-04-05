@@ -25,19 +25,19 @@ public class CustomerReviewRepo extends GenericRepo<CustomerReview, Long> {
     }
 
 
-    public List<ShoppingCart> findReviewsBySubscriber(Subscriber subscriber) {
+    public List<CustomerReview> findReviewsBySubscriber(Subscriber subscriber) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("CustomerReview.findReviewsBySubscriber")
                         .setParameter("subscriber", subscriber)
-                        .list());
+                        .getResultList());
     }
 
     public List<CustomerReview> findAllReviews() {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session ->  session
                         .createNamedQuery("CustomerReview.findAllReviews")
-                        .list());
+                        .getResultList());
     }
 
 

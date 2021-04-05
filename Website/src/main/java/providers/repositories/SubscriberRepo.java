@@ -27,21 +27,21 @@ public class SubscriberRepo extends GenericRepo<Subscriber, Long> {
         return instance;
     }
 
-
+/*
     public List<ShoppingCart> findReviewsByUser(Subscriber subscriber) {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("CustomerReview.findReviewsByUser")
                         .setParameter("subscriber", subscriber)
-                        .list());
+                        .getResultList());
     }
 
     public List<CustomerReview> findAllReviews() {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session ->  session
                         .createNamedQuery("CustomerReview.findAllReviews")
-                        .list());
-    }
+                        .getResultList());
+    }*/
 
 
 }

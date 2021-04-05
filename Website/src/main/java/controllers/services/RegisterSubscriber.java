@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.constraints.Email;
+//import jakarta.validation.constraints.Email;
 import managers.DatabaseManager;
 import models.orm.*;
 import providers.repositories.CartRepo;

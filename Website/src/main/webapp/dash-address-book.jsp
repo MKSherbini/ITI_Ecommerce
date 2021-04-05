@@ -82,12 +82,12 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                                <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                                     <span>Signup</span></a></li>
                                             <li>
@@ -984,7 +984,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard.jsp">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="account">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +992,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard.jsp">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="account">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1000,10 +1000,10 @@
                                                         <ul style="width:180px">
                                                             <li>
 
-                                                                <a href="dash-edit-profile.jsp">Edit Profile</a></li>
+                                                                <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-book.jsp">Edit Address Book</a></li>
+                                                                <a href="addressBook">Edit Address Book</a></li>
                                                             <li>
 
                                                                 <a href="dash-manage-order.jsp">Manage Order</a></li>
@@ -1012,10 +1012,10 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                        <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="addressBook">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1029,7 +1029,7 @@
                                                                 <a href="dash-address-add.jsp">Add New Address</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-edit.jsp">Edit Address Book</a></li>
+                                                                <a href="editAddress">Edit Address Book</a></li>
                                                         </ul>
                                                         <!--====== End - Dropdown ======-->
                                                     </li>
@@ -1392,7 +1392,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dash-address-book.jsp">My Account</a></li>
+                                        <a href="addressBook">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1416,17 +1416,17 @@
                                     <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                         <div class="dash__pad-1">
 
-                                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                            <span class="dash__text u-s-m-b-16">Hello, ${sessionScope.user.userName}</span>
                                             <ul class="dash__f-list">
                                                 <li>
 
-                                                    <a href="dashboard.jsp">Manage My Account</a></li>
+                                                    <a href="account">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                    <a href="profile">My Profile</a></li>
                                                 <li>
 
-                                                    <a class="dash-active" href="dash-address-book.jsp">Address Book</a></li>
+                                                    <a class="dash-active" href="addressBook">Address Book</a></li>
                                                 <li>
 
                                                     <a href="dash-track-order.jsp">Track Order</a></li>
@@ -1500,36 +1500,24 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Action</th>
-                                                        <th>Full Name</th>
-                                                        <th>Address</th>
-                                                        <th>Region</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Status</th>
+                                                        <th>User Name</th>
+                                                        <th>Street Address</th>
+                                                        <th>City</th>
+                                                        <th>State</th>
+                                                        <th>Country</th>
+                                                        <th>Zip Postal Code</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>
+                                                        <td> <a class="address-book-edit btn--e-transparent-platinum-b-2" href="editAddress">Edit </a> </td>
+                                                        <td> <div class = "gl-text"> ${sessionScope.user.userName} </div> </td>
+                                                        <td> <div class="gl-text">${sessionScope.user.address.streetAddress}</div> </td>
+                                                        <td> <div class="gl-text"> ${sessionScope.user.address.city} </div> </td>
+                                                        <td> <div class="gl-text"> ${sessionScope.user.address.state}</div> </td>
+                                                        <td> <div class="gl-text">${sessionScope.user.address.country} </div></td>
+                                                        <td> <div class="gl-text">${sessionScope.user.address.zipPostalCode} </div></td>
 
-                                                            <a class="address-book-edit btn--e-transparent-platinum-b-2" href="dash-address-edit.jsp">Edit</a></td>
-                                                        <td>John Doe</td>
-                                                        <td>4247 Ashford Drive Virginia VA-20006 USA</td>
-                                                        <td>Virginia VA-20006 USA</td>
-                                                        <td>(+0) 900901904</td>
-                                                        <td>
-                                                            <div class="gl-text">Default Shipping Address</div>
-                                                            <div class="gl-text">Default Billing Address</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-
-                                                            <a class="address-book-edit btn--e-transparent-platinum-b-2" href="dash-address-edit.jsp">Edit</a></td>
-                                                        <td>Doe John</td>
-                                                        <td>1484 Abner Road</td>
-                                                        <td>Eau Claire WI - Wisconsin</td>
-                                                        <td>(+0) 7154419563</td>
-                                                        <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -1537,7 +1525,7 @@
                                     </div>
                                     <div>
 
-                                        <a class="dash__custom-link btn--e-brand-b-2" href="dash-address-add.jsp"><i class="fas fa-plus u-s-m-r-8"></i>
+                                        <a class="dash__custom-link btn--e-brand-b-2" href="addAddress"><i class="fas fa-plus u-s-m-r-8"></i>
 
                                             <span>Add New Address</span></a></div>
                                 </div>

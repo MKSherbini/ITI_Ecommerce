@@ -1483,71 +1483,41 @@
                                             <h1 class="dash__h1 u-s-m-b-14">Edit Address</h1>
 
                                             <span class="dash__text u-s-m-b-30">We need an address where we could deliver products.</span>
-                                            <form class="dash-address-manipulation">
+                                            <form class="dash-address-manipulation" action="editAddress" method="post">
                                                 <div class="gl-inline">
                                                     <div class="u-s-m-b-30">
 
-                                                        <label class="gl-label" for="address-fname">FIRST NAME *</label>
+                                                        <label class="gl-label" for="street-name">Street Address </label>
 
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-fname" placeholder="John Doe"></div>
+                                                        <input class="input-text input-text--primary-style" type="text" name="streetName" id="street-name" value="${sessionScope.user.address.streetAddress}"></div>
                                                     <div class="u-s-m-b-30">
 
-                                                        <label class="gl-label" for="address-lname">LAST NAME *</label>
+                                                        <label class="gl-label" for="address-city"> City </label>
 
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-lname" placeholder="Doe"></div>
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-city" name="addressCity" value="${sessionScope.user.address.city}"></div>
                                                 </div>
                                                 <div class="gl-inline">
                                                     <div class="u-s-m-b-30">
 
-                                                        <label class="gl-label" for="address-phone">PHONE *</label>
+                                                        <label class="gl-label" for="address-state">State</label>
 
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-phone" placeholder="(+0) 900901904"></div>
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-state" name="addressState" value="${sessionScope.user.address.state}"></div>
                                                     <div class="u-s-m-b-30">
 
-                                                        <label class="gl-label" for="address-street">STREET ADDRESS *</label>
+                                                        <label class="gl-label" for="address-country">Country</label>
 
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-street" placeholder="4247 Ashford Drive Virginia"></div>
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-country" name="addressCountry" value="${sessionScope.user.address.country}"></div>
                                                 </div>
+
                                                 <div class="gl-inline">
                                                     <div class="u-s-m-b-30">
 
-                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-zip">ZIP/POSTAL CODE </label>
 
-                                                        <label class="gl-label" for="address-country">COUNTRY *</label><select class="select-box select-box--primary-style" id="address-country">
-                                                            <option selected value="">Choose Country</option>
-                                                            <option value="uae">United Arab Emirate (UAE)</option>
-                                                            <option value="uk">United Kingdom (UK)</option>
-                                                            <option value="us">United States (US)</option>
-                                                        </select>
-                                                        <!--====== End - Select Box ======-->
-                                                    </div>
-                                                    <div class="u-s-m-b-30">
-
-                                                        <!--====== Select Box ======-->
-
-                                                        <label class="gl-label" for="address-state">STATE/PROVINCE *</label><select class="select-box select-box--primary-style" id="address-state">
-                                                            <option selected value="">Choose State/Province</option>
-                                                            <option value="al">Alabama</option>
-                                                            <option value="al">Alaska</option>
-                                                            <option value="ny">New York</option>
-                                                        </select>
-                                                        <!--====== End - Select Box ======-->
-                                                    </div>
-                                                </div>
-                                                <div class="gl-inline">
-                                                    <div class="u-s-m-b-30">
-
-                                                        <label class="gl-label" for="address-city">TOWN/CITY *</label>
-
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-city"></div>
-                                                    <div class="u-s-m-b-30">
-
-                                                        <label class="gl-label" for="address-street">ZIP/POSTAL CODE *</label>
-
-                                                        <input class="input-text input-text--primary-style" type="text" id="address-postal" placeholder="20006"></div>
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-zip" name="zipPostalCode" value="${sessionScope.user.address.zipPostalCode}"></div>
                                                 </div>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit">SAVE</button>
+                                                <button class="btn btn--e-brand-b-2">SAVE</button>
                                             </form>
                                         </div>
                                     </div>

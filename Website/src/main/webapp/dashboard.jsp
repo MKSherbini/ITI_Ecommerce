@@ -1004,7 +1004,7 @@
                                                                 <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-book.jsp">Edit Address Book</a></li>
+                                                                <a href="addressBook">Edit Address Book</a></li>
                                                             <li>
 
                                                                 <a href="dash-manage-order.jsp">Manage Order</a></li>
@@ -1016,7 +1016,7 @@
                                                         <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="addressBook">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1036,7 +1036,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-track-order.jsp">Track Order</a></li>
+                                                        <a href="trackOrder">Track Order</a></li>
                                                     <li>
 
                                                         <a href="dash-my-order.jsp">My Orders</a></li>
@@ -1434,10 +1434,10 @@
                                                     <a href="profile">My Profile</a></li>
                                                 <li>
 
-                                                    <a href="dash-address-book.jsp">Address Book</a></li>
+                                                    <a href="addressBook">Address Book</a></li>
                                                 <li>
 
-                                                    <a href="dash-track-order.jsp">Track Order</a></li>
+                                                    <a href="trackOrder">Track Order</a></li>
                                                 <li>
 
                                                     <a href="dash-my-order.jsp">My Orders</a></li>
@@ -1500,9 +1500,9 @@
 
                                                                 <a href="editProfile">Edit</a></div>
 
-                                                            <span class="dash__text">John Doe</span>
+                                                            <span class="dash__text">UserName: ${sessionScope.user.userName}</span>
 
-                                                            <span class="dash__text">johndoe@domain.com</span>
+                                                            <span class="dash__text">Email: ${sessionScope.user.email}</span>
                                                             <div class="dash__link dash__link--secondary u-s-m-t-8">
 
                                                                 <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
@@ -1517,11 +1517,9 @@
                                                             <span class="dash__text-2 u-s-m-b-8">Default Shipping Address</span>
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
-                                                                <a href="dash-address-book.jsp">Edit</a></div>
+                                                                <a href="addressBook">Edit</a></div>
 
-                                                            <span class="dash__text">4247 Ashford Drive Virginia - VA-20006 - USA</span>
-
-                                                            <span class="dash__text">(+0) 900901904</span>
+                                                            <span class="dash__text">${sessionScope.user.address}</span>
                                                         </div>
                                                     </div>
                                                 </div>

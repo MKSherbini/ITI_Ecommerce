@@ -82,17 +82,17 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
 
-                                                <a href="signup.jsp"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                                <a href="signup"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                                     <span>Signup</span></a></li>
                                             <li>
 
-                                                <a href="signin.jsp"><i class="fas fa-lock u-s-m-r-6"></i>
+                                                <a href="signin"><i class="fas fa-lock u-s-m-r-6"></i>
 
                                                     <span>Signin</span></a></li>
                                             <li>
@@ -1035,7 +1035,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-track-order.jsp">Track Order</a></li>
+                                                        <a href="trackOrder">Track Order</a></li>
                                                     <li>
 
                                                         <a href="dash-my-order.jsp">My Orders</a></li>
@@ -1392,7 +1392,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dash-track-order.jsp">My Account</a></li>
+                                        <a href="trackOrder">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1429,7 +1429,7 @@
                                                     <a href="dash-address-book.jsp">Address Book</a></li>
                                                 <li>
 
-                                                    <a class="dash-active" href="dash-track-order.jsp">Track Order</a></li>
+                                                    <a class="dash-active" href="trackOrder">Track Order</a></li>
                                                 <li>
 
                                                     <a href="dash-my-order.jsp">My Orders</a></li>

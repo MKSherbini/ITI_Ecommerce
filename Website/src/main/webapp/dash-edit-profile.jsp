@@ -1521,25 +1521,17 @@
                                                                 <div class="dash__link dash__link--secondary">
                                                                     <input class="input-text input-text--primary-style" type="email" id="email" name="email" required value="${sessionScope.user.email}">
                                                                     <%--<a href="#">Change</a>--%>
+                                                                    <label style='color: red' ; id="error-email"></label>
                                                                 </div>
                                                             </div>
-                                                            <div class="u-s-m-b-30">
+                                                            <%--<div class="u-s-m-b-30">
                                                                 <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
                                                                 <div class="dash__link dash__link--secondary">
                                                                     <input class="input-text input-text--primary-style" id="mobile" name="mobile">
-                                                                    <%--<a href="#">Add</a>--%>
+                                                                    &lt;%&ndash;<a href="#">Add</a>&ndash;%&gt;
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gl-inline">
-                                                            <div class="u-s-m-b-30">
-                                                                <h2 class="dash__h2 u-s-m-b-8">User Name *</h2>
-                                                                <div class="dash__link dash__link--secondary">
-                                                                    <input class="input-text input-text--primary-style" type="text" id="username" name="userName" required value="${sessionScope.user.userName}">
-                                                                    <%--<a href="#">Change</a>--%>
-                                                                </div>
-                                                            </div>
+                                                            </div>--%>
                                                         </div>
 
                                                         <button class="btn btn--e-brand-b-2">SAVE</button>
@@ -1609,6 +1601,7 @@
 
     <!--====== Vendor Js ======-->
     <script src="scripts/js/vendor.js"></script>
+    <script src="scripts/js/signup.jsp.js"></script>
 
     <!--====== jQuery Shopnav plugin ======-->
     <script src="scripts/js/jquery.shopnav.js"></script>

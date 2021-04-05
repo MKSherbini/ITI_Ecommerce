@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.orm.Address;
 import models.orm.DummyUser;
 import models.orm.User;
 import providers.repositories.CartRepo;
@@ -41,6 +42,9 @@ public class RegistrationController extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String userName = request.getParameter("userName");
         String birthDateParam = request.getParameter("birthDate");
+        //Todo add address field in reg.
+        Address address = new Address("youssefAbas", "Egypt","cairo","cairo","11765");
+
         DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
 
         if (email != null && password != null && firstName != null && lastName != null && userName != null && birthDateParam != null) {
@@ -48,7 +52,7 @@ public class RegistrationController extends HttpServlet {
             birthDate = Date.valueOf(birthDateParam);
             System.out.println(birthDate);
             String hashedPassword = Hashator.getInstance().hash(password);
-            User user = new User(email, userName, hashedPassword, firstName, lastName, birthDate);
+            User user = new User(email, userName, hashedPassword, firstName, lastName, birthDate , address );
             UserRepo userRepo = UserRepo.getInstance();
             userRepo.create(user);
 

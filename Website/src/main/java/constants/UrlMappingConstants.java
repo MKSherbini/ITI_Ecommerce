@@ -33,6 +33,10 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
         urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
+        urlMap.put(PageNames.TRACK_ORDER, new VCUrlMapping("Track Order", "trackOrder", "dash-track-order.jsp"));
+        urlMap.put(PageNames.ADDRESS_BOOK, new VCUrlMapping("Address Book", "addressBook", "dash-address-book.jsp"));
+        urlMap.put(PageNames.ADD_ADDRESS, new VCUrlMapping("Add Address", "addAddress", "dash-address-add.jsp"));
+        urlMap.put(PageNames.Edit_ADDRESS, new VCUrlMapping("Edit Address", "editAddress", "dash-address-edit.jsp"));
 
         // ... add other pages
     }

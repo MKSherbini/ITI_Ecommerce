@@ -1547,12 +1547,12 @@
                                                         <span class="dash__text">${sessionScope.user.email}</span>
 
                                                     </div>
-                                                    <div class="col-lg-4 u-s-m-b-30">
+                                                    <%--<div class="col-lg-4 u-s-m-b-30">
                                                         <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
                                                         <span class="dash__text">+2-011-11111111</span>
 
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-4 u-s-m-b-30">
                                                         <h2 class="dash__h2 u-s-m-b-8">Birthday</h2>
 

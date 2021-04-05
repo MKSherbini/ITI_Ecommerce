@@ -10,18 +10,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import lombok.SneakyThrows;
 import models.orm.Address;
 import models.orm.User;
 import providers.repositories.UserRepo;
-import java.sql.Date;
 
 import java.io.IOException;
+import java.sql.Date;
 
 
-@WebServlet("/editProfile")
-public class EditProfileController extends HttpServlet {
-
+@WebServlet("/editAddress")
+public class EditAddressController extends HttpServlet {
     ServletConfig myConfig;
 
     public void init(ServletConfig config) throws ServletException {
@@ -29,37 +27,41 @@ public class EditProfileController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("inside EditAccount controller");
+        System.out.println("Inside editAddress Controller");
         var user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.EditProfile));
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.Edit_ADDRESS));
             requestDispatcher.include(request, response);
             return;
         }
         response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
     }
 
-    @SneakyThrows
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("post method editAddress");
         HttpSession session = request.getSession();
         User editedUser = (User) session.getAttribute("user");
-        String firstName = request.getParameter("reg-fname");
-        String lastName = request.getParameter("reg-lname");
-        String userName = request.getParameter("userName");
-        String birthDate = request.getParameter("birthDate");
-        Date date = Date.valueOf(birthDate);
-        String email = request.getParameter("email");
-
+        String streetAddress = request.getParameter("streetName");
+        String cityAddress = request.getParameter("addressCity");
+        String stateAddress = request.getParameter("addressState");
+        String countryAddress = request.getParameter("addressCountry");
+        String zipPostalAddress = request.getParameter("zipPostalCode");
+        Address address = new Address(streetAddress,countryAddress,cityAddress,stateAddress,zipPostalAddress);
+        editedUser.setAddress(address);
+        System.out.println("editedUser = " + editedUser);
         UserRepo userRepo = UserRepo.getInstance();
-        if (firstName != null && lastName != null && email != null && userName!=null) {
-            editedUser.setFirstName(firstName);
-            editedUser.setLastName(lastName);
-            editedUser.setEmail(email);
-            editedUser.setUserName(userName);
-            editedUser.setBirthdate(date);
-        }
         userRepo.update(editedUser);
-        response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.Profile));
+        System.out.println("editedUser = " + editedUser);
+        response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.ADDRESS_BOOK));
+
     }
+
+    public String getServletInfo() {
+        return null;
+    }
+
+    public void destroy() {
+
+    }
+
 }

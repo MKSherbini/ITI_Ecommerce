@@ -17,4 +17,7 @@ public enum PageNames {
     CART,
     EMPTY_CART,
     TEST_USER_JSP,
+    TRACK_ORDER,
+    ADDRESS_BOOK,
+    Edit_ADDRESS, ADD_ADDRESS
 }

@@ -40,7 +40,7 @@ public class ProductFetchService extends HttpServlet {
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            out.print("");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 

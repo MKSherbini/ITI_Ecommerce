@@ -45,11 +45,27 @@ public final class ThreadLocalContext implements AutoCloseable {
     }
 
     public static void forward(PageNames page) throws IOException, ServletException {
-        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerUrl(page)).forward(getCurrentInstance().request, getCurrentInstance().response);
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(page)).forward(getCurrentInstance().request, getCurrentInstance().response);
     }
 
     public static void forward(ServiceNames service) throws IOException, ServletException {
-        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getServiceUrl(service)).forward(getCurrentInstance().request, getCurrentInstance().response);
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getServiceName(service)).forward(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void includeView(PageNames page) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(page)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void include(PageNames page) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(page)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void include(ServiceNames service) throws IOException, ServletException {
+        getCurrentInstance().request.getRequestDispatcher(UrlMappingConstants.getInstance().getServiceName(service)).include(getCurrentInstance().request, getCurrentInstance().response);
+    }
+
+    public static void setRequestAttribute(String name, Object obj) {
+        getCurrentInstance().request.setAttribute(name, obj);
     }
 
 }

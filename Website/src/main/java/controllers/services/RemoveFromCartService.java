@@ -9,7 +9,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import managers.DatabaseManager;
 import models.orm.*;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
@@ -45,7 +44,7 @@ public class RemoveFromCartService extends HttpServlet {
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
@@ -56,23 +55,23 @@ public class RemoveFromCartService extends HttpServlet {
             cart = cartRepo.removeProduct(user, product.get());
 
         if (cart.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
-        DatabaseManager.getInstance().flush();
+//        DatabaseManager.getInstance().flush();
 
         if (user == null)
             cart = cartRepo.findShoppingCartByDummyUser(dummyUser);
         else
             cart = cartRepo.findShoppingCartByUser(user);
 
-        var cartItems = cart.get().getCartItems();
+//        request.getSession().setAttribute("cart", cart.get());
 
+//        CartRepo.getInstance().refresh(cart.get());
+//        request.getSession().setAttribute("cart", cart.get());
 //        cartItems.add()
-        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
-        if (cartItems.size() > 0)
-            addedProductDto.setTotalInCart(cartItems.stream().mapToInt(CartItem::getProductQuantity).sum());
+        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get(), cart.get());
 
         out.print(new Gson().toJson(addedProductDto));
     }

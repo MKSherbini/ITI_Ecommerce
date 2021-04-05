@@ -1,26 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="commons/pageCommon.jsp" %>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="images/favicon.png" rel="shortcut icon">
-    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
-
-    <!--====== Google Font ======-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-
-    <!--====== Vendor Css ======-->
-    <link rel="stylesheet" href="styles/css/vendor.css">
-
-    <!--====== Utility-Spacing ======-->
-    <link rel="stylesheet" href="styles/css/utility.css">
-
-    <!--====== App ======-->
-    <link rel="stylesheet" href="styles/css/app.css">
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.SIGN_IN_PAGE)}</title>
+    <%@include file="commons/headCommon.jsp" %>
 </head>
 <body class="config">
 <div class="preloader is-active">
@@ -33,11 +18,13 @@
 <div id="app">
 
     <!--====== Main Header ======-->
-    <%@ include file="loginheader.jsp" %>
+    <header class="header--style-1 header--box-shadow">
+        <%@include file="commons/headerCommon.jsp" %>
+    </header>
     <!--====== End - Main Header ======-->
 
 
-    <!--====== App Content ======-->
+<%--    <!--====== App Content ======-->--%>
     <div class="app-content">
 
         <!--====== Section 1 ======-->

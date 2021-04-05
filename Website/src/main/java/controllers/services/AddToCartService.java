@@ -13,11 +13,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import managers.CookiesManager;
 import managers.DatabaseManager;
+import models.dtos.CartDto;
 import models.orm.*;
 import providers.repositories.CartItemRepo;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
 import utilities.SafeConverter;
+import utilities.adapters.CartAdapter;
 import utilities.adapters.ProductAdapter;
 
 import java.io.IOException;
@@ -43,41 +45,45 @@ public class AddToCartService extends HttpServlet {
         DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
         var out = response.getOutputStream();
         var paramProduct = request.getParameter(WebsiteConstants.paramProductId);
+        var paramAddProductQuantityName = Math.max(1, SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramAddProductQuantityName), 1));
+
         Optional<Product> product = Optional.empty();
         if (paramProduct != null) {
             product = productRepo.read(SafeConverter.safeLongParse(paramProduct, 0L));
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            out.print("{'status':'bad'}");
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
-        Optional<ShoppingCart> cart;
+        int addedItems = 0;
         if (user == null)
-            cart = cartRepo.addProduct(dummyUser, product.get());
+            addedItems = cartRepo.addProduct(dummyUser, product.get(), paramAddProductQuantityName);
         else
-            cart = cartRepo.addProduct(user, product.get());
+            addedItems = cartRepo.addProduct(user, product.get(), paramAddProductQuantityName);
 
-        if (cart.isEmpty()) {
-            out.print("{'status':'bad'}");
+        if (addedItems == -1) {
+            out.print("{\"status\":\"bad\"}");
             return;
         }
 
-        DatabaseManager.getInstance().flush();
+        //DatabaseManager.getInstance().flush();
+        Optional<ShoppingCart> cart;
 
         if (user == null)
             cart = cartRepo.findShoppingCartByDummyUser(dummyUser);
         else
             cart = cartRepo.findShoppingCartByUser(user);
 
-        var cartItems = cart.get().getCartItems();
+//        System.out.println("cart = " + cart.get().getCartItems());
+//        CartRepo.getInstance().refresh(cart.get());
+//        System.out.println("cart = " + cart.get().getCartItems());
+        // todo fk this, why did I fking have to call fking refresh?
+//        request.getSession().setAttribute("cart", cart.get());
 
-//        cartItems.add()
-        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get());
-        // todo fix this count not reflecting last change
-        if (cartItems.size() > 0)
-            addedProductDto.setTotalInCart(cartItems.stream().mapToInt(CartItem::getProductQuantity).sum());
+        var addedProductDto = ProductAdapter.copyOrmToCartDto(product.get(), cart.get());
+        addedProductDto.setAddedQuantity(addedItems);
 
         out.print(new Gson().toJson(addedProductDto));
     }

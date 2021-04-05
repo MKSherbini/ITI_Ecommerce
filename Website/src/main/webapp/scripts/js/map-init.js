@@ -9,7 +9,7 @@ function init() {
         zoom: 12,
         scrollwheel: false,
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(37.393322, -122.023780),
+        center: new google.maps.LatLng(30.077291939382306, 31.022095267448123),
     };
     // Get the HTML DOM element that will contain your map
     // We are using a div with id="map" seen below in the <body>
@@ -18,7 +18,7 @@ function init() {
     var map = new google.maps.Map(mapElement, mapOptions);
     // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(37.393322, -122.023780),
+        position: new google.maps.LatLng(30.077291939382306, 31.022095267448123),
         map: map,
     });
 }

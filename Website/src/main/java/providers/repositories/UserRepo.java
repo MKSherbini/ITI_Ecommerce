@@ -30,7 +30,7 @@ public class UserRepo extends GenericRepo<User, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("User.findLikeName")
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 
     public Optional<User> findByEmailPassword(String email, String password) {
@@ -39,7 +39,7 @@ public class UserRepo extends GenericRepo<User, Long> {
                         .createNamedQuery("User.findByEmailPassword")
                         .setParameter("email", email)
                         .setParameter("password", password)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public Optional<User> findByEmail(String email) {

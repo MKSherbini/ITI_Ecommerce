@@ -6,6 +6,7 @@
 <head>
     <title>${applicationScope.urlMappingConstants.getTitle(PageNames.PRODUCT)}</title>
     <%@include file="commons/headCommon.jsp" %>
+    <script>document.write('<script src="scripts/js/shop.js?dev=' + new Date().getTime() + '"\><\/script>');</script>
 </head>
 
 <body class="config">
@@ -52,26 +53,29 @@
                         <div class="pd u-s-m-b-30">
                             <div class="slider-fouc pd-wrap">
                                 <div id="pd-o-initiate">
-                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-1.jpg">
+                                    <c:forEach items="${requestScope.product.productImages}" var="image">
+                                        <div class="pd-o-img-wrap" data-src="${image.downloadLink}">
 
-                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg"
-                                             data-zoom-image="images/product/product-d-1.jpg" alt=""></div>
-                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-2.jpg">
+                                            <img class="u-img-fluid" src="${image.downloadLink}"
+                                                 data-zoom-image="${image.downloadLink}" alt=""></div>
+                                    </c:forEach>
 
-                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg"
-                                             data-zoom-image="images/product/product-d-2.jpg" alt=""></div>
-                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-3.jpg">
+                                    <%--                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-2.jpg">--%>
 
-                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg"
-                                             data-zoom-image="images/product/product-d-3.jpg" alt=""></div>
-                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-4.jpg">
+                                    <%--                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg"--%>
+                                    <%--                                             data-zoom-image="images/product/product-d-2.jpg" alt=""></div>--%>
+                                    <%--                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-3.jpg">--%>
 
-                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg"
-                                             data-zoom-image="images/product/product-d-4.jpg" alt=""></div>
-                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-5.jpg">
+                                    <%--                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg"--%>
+                                    <%--                                             data-zoom-image="images/product/product-d-3.jpg" alt=""></div>--%>
+                                    <%--                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-4.jpg">--%>
 
-                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg"
-                                             data-zoom-image="images/product/product-d-5.jpg" alt=""></div>
+                                    <%--                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg"--%>
+                                    <%--                                             data-zoom-image="images/product/product-d-4.jpg" alt=""></div>--%>
+                                    <%--                                    <div class="pd-o-img-wrap" data-src="images/product/product-d-5.jpg">--%>
+
+                                    <%--                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg"--%>
+                                    <%--                                             data-zoom-image="images/product/product-d-5.jpg" alt=""></div>--%>
                                 </div>
 
                                 <span class="pd-text">Click for larger zoom</span>
@@ -79,21 +83,25 @@
                             <div class="u-s-m-t-15">
                                 <div class="slider-fouc">
                                     <div id="pd-o-thumbnail">
-                                        <div>
+                                        <c:forEach items="${requestScope.product.productImages}" var="image">
+                                            <div>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                        <div>
+                                                <img class="u-img-fluid" src="${image.downloadLink}" alt="">
+                                            </div>
+                                        </c:forEach>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                        <div>
+                                        <%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                        <div>
+                                        <%--                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>--%>
+                                        <%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                        <div>
+                                        <%--                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>--%>
+                                        <%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
+                                        <%--                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>--%>
+                                        <%--                                        <div>--%>
+
+                                        <%--                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>--%>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +121,7 @@
                                     <div>
                                         <div class="pd-detail__inline">
 
-                                            <span class="pd-detail__price">$${requestScope.product.price}</span>
+                                            <span class="pd-detail__price">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price)}</span>
 
                                         </div>
                                     </div>
@@ -123,10 +131,10 @@
                                     <div>
                                         <div class="pd-detail__inline">
 
-                                            <span class="pd-detail__price">$${requestScope.product.price * (1-(requestScope.product.discountPercent/ 100))}</span>
+                                            <span class="pd-detail__price">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price * (1-(requestScope.product.discountPercent/ 100)))}</span>
 
-                                            <span class="pd-detail__discount">(${requestScope.product.discountPercent/100}% OFF)</span>
-                                            <del class="pd-detail__del">$${requestScope.product.price}</del>
+                                            <span class="pd-detail__discount">(${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.discountPercent/100)}% OFF)</span>
+                                            <del class="pd-detail__del">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price)}</del>
                                         </div>
                                     </div>
                                 </c:otherwise>
@@ -143,10 +151,18 @@
                             </div>
                             <div class="u-s-m-b-15">
                                 <div class="pd-detail__inline">
+                                    <c:choose>
+                                        <c:when test="${requestScope.product.quantity>10}">
 
-                                    <span class="pd-detail__stock">200 in stock</span>
+                                            <span class="pd-detail__stock">${requestScope.product.quantity} in stock</span>
+                                        </c:when>
+                                        <c:otherwise>
 
-                                    <span class="pd-detail__left">Only 2 left</span></div>
+                                            <span class="pd-detail__left">Only ${requestScope.product.quantity} left</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+
                             </div>
                             <div class="u-s-m-b-15">
 
@@ -171,7 +187,10 @@
                                             <span class="pd-detail__click-count">(20)</span></span></div>
                             </div>
                             <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
+                                <form class="pd-detail__form"
+                                      action="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}">
+                                    <input type="hidden" name="${WebsiteConstants.paramProductId}"
+                                           value="${requestScope.product.productId}"/>
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
 
@@ -180,15 +199,24 @@
 
                                                 <span class="input-counter__minus fas fa-minus"></span>
 
-                                                <input class="input-counter__text input-counter--text-primary-style"
-                                                       type="text" value="1" data-min="1" data-max="1000">
+                                                <input id="counter"
+                                                       class="input-counter__text input-counter--text-primary-style"
+                                                       type="text"
+                                                       name="${WebsiteConstants.paramAddProductQuantityName}" value="1"
+                                                       data-min="1"
+                                                       data-max="1000">
 
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
                                         </div>
                                         <div class="u-s-m-b-15">
 
-                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
+                                            <button class="btn btn--e-brand-b-2" type="button"
+                                                    onclick="incrementFromCart(${requestScope.product.productId},$(counter).val());"
+                                                    data-modal="modal"
+                                                    data-modal-id="#add-to-cart">
+                                                Add to Cart
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1024,206 +1052,207 @@
     <!--====== End - App Content ======-->
 
 
-        <!--====== Footer ======-->
-        <jsp:include page="commons/footerCommon.jsp"/>
-        <!--====== End - Footer ======-->
+    <!--====== Footer ======-->
+    <jsp:include page="commons/footerCommon.jsp"/>
+    <!--====== End - Footer ======-->
 
     <!--====== Modal Section ======-->
 
 
-    <!--====== Quick Look Modal ======-->
-    <div class="modal fade" id="quick-look">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal--shadow">
+<%--    <!--====== Quick Look Modal ======-->--%>
+<%--    <div class="modal fade" id="quick-look">--%>
+<%--        <div class="modal-dialog modal-dialog-centered">--%>
+<%--            <div class="modal-content modal--shadow">--%>
 
-                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5">
+<%--                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div class="row">--%>
+<%--                        <div class="col-lg-5">--%>
 
-                            <!--====== Product Breadcrumb ======-->
-                            <div class="pd-breadcrumb u-s-m-b-30">
-                                <ul class="pd-breadcrumb__list">
-                                    <li class="has-separator">
-                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a>
-                                    </li>
-                                    <li class="is-marked">
-                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${requestScope.product.category.name}">${requestScope.product.category.name}</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--====== End - Product Breadcrumb ======-->
+<%--                            <!--====== Product Breadcrumb ======-->--%>
+<%--                            <div class="pd-breadcrumb u-s-m-b-30">--%>
+<%--                                <ul class="pd-breadcrumb__list">--%>
+<%--                                    <li class="has-separator">--%>
+<%--                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li class="is-marked">--%>
+<%--                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${requestScope.product.category.name}">${requestScope.product.category.name}</a>--%>
+<%--                                    </li>--%>
+<%--                                </ul>--%>
+<%--                            </div>--%>
+<%--                            <!--====== End - Product Breadcrumb ======-->--%>
 
 
-                            <!--====== Product Detail ======-->
-                            <div class="pd u-s-m-b-30">
-                                <div class="pd-wrap">
-                                    <div id="js-product-detail-modal">
-                                        <div>
+<%--                            <!--====== Product Detail ======-->--%>
+<%--                            <div class="pd u-s-m-b-30">--%>
+<%--                                <div class="pd-wrap">--%>
+<%--                                    <div id="js-product-detail-modal">--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                    </div>
-                                </div>
-                                <div class="u-s-m-t-15">
-                                    <div id="js-product-detail-modal-thumbnail">
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-t-15">--%>
+<%--                                    <div id="js-product-detail-modal-thumbnail">--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>
-                                        <div>
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt=""></div>--%>
+<%--                                        <div>--%>
 
-                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--====== End - Product Detail ======-->
-                        </div>
-                        <div class="col-lg-7">
+<%--                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt=""></div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <!--====== End - Product Detail ======-->--%>
+<%--                        </div>--%>
+<%--                        <div class="col-lg-7">--%>
 
-                            <!--====== Product Right Side Details ======-->
-                            <div class="pd-detail">
-                                <div>
+<%--                            <!--====== Product Right Side Details ======-->--%>
+<%--                            <div class="pd-detail">--%>
+<%--                                <div>--%>
 
-                                    <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>
-                                <div>
-                                    <div class="pd-detail__inline">
+<%--                                    <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>--%>
+<%--                                <div>--%>
+<%--                                    <div class="pd-detail__inline">--%>
 
-                                        <span class="pd-detail__price">$6.99</span>
+<%--                                        <span class="pd-detail__price">$6.99</span>--%>
 
-                                        <span class="pd-detail__discount">(76% OFF)</span>
-                                        <del class="pd-detail__del">$28.97</del>
-                                    </div>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+<%--                                        <span class="pd-detail__discount">(76% OFF)</span>--%>
+<%--                                        <del class="pd-detail__del">$28.97</del>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i--%>
+<%--                                            class="fas fa-star"></i><i class="fas fa-star"></i><i--%>
+<%--                                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>--%>
 
-                                        <span class="pd-detail__review u-s-m-l-4">
+<%--                                        <span class="pd-detail__review u-s-m-l-4">--%>
 
-                                                <a href="product-detail.jsp">23 Reviews</a></span></div>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-detail__inline">
+<%--                                                <a href="product-detail.jsp">23 Reviews</a></span></div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <div class="pd-detail__inline">--%>
 
-                                        <span class="pd-detail__stock">200 in stock</span>
+<%--                                        <span class="pd-detail__stock">200 in stock</span>--%>
 
-                                        <span class="pd-detail__left">Only 2 left</span></div>
-                                </div>
-                                <div class="u-s-m-b-15">
+<%--                                        <span class="pd-detail__left">Only 2 left</span></div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
 
-                                    <span class="pd-detail__preview-desc">${requestScope.product.description}</span>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-detail__inline">
+<%--                                    <span class="pd-detail__preview-desc">${requestScope.product.description}</span>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <div class="pd-detail__inline">--%>
 
-                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
+<%--                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>--%>
 
-                                                <a href="signin.jsp">Add to Wishlist</a>
+<%--                                                <a href="signin.jsp">Add to Wishlist</a>--%>
 
-                                                <span class="pd-detail__click-count">(222)</span></span></div>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-detail__inline">
+<%--                                                <span class="pd-detail__click-count">(222)</span></span></div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <div class="pd-detail__inline">--%>
 
-                                            <span class="pd-detail__click-wrap"><i
-                                                    class="far fa-envelope u-s-m-r-6"></i>
+<%--                                            <span class="pd-detail__click-wrap"><i--%>
+<%--                                                    class="far fa-envelope u-s-m-r-6"></i>--%>
 
-                                                <a href="signin.jsp">Email me When the price drops</a>
+<%--                                                <a href="signin.jsp">Email me When the price drops</a>--%>
 
-                                                <span class="pd-detail__click-count">(20)</span></span></div>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <ul class="pd-social-list">
-                                        <li>
+<%--                                                <span class="pd-detail__click-count">(20)</span></span></div>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <ul class="pd-social-list">--%>
+<%--                                        <li>--%>
 
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
+<%--                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>--%>
+<%--                                        </li>--%>
+<%--                                        <li>--%>
 
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
+<%--                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>--%>
+<%--                                        </li>--%>
+<%--                                        <li>--%>
 
-                                            <a class="s-insta--color-hover" href="#"><i
-                                                    class="fab fa-instagram"></i></a></li>
-                                        <li>
+<%--                                            <a class="s-insta--color-hover" href="#"><i--%>
+<%--                                                    class="fab fa-instagram"></i></a></li>--%>
+<%--                                        <li>--%>
 
-                                            <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a>
-                                        </li>
-                                        <li>
+<%--                                            <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a>--%>
+<%--                                        </li>--%>
+<%--                                        <li>--%>
 
-                                            <a class="s-gplus--color-hover" href="#"><i
-                                                    class="fab fa-google-plus-g"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <form class="pd-detail__form">
-                                        <div class="pd-detail-inline-2">
-                                            <div class="u-s-m-b-15">
+<%--                                            <a class="s-gplus--color-hover" href="#"><i--%>
+<%--                                                    class="fab fa-google-plus-g"></i></a></li>--%>
+<%--                                    </ul>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
+<%--                                    <form class="pd-detail__form">--%>
+<%--                                        <div class="pd-detail-inline-2">--%>
+<%--                                            <div class="u-s-m-b-15">--%>
 
-                                                <!--====== Input Counter ======-->
-                                                <div class="input-counter">
+<%--                                                <!--====== Input Counter ======-->--%>
+<%--                                                <div class="input-counter">--%>
 
-                                                    <span class="input-counter__minus fas fa-minus"></span>
+<%--                                                    <span class="input-counter__minus fas fa-minus"></span>--%>
 
-                                                    <input class="input-counter__text input-counter--text-primary-style"
-                                                           type="text" value="1" data-min="1" data-max="1000">
+<%--                                                    <input class="input-counter__text input-counter--text-primary-style"--%>
+<%--                                                           type="text" value="1" data-min="1"--%>
+<%--                                                           data-max="${requestScope.product.quantity}">--%>
 
-                                                    <span class="input-counter__plus fas fa-plus"></span></div>
-                                                <!--====== End - Input Counter ======-->
-                                            </div>
-                                            <div class="u-s-m-b-15">
+<%--                                                    <span class="input-counter__plus fas fa-plus"></span></div>--%>
+<%--                                                <!--====== End - Input Counter ======-->--%>
+<%--                                            </div>--%>
+<%--                                            <div class="u-s-m-b-15">--%>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="u-s-m-b-15">
+<%--                                                <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </form>--%>
+<%--                                </div>--%>
+<%--                                <div class="u-s-m-b-15">--%>
 
-                                    <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
-                                    <ul class="pd-detail__policy-list">
-                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+<%--                                    <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>--%>
+<%--                                    <ul class="pd-detail__policy-list">--%>
+<%--                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
 
-                                            <span>Buyer Protection.</span></li>
-                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+<%--                                            <span>Buyer Protection.</span></li>--%>
+<%--                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
 
-                                            <span>Full Refund if you don't receive your order.</span></li>
-                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+<%--                                            <span>Full Refund if you don't receive your order.</span></li>--%>
+<%--                                        <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
 
-                                            <span>Returns accepted if product not as described.</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--====== End - Product Right Side Details ======-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--====== End - Quick Look Modal ======-->
+<%--                                            <span>Returns accepted if product not as described.</span></li>--%>
+<%--                                    </ul>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <!--====== End - Product Right Side Details ======-->--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <!--====== End - Quick Look Modal ======-->--%>
 
 
     <!--====== Add to Cart Modal ======-->
@@ -1236,34 +1265,38 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="success u-s-m-b-30">
-                                <div class="success__text-wrap"><i class="fas fa-check"></i>
+                                <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
 
-                                    <span>Item is added successfully!</span></div>
+                                    <span id="modal-add-msg">Item is added successfully!</span></div>
                                 <div class="success__img-wrap">
 
-                                    <img class="u-img-fluid" src="images/product/electronic/product1.jpg" alt=""></div>
+                                    <img id="modal-add-img" class="u-img-fluid"
+                                         src="images/product/electronic/product1.jpg" alt=""></div>
                                 <div class="success__info-wrap">
 
-                                    <span class="success__name">Beats Bomb Wireless Headphone</span>
+                                    <span id="modal-add-name" class="success__name">Beats Bomb Wireless Headphone</span>
 
                                     <span class="success__quantity">Quantity: 1</span>
 
-                                    <span class="success__price">$170.00</span></div>
+                                    <span id="modal-add-price" class="success__price">$170.00</span></div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="s-option">
 
-                                <span class="s-option__text">1 item (s) in your cart</span>
+                                <span id="modal-add-itemsCount" class="s-option__text">1 item (s) in your cart</span>
                                 <div class="s-option__link-box">
 
                                     <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
                                         SHOPPING</a>
 
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW CART</a>
+                                    <a class="s-option__link btn--e-white-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                        CART</a>
 
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.jsp">PROCEED TO
-                                        CHECKOUT</a></div>
+                                    <a class="s-option__link btn--e-brand-shadow"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                        TO CHECKOUT</a></div>
                             </div>
                         </div>
                     </div>
@@ -1272,6 +1305,7 @@
         </div>
     </div>
     <!--====== End - Add to Cart Modal ======-->
+
     <!--====== End - Modal Section ======-->
 </div>
 <!--====== End - Main App ======-->

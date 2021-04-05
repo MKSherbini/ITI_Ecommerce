@@ -69,12 +69,23 @@ function fkingRunMyHref(elem) {
 function fkingSetModal(product) {
     console.log(product);
     let img = $("#modal-add-img");
+    let msg = $("#modal-add-msg");
+    let icon = $("#modal-add-icon");
     let name = $("#modal-add-name");
     let price = $("#modal-add-price");
     let itemsCount = $("#modal-add-itemsCount");
 
     img.attr("src", product.imageSrc);
     img.attr("alt", product.name);
+    if (parseInt(product.addedQuantity) > 0) {
+        msg.text("Item is added successfully!")
+        icon.removeClass("fa-times-circle")
+        icon.addClass("fa-check")
+    } else {
+        msg.text("Quantity not available")
+        icon.removeClass("fa-check")
+        icon.addClass("fa-times-circle")
+    }
     name.text(product.name);
     price.text(`$${product.price}`);
     itemsCount.text(`${product.totalInCart} item (s) in your cart`);

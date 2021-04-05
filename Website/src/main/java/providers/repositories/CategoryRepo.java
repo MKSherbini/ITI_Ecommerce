@@ -30,7 +30,7 @@ public class CategoryRepo extends GenericRepo<ProductCategory, Long> {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Category.findAllNames")
-                        .list());
+                        .getResultList());
     }
 
     public Optional<ProductCategory> findByName(String name) {
@@ -38,7 +38,7 @@ public class CategoryRepo extends GenericRepo<ProductCategory, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Category.findByName")
                         .setParameter("name", name)
-                        .list().stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public List<ProductCategory> findLikeName(String name) {
@@ -46,6 +46,6 @@ public class CategoryRepo extends GenericRepo<ProductCategory, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Category.findLikeName")
                         .setParameter("name", "%" + name + "%") // dammit
-                        .list());
+                        .getResultList());
     }
 }

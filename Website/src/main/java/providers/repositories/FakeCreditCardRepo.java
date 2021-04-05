@@ -36,16 +36,6 @@ public class FakeCreditCardRepo extends GenericRepo<FakeCreditCard, Long> {
                         .setParameter("cardNumber", cardNumber)
                         .setParameter("cvv", cvv)
                         .setParameter("expireDate", expireDate)
-                        .stream().findAny());
-    }
-
-    public boolean charge(FakeCreditCard card, int amount) {
-        if (card.getBalance() < amount ||
-                card.getExpireDate().getTime() < Date.valueOf(LocalDate.now()).getTime())
-            return false;
-
-        card.setBalance(card.getBalance() - amount);
-        update(card);
-        return true;
+                        .getResultList().stream().findAny());
     }
 }

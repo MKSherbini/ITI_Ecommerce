@@ -38,6 +38,9 @@
         <mapping class="models.orm.ScratchCard"/>
         <mapping class="models.orm.Developer"/>
         <mapping class="models.orm.DummyUser"/>
+        <mapping class="models.orm.CustomerReview"/>
+        <mapping class="models.orm.Subscriber"/>
+        <mapping class="models.orm.CustomerMessage"/>
     </session-factory>
 </hibernate-configuration>
 

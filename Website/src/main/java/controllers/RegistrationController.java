@@ -14,6 +14,7 @@ import models.orm.User;
 import providers.repositories.CartRepo;
 import providers.repositories.DummyUserRepo;
 import providers.repositories.UserRepo;
+import utilities.ErrorHandler;
 import utilities.Hashator;
 
 import java.io.IOException;
@@ -67,6 +68,8 @@ public class RegistrationController extends HttpServlet {
             request.getRequestDispatcher(UrlMappingConstants.getInstance().getControllerName(PageNames.SIGN_IN_PAGE)).include(request, response);
 
             response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+        } else {
+            ErrorHandler.forward("666", "Invalid user input");
         }
     }
 }

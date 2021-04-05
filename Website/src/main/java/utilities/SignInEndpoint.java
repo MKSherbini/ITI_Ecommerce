@@ -27,7 +27,7 @@ public class SignInEndpoint {
     public void onMessage(String msg , Session session){
         try {
             var db = DatabaseManager.getInstance();
-            db.beginTransaction();
+            db.beginSession();
 
             UserRepo userRepo = UserRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
@@ -42,7 +42,7 @@ public class SignInEndpoint {
                 session.getBasicRemote().sendText("Please Enter a Valid Form of an Email");
             }
 
-            db.endTransaction();
+            db.endSession();
 
         } catch (IOException e) {
             e.printStackTrace();

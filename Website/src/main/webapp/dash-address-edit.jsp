@@ -1483,6 +1483,7 @@
                                             <h1 class="dash__h1 u-s-m-b-14">Edit Address</h1>
 
                                             <span class="dash__text u-s-m-b-30">We need an address where we could deliver products.</span>
+
                                             <form class="dash-address-manipulation" action="editAddress" method="post">
                                                 <div class="gl-inline">
                                                     <div class="u-s-m-b-30">

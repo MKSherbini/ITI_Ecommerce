@@ -19,5 +19,6 @@ public enum PageNames {
     TEST_USER_JSP,
     TRACK_ORDER,
     ADDRESS_BOOK,
-    Edit_ADDRESS, ADD_ADDRESS
+    Edit_ADDRESS,
+    ADD_ADDRESS
 }

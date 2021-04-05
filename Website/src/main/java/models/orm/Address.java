@@ -18,6 +18,11 @@ public class Address {
     public Address(){}
 
     public Address( String streetAddress , String country , String city , String state , String zipPostalCode){
+                this.streetAddress = streetAddress;
+                this.country = country;
+                this.city = city;
+                this.state = state;
+                this.zipPostalCode = zipPostalCode;
 
     }
 

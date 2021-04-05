@@ -46,12 +46,11 @@ public class EditAddressController extends HttpServlet {
         String stateAddress = request.getParameter("addressState");
         String countryAddress = request.getParameter("addressCountry");
         String zipPostalAddress = request.getParameter("zipPostalCode");
+        System.out.println("zipPostalAddress + countryAddress + stateAddress + streetAddress + cityAddress = " + zipPostalAddress + countryAddress + stateAddress + streetAddress + cityAddress);
         Address address = new Address(streetAddress,countryAddress,cityAddress,stateAddress,zipPostalAddress);
         editedUser.setAddress(address);
-        System.out.println("editedUser = " + editedUser);
         UserRepo userRepo = UserRepo.getInstance();
         userRepo.update(editedUser);
-        System.out.println("editedUser = " + editedUser);
         response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.ADDRESS_BOOK));
 
     }

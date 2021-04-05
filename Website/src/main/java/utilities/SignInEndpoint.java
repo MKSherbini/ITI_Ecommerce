@@ -5,7 +5,9 @@ import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 import managers.DatabaseManager;
+import models.orm.Admin;
 import models.orm.User;
+import providers.repositories.AdminRepo;
 import providers.repositories.UserRepo;
 
 import java.io.IOException;
@@ -30,9 +32,11 @@ public class SignInEndpoint {
             db.beginSession();
 
             UserRepo userRepo = UserRepo.getInstance();
+            AdminRepo adminRepo = AdminRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
+            Optional<Admin> admin = adminRepo.findByEmail(msg);
             if (Validator.getInstance().EmailValidation(msg) == true){
-                if (user.isEmpty()){
+                if (user.isEmpty() || admin.isEmpty()){
                     session.getBasicRemote().sendText("Couldn't find your email");
                 }
                 else {

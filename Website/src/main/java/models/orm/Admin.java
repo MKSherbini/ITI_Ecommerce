@@ -12,6 +12,10 @@ import lombok.Setter;
         @NamedQuery(
                 name = "Admin.findByEmailPassword",
                 query = "select u from Admin u where u.email = :email and u.password = :password"),
+        @NamedQuery(
+                name = "User.findByEmail",
+                query = "select u from Admin u where u.email = :email"
+        ),
 })
 
 @Data

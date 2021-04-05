@@ -372,8 +372,7 @@
 
                                                 <span class="ship-b__text">Ship to:</span>
                                                 <div class="ship-b__box u-s-m-b-10">
-                                                    <p class="ship-b__p">4247 Ashford Drive Virginia VA-20006 USA (+0)
-                                                        900901904</p>
+                                                    <p class="ship-b__p"> ${sessionScope.user.address.streetAddress} <br> ${sessionScope.user.address.city} <br> ${sessionScope.user.address.country}  ${sessionScope.user.address.zipPostalCode}</p>
 
                                                     <a class="ship-b__edit btn--e-transparent-platinum-b-2"
                                                        data-modal="modal" data-modal-id="#edit-ship-address">Edit</a>

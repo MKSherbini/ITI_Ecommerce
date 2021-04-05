@@ -7,6 +7,7 @@ function validateEmail(emailregex) {
     var emailpattern = /^[A-Za-z0-9+_.-]+@(.+)$/;
     if (!emailpattern.test(emailregex)) {
         document.getElementById("emailValid").innerHTML = "Please enter a valid form of an email";
+        document.getElementById("reg-email").innerHTML= '';
     } else {
         document.getElementById("emailValid").innerHTML = "";
         wsocket.send(emailregex);
@@ -17,9 +18,17 @@ function onOpen() {
     console.log("connection established");
 }
 
+
 function onMessage(evt) {
-    document.getElementById("emailValid").innerHTML = evt.data;
+    if(evt.data()== "") {
+        document.getElementById("emailValid").innerHTML = evt.data;
+    }else
+    {
+        document.getElementById("emailValid").innerHTML = evt.data;
+        document.getElementById("reg-email").value = '';
+    }
 }
+
 
 function disconnect() {
     wsocket.close();

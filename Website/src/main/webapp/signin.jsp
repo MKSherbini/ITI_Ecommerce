@@ -130,8 +130,8 @@
                                         </div>
                                         <div class="u-s-m-b-30">
 
-                                            <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN
-                                            </button>
+                                            <button class="btn btn--e-transparent-brand-b-2" >LOGIN</button>
+
                                         </div>
                                     </form>
                                 </div>

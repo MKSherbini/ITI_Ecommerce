@@ -174,7 +174,7 @@
 
                                                             <a href="addressBook">Edit</a></div>
 
-                                                        <span class="dash__text">${sessionScope.user.address}</span>
+                                                        <span class="dash__text"> ${sessionScope.user.address.streetAddress} <br> ${sessionScope.user.address.city} <br> ${sessionScope.user.address.country}  ${sessionScope.user.address.zipPostalCode} </span>
                                                     </div>
                                                 </div>
                                             </div>

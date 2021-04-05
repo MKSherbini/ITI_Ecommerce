@@ -34,4 +34,13 @@ public class AdminRepo extends GenericRepo<Admin, Long> {
                         .setParameter("password", password)
                         .getResultList().stream().findAny());
     }
+
+    public Optional<Admin> findByEmail(String email) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> (Optional<Admin>) session
+                        .createNamedQuery("Admin.findByEmail")
+                        .setParameter("email", email)
+                        .getResultList().stream().findAny());
+    }
+
 }

@@ -24,7 +24,13 @@ function onOpen() {
 }
 
 function onMessage(evt) {
-    document.getElementById("error-email").innerHTML = evt.data;
+    if(evt.data()== "") {
+        document.getElementById("error-email").innerHTML = evt.data;
+    }else
+    {
+        document.getElementById("error-email").innerHTML = evt.data;
+        document.getElementById("login-email").value = '';
+    }
 }
 
 function disconnect() {

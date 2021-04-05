@@ -1,0 +1,24 @@
+[
+  {
+    "productId": 1,
+    "arrivalDate": "2021-04-04 23:33:12.394000",
+    "description": "Description is here the very long descr Description is here the very long descr",
+    "discountPercent": 6,
+    "imageSrc": "https://storage.googleapis.com/iti-ecommerce-website.appspot.com/Spongebob1?GoogleAccessId=firebase-adminsdk-g8k8r@iti-ecommerce-website.iam.gserviceaccount.com&Expires=1626211991&Signature=OmmO9GCXMSgySyXEj70jOJ44gcpkY6OQjLKrDiuAKdr8JotumsAgFbZrPKgu48G21OM3EtOONlwG%2FVi5Zb8zAc%2BofYb6jv6Q7N%2FIzteYaNQoUVvYXiG9tk74tiaaUAptylE51Qa4hvmelzF9J71leIppes43UF6uvz6EtEq8c69MNfd9kALmzf5FlgyiHzgi9Esfa8X%2FrGMEQIkQ39J%2BITpl%2F1SBOKE7rPFJh14UXuLDZrpZl1d%2FiYQHCCXy5f24UhEWaK9mMiwoKwVS1yOVmQenrZI7%2Fn5RxoffSU5AM7au2YBMmvv9RQoogWFuhk7K3WGe924k5bHbvaShKido7A%3D%3D",
+    "name": "Spongebob",
+    "price": 666,
+    "quantity": 65,
+    "category_categoryId": 15
+  },
+  {
+    "productId": 2,
+    "arrivalDate": "2021-04-05 02:55:30.390000",
+    "description": "NVIDIA Ampere Streaming Multiprocessors 2nd Generation RT Cores 3rd Generation Tensor Cores Powered by GeForce RTX 3060 Integrated with 12GB GDDR6 192-bit memory interface WINDFORCE 3X Cooling System with alternate spinning fans RGB Fusion 2.0 Protection metal back plate ",
+    "discountPercent": 5,
+    "imageSrc": "https://storage.googleapis.com/iti-ecommerce-website.appspot.com/GIGABYTE%20GeForce%20RTX%203060%20Gaming%20OC%2012G%20Graphics%20Card%2C%203X%20WINDFORCE%20Fans%2C%2012GB%20192-bit%20GDDR6%2C%20GV-N3060GAMING%20OC-12GD%20Video%20Card%201?GoogleAccessId=firebase-adminsdk-g8k8r@iti-ecommerce-website.iam.gserviceaccount.com&Expires=1626224126&Signature=rTYh7GzoY1idqp%2FP4ab880BcQC8sSGYBIr%2FHFqs9cMJYccSmWSu62p%2BPo12EIdzhkIFEiR4nwriiVxShx8SIBoW%2Bff5nBSB4v2kTZlTiYXhDz01VVVc%2FmQFh3bTufQ98iI4f6QfO1QIb%2FLYv9nI6leCIQgGYDcq%2Fwj6ObtaL9lwWjX6GX1H9OB6b0EsnGaczFNPRj2ZhxGAK3hRkrOoW6weQgDB8eh%2BsjqaIuKyzm9ARscPrWMV1qjnPdxyF9S1mgQRk1RcCKOVSP1fME7TVWUjbRBb%2FkzrxRlZmNzaXRZFJ8lz2ESFxzbFKiTjq1eY88VjKGIqKo2tF9n5J2kgXPw%3D%3D",
+    "name": "GIGABYTE GeForce RTX 3060 Gaming OC 12G Graphics Card, 3X WINDFORCE Fans, 12GB 192-bit GDDR6, GV-N3060GAMING OC-12GD Video Card ",
+    "price": 1006,
+    "quantity": 6,
+    "category_categoryId": 16
+  }
+]

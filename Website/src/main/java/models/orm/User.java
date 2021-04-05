@@ -59,6 +59,13 @@ public class User {
             cascade = CascadeType.ALL)
     private List<ShoppingCart> carts = new ArrayList<>();
 
+    @ToString.Exclude
+    @OneToMany(mappedBy = "owner",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<CreditCard> cards = new ArrayList<>();
+
     @Column(nullable = false)
     double credit;
 

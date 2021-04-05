@@ -32,8 +32,12 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.Error, new VCUrlMapping("error", "error", "error.jsp"));
         urlMap.put(PageNames.CHECKOUT, new VCUrlMapping("Check out", "checkout", "checkout.jsp"));
 //        urlMap.put(PageNames.MINI_CART, new VCUrlMapping("Mini Cart", "miniCart", "custom/mini-cart.jsp"));
-
+        urlMap.put(PageNames.CARD_ADD, new VCUrlMapping("Card Add", "cardAdd", "dash-card-add.jsp"));
+        urlMap.put(PageNames.CARD_BOOK, new VCUrlMapping("Card Book", "cardBook", "dash-card-book.jsp"));
+        urlMap.put(PageNames.CARD_EDIT, new VCUrlMapping("Card Edit", "cardEdit", "dash-card-edit.jsp"));
+        urlMap.put(PageNames.CARD_DEFAULT, new VCUrlMapping("Card Default", "cardDefault", "dash-card-make-default.jsp"));
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
+        urlMap.put(PageNames.ADD_PRODUCT,new VCUrlMapping("Add Product","addproduct","add-product.jsp"));
         // ... add other pages
     }
 
@@ -49,6 +53,9 @@ public class UrlMappingConstants {
         serviceMap.put(ServiceNames.PRODUCT_FETCH, new ServiceUrlMapping("Product Fetch", "productFetch"));
         serviceMap.put(ServiceNames.PRODUCT_ADD_TO_CART, new ServiceUrlMapping("Product Add To Cart", "addToCart"));
         serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));
+        serviceMap.put(ServiceNames.REMOVE_CART_ITEM, new ServiceUrlMapping("Remove cart item", "removeCartItem"));
+        serviceMap.put(ServiceNames.PAYMENT, new ServiceUrlMapping("Checkout Payment", "payment"));
+        serviceMap.put(ServiceNames.CATEGORY_ADD, new ServiceUrlMapping("Add new Category","addcategory"));
     }
 
 

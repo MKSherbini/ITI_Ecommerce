@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ee4e32a-7aa3-4c5a-9ff2-0db00f287f77" name="Default Changelist" comment="" />
+    <list default="true" id="9ee4e32a-7aa3-4c5a-9ff2-0db00f287f77" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/webapp/commons/footerCommon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/webapp/commons/footerCommon.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

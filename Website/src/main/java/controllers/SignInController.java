@@ -81,13 +81,15 @@ public class SignInController extends HttpServlet {
                 response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
                 return;
             } else {
-                System.out.println("SignInController.doPost");
                 ErrorHandler.forward("666", "No such user found");
             }
+        } else {
+            ErrorHandler.forward("666", "Invalid user input");
         }
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         // do verifying
     }
+
     public String getServletInfo() {
         return null;
     }

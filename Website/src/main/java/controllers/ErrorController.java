@@ -25,12 +25,10 @@ public class ErrorController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("ErrorController.doGet");
         ThreadLocalContext.includeView(PageNames.Error);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("ErrorController.doPost");
         ThreadLocalContext.includeView(PageNames.Error);
     }
 

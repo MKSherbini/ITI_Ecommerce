@@ -14,6 +14,7 @@ import models.dtos.CreditCardDto;
 import models.orm.User;
 import providers.repositories.CartRepo;
 import providers.repositories.CreditCardRepo;
+import utilities.ErrorHandler;
 import utilities.adapters.CreditCardAdapter;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class CardBookController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Must be correctly logged in");
             return;
         }
         request.setAttribute("cards", CreditCardAdapter.copyOrmToDto(CreditCardRepo.getInstance().findCardsByUser(user)));

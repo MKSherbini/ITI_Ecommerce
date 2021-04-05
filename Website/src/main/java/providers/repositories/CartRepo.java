@@ -1,9 +1,12 @@
 package providers.repositories;
 
 import constants.enums.PaymentMethod;
+import jakarta.servlet.ServletException;
 import managers.DatabaseManager;
 import models.orm.*;
+import utilities.ErrorHandler;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -215,14 +218,35 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 break;
             case BANK:
             case CHECK:
-                if (balance < price) return Optional.empty();
+                if (balance < price) {
+                    try {
+                        ErrorHandler.forward("666", "Account balance isn't enough");
+                    } catch (IOException | ServletException e) {
+                        e.printStackTrace();
+                    }
+                    return Optional.empty();
+                }
                 user.setCredit(user.getCredit() - price);
                 break;
             case CARD:
                 var creditCard = CreditCardRepo.getInstance().getUserCreditCard(user);
-                if (creditCard.isEmpty()) return Optional.empty();
+                if (creditCard.isEmpty()) {
+                    try {
+                        ErrorHandler.forward("666", "No valid credit card found");
+                    } catch (IOException | ServletException e) {
+                        e.printStackTrace();
+                    }
+                    return Optional.empty();
+                }
                 var card = creditCard.get().getFakeCreditCard();
-                if (balance + card.getBalance() < price) return Optional.empty();
+                if (balance + card.getBalance() < price) {
+                    try {
+                        ErrorHandler.forward("666", "Used both Card and account balances and still not enough");
+                    } catch (IOException | ServletException e) {
+                        e.printStackTrace();
+                    }
+                    return Optional.empty();
+                }
                 var fromUser = Math.min(price, balance);
                 user.setCredit(user.getCredit() - fromUser);
                 price -= fromUser;

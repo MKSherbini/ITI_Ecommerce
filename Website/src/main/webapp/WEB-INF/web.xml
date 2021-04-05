@@ -61,4 +61,33 @@ https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
     <security-role>
         <role-name>bad</role-name>
     </security-role>
+    <error-page>
+        <!-- Missing login -->
+        <error-code>401</error-code>
+        <location>/error</location>
+    </error-page>
+    <error-page>
+        <!-- Forbidden directory listing -->
+        <error-code>403</error-code>
+        <location>/error</location>
+    </error-page>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/error</location>
+    </error-page>
+    <error-page>
+        <!-- Uncaught exception -->
+        <error-code>500</error-code>
+        <location>/error</location>
+    </error-page>
+    <error-page>
+        <!-- Unsupported servlet method -->
+        <error-code>503</error-code>
+        <location>/error</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error</location>
+    </error-page>
 </web-app>

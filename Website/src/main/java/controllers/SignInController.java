@@ -5,7 +5,6 @@ import constants.WebsiteConstants;
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
 
-import constants.enums.AuthorizationLevel;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;

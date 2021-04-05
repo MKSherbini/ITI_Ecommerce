@@ -8,7 +8,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 
-import java.sql.Date;
+import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(
@@ -19,7 +19,6 @@ import java.sql.Date;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "fake_credit_cards")
 public class FakeCreditCard {
 
@@ -36,10 +35,11 @@ public class FakeCreditCard {
     private String cvv;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date expireDate;
 
     @Column(nullable = false)
-    private int balance;
+    private double balance;
 
     public FakeCreditCard() {
 

@@ -18,7 +18,6 @@ import java.sql.Date;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "scratch_cards")
 public class ScratchCard {
 

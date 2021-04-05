@@ -1,32 +1,23 @@
-import managers.DatabaseManager;
 import models.orm.*;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
-import org.hibernate.service.ServiceRegistry;
+
 import org.jboss.logging.Logger;
 import providers.repositories.*;
 import utilities.adapters.CartAdapter;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
 
 public class testMain {
     static Logger log = Logger.getLogger(testMain.class.getName());
 
 
     public static void main(String[] args) throws SQLException {
-        var db = DatabaseManager.getInstance();
-        db.beginTransaction();
+//        var db = DatabaseManager.getInstance();
+//        db.beginTransaction();
 
 //        session.save(user);
 //        System.out.println("user = " + user);
 //        Query q = session.createQuery("from User");
-//        List<User> users = q.list();
+//        List<User> users = q.getResultList();
 //        for (User user : users) {
 //            System.out.println("user = " + user);
 //        }
@@ -113,11 +104,37 @@ public class testMain {
 //        testDummyCreate();
 //        testDummyCart();
 
+//        ProductRepo productRepo = ProductRepo.getInstance();
+//        UserRepo userRepo = UserRepo.getInstance();
+//        CartRepo cartRepo = CartRepo.getInstance();
+//        var product = productRepo.read(22L);
+//        var user = userRepo.read(1L);
+//        System.out.println("user = " + user);
+//        System.out.println("product = " + product);
+
 //        DummyUser dummyUser = DummyUserRepo.getInstance().read(2L).get();
 //        DummyUserRepo.getInstance().delete(dummyUser);
+//        CartItemRepo cartItemRepo = CartItemRepo.getInstance();
+//        var item = cartItemRepo.read(1L);
+//        System.out.println("item = " + item.get());
+//        item.get().setProductQuantity(5);
+//        cartItemRepo.update(item.get());
+//        System.out.println("item = " + cartItemRepo.read(1L).get());
 
+        ProductRepo productRepo = ProductRepo.getInstance();
+        CartItemRepo cartItemRepo = CartItemRepo.getInstance();
+        CartRepo cartRepo = CartRepo.getInstance();
+        UserRepo userRepo = UserRepo.getInstance();
+        var user = userRepo.read(1L);
+        var product = productRepo.read(23L);
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
+//        System.out.println("cart = " + cart.get());
+//        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
+//        cart = cartRepo.addProduct(user.get(), product.get(), 1);
+//        System.out.println("cart = " + cart.get());
+//        System.out.println("cart.get().getCartItems().size() = " + cart.get().getCartItems().size());
 //        testDummyHijack();
-        db.endTransaction();
+//        db.endTransaction();
     }
 
     private static void testDummyHijack() {
@@ -146,10 +163,10 @@ public class testMain {
         CartRepo cartRepo = CartRepo.getInstance();
         var product = productRepo.read(22L);
         var user = userRepo.read(1L);
-        var cart = cartRepo.addProduct(user.get(), product.get());
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
-        cart = cartRepo.removeProduct(user.get(), product.get());
-        System.out.println("cart = " + cart);
+//        cart = cartRepo.removeProduct(user.get(), product.get());
+//        System.out.println("cart = " + cart);
     }
 
     private static void testCart() {
@@ -158,10 +175,10 @@ public class testMain {
         CartRepo cartRepo = CartRepo.getInstance();
         var product = productRepo.read(22L);
         var user = userRepo.read(1L);
-        var cart = cartRepo.addProduct(user.get(), product.get());
+        var cart = cartRepo.addProduct(user.get(), product.get(), 1);
         System.out.println("cart = " + cart);
-        cart = cartRepo.removeProduct(user.get(), product.get());
-        System.out.println("cart = " + cart);
+//        cart = cartRepo.removeProduct(user.get(), product.get());
+//        System.out.println("cart = " + cart);
     }
 
     static void generateDummyProductsAndCategories() {

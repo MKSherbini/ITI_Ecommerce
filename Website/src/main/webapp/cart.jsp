@@ -124,7 +124,7 @@
 
                                                         <input class="input-counter__text input-counter--text-primary-style"
                                                                type="text" value="${item.productQuantity}" data-min="1"
-                                                               data-max="1000">
+                                                               data-max="${item.productQuantityMax}">
 
                                                         <span class="input-counter__plus fas fa-plus"
                                                               onclick="incrementFromCart(${item.productId});"></span>
@@ -136,7 +136,7 @@
                                                 <div class="table-p__del-wrap">
 
                                                     <a class="far fa-trash-alt table-p__delete-link"
-                                                       onclick="removeFromCart(${item.productId});"></a></div>
+                                                       onclick="removeCartItem(${item.productId});"></a></div>
                                             </td>
                                         </tr>
                                         <!--====== End - Row ======-->
@@ -151,13 +151,15 @@
                                 <div class="route-box__g1">
 
                                     <a class="route-box__link"
-                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i
                                             class="fas fa-long-arrow-alt-left"></i>
 
                                         <span>CONTINUE SHOPPING</span></a></div>
                                 <div class="route-box__g2">
 
-                                    <a class="route-box__link" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i class="fas fa-trash"></i>
+                                    <a class="route-box__link"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i
+                                            class="fas fa-trash"></i>
 
                                         <span>CLEAR CART</span></a>
 
@@ -227,7 +229,8 @@
                                             <div class="u-s-m-b-30">
 
                                                 <a class="f-cart__ship-link btn--e-transparent-brand-b-2"
-                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">CALCULATE SHIPPING</a></div>
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">CALCULATE
+                                                    SHIPPING</a></div>
 
                                             <span class="gl-text">Note: There are some countries where free shipping is available otherwise our flat rate charges or country delivery charges will be apply.</span>
                                         </div>
@@ -251,28 +254,33 @@
                                                     <tbody>
                                                     <tr>
                                                         <td>SHIPPING</td>
-                                                        <td>$${sessionScope.cart.totalPrice*0.1}</td>
+                                                        <td class="cart-shipping-price">
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.1)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>TAX</td>
-                                                        <td>$${sessionScope.cart.totalPrice*0.05}</td>
+                                                        <td class="cart-tax-price">
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*0.05)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SUBTOTAL</td>
-                                                        <td>$${sessionScope.cart.totalPrice}</td>
+                                                        <td class="cart-total-price">
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice)}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>GRAND TOTAL</td>
-                                                        <td>$${sessionScope.cart.totalPrice*1.15}</td>
+                                                        <td class="cart-full-price">
+                                                            $${WebsiteConstants.defaultDecimalFormat.format(sessionScope.cart.totalPrice*1.15)}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                             <div>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}"
+                                                   class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
                                                     CHECKOUT
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -289,11 +297,11 @@
     <!--====== End - App Content ======-->
 
 
-        <!--====== Main Footer ======-->
-        <jsp:include page="commons/footerCommon.jsp" flush="true"  />
-        <!--====== Main Footer ======-->
-    </div>
-    <!--====== End - Main App ======-->
+    <!--====== Main Footer ======-->
+    <jsp:include page="commons/footerCommon.jsp" flush="true"/>
+    <!--====== Main Footer ======-->
+</div>
+<!--====== End - Main App ======-->
 
 
 <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->

@@ -1,0 +1,72 @@
+[
+    {
+        "cardId": 13,
+        "balance": 981538,
+        "cardNumber": "5260566197115607",
+        "cvv": "120",
+        "expireDate": "2026-05-01"
+    },
+    {
+        "cardId": 14,
+        "balance": 0,
+        "cardNumber": "5260566197118148",
+        "cvv": "011",
+        "expireDate": "2026-08-01"
+    },
+    {
+        "cardId": 15,
+        "balance": 0,
+        "cardNumber": "5260566197115144",
+        "cvv": "107",
+        "expireDate": "2024-02-01"
+    },
+    {
+        "cardId": 16,
+        "balance": 0,
+        "cardNumber": "5260566197118247",
+        "cvv": "885",
+        "expireDate": "2024-02-01"
+    },
+    {
+        "cardId": 17,
+        "balance": 0,
+        "cardNumber": "5260566197114311",
+        "cvv": "131",
+        "expireDate": "2023-06-01"
+    },
+    {
+        "cardId": 18,
+        "balance": 0,
+        "cardNumber": "5260566197116142",
+        "cvv": "316",
+        "expireDate": "2024-09-01"
+    },
+    {
+        "cardId": 19,
+        "balance": 0,
+        "cardNumber": "5260566197113867",
+        "cvv": "428",
+        "expireDate": "2026-07-01"
+    },
+    {
+        "cardId": 20,
+        "balance": 0,
+        "cardNumber": "5260566197110731",
+        "cvv": "020",
+        "expireDate": "2025-04-01"
+    },
+    {
+        "cardId": 21,
+        "balance": 0,
+        "cardNumber": "5260566197114410",
+        "cvv": "814",
+        "expireDate": "2026-03-01"
+    },
+    {
+        "cardId": 22,
+        "balance": 0,
+        "cardNumber": "5260566197116340",
+        "cvv": "444",
+        "expireDate": "2024-02-01"
+    }
+]

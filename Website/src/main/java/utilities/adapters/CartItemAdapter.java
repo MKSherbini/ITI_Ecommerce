@@ -16,6 +16,7 @@ public class CartItemAdapter {
         dto.setPrice((int) (orm.getProduct().getPrice() * (1 - orm.getProduct().getDiscountPercent() / 100.0)));
         dto.setCategoryName(orm.getProduct().getCategory().getName());
         dto.setProductQuantity(orm.getProductQuantity());
+        dto.setProductQuantityMax(orm.getProduct().getQuantity());
         dto.setProductId(orm.getProduct().getProductId());
         return dto;
     }

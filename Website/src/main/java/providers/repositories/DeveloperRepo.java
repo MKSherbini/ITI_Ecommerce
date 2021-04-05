@@ -30,7 +30,7 @@ public class DeveloperRepo extends GenericRepo<Developer, Long> {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Developer.findAll")
-                        .list());
+                        .getResultList());
     }
 
 

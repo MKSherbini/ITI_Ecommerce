@@ -46,8 +46,8 @@ public class ShopController extends HttpServlet {
         var paramSearch = request.getParameter(WebsiteConstants.paramSearchName);
         if (paramSearch == null) paramSearch = "";
         var priceRange = productRepo.findMinMaxPriceLikeName(paramSearch);
-        var minPriceDefault = priceRange[0] == null ? 0 : (int) priceRange[0];
-        var maxPriceDefault = priceRange[1] == null ? 0 : (int) priceRange[1];
+        var minPriceDefault = priceRange[0] == null ? 0 : (int) Math.floor((Double) priceRange[0]);
+        var maxPriceDefault = priceRange[1] == null ? 0 : (int) Math.ceil((Double) priceRange[1]);
         var paramMinPrice = SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramMinPriceName), minPriceDefault);
         var paramMaxPrice = SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramMaxPriceName), maxPriceDefault);
         var paramPageNumber = Math.max(SafeConverter.safeIntParse(request.getParameter(WebsiteConstants.paramPageNumber), 1), 1);
@@ -83,8 +83,8 @@ public class ShopController extends HttpServlet {
         request.setAttribute("categoryList", categoryList);
         request.setAttribute("paramSearch", paramSearch);
         request.setAttribute("requestParams", request.getParameterMap());
-        request.setAttribute("paramMinPrice", productList.stream().mapToInt(Product::getPrice).min().orElse(paramMinPrice));
-        request.setAttribute("paramMaxPrice", productList.stream().mapToInt(Product::getPrice).max().orElse(paramMaxPrice));
+        request.setAttribute("paramMinPrice", productList.stream().mapToInt(value -> (int) Math.floor(value.getPrice() * (1 - value.getDiscountPercent() / 100.0))).min().orElse(paramMinPrice));
+        request.setAttribute("paramMaxPrice", productList.stream().mapToInt(value -> (int) Math.ceil(value.getPrice() * (1 - value.getDiscountPercent() / 100.0))).max().orElse(paramMaxPrice));
         request.setAttribute("numberOfPages", numberOfPages);
         request.setAttribute("pageList", pageList);
         request.setAttribute("pageHasNext", paramPageNumber < numberOfPages);

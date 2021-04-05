@@ -205,22 +205,36 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         if (cart.isEmpty()) return Optional.empty();
 //        refresh(cart.get());
         var price = cart.get().getTotalPrice() * 1.15;
-//        switch (paymentMethod) {
-//            case BANK:
-//            case CASH:
-//            case CHECK:
-//                break;
-//            case CARD:
-//                break;
-//        }
-
         // find balance
         var balance = user.getCredit();
-        // todo check other methods
         System.out.println("balance = " + balance);
         System.out.println("price = " + price);
-        if (balance < price) return Optional.empty();
-        user.setCredit(user.getCredit() - price);
+
+        switch (paymentMethod) {
+            case CASH:
+                break;
+            case BANK:
+            case CHECK:
+                if (balance < price) return Optional.empty();
+                user.setCredit(user.getCredit() - price);
+                break;
+            case CARD:
+                var creditCard = CreditCardRepo.getInstance().getUserCreditCard(user);
+                if (creditCard.isEmpty()) return Optional.empty();
+                var card = creditCard.get().getFakeCreditCard();
+                if (balance + card.getBalance() < price) return Optional.empty();
+                var fromUser = Math.min(price, balance);
+                user.setCredit(user.getCredit() - fromUser);
+                price -= fromUser;
+                card.setBalance(card.getBalance() - price);
+                break;
+        }
+
+        for (var cartItem : cart.get().getCartItems()) {
+            cartItem.getProduct().setQuantity(cartItem.getProduct().getQuantity() - cartItem.getProductQuantity());
+            CartItemRepo.getInstance().update(cartItem);
+        }
+
         cart.get().setIsHistory(true);
         UserRepo.getInstance().update(user);
         update(cart.get());

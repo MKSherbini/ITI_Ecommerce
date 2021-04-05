@@ -54,7 +54,7 @@ public class PaymentService extends HttpServlet {
         // todo if failed go to error page
         if (cart.isEmpty()) {
 
-            ThreadLocalContext.sendRedirect(PageNames.EMPTY_CART);
+            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
         } else {
             // todo if succeeded go to somewhere else
 

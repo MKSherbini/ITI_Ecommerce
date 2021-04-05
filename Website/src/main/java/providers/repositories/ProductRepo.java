@@ -56,8 +56,8 @@ public class ProductRepo extends GenericRepo<Product, Long> {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByPriceRange")
-                        .setParameter("min", min)
-                        .setParameter("max", max)
+                        .setParameter("min",(double) min)
+                        .setParameter("max",(double) max)
                         .getResultList());
     }
 
@@ -75,8 +75,8 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByCategoryPriceName")
                         .setParameter("category", productCategory)
-                        .setParameter("min", min)
-                        .setParameter("max", max)
+                        .setParameter("min", (double) min)
+                        .setParameter("max", (double) max)
                         .setParameter("name", "%" + name + "%") // dammit
                         .getResultList());
     }
@@ -86,8 +86,8 @@ public class ProductRepo extends GenericRepo<Product, Long> {
         return DatabaseManager.getInstance()
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByPriceName")
-                        .setParameter("min", min)
-                        .setParameter("max", max)
+                        .setParameter("min", (double) min)
+                        .setParameter("max", (double) max)
                         .setParameter("name", "%" + name + "%") // dammit
                         .getResultList());
     }
@@ -98,8 +98,8 @@ public class ProductRepo extends GenericRepo<Product, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("Product.findByMultiCategoryPriceName")
                         .setParameter("categories", Arrays.asList(categories))
-                        .setParameter("min", min)
-                        .setParameter("max", max)
+                        .setParameter("min",(double) min)
+                        .setParameter("max",(double) max)
                         .setParameter("name", "%" + name + "%") // dammit
                         .getResultList());
     }

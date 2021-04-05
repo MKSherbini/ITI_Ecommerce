@@ -151,7 +151,7 @@
                                 <div class="route-box__g1">
 
                                     <a class="route-box__link"
-                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}"><i
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}"><i
                                             class="fas fa-long-arrow-alt-left"></i>
 
                                         <span>CONTINUE SHOPPING</span></a></div>

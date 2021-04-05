@@ -39,7 +39,10 @@ public class HomeController extends HttpServlet {
         //todo get new arrivals
         ProductRepo productRepo = ProductRepo.getInstance();
         List<Product> newArrivals = productRepo.findNewArrivals();
-        request.setAttribute("newArrivals",newArrivals);
+        List<Product> deals = productRepo.getDeals();
+        System.out.println("deals = " + deals);
+        request.setAttribute("newArrivals", newArrivals);
+        request.setAttribute("deals", deals);
         //to present customer reviews
         request.setAttribute("reviews", CustomerReviewRepo.getInstance().readAll());
 

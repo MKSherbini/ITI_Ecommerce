@@ -134,42 +134,57 @@
             <div class="section__content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 u-s-m-b-30">
+                        <c:if test="${requestScope.deals.size()>=1}">
+                            <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection"
-                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-                                <div class="aspect aspect--bg-grey aspect--square">
+                                <a class="collection"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${requestScope.deals.get(0).productId}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
 
-                                    <img class="aspect__img collection__img" src="images/collection/coll-1.jpg" alt="">
-                                </div>
-                            </a></div>
-                        <div class="col-lg-7 col-md-7 u-s-m-b-30">
+                                        <img class="aspect__img collection__img"
+                                             src="${requestScope.deals.get(0).imageSrc}"
+                                             alt="">
+                                    </div>
+                                </a></div>
+                        </c:if>
+                        <c:if test="${requestScope.deals.size()>=2}">
+                            <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection"
-                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-                                <div class="aspect aspect--bg-grey aspect--1286-890">
+                                <a class="collection"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${requestScope.deals.get(1).productId}">
+                                    <div class="aspect aspect--bg-grey aspect--1286-890">
 
-                                    <img class="aspect__img collection__img" src="images/collection/coll-2.jpg" alt="">
-                                </div>
-                            </a></div>
-                        <div class="col-lg-7 col-md-7 u-s-m-b-30">
+                                        <img class="aspect__img collection__img"
+                                             src="${requestScope.deals.get(1).imageSrc}"
+                                             alt="">
+                                    </div>
+                                </a></div>
+                        </c:if>
+                        <c:if test="${requestScope.deals.size()>=3}">
+                            <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection"
-                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-                                <div class="aspect aspect--bg-grey aspect--1286-890">
+                                <a class="collection"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${requestScope.deals.get(2).productId}">
+                                    <div class="aspect aspect--bg-grey aspect--1286-890">
 
-                                    <img class="aspect__img collection__img" src="images/collection/coll-3.jpg" alt="">
-                                </div>
-                            </a></div>
-                        <div class="col-lg-5 col-md-5 u-s-m-b-30">
+                                        <img class="aspect__img collection__img"
+                                             src="${requestScope.deals.get(2).imageSrc}" alt="">
+                                    </div>
+                                </a></div>
+                        </c:if>
+                        <c:if test="${requestScope.deals.size()>=4}">
+                            <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection"
-                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-                                <div class="aspect aspect--bg-grey aspect--square">
+                                <a class="collection"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.PRODUCT)}?ref=${requestScope.deals.get(3).productId}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
 
-                                    <img class="aspect__img collection__img" src="images/collection/coll-4.jpg" alt="">
-                                </div>
-                            </a></div>
+                                        <img class="aspect__img collection__img"
+                                             src="${requestScope.deals.get(3).imageSrc}"
+                                             alt="">
+                                    </div>
+                                </a></div>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -224,7 +239,7 @@
                             <div class="filter__grid-wrapper u-s-m-t-30">
                                 <div class="row">
                                     <c:forEach items="${requestScope.categories}" var="category">
-                                        <c:forEach items="${category.products}" var="product">
+                                        <c:forEach items="${category.products}" var="product" end="5">
                                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item category-${category.categoryId}">
                                                 <div class="product-o product-o--hover-on product-o--radius">
                                                     <div class="product-o__wrap">
@@ -1762,100 +1777,102 @@
                 <div class="section__content">
                     <div class="container">
 
-                <!--====== Testimonial Slider ======-->
-                <div class="slider-fouc">
-                    <div class="owl-carousel" id="testimonial-slider">
-                        //
-                        <c:if test="${!empty requestScope.reviews}">
-                            <c:forEach items="${requestScope.reviews}" var="review">
-
-                            <div class="testimonial">
-                            <div class="testimonial__img-wrap">
-
-                                <img class="testimonial__img" src="images/about/customer.jpg" alt=""></div>
-                            <div class="testimonial__content-wrap">
-
-                                <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                <blockquote class="testimonial__block-quote">
-                                    <p>${review.review}</p>
-                                </blockquote>
-
-                                <span class="testimonial__author">${review.subscriber.firstName} </span>
-                            </div>
-                        </div>
-                        //
-                            </c:forEach>
-                        </c:if>
-
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 11 ======-->
-
-
-            <!--====== Section 12 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-
-                        <!--====== Brand Slider ======-->
+                        <!--====== Testimonial Slider ======-->
                         <div class="slider-fouc">
-                            <div class="owl-carousel" id="brand-slider" data-item="5">
-                                <div class="brand-slide">
+                            <div class="owl-carousel" id="testimonial-slider">
+                                //
+                                <c:if test="${!empty requestScope.reviews}">
+                                    <c:forEach items="${requestScope.reviews}" var="review">
 
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+                                        <div class="testimonial">
+                                            <div class="testimonial__img-wrap">
 
-                                        <img src="images/brand/b1.png" alt=""></a></div>
-                                <div class="brand-slide">
+                                                <img class="testimonial__img" src="images/about/customer.jpg" alt="">
+                                            </div>
+                                            <div class="testimonial__content-wrap">
 
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+                                                <span class="testimonial__double-quote"><i
+                                                        class="fas fa-quote-right"></i></span>
+                                                <blockquote class="testimonial__block-quote">
+                                                    <p>${review.review}</p>
+                                                </blockquote>
 
-                                        <img src="images/brand/b2.png" alt=""></a></div>
-                                <div class="brand-slide">
+                                                <span class="testimonial__author">${review.subscriber.firstName} </span>
+                                            </div>
+                                        </div>
+                                        //
+                                    </c:forEach>
+                                </c:if>
 
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-
-                                        <img src="images/brand/b3.png" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-
-                                        <img src="images/brand/b4.png" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-
-                                        <img src="images/brand/b5.png" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-
-                                        <img src="images/brand/b6.png" alt=""></a></div>
                             </div>
                         </div>
-                        <!--====== End - Brand Slider ======-->
+                        <!--====== End - Section Content ======-->
                     </div>
+                    <!--====== End - Section 11 ======-->
+
+
+                    <!--====== Section 12 ======-->
+                    <div class="u-s-p-b-60">
+
+                        <!--====== Section Content ======-->
+                        <div class="section__content">
+                            <div class="container">
+
+                                <!--====== Brand Slider ======-->
+                                <div class="slider-fouc">
+                                    <div class="owl-carousel" id="brand-slider" data-item="5">
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b1.png" alt=""></a></div>
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b2.png" alt=""></a></div>
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b3.png" alt=""></a></div>
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b4.png" alt=""></a></div>
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b5.png" alt=""></a></div>
+                                        <div class="brand-slide">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                                <img src="images/brand/b6.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <!--====== End - Brand Slider ======-->
+                            </div>
+                        </div>
+                        <!--====== End - Section Content ======-->
+                    </div>
+                    <!--====== End - Section 12 ======-->
                 </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 12 ======-->
-        </div>
-        <!--====== End - App Content ======-->
+                <!--====== End - App Content ======-->
 
 
-        <!--=======footer=============>
+                <!--=======footer=============>
         <jsp:include page="commons/footerCommon.jsp"/>
         <!-====== Modal Section ======-->
 
 
-<!--====== Quick Look Modal ======-->
-<div class="modal fade" id="quick-look">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal--shadow">
-<%-- here--%>
+                <!--====== Quick Look Modal ======-->
+                <div class="modal fade" id="quick-look">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modal--shadow">
+                            <%-- here--%>
                             <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
                             <div class="modal-body">
                                 <div class="row">
@@ -1869,13 +1886,16 @@
                                                     <a href="index.hml">Home</a></li>
                                                 <li class="has-separator">
 
-                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a>
+                                                </li>
                                                 <li class="has-separator">
 
-                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR
+                                                        Cameras</a></li>
                                                 <li class="is-marked">
 
-                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>
+                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon
+                                                        Cameras</a></li>
                                             </ul>
                                         </div>
                                         <!--====== End - Product Breadcrumb ======-->
@@ -1887,23 +1907,28 @@
                                                 <div id="js-product-detail-modal">
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg"
+                                                             alt="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1911,23 +1936,28 @@
                                                 <div id="js-product-detail-modal-thumbnail">
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-1.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-2.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-3.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-4.jpg"
+                                                             alt="">
                                                     </div>
                                                     <div>
 
-                                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">
+                                                        <img class="u-img-fluid" src="images/product/product-d-5.jpg"
+                                                             alt="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1951,7 +1981,8 @@
                                                 </div>
                                             </div>
                                             <div class="u-s-m-b-15">
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i
+                                                <div class="pd-detail__rating gl-rating-style"><i
+                                                        class="fas fa-star"></i><i
                                                         class="fas fa-star"></i><i class="fas fa-star"></i><i
                                                         class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
 
@@ -1973,7 +2004,8 @@
                                             <div class="u-s-m-b-15">
                                                 <div class="pd-detail__inline">
 
-                                                    <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
+                                                    <span class="pd-detail__click-wrap"><i
+                                                            class="far fa-heart u-s-m-r-6"></i>
 
                                                         <a href="signin.jsp">Add to Wishlist</a>
 
@@ -1993,11 +2025,13 @@
                                                 <ul class="pd-social-list">
                                                     <li>
 
-                                                        <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
+                                                        <a class="s-fb--color-hover" href="#"><i
+                                                                class="fab fa-facebook-f"></i></a>
                                                     </li>
                                                     <li>
 
-                                                        <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
+                                                        <a class="s-tw--color-hover" href="#"><i
+                                                                class="fab fa-twitter"></i></a>
                                                     </li>
                                                     <li>
 
@@ -2025,14 +2059,17 @@
                                                                 <span class="input-counter__minus fas fa-minus"></span>
 
                                                                 <input class="input-counter__text input-counter--text-primary-style"
-                                                                       type="text" value="1" data-min="1" data-max="1000">
+                                                                       type="text" value="1" data-min="1"
+                                                                       data-max="1000">
 
-                                                                <span class="input-counter__plus fas fa-plus"></span></div>
+                                                                <span class="input-counter__plus fas fa-plus"></span>
+                                                            </div>
                                                             <!--====== End - Input Counter ======-->
                                                         </div>
                                                         <div class="u-s-m-b-15">
 
-                                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart
+                                                            <button class="btn btn--e-brand-b-2" type="submit">Add to
+                                                                Cart
                                                             </button>
                                                         </div>
                                                     </div>
@@ -2064,155 +2101,160 @@
                 <!--====== End - Quick Look Modal ======-->
 
 
-        <!--====== Add to Cart Modal ======-->
-        <div class="modal fade" id="add-to-cart">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-radius modal-shadow">
+                <!--====== Add to Cart Modal ======-->
+                <div class="modal fade" id="add-to-cart">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modal-radius modal-shadow">
 
-                    <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="success u-s-m-b-30">
-                                    <div class="success__text-wrap"><i class="fas fa-check" id="modal-add-icon"></i>
+                            <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="success u-s-m-b-30">
+                                            <div class="success__text-wrap"><i class="fas fa-check"
+                                                                               id="modal-add-icon"></i>
 
-                                        <span id="modal-add-msg">Item is added successfully!</span></div>
-                                    <div class="success__img-wrap">
+                                                <span id="modal-add-msg">Item is added successfully!</span></div>
+                                            <div class="success__img-wrap">
 
-                                        <img id="modal-add-img" class="u-img-fluid"
-                                             src="images/product/electronic/product1.jpg" alt=""></div>
-                                    <div class="success__info-wrap">
+                                                <img id="modal-add-img" class="u-img-fluid"
+                                                     src="images/product/electronic/product1.jpg" alt=""></div>
+                                            <div class="success__info-wrap">
 
                                         <span id="modal-add-name"
                                               class="success__name">Beats Bomb Wireless Headphone</span>
 
-                                        <span class="success__quantity">Quantity: 1</span>
+                                                <span class="success__quantity">Quantity: 1</span>
 
-                                        <span id="modal-add-price" class="success__price">$170.00</span></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="s-option">
+                                                <span id="modal-add-price" class="success__price">$170.00</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="s-option">
 
                                     <span id="modal-add-itemsCount"
                                           class="s-option__text">1 item (s) in your cart</span>
-                                    <div class="s-option__link-box">
+                                            <div class="s-option__link-box">
 
-                                        <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE
-                                            SHOPPING</a>
+                                                <a class="s-option__link btn--e-white-brand-shadow"
+                                                   data-dismiss="modal">CONTINUE
+                                                    SHOPPING</a>
 
-                                        <a class="s-option__link btn--e-white-brand-shadow"
-                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
-                                            CART</a>
+                                                <a class="s-option__link btn--e-white-brand-shadow"
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">VIEW
+                                                    CART</a>
 
-                                        <a class="s-option__link btn--e-brand-shadow"
-                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
-                                            TO CHECKOUT</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--====== End - Add to Cart Modal ======-->
-
-
-        <!--====== Newsletter Subscribe Modal ======-->
-        <div class="modal fade new-l" id="newsletter-modal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal--shadow">
-
-                    <button class="btn new-l__dismiss fas fa-times" type="button" data-dismiss="modal"></button>
-                    <div class="modal-body">
-                        <div class="row u-s-m-x-0">
-                            <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
-
-                                <a class="new-l__img-wrap u-d-block"
-                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
-
-                                    <img class="u-img-fluid u-d-block" src="images/newsletter/newsletter.jpg"
-                                         alt=""></a>
-                            </div>
-                            <div class="col-lg-6 new-l__col-2">
-                                <div class="new-l__section u-s-m-t-30">
-                                    <div class="u-s-m-b-8 new-l--center">
-                                        <h3 class="new-l__h3">Newsletter</h3>
-                                    </div>
-                                    <div class="u-s-m-b-30 new-l--center">
-                                        <p class="new-l__p1">Sign up for emails to get the scoop on new arrivals,
-                                            special
-                                            sales and more.</p>
-                                    </div>
-                                    <form class="new-l__form">
-                                        <div class="u-s-m-b-15">
-
-                                            <input class="news-l__input" type="text" placeholder="E-mail Address"></div>
-                                        <div class="u-s-m-b-15">
-
-                                            <button class="btn btn--e-brand-b-2" type="submit">Sign up!</button>
+                                                <a class="s-option__link btn--e-brand-shadow"
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">PROCEED
+                                                    TO CHECKOUT</a></div>
                                         </div>
-                                    </form>
-                                    <div class="u-s-m-b-15 new-l--center">
-                                        <p class="new-l__p2">By Signing up, you agree to receive Reshop offers,<br/>promotions
-                                            and other commercial messages. You may unsubscribe at any time.</p>
                                     </div>
-                                    <div class="u-s-m-b-15 new-l--center">
-
-                                        <a class="new-l__link" data-dismiss="modal">No Thanks</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--====== End - Add to Cart Modal ======-->
+
+
+                <!--====== Newsletter Subscribe Modal ======-->
+                <div class="modal fade new-l" id="newsletter-modal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modal--shadow">
+
+                            <button class="btn new-l__dismiss fas fa-times" type="button" data-dismiss="modal"></button>
+                            <div class="modal-body">
+                                <div class="row u-s-m-x-0">
+                                    <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
+
+                                        <a class="new-l__img-wrap u-d-block"
+                                           href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
+
+                                            <img class="u-img-fluid u-d-block" src="images/newsletter/newsletter.jpg"
+                                                 alt=""></a>
+                                    </div>
+                                    <div class="col-lg-6 new-l__col-2">
+                                        <div class="new-l__section u-s-m-t-30">
+                                            <div class="u-s-m-b-8 new-l--center">
+                                                <h3 class="new-l__h3">Newsletter</h3>
+                                            </div>
+                                            <div class="u-s-m-b-30 new-l--center">
+                                                <p class="new-l__p1">Sign up for emails to get the scoop on new
+                                                    arrivals,
+                                                    special
+                                                    sales and more.</p>
+                                            </div>
+                                            <form class="new-l__form">
+                                                <div class="u-s-m-b-15">
+
+                                                    <input class="news-l__input" type="text"
+                                                           placeholder="E-mail Address"></div>
+                                                <div class="u-s-m-b-15">
+
+                                                    <button class="btn btn--e-brand-b-2" type="submit">Sign up!</button>
+                                                </div>
+                                            </form>
+                                            <div class="u-s-m-b-15 new-l--center">
+                                                <p class="new-l__p2">By Signing up, you agree to receive Reshop
+                                                    offers,<br/>promotions
+                                                    and other commercial messages. You may unsubscribe at any time.</p>
+                                            </div>
+                                            <div class="u-s-m-b-15 new-l--center">
+
+                                                <a class="new-l__link" data-dismiss="modal">No Thanks</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Newsletter Subscribe Modal ======-->
+                <!--====== End - Modal Section ======-->
             </div>
         </div>
-        <!--====== End - Newsletter Subscribe Modal ======-->
-        <!--====== End - Modal Section ======-->
-    </div>
-</div>
-<!--====== End - Main App ======-->
+        <!--====== End - Main App ======-->
 
-<!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
-<script>
-    window.ga = function () {
-        ga.q.push(arguments)
-    };
-    ga.q = [];
-    ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview')
-</script>
+        <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+        <script>
+            window.ga = function () {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview')
+        </script>
 
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
-<!--====== Vendor Js ======-->
-<script src="scripts/js/vendor.js"></script>
+        <!--====== Vendor Js ======-->
+        <script src="scripts/js/vendor.js"></script>
 
-<!--====== jQuery Shopnav plugin ======-->
-<script src="scripts/js/jquery.shopnav.js"></script>
+        <!--====== jQuery Shopnav plugin ======-->
+        <script src="scripts/js/jquery.shopnav.js"></script>
 
-<!--====== App ======-->
-<script src="scripts/js/app.js"></script>
-<script>
-    document.getElementsByClassName("spongebob")[0].click();
-</script>
-<!--====== Noscript ======-->
-<noscript>
-    <div class="app-setting">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="app-setting__wrap">
-                        <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
+        <!--====== App ======-->
+        <script src="scripts/js/app.js"></script>
+        <script>
+            document.getElementsByClassName("spongebob")[0].click();
+        </script>
+        <!--====== Noscript ======-->
+        <noscript>
+            <div class="app-setting">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="app-setting__wrap">
+                                <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
 
-                        <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
+                                <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</noscript>
+        </noscript>
 
 </body>
 </html>

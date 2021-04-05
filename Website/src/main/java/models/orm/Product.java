@@ -52,6 +52,9 @@ import java.util.List;
         @NamedQuery(
                 name = "Product.getNewArrivals",
                 query = "select p from Product p order by p.arrivalDate desc"),
+        @NamedQuery(
+                name = "Product.getDeals",
+                query = "select p from Product p order by RAND()"),
 })
 
 @Data

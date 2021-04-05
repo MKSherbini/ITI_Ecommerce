@@ -230,6 +230,11 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 break;
         }
 
+        for (var cartItem : cart.get().getCartItems()) {
+            cartItem.getProduct().setQuantity(cartItem.getProduct().getQuantity() - cartItem.getProductQuantity());
+            CartItemRepo.getInstance().update(cartItem);
+        }
+
         cart.get().setIsHistory(true);
         UserRepo.getInstance().update(user);
         update(cart.get());

@@ -38,7 +38,11 @@ public class CardBookController extends HttpServlet {
             return;
         }
         request.setAttribute("cards", CreditCardAdapter.copyOrmToDto(CreditCardRepo.getInstance().findCardsByUser(user)));
-        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
+        var orders = CartRepo.getInstance().findHistoryByUser(user);
+        if (orders != null)
+            request.setAttribute("ordersCount", orders.size());
+        else
+            request.setAttribute("ordersCount", 0);
         ThreadLocalContext.includeView(PageNames.CARD_BOOK);
     }
 

@@ -40,7 +40,12 @@ public class CardAddController extends HttpServlet {
             ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
             return;
         }
-        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
+        var orders = CartRepo.getInstance().findHistoryByUser(user);
+        if (orders != null)
+            request.setAttribute("ordersCount", orders.size());
+        else
+            request.setAttribute("ordersCount", 0);
+
         ThreadLocalContext.includeView(PageNames.CARD_ADD);
     }
 

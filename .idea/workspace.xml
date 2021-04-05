@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ee4e32a-7aa3-4c5a-9ff2-0db00f287f77" name="Default Changelist" comment="" />
+    <list default="true" id="9ee4e32a-7aa3-4c5a-9ff2-0db00f287f77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Website/src/main/java/controllers/UserDashboardController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -54,6 +63,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 10.0.2" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.2" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:9090/ITI_Ecommerce_Website_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -158,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617615958582</updated>
       <workItem from="1617615971153" duration="429000" />
-      <workItem from="1617616428409" duration="2023000" />
+      <workItem from="1617616428409" duration="2457000" />
     </task>
     <task id="LOCAL-00002" summary="this shit is woriking now but linkes in about and footer not trusted&#10;&#10;it should be running now">
       <created>1617617836717</created>

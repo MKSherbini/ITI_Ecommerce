@@ -29,6 +29,15 @@
             <email>hadeerelnaggar@hotmail.com</email>
             <url>https://github.com/hadeerelnaggar</url>
         </developer>
+        <developer>
+            <id>24</id>
+            <name>MohammedHassan</name>
+            <email>mohammed_hassan2525@gmail.com</email>
+            <organization>iti</organization>
+            <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
+            <url>https://github.com/mhbughdadi</url>
+        </developer>
+
     </developers>
 
     <properties>

@@ -16,9 +16,9 @@ https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
         <filter-name>CookieFilter</filter-name>
     </filter-mapping>
 
-    <filter-mapping>
-        <filter-name>ValidPageFilter</filter-name>
-    </filter-mapping>
+<!--    <filter-mapping>-->
+<!--        <filter-name>ValidPageFilter</filter-name>-->
+<!--    </filter-mapping>-->
 
     <filter-mapping>
         <filter-name>DBTransactionFilter</filter-name>

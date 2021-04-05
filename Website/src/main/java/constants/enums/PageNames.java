@@ -29,4 +29,5 @@ public enum PageNames {
     TEST_USER_JSP,
     ADD_PRODUCT,
     Error,
+    MY_ORDERS,
 }

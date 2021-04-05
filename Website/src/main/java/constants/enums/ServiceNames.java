@@ -12,4 +12,5 @@ public enum ServiceNames {
     PAYMENT,
     REMOVE_CART_ITEM,
     REGISTER_SUBSCRIBER,
+    REMOVE_CART_ITEM,
 }

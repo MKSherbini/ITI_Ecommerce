@@ -47,6 +47,6 @@ public class UserRepo extends GenericRepo<User, Long> {
                 .runTransactionWithRet(session -> (Optional<User>) session
                 .createNamedQuery("User.findByEmail")
                 .setParameter("email", email)
-                        .getResultList().stream().findAny());
+                        .getResultStream().findAny());
     }
 }

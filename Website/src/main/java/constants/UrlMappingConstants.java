@@ -47,6 +47,7 @@ public class UrlMappingConstants {
 
         // admin
         urlMap.put(PageNames.ADD_PRODUCT, new VCUrlMapping("Add Product", "addproduct", "add-product.jsp", true));
+        urlMap.put(PageNames.MY_ORDERS,new VCUrlMapping("My orders","myorders","dash-my-order.jsp"));
         // ... add other pages
     }
 

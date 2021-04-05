@@ -9,7 +9,7 @@
 <%@include file="commons/pageCommon.jsp" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.ADD_PRODUCT)}</title>
     <%@include file="commons/headCommon.jsp" %>
 </head>
 <body class="config">
@@ -41,7 +41,8 @@
                                         <label style='color: red' id="error-categoryName"></label>
                                     </div>
                                     <div class="u-s-m-b-30">
-                                        <button class="btn btn--e-transparent-brand-b-2" onclick="addCategory(event)">Add New Category
+                                        <button class="btn btn--e-transparent-brand-b-2" onclick="addCategory(event)">
+                                            Add New Category
                                         </button>
                                     </div>
                                 </div>
@@ -67,15 +68,17 @@
                                     </div>
                                     <div class="u-s-m-b-30">
                                         <div id="images">
-                                            <img id="imageResult" hidden="true" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block" width="150" height="150">
+                                            <img id="imageResult" hidden="true" src="#" alt=""
+                                                 class="img-fluid rounded shadow-sm mx-auto d-block" width="150"
+                                                 height="150">
                                         </div>
                                         <label class="gl-label" for="image">Product Image *</label>
 
                                         <div id="inputs">
-                                        <input class="form-control-file" type="file" name="image"
-                                               id="image" required onblur="validateemail()" accept="image/*"
-                                               placeholder="Add Product Image" onchange="changeImage(this)">
-                                        <label style='color: red' id="error-image"></label>
+                                            <input class="form-control-file" type="file" name="image"
+                                                   id="image" required onblur="validateemail()" accept="image/*"
+                                                   placeholder="Add Product Image" onchange="changeImage(this)">
+                                            <label style='color: red' id="error-image"></label>
 
                                         </div>
 

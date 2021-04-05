@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.orm.Product;
 import providers.repositories.CategoryRepo;
 import providers.repositories.ProductRepo;
+import utilities.ErrorHandler;
 import utilities.SafeConverter;
 import utilities.adapters.CategoryAdapter;
 
@@ -43,7 +44,7 @@ public class ProductController extends HttpServlet {
         }
 
         if (paramProduct == null || product.isEmpty()) {
-            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SHOP));
+            ErrorHandler.forward("666", "No such product");
             return;
         }
 

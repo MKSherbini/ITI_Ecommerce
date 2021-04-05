@@ -16,6 +16,7 @@ import models.orm.Product;
 import models.orm.User;
 import providers.repositories.CartRepo;
 import providers.repositories.ProductRepo;
+import utilities.ErrorHandler;
 import utilities.SafeConverter;
 import utilities.adapters.ProductAdapter;
 
@@ -53,11 +54,9 @@ public class PaymentService extends HttpServlet {
 
         // todo if failed go to error page
         if (cart.isEmpty()) {
-
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Can't complete checkout, try again later");
         } else {
             // todo if succeeded go to somewhere else
-
             ThreadLocalContext.sendRedirect(PageNames.HOME_PAGE);
         }
 

@@ -6,6 +6,8 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.orm.Admin;
+import models.orm.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,12 +26,14 @@ public class F6_AuthorizationFilter implements Filter {
         var httpResponse = (HttpServletResponse) response;
 
         // todo check other cases
-
-        // check if has access
-        if (!UrlMappingConstants.getInstance().isPublic(httpRequest)) {
-            httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
-            // todo maybe redirect to not authorized page?
-            return;
+        var adminSession = (Admin) httpRequest.getSession().getAttribute("admin");
+        if (adminSession == null) {
+            // check if has access
+            if (!UrlMappingConstants.getInstance().isPublic(httpRequest)) {
+                httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
+                // todo maybe redirect to not authorized page?
+                return;
+            }
         }
 
         chain.doFilter(request, response);

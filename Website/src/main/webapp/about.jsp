@@ -10,17 +10,20 @@
 
 </head>
 <body class="config">
-    <div class="preloader is-active">
-        <div class="preloader__wrap">
+<div class="preloader is-active">
+    <div class="preloader__wrap">
 
-            <img class="preloader__img" src="images/preloader.png" alt=""></div>
-    </div>
+        <img class="preloader__img" src="images/preloader.png" alt=""></div>
+</div>
 
-    <!--====== Main App ======-->
-    <div id="app">
+<!--====== Main App ======-->
+<div id="app">
 
-        <!--====== Main Header ======-->
-        <header class="header--style-1 header--box-shadow">
+    <!--====== Main Header ======-->
+    <header class="header--style-1 header--box-shadow">
+        <%@include file="commons/headerCommon.jsp" %>
+    </header>
+    <!--====== End - Main Header ======-->
 
             <!--====== Nav 1 ======-->
             <%@include file="commons/headerCommon.jsp" %>

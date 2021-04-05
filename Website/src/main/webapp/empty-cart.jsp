@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.SHOP)}</title>
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.EMPTY_CART)}</title>
     <%@include file="commons/headCommon.jsp" %>
     <script>document.write('<script src="scripts/js/shop.js?dev=' + new Date().getTime() + '"\><\/script>');</script>
     <%--    <script  src="scripts/js/shop.js?time="></script>--%>

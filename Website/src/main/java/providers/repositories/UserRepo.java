@@ -41,4 +41,12 @@ public class UserRepo extends GenericRepo<User, Long> {
                         .setParameter("password", password)
                         .getResultList().stream().findAny());
     }
+
+    public Optional<User> findByEmail(String email) {
+        return DatabaseManager.getInstance()
+                .runTransactionWithRet(session -> (Optional<User>) session
+                .createNamedQuery("User.findByEmail")
+                .setParameter("email", email)
+                        .getResultStream().findAny());
+    }
 }

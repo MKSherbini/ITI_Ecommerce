@@ -5,10 +5,7 @@ package models.orm;
 import javax.persistence.*;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -36,6 +33,7 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     @Setter(AccessLevel.NONE)
+    @Getter
     private Long shoppingCartId;
 
     private double totalPrice;

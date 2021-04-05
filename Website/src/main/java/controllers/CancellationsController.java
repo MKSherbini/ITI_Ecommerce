@@ -1,4 +1,4 @@
-package controllers.card;
+package controllers;
 
 import constants.UrlMappingConstants;
 import constants.enums.PageNames;
@@ -9,18 +9,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import listeners.ThreadLocalContext;
-import models.dtos.CartDto;
-import models.dtos.CreditCardDto;
 import models.orm.User;
 import providers.repositories.CartRepo;
-import providers.repositories.CreditCardRepo;
 import utilities.ErrorHandler;
-import utilities.adapters.CreditCardAdapter;
 
 import java.io.IOException;
 
-@WebServlet("/cardBook")
-public class CardBookController extends HttpServlet {
+@WebServlet("/cancellations")
+public class CancellationsController extends HttpServlet {
 
     ServletConfig myConfig;
 
@@ -33,18 +29,13 @@ public class CardBookController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        var user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ErrorHandler.forward("666", "Must be correctly logged in");
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
             return;
         }
-        request.setAttribute("cards", CreditCardAdapter.copyOrmToDto(CreditCardRepo.getInstance().findCardsByUser(user)));
-        var orders = CartRepo.getInstance().findHistoryByUser(user);
-        if (orders != null)
-            request.setAttribute("ordersCount", orders.size());
-        else
-            request.setAttribute("ordersCount", 0);
-        ThreadLocalContext.includeView(PageNames.CARD_BOOK);
+        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
+        ThreadLocalContext.includeView(PageNames.CANCELLATIONS);
     }
 
     public String getServletInfo() {

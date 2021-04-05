@@ -368,7 +368,7 @@
                                             </li>
                                             <li>
 
-                                                <a href="dashboard.jsp">Account</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Account)}">Account</a></li>
                                             <li>
 
                                                 <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a>
@@ -392,7 +392,7 @@
                                         <ul>
                                             <li>
 
-                                                <a href="about.jsp">About us</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.ABOUT_PAGE)}">About us</a></li>
                                             <li>
 
                                                 <a href="contact.jsp">Contact Us</a></li>
@@ -402,7 +402,7 @@
                                             </li>
                                             <li>
 
-                                                <a href="dash-my-order.jsp">Delivery</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MY_ORDERS)}">Delivery</a></li>
                                             <li>
 
                                                 <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a>

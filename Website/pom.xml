@@ -348,6 +348,18 @@
             <scope>compile</scope>
 
         </dependency>
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -362,7 +374,7 @@
                     <configuration>
                         <username>admin</username>
                         <password>admin</password>
-                        <url>http://localhost:9090/manager/text</url>
+                        <url>http://localhost:1919/manager/text</url>
                         <path>/${project.artifactId}</path>
                     </configuration>
                 </plugin>

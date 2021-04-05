@@ -1,6 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header class="header--style-1 header--box-shadow">
 
     <!--====== Nav 1 ======-->
+
     <nav class="primary-nav primary-nav-wrapper--border">
         <div class="container">
 
@@ -14,9 +16,7 @@
 
                     <img src="images/logo/logo-1.png" alt=""></a>
                 <!--====== End - Main Logo ======-->
-
-
-                <!--====== Search Form ======-->
+                <c:if test="${empty sessionScope.admin}">
                 <form class="main-form"
                       action="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
@@ -25,22 +25,9 @@
                     <input class="input-text input-text--border-radius input-text--style-1"
                            value="${requestScope.paramSearch}"
                            type="text" id="main-search" name="search" placeholder="Search">
-
-                    <%--                    <c:forEach items="${requestScope.requestParams}" var="requestParam">--%>
-                    <%--                        <c:forEach items="${requestParam.value}"--%>
-                    <%--                                   var="paramValue">--%>
-                    <%--                            <c:if test="${!requestParam.key.equals(WebsiteConstants.paramSearchName)}">--%>
-                    <%--                                <input type='hidden' name='${requestParam.key}'--%>
-                    <%--                                       value='${paramValue}'/>--%>
-                    <%--                            </c:if>--%>
-                    <%--                        </c:forEach>--%>
-                    <%--                    </c:forEach>--%>
-
                     <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
                 </form>
-                <!--====== End - Search Form ======-->
-
-
+                    </c:if>
                 <!--====== Dropdown Main plugin ======-->
                 <div class="menu-init" id="navigation">
 
@@ -53,6 +40,62 @@
 
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                            <c:choose>
+                            <c:when test="${!empty sessionScope.admin}">
+                                <span>Hello, <label style="color: black; font-weight: bold">Admin</label></span>
+                                <%--Logged In User--%>
+                                <!--====== Dropdown ======-->
+
+<%--ADMINISTRATOR Drop Down List --%>
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Signout">
+                                        <a href="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.SIGN_OUT)}"><i class="fas fa-lock-open u-s-m-r-6"></i></a></li>
+
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Show Users">
+                                        <a href="testUser"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+                                        </svg></a>
+
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Add Product">
+                                        <a href="addproduct"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+                                        </svg></a>
+
+
+<%--USER Drop Down List--%>
+
+
+
+<%--                                </ul>--%>
+                                <!--====== End - Dropdown ======-->
+                            </li>
+
+                            <!--====== List ======-->
+
+<%--USER HEART,BASKET--%>
+
+
+                        </ul>
+                        <!--====== End - List ======-->
+                    </div>
+                    </ul>
+                    <!--====== End - List ======-->
+
+                </div>
+                <!--====== End - Menu ======-->
+            </div>
+            <!--====== End - Dropdown Main plugin ======-->
+        </div>
+        <!--====== End - Primary Nav ======-->
+        </div>
+    </nav>
+        </c:when>
+    </c:choose>
+    <!--====== End - Nav 1 ======-->
+<%--    Not Admin****************************************************************************--%>
+
+<c:choose>
+    <c:when test="${empty sessionScope.admin}">
+
                             <c:if test="${empty sessionScope.user}">
                                 <span>Hello, <label style="color: black; font-weight: bold">User</label></span>
                             </c:if>
@@ -85,7 +128,7 @@
                                     <c:if test="${!empty sessionScope.user}">
                                         <li>
 
-                                            <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Account)}"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                 <span>Account</span></a></li>
                                         <li>
@@ -160,5 +203,6 @@
         <!--====== End - Primary Nav ======-->
         </div>
     </nav>
-    <!--====== End - Nav 1 ======-->
+        </c:when>
+        </c:choose>
 </header>

@@ -48,7 +48,7 @@
                                     <ul>
                                         <li>
 
-                                            <a href="testUser">Cart</a></li>
+                                            <a href="cart">Cart</a></li>
                                         <li>
 <%--                                            // todo link  to the account of the user --%>
                                             <a href="userDash">Account</a></li>
@@ -56,12 +56,12 @@
 
                                         <li>
                                             <%--                                            // todo link  to the home --%>
-                                            <a href="shop">Shop</a></li>
+<%--                                            <a href="shop">Shop</a></li>--%>
 
-                                            <a href="dash-payment-option.jsp">Finance</a></li>
+<%--                                            <a href="dash-payment-option.jsp">Finance</a></li>--%>
                                         <li>
 
-                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a></li>
+                                            <a href="shop">Shop</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -82,11 +82,11 @@
                                             <a href="home">Sitemap</a></li>
                                         <%--<li>
                                             &lt;%&ndash; // todo link  to the orders page  &ndash;%&gt;
-                                            <a href="dash-my-order.jsp">Delivery</a></li>--%>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MY_ORDERS)}">Delivery</a></li>--%>
                                         <li>
 
 <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>--%>
-                                            <a href="userDash">Store</a></li>
+<%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>--%>
                                     </ul>
                                 </div>
                             </div>

@@ -121,7 +121,7 @@
                                     <div>
                                         <div class="pd-detail__inline">
 
-                                            <span class="pd-detail__price">$${requestScope.product.price}</span>
+                                            <span class="pd-detail__price">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price)}</span>
 
                                         </div>
                                     </div>
@@ -131,10 +131,10 @@
                                     <div>
                                         <div class="pd-detail__inline">
 
-                                            <span class="pd-detail__price">$${requestScope.product.price * (1-(requestScope.product.discountPercent/ 100))}</span>
+                                            <span class="pd-detail__price">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price * (1-(requestScope.product.discountPercent/ 100)))}</span>
 
-                                            <span class="pd-detail__discount">(${requestScope.product.discountPercent/100}% OFF)</span>
-                                            <del class="pd-detail__del">$${requestScope.product.price}</del>
+                                            <span class="pd-detail__discount">(${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.discountPercent/100)}% OFF)</span>
+                                            <del class="pd-detail__del">$${WebsiteConstants.defaultDecimalFormat.format(requestScope.product.price)}</del>
                                         </div>
                                     </div>
                                 </c:otherwise>

@@ -16,6 +16,7 @@ import providers.repositories.CartRepo;
 import providers.repositories.CreditCardRepo;
 import providers.repositories.FakeCreditCardRepo;
 import providers.repositories.UserRepo;
+import utilities.ErrorHandler;
 import utilities.SafeConverter;
 import utilities.adapters.CreditCardAdapter;
 
@@ -38,20 +39,20 @@ public class CardEditController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Must be correctly logged in");
             return;
         }
 
         var cardIdS = request.getParameter("card");
         if (cardIdS == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "No card supplied");
             return;
         }
         var cardId = SafeConverter.safeLongParse(cardIdS, -1L);
 
         var valid = CreditCardRepo.getInstance().read(cardId);
         if (valid.isEmpty()) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "No such credit card");
             return;
         }
         var card = valid.get();
@@ -68,19 +69,19 @@ public class CardEditController extends HttpServlet {
         // handle editing a card
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Must be correctly logged in");
             return;
         }
         var cardIdS = request.getParameter("card");
         if (cardIdS == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "No card supplied");
             return;
         }
         var cardId = SafeConverter.safeLongParse(cardIdS, -1L);
 
         var valid = CreditCardRepo.getInstance().read(cardId);
         if (valid.isEmpty()) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "No such credit card");
             return;
         }
         var card = valid.get();

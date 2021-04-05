@@ -19,6 +19,10 @@ import java.util.List;
         @NamedQuery(
                 name = "User.findByEmailPassword",
                 query = "select u from User u where u.email = :email and u.password = :password"),
+        @NamedQuery(
+                name = "User.findByEmail",
+                query = "select u from User u where u.email = :email"
+        ),
 })
 
 @Data
@@ -78,13 +82,14 @@ public class User {
     public User() {
     }
 
-    public User(String email, String userName, String password, String firstName, String lastName, Date birthdate) {
+    public User(String email, String userName, String password, String firstName, String lastName, Date birthdate, Address address) {
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
+        this.address = address;
     }
 }
 

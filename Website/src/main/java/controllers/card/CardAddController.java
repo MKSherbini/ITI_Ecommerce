@@ -17,6 +17,7 @@ import providers.repositories.CartRepo;
 import providers.repositories.CreditCardRepo;
 import providers.repositories.FakeCreditCardRepo;
 import providers.repositories.UserRepo;
+import utilities.ErrorHandler;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -37,7 +38,7 @@ public class CardAddController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Must be correctly logged in");
             return;
         }
         var orders = CartRepo.getInstance().findHistoryByUser(user);
@@ -53,7 +54,7 @@ public class CardAddController extends HttpServlet {
         // handle adding a card
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ThreadLocalContext.sendRedirect(PageNames.NOT_FOUND_404);
+            ErrorHandler.forward("666", "Must be correctly logged in");
             return;
         }
         var number = request.getParameter("number");

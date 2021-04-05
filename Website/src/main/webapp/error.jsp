@@ -5,25 +5,6 @@
 <head>
     <%@include file="commons/headCommon.jsp" %>
 
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="images/favicon.png" rel="shortcut icon">
-    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
-
-    <!--====== Google Font ======-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-
-    <!--====== Vendor Css ======-->
-    <link rel="stylesheet" href="styles/css/vendor.css">
-
-    <!--====== Utility-Spacing ======-->
-    <link rel="stylesheet" href="styles/css/utility.css">
-
-    <!--====== App ======-->
-    <link rel="stylesheet" href="styles/css/app.css">
 </head>
 <body class="config">
 <div class="preloader is-active">
@@ -129,6 +110,12 @@
                                         <span class="empty__big-text">${requestScope.statusCode}</span>
                                         <span class="empty__big-text">${requestScope.errorMessage}</span>
                                         <span class="empty__text-1">Too many requests</span>
+                                    </c:if>
+
+                                    <c:if test="${requestScope.statusCode=='666'}">
+                                        <span class="empty__big-text">${requestScope.statusCode}</span>
+                                        <span class="empty__big-text">Site Error</span>
+                                        <span class="empty__text-1">${requestScope.errorMessage}</span>
                                     </c:if>
 
                                     <a class="empty__redirect-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">GO TO HOME</a></div>

@@ -36,7 +36,7 @@ public class F3_ValidPageFilter implements Filter {
             chain.doFilter(request, response);
         } else {
             System.out.printf("Url %s is invalid\n", resourcePath);
-            httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.Error));
+            httpResponse.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
         }
     }
 

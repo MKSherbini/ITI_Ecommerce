@@ -2,8 +2,10 @@ package controllers;
 
 import constants.UrlMappingConstants;
 import constants.WebsiteConstants;
+
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
+
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -66,7 +68,8 @@ public class SignInController extends HttpServlet {
                 response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
                 return;
             } else {
-                request.setAttribute("userError", true);
+                System.out.println("SignInController.doPost");
+                ErrorHandler.forward("666", "No such user found");
             }
         }
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);

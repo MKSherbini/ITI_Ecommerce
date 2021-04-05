@@ -29,7 +29,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
         urlMap.put(PageNames.CART, new VCUrlMapping("Cart", "cart", "cart.jsp"));
         urlMap.put(PageNames.EMPTY_CART, new VCUrlMapping("No items", "cart", "empty-cart.jsp"));
-        urlMap.put(PageNames.Error, new VCUrlMapping("error", "error", "error.jsp"));
+        urlMap.put(PageNames.Error, new VCUrlMapping("Error", "error", "error.jsp"));
         urlMap.put(PageNames.CHECKOUT, new VCUrlMapping("Check out", "checkout", "checkout.jsp"));
 //        urlMap.put(PageNames.MINI_CART, new VCUrlMapping("Mini Cart", "miniCart", "custom/mini-cart.jsp"));
         urlMap.put(PageNames.CARD_ADD, new VCUrlMapping("Card Add", "cardAdd", "dash-card-add.jsp"));

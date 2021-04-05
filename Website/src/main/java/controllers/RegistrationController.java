@@ -44,8 +44,7 @@ public class RegistrationController extends HttpServlet {
         String userName = request.getParameter("userName");
         String birthDateParam = request.getParameter("birthDate");
         //Todo add address field in reg.
-        Address address = new Address("youssefAbas", "Egypt","cairo","cairo","11765");
-
+        Address address = new Address();
         DummyUser dummyUser = (DummyUser) request.getSession().getAttribute("dummyUser");
 
         if (email != null && password != null && firstName != null && lastName != null && userName != null && birthDateParam != null) {

@@ -41,11 +41,14 @@ function validatePassword() {
     var passwordpattern = /[A-Za-z._0-9]{5,}/;
     if (!passwordpattern.test(passwordregex)) {
         document.getElementById("passwordValid").innerHTML = "Short Password are easy to guess! Try one with at least 5 characters";
+        document.getElementById("reg-password").innerHTML = '';
+        document.getElementById("reg-repassword").innerHTML = '';
     } else {
         document.getElementById("passwordValid").innerHTML = "";
     }
     if (passwordregex != passwordreregex) {
         document.getElementById("repasswordValid").innerHTML = "Those Passwords didn't match please try again ";
+        document.getElementById("reg-repassword").innerHTML = '';
     } else {
         document.getElementById("repasswordValid").innerHTML = "";
     }

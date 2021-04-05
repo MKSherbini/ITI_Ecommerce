@@ -78,14 +78,15 @@
                                         <li>
 
                                             <a href="contact">Contact Us</a></li>
-
-                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a></li>
                                         <li>
-                                            <%-- // todo link  to the orders page  --%>
-                                            <a href="dash-my-order.jsp">Delivery</a></li>
+                                            <a href="home">Sitemap</a></li>
+                                        <%--<li>
+                                            &lt;%&ndash; // todo link  to the orders page  &ndash;%&gt;
+                                            <a href="dash-my-order.jsp">Delivery</a></li>--%>
                                         <li>
 
-                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>
+<%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>--%>
+                                            <a href="shop">Store</a></li>
                                     </ul>
                                 </div>
                             </div>

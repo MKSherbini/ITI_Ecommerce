@@ -72,7 +72,7 @@
                                     <ul>
                                         <li>
 
-                                            <a href="about.jsp">About us</a></li>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.ABOUT_PAGE)}">About us</a></li>
                                         <li>
 
                                             <a href="contact.jsp">Contact Us</a></li>

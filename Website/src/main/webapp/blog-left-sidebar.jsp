@@ -1145,7 +1145,7 @@
                                                 <a href="faq.jsp">FAQ</a></li>
                                             <li>
 
-                                                <a href="about.jsp">About us</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.ABOUT_PAGE)}">About us</a></li>
                                             <li>
 
                                                 <a href="contact.jsp">Contact</a></li>

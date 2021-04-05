@@ -64,9 +64,10 @@ public class Product {
     @Column(unique = true, nullable = false)
     @Setter(AccessLevel.NONE)
     private Long productId;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "VARCHAR(750)")
     private String name;
     private int price;
+    @Column(columnDefinition = "VARCHAR(750)")
     private String description;
     private int quantity;
     @Column(nullable = false, columnDefinition = "VARCHAR(750)")

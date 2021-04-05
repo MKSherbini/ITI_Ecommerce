@@ -26,12 +26,12 @@
             <c:choose>
                 <c:when test="${product.discountPercent==0}">
                     <%--product price--%>
-                    <div class="product-m__price">${product.price}</div>
+                    <div class="product-m__price">${WebsiteConstants.defaultDecimalFormat.format(product.price)}</div>
                 </c:when>
                 <c:otherwise>
                     <%--product price--%>
-                    <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}
-                        <span class="product-m__discount">${product.price}</span></div>
+                    <div class="product-m__price">${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100)))}
+                        <span class="product-m__discount">${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span></div>
                 </c:otherwise>
             </c:choose>
             <%--product description--%>

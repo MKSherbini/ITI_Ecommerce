@@ -49,7 +49,9 @@
 
                                             <span class="u-c-brand">$1050.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP
+                                        NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -61,17 +63,19 @@
                             <div class="col-12">
                                 <div class="slider-content slider-content--animation">
 
-                                    <span class="content-span-1 u-c-white">Find Top Brands</span>
+                                    <span class="content-span-1 u-c-secondary">Find Top Brands</span>
 
-                                    <span class="content-span-2 u-c-white">10% Off On Electronics</span>
+                                    <span class="content-span-2 u-c-secondary">10% Off On Electronics</span>
 
-                                    <span class="content-span-3 u-c-white">Find electronics on best prices, Also Discover most selling products of electronics</span>
+                                    <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also Discover most selling products of electronics</span>
 
-                                    <span class="content-span-4 u-c-white">Starting At
+                                    <span class="content-span-4 u-c-secondary">Starting At
 
                                             <span class="u-c-brand">$380.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP
+                                        NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +97,9 @@
 
                                             <span class="u-c-brand">$550.00</span></span>
 
-                                    <a class="shop-now-link btn--e-brand" href="shop-side-version-2.jsp">SHOP NOW</a>
+                                    <a class="shop-now-link btn--e-brand"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">SHOP
+                                        NOW</a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +136,8 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection"
+                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--square">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-1.jpg" alt="">
@@ -138,7 +145,8 @@
                             </a></div>
                         <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection"
+                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--1286-890">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-2.jpg" alt="">
@@ -146,7 +154,8 @@
                             </a></div>
                         <div class="col-lg-7 col-md-7 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection"
+                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--1286-890">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-3.jpg" alt="">
@@ -154,7 +163,8 @@
                             </a></div>
                         <div class="col-lg-5 col-md-5 u-s-m-b-30">
 
-                            <a class="collection" href="shop-side-version-2.jsp">
+                            <a class="collection"
+                               href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                 <div class="aspect aspect--bg-grey aspect--square">
 
                                     <img class="aspect__img collection__img" src="images/collection/coll-4.jpg" alt="">
@@ -172,6 +182,7 @@
         <!--====== Section 2 ======-->
         <div class="u-s-p-b-60">
 
+
             <!--====== Section Intro ======-->
             <div class="section__intro u-s-m-b-16">
                 <div class="container">
@@ -187,7 +198,6 @@
                 </div>
             </div>
             <!--====== End - Section Intro ======-->
-
 
             <!--====== Section Content ======-->
             <div class="section__content">
@@ -205,7 +215,7 @@
                                 <c:forEach items="${requestScope.categories}" var="category">
                                     <div class="filter__category-wrapper">
                                         <button class="btn filter__btn filter__btn--style-1 spongebob" type="button"
-                                                data-filter=".${category.name}"
+                                                data-filter=".category-${category.categoryId}"
                                                 style="text-transform:capitalize">${category.name}</button>
                                     </div>
                                 </c:forEach>
@@ -215,7 +225,7 @@
                                 <div class="row">
                                     <c:forEach items="${requestScope.categories}" var="category">
                                         <c:forEach items="${category.products}" var="product">
-                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item ${category.name}">
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item category-${category.categoryId}">
                                                 <div class="product-o product-o--hover-on product-o--radius">
                                                     <div class="product-o__wrap">
 
@@ -277,15 +287,15 @@
                                                         <c:when test="${product.discountPercent==0}">
                                                             <%--product price--%>
                                                             <%--                                                            <div class="product-m__price">${product.price}</div>--%>
-                                                            <span class="product-o__price">$${product.price}</span>
+                                                            <span class="product-o__price">$${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span>
                                                         </c:when>
                                                         <c:otherwise>
                                                             <%--product price--%>
                                                             <%--                                                            <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}--%>
                                                             <%--                                                                <span class="product-m__discount">${product.price}</span></div>--%>
-                                                            <span class="product-o__price">$${product.price * (1-(product.discountPercent/ 100))}
+                                                            <span class="product-o__price">$${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100)))}
                                                             <span class="product-o__discount"
-                                                                  style="color: #ff4500;">$${product.price}</span></span>
+                                                                  style="color: #ff4500;">$${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span></span>
                                                         </c:otherwise>
                                                     </c:choose>
 
@@ -298,7 +308,7 @@
                             <div class="col-lg-12">
                                 <div class="load-more filter__grid-wrapper" style="margin: auto; max-width: 16%;">
                                     <c:forEach items="${requestScope.categories}" var="category">
-                                        <button class="btn btn--e-brand filter__item ${category.name}"
+                                        <button class="btn btn--e-brand filter__item category-${category.categoryId}"
                                                 onclick="window.location=window.location.protocol+'//'+window.location.host+'${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}?category=${category.name}';">
                                             See More
                                         </button>
@@ -312,6 +322,363 @@
                 <!--====== End - Section Content ======-->
             </div>
             <!--====== End - Section 2 ======-->
+
+
+            <!--====== Section 4 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">NEW ARRIVALS</h1>
+
+                                    <span class="section__span u-c-silver">GET UP FOR NEW ARRIVALS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="slider-fouc">
+                            <div class="owl-carousel product-slider" data-item="4">
+                                <c:forEach items="${requestScope.newArrivals}" var="product">
+                                    <div class="u-s-m-b-30">
+                                        <div class="product-o product-o--hover-on">
+                                            <div class="product-o__wrap">
+
+                                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
+                                                   href="product-detail.jsp">
+
+                                                    <img class="aspect__img" src="${product.imageSrc}"
+                                                         alt=""></a>
+                                                <div class="product-o__action-wrap">
+                                                    <ul class="product-o__action-list">
+                                                        <li>
+
+                                                            <a data-modal="modal" data-modal-id="#quick-look"
+                                                               data-tooltip="tooltip" data-placement="top"
+                                                               title="Quick View"><i
+                                                                    class="fas fa-search-plus"></i></a></li>
+                                                        <li>
+
+                                                            <a data-modal="modal" data-modal-id="#add-to-cart"
+                                                               data-tooltip="tooltip" data-placement="top"
+                                                               title="Add to Cart"><i
+                                                                    class="fas fa-plus-circle"></i></a>
+                                                        </li>
+                                                        <li>
+
+                                                            <a href="signin.jsp" data-tooltip="tooltip"
+                                                               data-placement="top"
+                                                               title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                        </li>
+                                                        <li>
+
+                                                            <a href="signin.jsp" data-tooltip="tooltip"
+                                                               data-placement="top"
+                                                               title="Email me When the price drops"><i
+                                                                    class="fas fa-envelope"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <span class="product-o__category">
+
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">${product.category.name}</a></span>
+
+                                            <span class="product-o__name">
+
+                                            <a href="product-detail.jsp">${product.name}</a></span>
+                                                <%--                                        <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                                <%--                                                class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                                <%--                                                class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                                <%--                                            <span class="product-o__review">(0)</span></div>--%>
+
+                                            <span class="product-o__price">$${WebsiteConstants.defaultDecimalFormat.format(product.price*(1-product.discountPercent/100.0))}
+                                            <c:if test="${product.discountPercent!=0}">
+                                            <span style="color: #ff4500;"
+                                                  class="product-o__discount">$${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span></span>
+                                            </c:if>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+
+                                <%--                            <div class="u-s-m-b-30">--%>
+                                <%--                                <div class="product-o product-o--hover-on">--%>
+                                <%--                                    <div class="product-o__wrap">--%>
+
+                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
+                                <%--                                           href="product-detail.jsp">--%>
+
+                                <%--                                            <img class="aspect__img" src="images/product/electronic/product14.jpg"--%>
+                                <%--                                                 alt=""></a>--%>
+                                <%--                                        <div class="product-o__action-wrap">--%>
+                                <%--                                            <ul class="product-o__action-list">--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
+                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Email me When the price drops"><i--%>
+                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
+                                <%--                                            </ul>--%>
+                                <%--                                        </div>--%>
+                                <%--                                    </div>--%>
+
+                                <%--                                    <span class="product-o__category">--%>
+
+                                <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
+
+                                <%--                                    <span class="product-o__name">--%>
+
+                                <%--                                            <a href="product-detail.jsp">Nikon DSLR 2K Camera</a></span>--%>
+                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
+
+                                <%--                                    <span class="product-o__price">$125.00--%>
+
+                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
+                                <%--                                </div>--%>
+                                <%--                            </div>--%>
+                                <%--                            <div class="u-s-m-b-30">--%>
+                                <%--                                <div class="product-o product-o--hover-on">--%>
+                                <%--                                    <div class="product-o__wrap">--%>
+
+                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
+                                <%--                                           href="product-detail.jsp">--%>
+
+                                <%--                                            <img class="aspect__img" src="images/product/electronic/product15.jpg"--%>
+                                <%--                                                 alt=""></a>--%>
+                                <%--                                        <div class="product-o__action-wrap">--%>
+                                <%--                                            <ul class="product-o__action-list">--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
+                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Email me When the price drops"><i--%>
+                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
+                                <%--                                            </ul>--%>
+                                <%--                                        </div>--%>
+                                <%--                                    </div>--%>
+
+                                <%--                                    <span class="product-o__category">--%>
+
+                                <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
+
+                                <%--                                    <span class="product-o__name">--%>
+
+                                <%--                                            <a href="product-detail.jsp">Sony DSLR 4K Camera</a></span>--%>
+                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
+
+                                <%--                                    <span class="product-o__price">$125.00--%>
+
+                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
+                                <%--                                </div>--%>
+                                <%--                            </div>--%>
+                                <%--                            <div class="u-s-m-b-30">--%>
+                                <%--                                <div class="product-o product-o--hover-on">--%>
+                                <%--                                    <div class="product-o__wrap">--%>
+
+                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
+                                <%--                                           href="product-detail.jsp">--%>
+
+                                <%--                                            <img class="aspect__img" src="images/product/electronic/product16.jpg"--%>
+                                <%--                                                 alt=""></a>--%>
+                                <%--                                        <div class="product-o__action-wrap">--%>
+                                <%--                                            <ul class="product-o__action-list">--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
+                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Email me When the price drops"><i--%>
+                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
+                                <%--                                            </ul>--%>
+                                <%--                                        </div>--%>
+                                <%--                                    </div>--%>
+
+                                <%--                                    <span class="product-o__category">--%>
+
+                                <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
+
+                                <%--                                    <span class="product-o__name">--%>
+
+                                <%--                                            <a href="product-detail.jsp">Sony DSLR 2K Camera</a></span>--%>
+                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
+
+                                <%--                                    <span class="product-o__price">$125.00--%>
+
+                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
+                                <%--                                </div>--%>
+                                <%--                            </div>--%>
+                                <%--                            <div class="u-s-m-b-30">--%>
+                                <%--                                <div class="product-o product-o--hover-on">--%>
+                                <%--                                    <div class="product-o__wrap">--%>
+
+                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
+                                <%--                                           href="product-detail.jsp">--%>
+
+                                <%--                                            <img class="aspect__img" src="images/product/electronic/product17.jpg"--%>
+                                <%--                                                 alt=""></a>--%>
+                                <%--                                        <div class="product-o__action-wrap">--%>
+                                <%--                                            <ul class="product-o__action-list">--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
+                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Email me When the price drops"><i--%>
+                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
+                                <%--                                            </ul>--%>
+                                <%--                                        </div>--%>
+                                <%--                                    </div>--%>
+
+                                <%--                                    <span class="product-o__category">--%>
+
+                                <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
+
+                                <%--                                    <span class="product-o__name">--%>
+
+                                <%--                                            <a href="product-detail.jsp">Canon DSLR 4K Camera</a></span>--%>
+                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
+
+                                <%--                                    <span class="product-o__price">$125.00--%>
+
+                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
+                                <%--                                </div>--%>
+                                <%--                            </div>--%>
+                                <%--                            <div class="u-s-m-b-30">--%>
+                                <%--                                <div class="product-o product-o--hover-on">--%>
+                                <%--                                    <div class="product-o__wrap">--%>
+
+                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
+                                <%--                                           href="product-detail.jsp">--%>
+
+                                <%--                                            <img class="aspect__img" src="images/product/electronic/product18.jpg"--%>
+                                <%--                                                 alt=""></a>--%>
+                                <%--                                        <div class="product-o__action-wrap">--%>
+                                <%--                                            <ul class="product-o__action-list">--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
+                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
+                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
+                                <%--                                                <li>--%>
+
+                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
+                                <%--                                                       title="Email me When the price drops"><i--%>
+                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
+                                <%--                                            </ul>--%>
+                                <%--                                        </div>--%>
+                                <%--                                    </div>--%>
+
+                                <%--                                    <span class="product-o__category">--%>
+
+                                <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>--%>
+
+                                <%--                                    <span class="product-o__name">--%>
+
+                                <%--                                            <a href="product-detail.jsp">Canon DSLR 2K Camera</a></span>--%>
+                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
+                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
+
+                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
+
+                                <%--                                    <span class="product-o__price">$125.00--%>
+
+                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
+                                <%--                                </div>--%>
+                                <%--                            </div>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 4 ======-->
 
 
             <!--====== Section 3 ======-->
@@ -383,7 +750,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -443,7 +810,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -466,361 +833,6 @@
                 <!--====== End - Section Content ======-->
             </div>
             <!--====== End - Section 3 ======-->
-
-
-            <!--====== Section 4 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-46">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">NEW ARRIVALS</h1>
-
-                                    <span class="section__span u-c-silver">GET UP FOR NEW ARRIVALS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="slider-fouc">
-                            <div class="owl-carousel product-slider" data-item="4">
-                                <c:forEach items="${requestScope.newArrivals}" var="product">
-                                    <div class="u-s-m-b-30">
-                                        <div class="product-o product-o--hover-on">
-                                            <div class="product-o__wrap">
-
-                                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                   href="product-detail.jsp">
-
-                                                    <img class="aspect__img" src="${product.imageSrc}"
-                                                         alt=""></a>
-                                                <div class="product-o__action-wrap">
-                                                    <ul class="product-o__action-list">
-                                                        <li>
-
-                                                            <a data-modal="modal" data-modal-id="#quick-look"
-                                                               data-tooltip="tooltip" data-placement="top"
-                                                               title="Quick View"><i
-                                                                    class="fas fa-search-plus"></i></a></li>
-                                                        <li>
-
-                                                            <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                               data-tooltip="tooltip" data-placement="top"
-                                                               title="Add to Cart"><i
-                                                                    class="fas fa-plus-circle"></i></a>
-                                                        </li>
-                                                        <li>
-
-                                                            <a href="signin.jsp" data-tooltip="tooltip"
-                                                               data-placement="top"
-                                                               title="Add to Wishlist"><i class="fas fa-heart"></i></a>
-                                                        </li>
-                                                        <li>
-
-                                                            <a href="signin.jsp" data-tooltip="tooltip"
-                                                               data-placement="top"
-                                                               title="Email me When the price drops"><i
-                                                                    class="fas fa-envelope"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span class="product-o__category">
-
-                                            <a href="shop-side-version-2.jsp">${product.category.name}</a></span>
-
-                                            <span class="product-o__name">
-
-                                            <a href="product-detail.jsp">${product.name}</a></span>
-                                                <%--                                        <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                                <%--                                                class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                                <%--                                                class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                                <%--                                            <span class="product-o__review">(0)</span></div>--%>
-
-                                            <span class="product-o__price">$${product.price*(product.discountPercent/100)}
-
-                                            <span class="product-o__discount">$${product.price}</span></span>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-
-                                <%--                            <div class="u-s-m-b-30">--%>
-                                <%--                                <div class="product-o product-o--hover-on">--%>
-                                <%--                                    <div class="product-o__wrap">--%>
-
-                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
-                                <%--                                           href="product-detail.jsp">--%>
-
-                                <%--                                            <img class="aspect__img" src="images/product/electronic/product14.jpg"--%>
-                                <%--                                                 alt=""></a>--%>
-                                <%--                                        <div class="product-o__action-wrap">--%>
-                                <%--                                            <ul class="product-o__action-list">--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
-                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Email me When the price drops"><i--%>
-                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
-                                <%--                                            </ul>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-
-                                <%--                                    <span class="product-o__category">--%>
-
-                                <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
-
-                                <%--                                    <span class="product-o__name">--%>
-
-                                <%--                                            <a href="product-detail.jsp">Nikon DSLR 2K Camera</a></span>--%>
-                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
-
-                                <%--                                    <span class="product-o__price">$125.00--%>
-
-                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="u-s-m-b-30">--%>
-                                <%--                                <div class="product-o product-o--hover-on">--%>
-                                <%--                                    <div class="product-o__wrap">--%>
-
-                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
-                                <%--                                           href="product-detail.jsp">--%>
-
-                                <%--                                            <img class="aspect__img" src="images/product/electronic/product15.jpg"--%>
-                                <%--                                                 alt=""></a>--%>
-                                <%--                                        <div class="product-o__action-wrap">--%>
-                                <%--                                            <ul class="product-o__action-list">--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
-                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Email me When the price drops"><i--%>
-                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
-                                <%--                                            </ul>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-
-                                <%--                                    <span class="product-o__category">--%>
-
-                                <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
-
-                                <%--                                    <span class="product-o__name">--%>
-
-                                <%--                                            <a href="product-detail.jsp">Sony DSLR 4K Camera</a></span>--%>
-                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
-
-                                <%--                                    <span class="product-o__price">$125.00--%>
-
-                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="u-s-m-b-30">--%>
-                                <%--                                <div class="product-o product-o--hover-on">--%>
-                                <%--                                    <div class="product-o__wrap">--%>
-
-                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
-                                <%--                                           href="product-detail.jsp">--%>
-
-                                <%--                                            <img class="aspect__img" src="images/product/electronic/product16.jpg"--%>
-                                <%--                                                 alt=""></a>--%>
-                                <%--                                        <div class="product-o__action-wrap">--%>
-                                <%--                                            <ul class="product-o__action-list">--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
-                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Email me When the price drops"><i--%>
-                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
-                                <%--                                            </ul>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-
-                                <%--                                    <span class="product-o__category">--%>
-
-                                <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
-
-                                <%--                                    <span class="product-o__name">--%>
-
-                                <%--                                            <a href="product-detail.jsp">Sony DSLR 2K Camera</a></span>--%>
-                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
-
-                                <%--                                    <span class="product-o__price">$125.00--%>
-
-                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="u-s-m-b-30">--%>
-                                <%--                                <div class="product-o product-o--hover-on">--%>
-                                <%--                                    <div class="product-o__wrap">--%>
-
-                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
-                                <%--                                           href="product-detail.jsp">--%>
-
-                                <%--                                            <img class="aspect__img" src="images/product/electronic/product17.jpg"--%>
-                                <%--                                                 alt=""></a>--%>
-                                <%--                                        <div class="product-o__action-wrap">--%>
-                                <%--                                            <ul class="product-o__action-list">--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
-                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Email me When the price drops"><i--%>
-                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
-                                <%--                                            </ul>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-
-                                <%--                                    <span class="product-o__category">--%>
-
-                                <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
-
-                                <%--                                    <span class="product-o__name">--%>
-
-                                <%--                                            <a href="product-detail.jsp">Canon DSLR 4K Camera</a></span>--%>
-                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
-
-                                <%--                                    <span class="product-o__price">$125.00--%>
-
-                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="u-s-m-b-30">--%>
-                                <%--                                <div class="product-o product-o--hover-on">--%>
-                                <%--                                    <div class="product-o__wrap">--%>
-
-                                <%--                                        <a class="aspect aspect--bg-grey aspect--square u-d-block"--%>
-                                <%--                                           href="product-detail.jsp">--%>
-
-                                <%--                                            <img class="aspect__img" src="images/product/electronic/product18.jpg"--%>
-                                <%--                                                 alt=""></a>--%>
-                                <%--                                        <div class="product-o__action-wrap">--%>
-                                <%--                                            <ul class="product-o__action-list">--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#quick-look"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top" title="Quick View"><i--%>
-                                <%--                                                            class="fas fa-search-plus"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a data-modal="modal" data-modal-id="#add-to-cart"--%>
-                                <%--                                                       data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>--%>
-                                <%--                                                <li>--%>
-
-                                <%--                                                    <a href="signin.jsp" data-tooltip="tooltip" data-placement="top"--%>
-                                <%--                                                       title="Email me When the price drops"><i--%>
-                                <%--                                                            class="fas fa-envelope"></i></a></li>--%>
-                                <%--                                            </ul>--%>
-                                <%--                                        </div>--%>
-                                <%--                                    </div>--%>
-
-                                <%--                                    <span class="product-o__category">--%>
-
-                                <%--                                            <a href="shop-side-version-2.jsp">Electronics</a></span>--%>
-
-                                <%--                                    <span class="product-o__name">--%>
-
-                                <%--                                            <a href="product-detail.jsp">Canon DSLR 2K Camera</a></span>--%>
-                                <%--                                    <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i><i--%>
-                                <%--                                            class="far fa-star"></i><i class="far fa-star"></i>--%>
-
-                                <%--                                        <span class="product-o__review">(0)</span></div>--%>
-
-                                <%--                                    <span class="product-o__price">$125.00--%>
-
-                                <%--                                            <span class="product-o__discount">$160.00</span></span>--%>
-                                <%--                                </div>--%>
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 4 ======-->
 
 
             <!--====== Section 5 ======-->
@@ -848,7 +860,8 @@
 
                                     <span class="banner-bg__text-block banner-bg__text-3 u-c-secondary">Enjoy Free Shipping when you buy 2 items and above!</span>
 
-                                    <a class="banner-bg__shop-now btn--e-secondary" href="shop-side-version-2.jsp">Shop
+                                    <a class="banner-bg__shop-now btn--e-secondary"
+                                       href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop
                                         Now</a>
                                 </div>
                             </div>
@@ -923,7 +936,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -979,7 +992,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -1035,7 +1048,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -1091,7 +1104,7 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                     <span class="product-o__name">
 
@@ -1125,7 +1138,8 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                                <a class="promotion" href="shop-side-version-2.jsp">
+                                <a class="promotion"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                     <div class="aspect aspect--bg-grey aspect--square">
 
                                         <img class="aspect__img promotion__img" src="images/promo/promo-img-1.jpg"
@@ -1146,7 +1160,8 @@
                                 </a></div>
                             <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                                <a class="promotion" href="shop-side-version-2.jsp">
+                                <a class="promotion"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                     <div class="aspect aspect--bg-grey aspect--square">
 
                                         <img class="aspect__img promotion__img" src="images/promo/promo-img-2.jpg"
@@ -1167,7 +1182,8 @@
                                 </a></div>
                             <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
 
-                                <a class="promotion" href="shop-side-version-2.jsp">
+                                <a class="promotion"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
                                     <div class="aspect aspect--bg-grey aspect--square">
 
                                         <img class="aspect__img promotion__img" src="images/promo/promo-img-3.jpg"
@@ -1218,7 +1234,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1241,7 +1257,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1264,7 +1280,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1295,7 +1311,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1320,7 +1336,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1345,7 +1361,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1382,7 +1398,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1410,7 +1426,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1438,7 +1454,7 @@
 
                                                     <span class="product-l__category">
 
-                                                        <a href="shop-side-version-2.jsp">Electronics</a></span>
+                                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></span>
 
                                                     <span class="product-l__name">
 
@@ -1790,32 +1806,32 @@
                             <div class="owl-carousel" id="brand-slider" data-item="5">
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b1.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b2.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b3.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b4.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b5.png" alt=""></a></div>
                                 <div class="brand-slide">
 
-                                    <a href="shop-side-version-2.jsp">
+                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                         <img src="images/brand/b6.png" alt=""></a></div>
                             </div>
@@ -1840,81 +1856,212 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal--shadow">
 
-<%--                                                <span class="pd-detail__click-count">(20)</span></span></div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="u-s-m-b-15">--%>
-<%--                                        <ul class="pd-social-list">--%>
-<%--                                            <li>--%>
+        <%--                    <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>--%>
+        <%--                    <div class="modal-body">--%>
+        <%--                        <div class="row">--%>
+        <%--                            <div class="col-lg-5">--%>
 
-<%--                                                <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
+        <%--                                <!--====== Product Breadcrumb ======-->--%>
+        <%--                                <div class="pd-breadcrumb u-s-m-b-30">--%>
+        <%--                                    <ul class="pd-breadcrumb__list">--%>
+        <%--                                        <li class="has-separator">--%>
 
-<%--                                                <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
+        <%--                                            <a href="index.hml">Home</a></li>--%>
+        <%--                                        <li class="has-separator">--%>
 
-<%--                                                <a class="s-insta--color-hover" href="#"><i--%>
-<%--                                                        class="fab fa-instagram"></i></a></li>--%>
-<%--                                            <li>--%>
+        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Electronics</a></li>--%>
+        <%--                                        <li class="has-separator">--%>
 
-<%--                                                <a class="s-wa--color-hover" href="#"><i--%>
-<%--                                                        class="fab fa-whatsapp"></i></a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
+        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">DSLR Cameras</a></li>--%>
+        <%--                                        <li class="is-marked">--%>
 
-<%--                                                <a class="s-gplus--color-hover" href="#"><i--%>
-<%--                                                        class="fab fa-google-plus-g"></i></a></li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="u-s-m-b-15">--%>
-<%--                                        <form class="pd-detail__form">--%>
-<%--                                            <div class="pd-detail-inline-2">--%>
-<%--                                                <div class="u-s-m-b-15">--%>
+        <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Nikon Cameras</a></li>--%>
+        <%--                                    </ul>--%>
+        <%--                                </div>--%>
+        <%--                                <!--====== End - Product Breadcrumb ======-->--%>
 
-<%--                                                    <!--====== Input Counter ======-->--%>
-<%--                                                    <div class="input-counter">--%>
 
-<%--                                                        <span class="input-counter__minus fas fa-minus"></span>--%>
+        <%--                                <!--====== Product Detail ======-->--%>
+        <%--                                <div class="pd u-s-m-b-30">--%>
+        <%--                                    <div class="pd-wrap">--%>
+        <%--                                        <div id="js-product-detail-modal">--%>
+        <%--                                            <div>--%>
 
-<%--                                                        <input class="input-counter__text input-counter--text-primary-style"--%>
-<%--                                                               type="text" value="1" data-min="1" data-max="1000">--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
 
-<%--                                                        <span class="input-counter__plus fas fa-plus"></span></div>--%>
-<%--                                                    <!--====== End - Input Counter ======-->--%>
-<%--                                                </div>--%>
-<%--                                                <div class="u-s-m-b-15">--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
 
-<%--                                                    <button class="btn btn--e-brand-b-2" type="submit">Add to Cart--%>
-<%--                                                    </button>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </form>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
 
-<%--                                        <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>--%>
-<%--                                        <ul class="pd-detail__policy-list">--%>
-<%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
 
-<%--                                                <span>Buyer Protection.</span></li>--%>
-<%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                        </div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-t-15">--%>
+        <%--                                        <div id="js-product-detail-modal-thumbnail">--%>
+        <%--                                            <div>--%>
 
-<%--                                                <span>Full Refund if you don't receive your order.</span></li>--%>
-<%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
 
-<%--                                                <span>Returns accepted if product not as described.</span></li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                                <!--====== End - Product Right Side Details ======-->--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <!--====== End - Quick Look Modal ======-->--%>
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
+
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
+
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                            <div>--%>
+
+        <%--                                                <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">--%>
+        <%--                                            </div>--%>
+        <%--                                        </div>--%>
+        <%--                                    </div>--%>
+        <%--                                </div>--%>
+        <%--                                <!--====== End - Product Detail ======-->--%>
+        <%--                            </div>--%>
+        <%--                            <div class="col-lg-7">--%>
+
+        <%--                                <!--====== Product Right Side Details ======-->--%>
+        <%--                                <div class="pd-detail">--%>
+        <%--                                    <div>--%>
+
+        <%--                                        <span class="pd-detail__name">Nikon Camera 4k Lens Zoom Pro</span></div>--%>
+        <%--                                    <div>--%>
+        <%--                                        <div class="pd-detail__inline">--%>
+
+        <%--                                            <span class="pd-detail__price">$6.99</span>--%>
+
+        <%--                                            <span class="pd-detail__discount">(76% OFF)</span>--%>
+        <%--                                            <del class="pd-detail__del">$28.97</del>--%>
+        <%--                                        </div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i--%>
+        <%--                                                class="fas fa-star"></i><i class="fas fa-star"></i><i--%>
+        <%--                                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>--%>
+
+        <%--                                            <span class="pd-detail__review u-s-m-l-4">--%>
+
+        <%--                                                <a href="product-detail.jsp">23 Reviews</a></span></div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <div class="pd-detail__inline">--%>
+
+        <%--                                            <span class="pd-detail__stock">200 in stock</span>--%>
+
+        <%--                                            <span class="pd-detail__left">Only 2 left</span></div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+
+        <%--                                        <span class="pd-detail__preview-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <div class="pd-detail__inline">--%>
+
+        <%--                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>--%>
+
+        <%--                                                <a href="signin.jsp">Add to Wishlist</a>--%>
+
+        <%--                                                <span class="pd-detail__click-count">(222)</span></span></div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <div class="pd-detail__inline">--%>
+
+        <%--                                            <span class="pd-detail__click-wrap"><i--%>
+        <%--                                                    class="far fa-envelope u-s-m-r-6"></i>--%>
+
+        <%--                                                <a href="signin.jsp">Email me When the price drops</a>--%>
+
+        <%--                                                <span class="pd-detail__click-count">(20)</span></span></div>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <ul class="pd-social-list">--%>
+        <%--                                            <li>--%>
+
+        <%--                                                <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>--%>
+        <%--                                            </li>--%>
+        <%--                                            <li>--%>
+
+        <%--                                                <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>--%>
+        <%--                                            </li>--%>
+        <%--                                            <li>--%>
+
+        <%--                                                <a class="s-insta--color-hover" href="#"><i--%>
+        <%--                                                        class="fab fa-instagram"></i></a></li>--%>
+        <%--                                            <li>--%>
+
+        <%--                                                <a class="s-wa--color-hover" href="#"><i--%>
+        <%--                                                        class="fab fa-whatsapp"></i></a>--%>
+        <%--                                            </li>--%>
+        <%--                                            <li>--%>
+
+        <%--                                                <a class="s-gplus--color-hover" href="#"><i--%>
+        <%--                                                        class="fab fa-google-plus-g"></i></a></li>--%>
+        <%--                                        </ul>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+        <%--                                        <form class="pd-detail__form">--%>
+        <%--                                            <div class="pd-detail-inline-2">--%>
+        <%--                                                <div class="u-s-m-b-15">--%>
+
+        <%--                                                    <!--====== Input Counter ======-->--%>
+        <%--                                                    <div class="input-counter">--%>
+
+        <%--                                                        <span class="input-counter__minus fas fa-minus"></span>--%>
+
+        <%--                                                        <input class="input-counter__text input-counter--text-primary-style"--%>
+        <%--                                                               type="text" value="1" data-min="1" data-max="1000">--%>
+
+        <%--                                                        <span class="input-counter__plus fas fa-plus"></span></div>--%>
+        <%--                                                    <!--====== End - Input Counter ======-->--%>
+        <%--                                                </div>--%>
+        <%--                                                <div class="u-s-m-b-15">--%>
+
+        <%--                                                    <button class="btn btn--e-brand-b-2" type="submit">Add to Cart--%>
+        <%--                                                    </button>--%>
+        <%--                                                </div>--%>
+        <%--                                            </div>--%>
+        <%--                                        </form>--%>
+        <%--                                    </div>--%>
+        <%--                                    <div class="u-s-m-b-15">--%>
+
+        <%--                                        <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>--%>
+        <%--                                        <ul class="pd-detail__policy-list">--%>
+        <%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+
+        <%--                                                <span>Buyer Protection.</span></li>--%>
+        <%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+
+        <%--                                                <span>Full Refund if you don't receive your order.</span></li>--%>
+        <%--                                            <li><i class="fas fa-check-circle u-s-m-r-8"></i>--%>
+
+        <%--                                                <span>Returns accepted if product not as described.</span></li>--%>
+        <%--                                        </ul>--%>
+        <%--                                    </div>--%>
+        <%--                                </div>--%>
+        <%--                                <!--====== End - Product Right Side Details ======-->--%>
+        <%--                            </div>--%>
+        <%--                        </div>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
+        <%--        <!--====== End - Quick Look Modal ======-->--%>
 
 
         <!--====== Add to Cart Modal ======-->
@@ -1981,7 +2128,8 @@
                         <div class="row u-s-m-x-0">
                             <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
 
-                                <a class="new-l__img-wrap u-d-block" href="shop-side-version-2.jsp">
+                                <a class="new-l__img-wrap u-d-block"
+                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">
 
                                     <img class="u-img-fluid u-d-block" src="images/newsletter/newsletter.jpg"
                                          alt=""></a>

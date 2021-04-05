@@ -30,7 +30,7 @@ public class ScratchCardRepo extends GenericRepo<ScratchCard, Long> {
                 .runTransactionWithRet(session -> (Optional<ScratchCard>) session
                         .createNamedQuery("ScratchCard.findValidCard")
                         .setParameter("cardNumber", cardNumber)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public int use(ScratchCard card) {

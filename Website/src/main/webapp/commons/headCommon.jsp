@@ -19,17 +19,19 @@
 <link rel="stylesheet" href="styles/css/app.css">
 
 <script>
-    function removeFromCart(productId) {
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_REMOVE_FROM_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+    function removeCartItem(productId) {
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.REMOVE_CART_ITEM)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
             console.log(data);
             if (status === "success")
                 window.location.reload(true);
         });
     }
 
-    function incrementFromCart(productId) {
-        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
+    function incrementFromCart(productId, addQuantity) {
+        addQuantity = addQuantity || 1;
+        $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_ADD_TO_CART)}?${WebsiteConstants.paramProductId}=" + productId + "&${WebsiteConstants.paramAddProductQuantityName}=" + addQuantity, function (data, status) {
             console.log(data);
+            updateCartUi(data, productId);
             // if (status === "success")
             //     window.location.reload(true);
         });
@@ -38,8 +40,48 @@
     function decrementFromCart(productId) {
         $.get("${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.PRODUCT_REMOVE_FROM_CART)}?${WebsiteConstants.paramProductId}=" + productId, function (data, status) {
             console.log(data);
+            updateCartUi(data, productId);
             // if (status === "success")
             //     window.location.reload(true);
+        });
+    }
+
+    <%--function cartui() {--%>
+    <%--    $.get("${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MINI_CART)}", function (data, status) {--%>
+    <%--        console.log(data);--%>
+    <%--        // updateCartUi(data, productId);--%>
+    <%--        // if (status === "success")--%>
+    <%--        //     window.location.reload(true);--%>
+    <%--    });--%>
+    <%--}--%>
+
+    <%--setTimeout(cartui, 1000);--%>
+
+    function updateCartUi(addedItemDto, productId) {
+        if (window.fkingSetModal !== void 0)
+            window.fkingSetModal(addedItemDto);
+        console.log(addedItemDto);
+        console.log(productId);
+        if (addedItemDto.addedQuantity === addedItemDto.currentQuantity)
+            window.location.reload(true);
+
+        $(`.product-\${productId}-productQuantity`).each(function (i, el) {
+            $(el).text(addedItemDto.currentQuantity);
+        });
+        $(".cart-total-itemsCount").each(function (i, el) {
+            $(el).text(addedItemDto.totalInCart);
+        });
+        $(".cart-total-price").each(function (i, el) {
+            $(el).text("$" + parseInt(addedItemDto.totalPrice).toFixed(2));
+        });
+        $(".cart-shipping-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 0.1).toFixed(2));
+        });
+        $(".cart-tax-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 0.05).toFixed(2));
+        });
+        $(".cart-full-price").each(function (i, el) {
+            $(el).text("$" + Number(parseInt(addedItemDto.totalPrice) * 1.15).toFixed(2));
         });
     }
 </script>

@@ -7,10 +7,21 @@ import javax.persistence.*;
 
 import lombok.*;
 
+
+@NamedQueries({
+        @NamedQuery(
+                name = "CartItem.updateByProductLimits",
+                query = "update CartItem c set c.productQuantity=c.product.quantity where c.productQuantity>c.product.quantity"),
+        @NamedQuery(
+                name = "CartItem.findTotalPriceByCart",
+                query = "select coalesce(sum(c.productQuantity*c.product.price*(1-c.product.discountPercent/100.0)),0) from CartItem c where c.cart = :cart"),
+})
+
 @Data
 @Entity
-@jakarta.persistence.Entity
-@Table(name = "cart_items")
+@Table(name = "cart_items", uniqueConstraints =
+@UniqueConstraint(columnNames = {"cart_shoppingCartId", "product_productId"}))
+
 public class CartItem {
 
     @Id
@@ -19,7 +30,7 @@ public class CartItem {
     @Setter(AccessLevel.NONE)
     private Long cartItemId;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @ToString.Exclude
     private ShoppingCart cart;
 

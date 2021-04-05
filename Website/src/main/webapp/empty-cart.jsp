@@ -44,7 +44,7 @@
 
                                     <span class="empty__text-1">No items found on your cart.</span>
 
-                                    <a class="empty__redirect-link btn--e-brand" href="shop-side-version-2.jsp">CONTINUE
+                                    <a class="empty__redirect-link btn--e-brand" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">CONTINUE
                                         SHOPPING</a></div>
                             </div>
                         </div>

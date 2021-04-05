@@ -9,6 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
@@ -22,7 +23,6 @@ import java.util.List;
 
 @Data
 @Entity
-@jakarta.persistence.Entity
 @Table(name = "users")
 public class User {
 
@@ -50,14 +50,14 @@ public class User {
 
     @ToString.Exclude
     @ManyToMany
-    private List<ProductCategory> interests;
+    private List<ProductCategory> interests = new ArrayList<>();
 
     @ToString.Exclude
     @OneToMany(mappedBy = "owner",
             orphanRemoval = true,
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private List<ShoppingCart> carts;
+    private List<ShoppingCart> carts = new ArrayList<>();
     @ToString.Exclude
     @OneToMany(mappedBy = "subscriber",
             orphanRemoval = true,
@@ -65,8 +65,15 @@ public class User {
             cascade = CascadeType.ALL)
     private List<CustomerReview> reviews;
 
+    @ToString.Exclude
+    @OneToMany(mappedBy = "owner",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<CreditCard> cards = new ArrayList<>();
+
     @Column(nullable = false)
-    int credit;
+    double credit;
 
     public User() {
     }

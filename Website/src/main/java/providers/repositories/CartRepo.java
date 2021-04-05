@@ -1,5 +1,6 @@
 package providers.repositories;
 
+import constants.enums.PaymentMethod;
 import managers.DatabaseManager;
 import models.orm.*;
 
@@ -31,7 +32,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> session
                         .createNamedQuery("ShoppingCart.findHistoryByUser")
                         .setParameter("user", user)
-                        .list());
+                        .getResultList());
     }
 
     public Optional<ShoppingCart> findShoppingCartByUser(User owner) {
@@ -39,7 +40,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByUser")
                         .setParameter("user", owner)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public Optional<ShoppingCart> findShoppingCartByDummyUser(DummyUser dummyOwner) {
@@ -47,7 +48,7 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                 .runTransactionWithRet(session -> (Optional<ShoppingCart>) session
                         .createNamedQuery("ShoppingCart.findShoppingCartByDummyUser")
                         .setParameter("dummyOwner", dummyOwner)
-                        .stream().findAny());
+                        .getResultList().stream().findAny());
     }
 
     public void updateDummyToUser(DummyUser dummyOwner, User owner) {
@@ -59,9 +60,10 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                         .executeUpdate());
     }
 
-    private Optional<ShoppingCart> addToShoppingCart(Product product, Optional<ShoppingCart> cart) {
+    private int addToShoppingCart(Product product, ShoppingCart cart, int addQuantity) {
         // cart logic
-        var cartItems = cart.get().getCartItems();
+//        refresh(cart);
+        var cartItems = cart.getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
         if (cartItems != null)
             currentCartItem = cartItems.stream()
@@ -69,24 +71,35 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                     .findAny();
         CartItemRepo cartItemRepo = CartItemRepo.getInstance();
         if (currentCartItem.isEmpty()) {
-            var newItem = new CartItem(cart.get(), product);
+            var newItem = new CartItem(cart, product);
+            if (addQuantity > product.getQuantity()) addQuantity = 0;
+//            addQuantity = Math.min(addQuantity, product.getQuantity());
+            newItem.setProductQuantity(addQuantity);
             cartItemRepo.create(newItem);
         } else {
-            currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() + 1);
+            if (addQuantity + currentCartItem.get().getProductQuantity() > product.getQuantity()) addQuantity = 0;
+//            addQuantity = Math.min(addQuantity + currentCartItem.get().getProductQuantity(), product.getQuantity()) - currentCartItem.get().getProductQuantity();
+            currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() + addQuantity);
             cartItemRepo.update(currentCartItem.get());
         }
 
         // update price
-        cart.get().setTotalPrice((int) (cart.get().getTotalPrice() + product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
-        update(cart.get());
-        DatabaseManager.getInstance().flush();
+        cart.setTotalPrice((int) (cart.getTotalPrice() + addQuantity * product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
+        update(cart);
+//        DatabaseManager.getInstance().flush();
 
-        return cart;
+//        refresh(cart);
+        return addQuantity;
     }
 
-    private Optional<ShoppingCart> removeFromShoppingCart(Product product, Optional<ShoppingCart> cart) {
+    private Optional<ShoppingCart> removeFromShoppingCart(Product product, ShoppingCart cart) {
+        return removeFromShoppingCart(product, cart, false);
+    }
+
+    private Optional<ShoppingCart> removeFromShoppingCart(Product product, ShoppingCart cart, boolean fullCartItem) {
         // cart logic
-        var cartItems = cart.get().getCartItems();
+//        refresh(cart);
+        var cartItems = cart.getCartItems();
         Optional<CartItem> currentCartItem = Optional.empty();
         if (cartItems != null)
             currentCartItem = cartItems.stream()
@@ -94,44 +107,63 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
                     .findAny();
         CartItemRepo cartItemRepo = CartItemRepo.getInstance();
         if (currentCartItem.isPresent()) {
-            currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() - 1);
-            if (currentCartItem.get().getProductQuantity() >= 1) {
+            System.out.println("currentCartItem.get().getProductQuantity() = " + currentCartItem.get().getProductQuantity());
+            boolean LeavesAtLeastOne = currentCartItem.get().getProductQuantity() >= 2;
+            if (LeavesAtLeastOne && !fullCartItem) {
+                currentCartItem.get().setProductQuantity(currentCartItem.get().getProductQuantity() - 1);
                 cartItemRepo.update(currentCartItem.get());
-            } else {
+            } else if (fullCartItem) {
                 cartItemRepo.delete(currentCartItem.get());
-                cart.get().getCartItems().remove(currentCartItem.get());
-                DatabaseManager.getInstance().flush();
+                cart.getCartItems().remove(currentCartItem.get());
+//                DatabaseManager.getInstance().flush();
             }
 
             // update price
-            cart.get().setTotalPrice((int) Math.max(0, cart.get().getTotalPrice() - product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
-            update(cart.get());
-            DatabaseManager.getInstance().flush();
+            if (fullCartItem)
+                cart.setTotalPrice((int) Math.max(0, cart.getTotalPrice() - currentCartItem.get().getProductQuantity() * product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
+            else if (LeavesAtLeastOne)
+                cart.setTotalPrice((int) Math.max(0, cart.getTotalPrice() - product.getPrice() * (1 - product.getDiscountPercent() / 100.0)));
+
+            update(cart);
+//            DatabaseManager.getInstance().flush();
         }
 
-        return cart;
+//        refresh(cart);
+        return Optional.of(cart);
     }
 
-    public Optional<ShoppingCart> addProduct(User user, Product product) {
+    public int addProduct(User user, Product product, int addQuantity) {
         var cart = GetCartOrCreateOne(user);
-        if (cart.isEmpty()) return Optional.empty();
+        if (cart.isEmpty()) return -1;
 
-        return addToShoppingCart(product, cart);
+        return addToShoppingCart(product, cart.get(), addQuantity);
     }
 
     public Optional<ShoppingCart> removeProduct(User user, Product product) {
         var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
-        return removeFromShoppingCart(product, cart);
+        return removeFromShoppingCart(product, cart.get());
+    }
+
+    public Optional<ShoppingCart> removeCartItem(User user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return removeFromShoppingCart(product, cart.get(), true);
     }
 
     public Optional<ShoppingCart> GetCartOrCreateOne(User user) {
+//        UserRepo.getInstance().update(user);
+//        UserRepo.getInstance().refresh(user); // todo fk jpa
+        user = UserRepo.getInstance().read(user.getUserId()).get();
         var cart = findShoppingCartByUser(user);
         if (cart.isEmpty()) {
             create(new ShoppingCart(user));
         }
         cart = findShoppingCartByUser(user);
+        System.out.println("cart optional = " + cart);
+        System.out.println("user optional = " + user);
         if (cart.isEmpty()) return Optional.empty();
         return cart;
     }
@@ -146,17 +178,63 @@ public class CartRepo extends GenericRepo<ShoppingCart, Long> {
         return cart;
     }
 
-    public Optional<ShoppingCart> addProduct(DummyUser user, Product product) {
+    public int addProduct(DummyUser user, Product product, int addQuantity) {
         var cart = GetCartOrCreateOne(user);
-        if (cart.isEmpty()) return Optional.empty();
+        if (cart.isEmpty()) return -1;
 
-        return addToShoppingCart(product, cart);
+        return addToShoppingCart(product, cart.get(), addQuantity);
     }
 
     public Optional<ShoppingCart> removeProduct(DummyUser user, Product product) {
         var cart = GetCartOrCreateOne(user);
         if (cart.isEmpty()) return Optional.empty();
 
-        return removeFromShoppingCart(product, cart);
+        return removeFromShoppingCart(product, cart.get());
     }
+
+    public Optional<ShoppingCart> removeCartItem(DummyUser user, Product product) {
+        var cart = GetCartOrCreateOne(user);
+        if (cart.isEmpty()) return Optional.empty();
+
+        return removeFromShoppingCart(product, cart.get(), true);
+    }
+
+    public Optional<ShoppingCart> submitOrder(User user, PaymentMethod paymentMethod) {
+        // find cart
+        var cart = findShoppingCartByUser(user);
+        if (cart.isEmpty()) return Optional.empty();
+//        refresh(cart.get());
+        var price = cart.get().getTotalPrice() * 1.15;
+        // find balance
+        var balance = user.getCredit();
+        System.out.println("balance = " + balance);
+        System.out.println("price = " + price);
+
+        switch (paymentMethod) {
+            case CASH:
+                break;
+            case BANK:
+            case CHECK:
+                if (balance < price) return Optional.empty();
+                user.setCredit(user.getCredit() - price);
+                break;
+            case CARD:
+                var creditCard = CreditCardRepo.getInstance().getUserCreditCard(user);
+                if (creditCard.isEmpty()) return Optional.empty();
+                var card = creditCard.get().getFakeCreditCard();
+                if (balance + card.getBalance() < price) return Optional.empty();
+                var fromUser = Math.min(price, balance);
+                user.setCredit(user.getCredit() - fromUser);
+                price -= fromUser;
+                card.setBalance(card.getBalance() - price);
+                break;
+        }
+
+        cart.get().setIsHistory(true);
+        UserRepo.getInstance().update(user);
+        update(cart.get());
+
+        return cart;
+    }
+
 }

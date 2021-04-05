@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 public class User {
     private Long id;
     private String firstName;
@@ -7,20 +9,49 @@ public class User {
     private String userName;
     private String password;
     private String email;
+    private String country ;
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    private Date birthDate ;
 
 
     public User() {
 
     }
 
-    public User(Long id, String firstName, String lastName, String userName, String password, String email) {
+    public User(Long id, String firstName, String lastName, String userName, String email,Date birthDate, String country ) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.password = password;
+        this.birthDate = birthDate;
         this.email = email;
+        this.country = country ;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public String getEmail() { return email; }
 

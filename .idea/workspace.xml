@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ee4e32a-7aa3-4c5a-9ff2-0db00f287f77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Website/src/main/webapp/scripts/js/user_dash.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/src/main/java/constants/UrlMappingConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/constants/UrlMappingConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/src/main/java/constants/enums/PageNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/constants/enums/PageNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/java/controllers/TestUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/controllers/TestUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/src/main/java/controllers/UserDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/controllers/UserDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/java/customtaghandlers/TagHandlerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/customtaghandlers/TagHandlerUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/java/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/src/main/webapp/commons/footerCommon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/webapp/commons/footerCommon.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/webapp/custom/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/webapp/custom/user.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/src/main/webapp/user-dash-board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Website/src/main/webapp/user-dash-board.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -8,6 +8,7 @@ import jakarta.servlet.jsp.tagext.Tag;
 import models.User;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class TagHandlerUser implements Tag {
     private User user;
@@ -41,7 +42,7 @@ public class TagHandlerUser implements Tag {
     @Override
     public int doEndTag()
     {
-        this.user = new User((long)10,"mohamad","osman","osos","123456aB*","mohaelkaed@gmail.com");
+        this.user = new User((long)10,"mohamad","osman","osos","mohaelkaed@gmail.com",new Date(),"egypt");
 
         ServletRequest request = pc.getRequest();
         request.setAttribute("Uesr",user);

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="commons/pageCommon.jsp" %>
-
+<script src="scripts/js/user_dash.js" type="text/javascript"></script>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -34,280 +34,55 @@
         <div class="u-s-p-y-90">
             <div class="container">
                 <div class="row">
-                    <%-- <div class="col-lg-3 col-md-12">
-                         <div class="shop-w-master">
-                             <h1 class="shop-w-master__heading u-s-m-b-30"><i class="fas fa-filter u-s-m-r-8"></i>
+                    <div class="col-lg-12 col-md-12 u-s-m-b-30">
+                        <div class="empty">
+                            <div class="empty__wrap">
+                                <span class="empty__big-text">Users Data </span>
+                                <span class="empty__text-2 review-o__text">this dash board displays all user data </span>
+                                <form class="blog-search-form"  id="searchUsers">
 
-                                 <span>FILTERS</span></h1>
-                             <div class="shop-w-master__sidebar sidebar--bg-snow">
-                                 <div class="u-s-m-b-30">
-                                     <div class="shop-w">
-                                         <div class="shop-w__intro-wrap">
-                                             <h1 class="shop-w__h">CATEGORY</h1>
+                                    <label for="user-search"></label>
 
-                                             <span class="fas fa-minus shop-w__toggle" data-target="#s-category"
-                                                   data-toggle="collapse"></span>
-                                         </div>
-                                         <div class="shop-w__wrap collapse show" id="s-category">
-                                             <ul class="shop-w__category-list gl-scroll">
-                                                 <c:forEach items="${requestScope.categoryList}" var="category">
-                                                     <!--====== Check Box List Item ======-->
-                                                     <li onclick="fkingRunMyHref(this)">
-                                                         <a href="" data-href="category=${category.name}"
-                                                            onmouseover="setDynamicHref(this)">
-                                                             <div class="check-box">
-                                                                 <input type="checkbox" id="${category.name}"
-                                                                 <c:if test="${category.selected}">
-                                                                        checked</c:if>>
-                                                                 <div class="check-box__state check-box__state--primary">
-                                                                     <label class="check-box__label"
-                                                                            for="${category.name}">${category.name}
-                                                                     </label>
-                                                                 </div>
-                                                             </div>
-                                                             <span class="category-list__text u-s-m-l-6">(${category.numberOfProducts})</span>
-                                                         </a>
-                                                     </li>
-                                                 </c:forEach>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="u-s-m-b-30">
-                                     <div class="shop-w">
-                                         <div class="shop-w__intro-wrap">
-                                             <h1 class="shop-w__h">RATING</h1>
+                                    <input class="input-text input-text--border-radius input-text--style-1"
 
-                                             <span class="fas fa-minus shop-w__toggle" data-target="#s-rating"
-                                                   data-toggle="collapse"></span>
-                                         </div>
-                                         <div class="shop-w__wrap collapse show" id="s-rating">
-                                             <ul class="shop-w__list gl-scroll">
-                                                 <li>
-                                                     <div class="rating__check">
+                                           onkeyup="myFunction()" value="<c:if test="${!param.search}">${search}</c:if>"
 
-                                                         <input type="checkbox">
-                                                         <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                         </div>
-                                                     </div>
+                                           type="text" id="user-search" name="search" placeholder="Search">
+                                    <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+                                </form>
+                                <span class="empty__text-2  review-o__text">you can search with first name , last name or user name . </span>
 
-                                                     <span class="shop-w__total-text">(2)</span>
-                                                 </li>
-                                                 <li>
-                                                     <div class="rating__check">
-
-                                                         <input type="checkbox">
-                                                         <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="far fa-star"></i>
-
-                                                             <span>& Up</span></div>
-                                                     </div>
-
-                                                     <span class="shop-w__total-text">(8)</span>
-                                                 </li>
-                                                 <li>
-                                                     <div class="rating__check">
-
-                                                         <input type="checkbox">
-                                                         <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                                 class="far fa-star"></i><i class="far fa-star"></i>
-
-                                                             <span>& Up</span></div>
-                                                     </div>
-
-                                                     <span class="shop-w__total-text">(10)</span>
-                                                 </li>
-                                                 <li>
-                                                     <div class="rating__check">
-
-                                                         <input type="checkbox">
-                                                         <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i
-                                                                 class="fas fa-star"></i><i class="far fa-star"></i><i
-                                                                 class="far fa-star"></i><i class="far fa-star"></i>
-
-                                                             <span>& Up</span></div>
-                                                     </div>
-
-                                                     <span class="shop-w__total-text">(12)</span>
-                                                 </li>
-                                                 <li>
-                                                     <div class="rating__check">
-
-                                                         <input type="checkbox">
-                                                         <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i
-                                                                 class="far fa-star"></i><i class="far fa-star"></i><i
-                                                                 class="far fa-star"></i><i class="far fa-star"></i>
-
-                                                             <span>& Up</span></div>
-                                                     </div>
-
-                                                     <span class="shop-w__total-text">(1)</span>
-                                                 </li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="u-s-m-b-30">
-                                     <div class="shop-w">
-                                         <div class="shop-w__intro-wrap">
-                                             <h1 class="shop-w__h">SHIPPING</h1>
-
-                                             <span class="fas fa-minus shop-w__toggle" data-target="#s-shipping"
-                                                   data-toggle="collapse"></span>
-                                         </div>
-                                         <div class="shop-w__wrap collapse show" id="s-shipping">
-                                             <ul class="shop-w__list gl-scroll">
-                                                 <li>
-
-                                                     <!--====== Check Box ======-->
-                                                     <div class="check-box">
-
-                                                         <input type="checkbox" id="free-shipping">
-                                                         <div class="check-box__state check-box__state--primary">
-
-                                                             <label class="check-box__label" for="free-shipping">Free
-                                                                 Shipping</label></div>
-                                                     </div>
-                                                     <!--====== End - Check Box ======-->
-                                                 </li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="u-s-m-b-30">
-                                     <div class="shop-w">
-                                         <div class="shop-w__intro-wrap">
-                                             <h1 class="shop-w__h">PRICE</h1>
-
-                                             <span class="fas fa-minus shop-w__toggle" data-target="#s-price"
-                                                   data-toggle="collapse"></span>
-                                         </div>
-                                         <div class="shop-w__wrap collapse show" id="s-price">
-                                             <form class="shop-w__form-p">
-                                                 <div class="shop-w__form-p-wrap">
-                                                     <div>
-
-                                                         <label for="price-min"></label>
-
-                                                         <input class="input-text input-text--primary-style"
-                                                                type="number" name="minPrice"
-                                                                value="${requestScope.paramMinPrice}"
-                                                                required
-                                                                id="price-min" placeholder="Min"></div>
-                                                     <div>
-
-                                                         <label for="price-max"></label>
-
-                                                         <input class="input-text input-text--primary-style"
-                                                                type="number" name="maxPrice"
-                                                                value="${requestScope.paramMaxPrice}"
-                                                                required
-                                                                id="price-max" placeholder="Max"></div>
-                                                     <c:forEach items="${requestScope.requestParams}" var="requestParam">
-                                                         <c:forEach items="${requestParam.value}"
-                                                                    var="paramValue">
-                                                             <c:if test="${!requestParam.key.equals(WebsiteConstants.paramMaxPriceName)&&!requestParam.key.equals(WebsiteConstants.paramMinPriceName)}">
-                                                                 <input type='hidden' name='${requestParam.key}'
-                                                                        value='${paramValue}'/>
-                                                             </c:if>
-                                                         </c:forEach>
-                                                     </c:forEach>
-                                                     <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2"
-                                                             type="submit"></button>
-                                                 </div>
-                                             </form>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                    </div>--%>
-                    <div class="col-lg-9 col-md-12">
-                        <div class="table-user">
-                            ${requestScope.users.size()}
-                        </div>
-                        <div class="shop-p">
-                            <div class="shop-p__toolbar u-s-m-b-30">
-                                <div class="shop-p__meta-wrap u-s-m-b-60">
-
-                                    <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
-                                    <div class="shop-p__meta-text-2">
-
-                                        <span>Related Searches:</span>
-
-                                        <a class="gl-tag btn--e-brand-shadow" href="#">men's clothing</a>
-
-                                        <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets</a>
-
-                                        <a class="gl-tag btn--e-brand-shadow" href="#">books & audible</a></div>
-                                </div>
-                                <div class="shop-p__tool-style">
-                                    <div class="tool-style__group u-s-m-b-8">
-
-                                        <span class="js-shop-grid-target is-active">Grid</span>
-
-                                        <span class="js-shop-list-target">List</span></div>
-                                    <form>
-                                        <div class="tool-style__form-wrap">
-                                            <div class="u-s-m-b-8"><select
-                                                    class="select-box select-box--transparent-b-2">
-                                                <option>Show: 8</option>
-                                                <option selected>Show: 12</option>
-                                                <option>Show: 16</option>
-                                                <option>Show: 28</option>
-                                            </select></div>
-                                            <div class="u-s-m-b-8"><select
-                                                    class="select-box select-box--transparent-b-2">
-                                                <option selected>Sort By: Newest Items</option>
-                                                <option>Sort By: Latest Items</option>
-                                                <option>Sort By: Best Selling</option>
-                                                <option>Sort By: Best Rating</option>
-                                                <option>Sort By: Lowest Price</option>
-                                                <option>Sort By: Highest Price</option>
-                                            </select></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="shop-p__collection">
-                                <div class="row is-grid-active">
-                                  <%--  <c:forEach items="${requestScope.productList}" var="product">
-                                        <%@include file="custom/product.jsp" %>
-                                    </c:forEach>--%>
-                                </div>
-                            </div>
-                            <div class="u-s-p-y-60">
-
-                                <!--====== Pagination ======-->
-                                <ul class="shop-p__pagination">
-                                  <%--  <c:if test="${requestScope.pageHasPrev}">
-                                        <li><a class="fas fa-angle-left" href=""
-                                               data-href="page=${requestScope.paramPageNumber-1}"
-                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
-                                        </li>
-                                    </c:if>
-                                    <c:forEach items="${requestScope.pageList}" var="page">
-                                        <li
-                                                <c:if test="${page.selected}">class="is-active"</c:if> >
-                                            <a href="" data-href="page=${page.number}"
-                                               onmouseover="setDynamicHref(this,destroyPaginationParams());">${page.number}</a>
-                                        </li>
-                                    </c:forEach>
-                                    <c:if test="${requestScope.pageHasNext}">
-                                        <li><a class="fas fa-angle-right" href=""
-                                               data-href="page=${requestScope.paramPageNumber+1}"
-                                               onmouseover="setDynamicHref(this,destroyPaginationParams());"></a>
-                                        </li>
-                                    </c:if>--%>
-                                </ul>
-                                <!--====== End - Pagination ======-->
                             </div>
                         </div>
+
                     </div>
+
+                    <div class="gl-scroll col-lg-12 col-md-9 u-s-m-b-30">
+                        <table class="dash__table" id="users_table" style="border-radius: 5px;">
+                            <thead style="background-color: orangered; border-radius: 5px ;">
+                                <th style="color: white;"><b>id</b></th>
+                                <th style="color: white"><b>First Name</b></th>
+                                <th style="color: white"><b>Last Name</b></th>
+                                <th style="color: white"><b>User Name</b></th>
+                                <th style="color: white"><b>Email</b></th>
+                                <th style="color: white"><b>Birth Date</b></th>
+                                <th style="color: white"><b>Country</b></th>
+
+                            <thead>
+
+                            <tbody>
+
+                                <c:if test="${!empty requestScope.users}">
+                                    <c:forEach items="${requestScope.users}" var="user">
+                                        <%@include file="custom/user.jsp" %>
+                                    </c:forEach>
+                                </c:if>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -317,173 +92,7 @@
 
 
     <!--====== Main Footer ======-->
-    <footer>
-        <div class="outer-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outer-footer__content u-s-m-b-40">
-
-                            <span class="outer-footer__content-title">Contact Us</span>
-                            <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
-
-                                <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
-                            <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
-
-                                <span>(+0) 900 901 904</span></div>
-                            <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
-
-                                <span>contact@domain.com</span></div>
-                            <div class="outer-footer__social">
-                                <ul>
-                                    <li>
-
-                                        <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li>
-
-                                        <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li>
-
-                                        <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a>
-                                    </li>
-                                    <li>
-
-                                        <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-
-                                        <a class="s-gplus--color-hover" href="#"><i
-                                                class="fab fa-google-plus-g"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="outer-footer__content u-s-m-b-40">
-
-                                    <span class="outer-footer__content-title">Information</span>
-                                    <div class="outer-footer__list-wrap">
-                                        <ul>
-                                            <li>
-
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a>
-                                            </li>
-                                            <li>
-
-                                                <a href="dashboard.jsp">Account</a></li>
-                                            <li>
-
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Manufacturer</a>
-                                            </li>
-                                            <li>
-
-                                                <a href="dash-payment-option.jsp">Finance</a></li>
-                                            <li>
-
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Shop</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="outer-footer__content u-s-m-b-40">
-                                    <div class="outer-footer__list-wrap">
-
-                                        <span class="outer-footer__content-title">Our Company</span>
-                                        <ul>
-                                            <li>
-
-                                                <a href="about.jsp">About us</a></li>
-                                            <li>
-
-                                                <a href="contact.jsp">Contact Us</a></li>
-                                            <li>
-
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Sitemap</a>
-                                            </li>
-                                            <li>
-
-                                                <a href="dash-my-order.jsp">Delivery</a></li>
-                                            <li>
-
-                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="outer-footer__content">
-
-                            <span class="outer-footer__content-title">Join our Newsletter</span>
-                            <form class="newsletter">
-                                <div class="u-s-m-b-15">
-                                    <div class="radio-box newsletter__radio">
-
-                                        <input type="radio" id="male" name="gender">
-                                        <div class="radio-box__state radio-box__state--primary">
-
-                                            <label class="radio-box__label" for="male">Male</label></div>
-                                    </div>
-                                    <div class="radio-box newsletter__radio">
-
-                                        <input type="radio" id="female" name="gender">
-                                        <div class="radio-box__state radio-box__state--primary">
-
-                                            <label class="radio-box__label" for="female">Female</label></div>
-                                    </div>
-                                </div>
-                                <div class="newsletter__group">
-
-                                    <label for="newsletter"></label>
-
-                                    <input class="input-text input-text--only-white" type="text" id="newsletter"
-                                           placeholder="Enter your Email">
-
-                                    <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button>
-                                </div>
-
-                                <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="lower-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="lower-footer__content">
-                            <div class="lower-footer__copyright">
-
-                                <span>Copyright © 2018</span>
-
-<%--                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Reshop</a>--%>
-
-                                <span>All Right Reserved</span></div>
-                            <div class="lower-footer__payment">
-                                <ul>
-                                    <li><i class="fab fa-cc-stripe"></i></li>
-                                    <li><i class="fab fa-cc-paypal"></i></li>
-                                    <li><i class="fab fa-cc-mastercard"></i></li>
-                                    <li><i class="fab fa-cc-visa"></i></li>
-                                    <li><i class="fab fa-cc-discover"></i></li>
-                                    <li><i class="fab fa-cc-amex"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <jsp:include page="commons/footerCommon.jsp" flush="true"/>
     <!--====== Modal Section ======-->
 
 

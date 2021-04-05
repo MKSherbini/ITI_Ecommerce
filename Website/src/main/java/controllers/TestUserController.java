@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.User;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet("/testUser")
@@ -19,9 +20,9 @@ public class TestUserController extends HttpServlet {
     List<User> userList = new ArrayList<>();
 
     {
-        userList.add(new User(1L, "moha", "osos", "kaed", "123456aB*", "mohaelkaed@gmail.com"));
-        userList.add(new User(1L, "moha", "osos", "kaed", "123456aB*", "mohaelkaed@gmail.com"));
-        userList.add(new User(2L, "moham","sherbini", "sherbo", "123456aB*", "sherbo@gmail.com"));
+        userList.add(new User(1L, "moha", "osos", "kaed",  "mohaelkaed@gmail.com",new Date(),"egypt"));
+        userList.add(new User(1L, "moha", "osos", "kaed",  "mohaelkaed@gmail.com",new Date(),"egypt"));
+        userList.add(new User(2L, "moham","sherbini", "sherbo",  "sherbo@gmail.com",new Date(),"egypt"));
     }
 
     public void init(ServletConfig config) throws ServletException {

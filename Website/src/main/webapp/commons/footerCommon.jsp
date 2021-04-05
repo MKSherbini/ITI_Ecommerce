@@ -48,10 +48,10 @@
                                     <ul>
                                         <li>
 
-                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
+                                            <a href="testUser">Cart</a></li>
                                         <li>
 <%--                                            // todo link  to the account of the user --%>
-                                            <a href="account">Account</a></li>
+                                            <a href="userDash">Account</a></li>
 
 
                                         <li>

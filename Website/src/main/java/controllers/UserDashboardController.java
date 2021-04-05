@@ -8,15 +8,23 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.User;
 import providers.repositories.UserRepo;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 @WebServlet("/userDash")
 public class UserDashboardController extends HttpServlet {
     private ServletConfig config ;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("users",UserRepo.getInstance().readAll());
+        ArrayList<User> users = new ArrayList<>();
+        UserRepo.getInstance().readAll().stream().forEach((u)->{
+            users.add(new User(u.getUserId(),u.getFirstName(),u.getLastName(),u.getUserName(),u.getEmail(),u.getBirthdate(),u.getAddress().getCountry()));
+        });
+        req.setAttribute("users",users);
         req.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.USER_DASH_PAGE)).include(req,resp);
     }
 

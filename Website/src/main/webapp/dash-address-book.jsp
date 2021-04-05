@@ -1026,7 +1026,7 @@
                                                                 <a href="dash-address-make-default.jsp">Address Make Default</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-add.jsp">Add New Address</a></li>
+                                                                <a href="addAddress">Add New Address</a></li>
                                                             <li>
 
                                                                 <a href="editAddress">Edit Address Book</a></li>
@@ -1035,7 +1035,7 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-track-order.jsp">Track Order</a></li>
+                                                        <a href="trackOrder">Track Order</a></li>
                                                     <li>
 
                                                         <a href="dash-my-order.jsp">My Orders</a></li>
@@ -1429,7 +1429,7 @@
                                                     <a class="dash-active" href="addressBook">Address Book</a></li>
                                                 <li>
 
-                                                    <a href="dash-track-order.jsp">Track Order</a></li>
+                                                    <a href="trackOrder">Track Order</a></li>
                                                 <li>
 
                                                     <a href="dash-my-order.jsp">My Orders</a></li>

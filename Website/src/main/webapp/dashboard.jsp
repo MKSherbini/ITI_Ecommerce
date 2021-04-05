@@ -1027,10 +1027,10 @@
                                                                 <a href="dash-address-make-default.jsp">Address Make Default</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-add.jsp">Add New Address</a></li>
+                                                                <a href="addressBook">Add New Address</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-edit.jsp">Edit Address Book</a></li>
+                                                                <a href="editAddress">Edit Address Book</a></li>
                                                         </ul>
                                                         <!--====== End - Dropdown ======-->
                                                     </li>

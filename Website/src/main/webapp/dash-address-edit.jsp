@@ -82,7 +82,7 @@
                                         <ul style="width:120px">
                                             <li>
 
-                                                <a href="dashboard.jsp"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                                <a href="account"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                     <span>Account</span></a></li>
                                             <li>
@@ -984,7 +984,7 @@
                                             </li>
                                             <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                <a href="dashboard.jsp">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                <a href="account">Dashboard<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                 <!--====== Dropdown ======-->
 
@@ -992,7 +992,7 @@
                                                 <ul style="width:200px">
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dashboard.jsp">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="account">Manage My Account<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1000,10 +1000,10 @@
                                                         <ul style="width:180px">
                                                             <li>
 
-                                                                <a href="dash-edit-profile.jsp">Edit Profile</a></li>
+                                                                <a href="editProfile">Edit Profile</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-book.jsp">Edit Address Book</a></li>
+                                                                <a href="addressBook">Edit Address Book</a></li>
                                                             <li>
 
                                                                 <a href="dash-manage-order.jsp">Manage Order</a></li>
@@ -1012,10 +1012,10 @@
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                        <a href="profile">My Profile</a></li>
                                                     <li class="has-dropdown has-dropdown--ul-left-100">
 
-                                                        <a href="dash-address-book.jsp">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+                                                        <a href="addressBook">Address Book<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
 
                                                         <!--====== Dropdown ======-->
 
@@ -1026,16 +1026,16 @@
                                                                 <a href="dash-address-make-default.jsp">Address Make Default</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-add.jsp">Add New Address</a></li>
+                                                                <a href="addAddress">Add New Address</a></li>
                                                             <li>
 
-                                                                <a href="dash-address-edit.jsp">Edit Address Book</a></li>
+                                                                <a href="editAddress">Edit Address Book</a></li>
                                                         </ul>
                                                         <!--====== End - Dropdown ======-->
                                                     </li>
                                                     <li>
 
-                                                        <a href="dash-track-order.jsp">Track Order</a></li>
+                                                        <a href="trackOrder">Track Order</a></li>
                                                     <li>
 
                                                         <a href="dash-my-order.jsp">My Orders</a></li>
@@ -1392,7 +1392,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="dash-address-edit.jsp">My Account</a></li>
+                                        <a href="editAddress">My Account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1423,13 +1423,13 @@
                                                     <a href="dashboard.jsp">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                    <a href="profile">My Profile</a></li>
                                                 <li>
 
-                                                    <a class="dash-active" href="dash-address-book.jsp">Address Book</a></li>
+                                                    <a class="dash-active" href="addressBook">Address Book</a></li>
                                                 <li>
 
-                                                    <a href="dash-track-order.jsp">Track Order</a></li>
+                                                    <a href="trackOrder">Track Order</a></li>
                                                 <li>
 
                                                     <a href="dash-my-order.jsp">My Orders</a></li>

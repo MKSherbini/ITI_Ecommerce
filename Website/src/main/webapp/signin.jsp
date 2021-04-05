@@ -29,15 +29,16 @@
         <img class="preloader__img" src="images/preloader.png" alt=""></div>
 </div>
 
-<!--====== Main App ======-->
+<%--<!--====== Main App ======-->--%>
 <div id="app">
 
     <!--====== Main Header ======-->
-    <%@ include file="loginheader.jsp" %>
+    <%@ include file="commons/headerCommon.jsp" %>
+
     <!--====== End - Main Header ======-->
 
 
-    <!--====== App Content ======-->
+<%--    <!--====== App Content ======-->--%>
     <div class="app-content">
 
         <!--====== Section 1 ======-->

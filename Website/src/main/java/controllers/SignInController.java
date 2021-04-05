@@ -4,12 +4,16 @@ import constants.UrlMappingConstants;
 import constants.WebsiteConstants;
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
+
+import constants.enums.AuthorizationLevel;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import constants.enums.PageNames;
 import managers.CookiesManager;
+import models.orm.Admin;
 import models.orm.User;
+import providers.repositories.AdminRepo;
 import providers.repositories.UserRepo;
 import utilities.Hashator;
 
@@ -46,16 +50,27 @@ public class SignInController extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // do preparing
+        //Admin Sign In
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
 
         if (email != null && password != null) {
+            AdminRepo adminRepo = AdminRepo.getInstance();
+            Optional<Admin> admin = adminRepo.findByEmailPassword(email, password);
             UserRepo userRepo = UserRepo.getInstance();
             String hashedPassword = Hashator.getInstance().hash(password);
             Optional<User> user = userRepo.findByEmailPassword(email, hashedPassword);
-            if (user.isPresent()) {
+            if (admin.isPresent()) {
+                if (rememberMe != null && rememberMe.equals("true")) {
+                    // todo hash both email and password together in one String with reversible hashing before saving it in cookie
+                    CookiesManager.getInstance().writeUserInfoCookie(response, email, password);
+                }
+                HttpSession session = request.getSession();
+                session.setAttribute("admin", admin.get());
+                response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.HOME_PAGE));
+                return;
+            } else if (user.isPresent()) {
                 if (rememberMe != null && rememberMe.equals("true")) {
                     // todo hash both email and password together in one String with reversible hashing before saving it in cookie
                     CookiesManager.getInstance().writeUserInfoCookie(response, email, hashedPassword);
@@ -69,11 +84,9 @@ public class SignInController extends HttpServlet {
                 response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.NOT_FOUND_404));
             }
         }
-
         request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.SIGN_IN_PAGE)).include(request, response);
         // do verifying
     }
-
     public String getServletInfo() {
         return null;
     }

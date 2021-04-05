@@ -13,7 +13,9 @@ import jakarta.servlet.http.HttpSession;
 import lombok.SneakyThrows;
 import models.orm.Address;
 import models.orm.User;
+import providers.repositories.CartRepo;
 import providers.repositories.UserRepo;
+
 import java.sql.Date;
 
 import java.io.IOException;
@@ -31,12 +33,16 @@ public class EditProfileController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("inside EditAccount controller");
         var user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
+            return;
+        }
+        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
         if (user != null) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.EditProfile));
             requestDispatcher.include(request, response);
             return;
         }
-        response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
     }
 
     @SneakyThrows
@@ -52,7 +58,7 @@ public class EditProfileController extends HttpServlet {
         String email = request.getParameter("email");
 
         UserRepo userRepo = UserRepo.getInstance();
-        if (firstName != null && lastName != null && email != null && userName!=null) {
+        if (firstName != null && lastName != null && email != null && userName != null) {
             editedUser.setFirstName(firstName);
             editedUser.setLastName(lastName);
             editedUser.setEmail(email);

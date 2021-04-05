@@ -24,9 +24,9 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.ABOUT_PAGE, new VCUrlMapping("About", "about", "about.jsp"));
         urlMap.put(PageNames.TEST_JSP, new VCUrlMapping("testJSP", "test", "Testtag.jsp"));
         urlMap.put(PageNames.SHOP, new VCUrlMapping("Shop", "shop", "shop.jsp"));
-        urlMap.put(PageNames.EditProfile,new VCUrlMapping("EditProfile","editProfile","dash-edit-profile.jsp"));
-        urlMap.put(PageNames.Profile,new VCUrlMapping("Profile","profile","dash-my-profile.jsp"));
-        urlMap.put(PageNames.Account,new VCUrlMapping("Account","account","dashboard.jsp"));
+        urlMap.put(PageNames.EditProfile, new VCUrlMapping("EditProfile", "editProfile", "dash-edit-profile.jsp"));
+        urlMap.put(PageNames.Profile, new VCUrlMapping("Profile", "profile", "dash-my-profile.jsp"));
+        urlMap.put(PageNames.Account, new VCUrlMapping("Account", "account", "dashboard.jsp"));
         urlMap.put(PageNames.EMPTY_SHOP, new VCUrlMapping("No results", "shop", "empty-search.jsp"));
         urlMap.put(PageNames.PRODUCT, new VCUrlMapping("Product", "product", "product-detail.jsp"));
         urlMap.put(PageNames.TEST_USER_JSP, new VCUrlMapping("testUserJSP", "testUser", "TestTagUser.jsp"));
@@ -44,10 +44,11 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.ADDRESS_BOOK, new VCUrlMapping("Address Book", "addressBook", "dash-address-book.jsp"));
         urlMap.put(PageNames.ADD_ADDRESS, new VCUrlMapping("Add Address", "addAddress", "dash-address-add.jsp"));
         urlMap.put(PageNames.Edit_ADDRESS, new VCUrlMapping("Edit Address", "editAddress", "dash-address-edit.jsp"));
+        urlMap.put(PageNames.MY_ORDERS, new VCUrlMapping("My orders", "myorders", "dash-my-order.jsp"));
+        urlMap.put(PageNames.CANCELLATIONS, new VCUrlMapping("Return and cancellations", "cancellations", "dash-cancellation.jsp"));
 
         // admin
         urlMap.put(PageNames.ADD_PRODUCT, new VCUrlMapping("Add Product", "addproduct", "add-product.jsp", true));
-        urlMap.put(PageNames.MY_ORDERS,new VCUrlMapping("My orders","myorders","dash-my-order.jsp"));
         // ... add other pages
     }
 
@@ -67,7 +68,7 @@ public class UrlMappingConstants {
         serviceMap.put(ServiceNames.PRODUCT_REMOVE_FROM_CART, new ServiceUrlMapping("Product Remove From Cart", "removeFromCart"));
         serviceMap.put(ServiceNames.REMOVE_CART_ITEM, new ServiceUrlMapping("Remove cart item", "removeCartItem"));
         serviceMap.put(ServiceNames.PAYMENT, new ServiceUrlMapping("Checkout Payment", "payment"));
-        serviceMap.put(ServiceNames.CATEGORY_ADD, new ServiceUrlMapping("Add new Category","addcategory"));
+        serviceMap.put(ServiceNames.CATEGORY_ADD, new ServiceUrlMapping("Add new Category", "addcategory"));
         serviceMap.put(ServiceNames.REGISTER_SUBSCRIBER, new ServiceUrlMapping("Subscriber Registration", "registerSubscriber"));
     }
 

@@ -82,7 +82,7 @@
                                             <a href="home">Sitemap</a></li>
                                         <%--<li>
                                             &lt;%&ndash; // todo link  to the orders page  &ndash;%&gt;
-                                            <a href="dash-my-order.jsp">Delivery</a></li>--%>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MY_ORDERS)}">Delivery</a></li>--%>
                                         <li>
 
 <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>--%>

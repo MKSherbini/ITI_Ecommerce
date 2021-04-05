@@ -128,7 +128,7 @@
                                     <c:if test="${!empty sessionScope.user}">
                                         <li>
 
-                                            <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Account)}"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                                 <span>Account</span></a></li>
                                         <li>

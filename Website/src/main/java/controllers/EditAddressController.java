@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import models.orm.Address;
 import models.orm.User;
+import providers.repositories.CartRepo;
 import providers.repositories.UserRepo;
 
 import java.io.IOException;
@@ -29,12 +30,16 @@ public class EditAddressController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Inside editAddress Controller");
         var user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
+            return;
+        }
+        request.setAttribute("ordersCount", CartRepo.getInstance().findHistoryByUser(user).size());
         if (user != null) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(UrlMappingConstants.getInstance().getViewUrl(PageNames.Edit_ADDRESS));
             requestDispatcher.include(request, response);
             return;
         }
-        response.sendRedirect(UrlMappingConstants.getInstance().getControllerUrl(PageNames.SIGN_IN_PAGE));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,7 +52,7 @@ public class EditAddressController extends HttpServlet {
         String countryAddress = request.getParameter("addressCountry");
         String zipPostalAddress = request.getParameter("zipPostalCode");
         System.out.println("zipPostalAddress + countryAddress + stateAddress + streetAddress + cityAddress = " + zipPostalAddress + countryAddress + stateAddress + streetAddress + cityAddress);
-        Address address = new Address(streetAddress,countryAddress,cityAddress,stateAddress,zipPostalAddress);
+        Address address = new Address(streetAddress, countryAddress, cityAddress, stateAddress, zipPostalAddress);
         editedUser.setAddress(address);
         UserRepo userRepo = UserRepo.getInstance();
         userRepo.update(editedUser);

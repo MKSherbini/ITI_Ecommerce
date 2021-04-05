@@ -68,17 +68,20 @@
                                 <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                     <div class="dash__pad-1">
 
-                                        <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                        <span class="dash__text u-s-m-b-16">Hello, ${sessionScope.user.userName}</span>
                                         <ul class="dash__f-list">
                                             <li>
 
-                                                <a href="dashboard.jsp">Manage My Account</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Account)}">Manage
+                                                    My Account</a></li>
                                             <li>
 
-                                                <a href="dash-my-profile.jsp">My Profile</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Profile)}">My
+                                                    Profile</a></li>
                                             <li>
 
-                                                <a href="dash-address-book.jsp">Address Book</a>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.ADDRESS_BOOK)}">Address
+                                                    Book</a>
                                             <li>
 
                                                 <a class="dash-active"
@@ -87,16 +90,16 @@
                                             </li>
                                             <li>
 
-                                                <a href="dash-track-order.jsp">Track Order</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.TRACK_ORDER)}">Track
+                                                    Order</a></li>
                                             <li>
 
-                                                <a href="dash-my-order.jsp">My Orders</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MY_ORDERS)}">My
+                                                    Orders</a></li>
                                             <li>
 
-                                                <a href="dash-payment-option.jsp">My Payment Options</a></li>
-                                            <li>
-
-                                                <a href="dash-cancellation.jsp">My Returns & Cancellations</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CANCELLATIONS)}">My
+                                                    Returns & Cancellations</a></li>
                                         </ul>
                                     </div>
                                 </div>

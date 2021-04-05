@@ -69,25 +69,35 @@
                                         <ul class="dash__f-list">
                                             <li>
 
-                                                <a href="account">Manage My Account</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Account)}">Manage
+                                                    My Account</a></li>
                                             <li>
 
-                                                <a href="profile">My Profile</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.Profile)}">My
+                                                    Profile</a></li>
                                             <li>
 
-                                                <a href="addressBook">Address Book</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.ADDRESS_BOOK)}">Address
+                                                    Book</a>
                                             <li>
 
-                                                <a href="dash-track-order.jsp">Track Order</a></li>
+                                                <a
+                                                        href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CARD_BOOK)}">Card
+                                                    Book</a>
+                                            </li>
                                             <li>
 
-                                                <a class="dash-active" href="myorders">My Orders</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.TRACK_ORDER)}">Track
+                                                    Order</a></li>
                                             <li>
 
-                                                <a href="cardBook">My Payment Options</a></li>
+                                                <a class="dash-active"
+                                                   href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.MY_ORDERS)}">My
+                                                    Orders</a></li>
                                             <li>
 
-                                                <a href="dash-cancellation.jsp">My Returns & Cancellations</a></li>
+                                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CANCELLATIONS)}">My
+                                                    Returns & Cancellations</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -100,7 +110,7 @@
                                                     <span class="dash__w-icon dash__w-icon-style-1"><i
                                                             class="fas fa-cart-arrow-down"></i></span>
 
-                                                    <span class="dash__w-text">${requestScope.orders.size()}</span>
+                                                    <span class="dash__w-text">${requestScope.ordersCount}</span>
 
                                                     <span class="dash__w-name">Orders Placed</span></div>
                                             </li>
@@ -138,52 +148,52 @@
                                         <div class="m-order__list">
                                             <c:forEach items="${requestScope.orders}" var="order">
                                                 <div class="m-order__get">
-                                                <div class="manage-o__header u-s-m-b-30">
-                                                    <div class="dash-l-r">
-                                                        <div>
-                                                            <div class="manage-o__text-2 u-c-secondary">Order
-                                                                #${order.shoppingCartId}</div>
-                                                            <div class="manage-o__text u-c-silver">Placed
-                                                                on ${order.orderTime.toString()}</div>
-                                                        </div>
-                                                        <div>
+                                                    <div class="manage-o__header u-s-m-b-30">
+                                                        <div class="dash-l-r">
+                                                            <div>
+                                                                <div class="manage-o__text-2 u-c-secondary">Order
+                                                                    #${order.shoppingCartId}</div>
+                                                                <div class="manage-o__text u-c-silver">Placed
+                                                                    on ${order.orderTime.toString()}</div>
+                                                            </div>
+                                                            <div>
                                                                <span class="manage-o__text-2 u-c-silver">Total:
                                                                     <span class="manage-o__text-2 u-c-secondary">$${order.totalPrice}</span></span>
-                                                        </div>
-                                                        <div>
+                                                            </div>
+                                                            <div>
                                                                 <span class="manage-o__badge badge--delivered">Delivered</span>
 
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <c:forEach items="${order.cartItems}" var="cartItem">
-                                                <div class="manage-o__description" style="margin-bottom: 15px;">
-                                                    <div class="description__container">
-                                                        <div class="description__img-wrap">
-                                                            <img class="u-img-fluid"
-                                                                 src="${cartItem.product.imageSrc}" alt="">
-                                                        </div>
-                                                        <div class="description-title">${cartItem.product.name}</div>
-                                                    </div>
-                                                    <div class="description__info-wrap">
-                                                        <div>
+                                                    <c:forEach items="${order.cartItems}" var="cartItem">
+                                                        <div class="manage-o__description" style="margin-bottom: 15px;">
+                                                            <div class="description__container">
+                                                                <div class="description__img-wrap">
+                                                                    <img class="u-img-fluid"
+                                                                         src="${cartItem.product.imageSrc}" alt="">
+                                                                </div>
+                                                                <div class="description-title">${cartItem.product.name}</div>
+                                                            </div>
+                                                            <div class="description__info-wrap">
+                                                                <div>
 
                                                                 <span class="manage-o__text-2 u-c-silver">Quantity:
 
                                                                     <span class="manage-o__text-2 u-c-secondary">${cartItem.productQuantity}</span></span>
-                                                        </div>
-                                                        <div>
+                                                                </div>
+                                                                <div>
 
                                                                 <span class="manage-o__text-2 u-c-silver">Total:
 
                                                                     <span class="manage-o__text-2 u-c-secondary">$${(cartItem.product.price)*cartItem.productQuantity}</span></span>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </c:forEach>
                                                 </div>
                                             </c:forEach>
-                                            </div>
                                         </div>
-                                        </c:forEach>
 
 
                                     </div>

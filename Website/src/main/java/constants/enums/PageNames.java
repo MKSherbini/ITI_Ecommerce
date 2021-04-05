@@ -30,4 +30,5 @@ public enum PageNames {
     ADD_PRODUCT,
     Error,
     MY_ORDERS,
+    CANCELLATIONS,
 }

@@ -86,7 +86,7 @@
                                         <li>
 
 <%--                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.SHOP)}">Store</a></li>--%>
-                                            <a href="shop">Store</a></li>
+                                            <a href="userDash">Store</a></li>
                                     </ul>
                                 </div>
                             </div>

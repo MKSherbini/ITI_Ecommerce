@@ -37,6 +37,7 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.CARD_DEFAULT, new VCUrlMapping("Card Default", "cardDefault", "dash-card-make-default.jsp"));
         urlMap.put(PageNames.CONTACT_US, new VCUrlMapping("Contact Us ", "contact", "contact.jsp"));
         urlMap.put(PageNames.ADD_PRODUCT,new VCUrlMapping("Add Product","addproduct","add-product.jsp"));
+        urlMap.put(PageNames.USER_DASH_PAGE,new VCUrlMapping("Users Dashboard ","userDash","user-dash-board.jsp"));
         // ... add other pages
     }
 

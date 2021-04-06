@@ -1103,7 +1103,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CART)}">Cart</a></li>
                                     <li>
 
-                                        <a href="wishlist.jsp">Wishlist</a></li>
+                                        <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}">Wishlist</a></li>
                                     <li>
 
                                         <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.CHECKOUT)}">Checkout</a></li>
@@ -1181,7 +1181,7 @@
                                 <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.HOME_PAGE)}"><i class="fas fa-home"></i></a></li>
                             <li>
 
-                                <a href="wishlist.jsp"><i class="far fa-heart"></i></a></li>
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}"><i class="far fa-heart"></i></a></li>
                             <li class="has-dropdown">
 
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>

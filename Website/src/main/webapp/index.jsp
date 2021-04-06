@@ -267,7 +267,7 @@
                                                                             class="fas fa-plus-circle"></i></a></li>
                                                                 <li>
 
-                                                                    <a href="signin.jsp" data-tooltip="tooltip"
+                                                                    <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}?ref=${product.productId}" data-tooltip="tooltip"
                                                                        data-placement="top" title="Add to Wishlist"><i
                                                                             class="fas fa-heart"></i></a></li>
 
@@ -308,7 +308,7 @@
                                                             <%--product price--%>
                                                             <%--                                                            <div class="product-m__price">${product.price * (1-(product.discountPercent/ 100))}--%>
                                                             <%--                                                                <span class="product-m__discount">${product.price}</span></div>--%>
-                                                            <span class="product-o__price">$${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100)))}
+                                                            <span class="product-o__price">$${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100.0)))}
                                                             <span class="product-o__discount"
                                                                   style="color: #ff4500;">$${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span></span>
                                                         </c:otherwise>
@@ -391,7 +391,7 @@
                                                         </li>
                                                         <li>
 
-                                                            <a href="signin.jsp" data-tooltip="tooltip"
+                                                            <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}?ref=${product.productId}" data-tooltip="tooltip"
                                                                data-placement="top"
                                                                title="Add to Wishlist"><i class="fas fa-heart"></i></a>
                                                         </li>

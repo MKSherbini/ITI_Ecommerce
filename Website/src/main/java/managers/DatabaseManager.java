@@ -1,8 +1,11 @@
 package managers;
 
+import jakarta.servlet.ServletException;
 import listeners.ThreadLocalContext;
+import utilities.ErrorHandler;
 
 import javax.persistence.*;
+import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import javax.persistence.EntityManager;
@@ -63,8 +66,8 @@ public class DatabaseManager {
 //            endSession();
             return ret;
         } catch (javax.persistence.PersistenceException e) {
-            e.printStackTrace();
-            handleError();
+//            e.printStackTrace();
+            handleError(e);
         }
 
         // unreachable
@@ -77,12 +80,18 @@ public class DatabaseManager {
             transaction.accept(entityManagerInstance.get());
 //            endSession();
         } catch (PersistenceException e) {
-            e.printStackTrace();
-            handleError();
+//            e.printStackTrace();
+            handleError(e);
         }
     }
 
-    public void handleError() {
+    public void handleError(Exception e) {
+        try {
+            ErrorHandler.forward("666", e.getMessage());
+        } catch (IOException | ServletException ee) {
+            ee.printStackTrace();
+        }
+
         // TODO: actually handle this f* error
         // try {
         // ThreadLocalContext.forward(ServiceNames.ERROR_REDIRECT);

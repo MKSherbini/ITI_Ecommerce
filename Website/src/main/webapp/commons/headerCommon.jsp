@@ -51,7 +51,7 @@
                                         <a href="${applicationScope.urlMappingConstants.getServiceUrl(ServiceNames.SIGN_OUT)}"><i class="fas fa-lock-open u-s-m-r-6"></i></a></li>
 
                                     <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Show Users">
-                                        <a href="testUser"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                                        <a href="userDash"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
                                             <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
                                         </svg></a>
 
@@ -149,7 +149,7 @@
                                         class="fas fa-store-alt"></i></a></li>
                             <li>
 
-                                <a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                                <a href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}"><i class="far fa-heart"></i></a></li>
                             <li class="has-dropdown">
 
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>

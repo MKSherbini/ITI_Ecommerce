@@ -57,6 +57,10 @@ public class User {
     private List<ProductCategory> interests = new ArrayList<>();
 
     @ToString.Exclude
+    @ManyToMany
+    private List<Product> wishlist = new ArrayList<>();
+
+    @ToString.Exclude
     @OneToMany(mappedBy = "owner",
             orphanRemoval = true,
             fetch = FetchType.LAZY,

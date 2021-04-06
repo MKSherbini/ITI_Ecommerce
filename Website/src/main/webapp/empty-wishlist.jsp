@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.Error)}</title>
+    <title>${applicationScope.urlMappingConstants.getTitle(PageNames.EMPTY_WISHLIST)}</title>
     <%@include file="commons/headCommon.jsp" %>
 </head>
 <body class="config">

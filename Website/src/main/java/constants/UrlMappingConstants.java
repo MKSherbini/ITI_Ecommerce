@@ -46,10 +46,12 @@ public class UrlMappingConstants {
         urlMap.put(PageNames.Edit_ADDRESS, new VCUrlMapping("Edit Address", "editAddress", "dash-address-edit.jsp"));
         urlMap.put(PageNames.MY_ORDERS, new VCUrlMapping("My orders", "myorders", "dash-my-order.jsp"));
         urlMap.put(PageNames.CANCELLATIONS, new VCUrlMapping("Return and cancellations", "cancellations", "dash-cancellation.jsp"));
+        urlMap.put(PageNames.WISHLIST, new VCUrlMapping("Wishlist", "wishlist", "wishlist.jsp"));
+        urlMap.put(PageNames.EMPTY_WISHLIST, new VCUrlMapping("Empty wishlist", "wishlist", "empty-wishlist.jsp"));
 
         // admin
         urlMap.put(PageNames.ADD_PRODUCT, new VCUrlMapping("Add Product", "addproduct", "add-product.jsp", true));
-        urlMap.put(PageNames.USER_DASH_PAGE,new VCUrlMapping("Users Dashboard ","userDash","user-dash-board.jsp",true));
+        urlMap.put(PageNames.USER_DASH_PAGE, new VCUrlMapping("Users Dashboard ", "userDash", "user-dash-board.jsp", true));
         // ... add other pages
     }
 
@@ -191,7 +193,7 @@ public class UrlMappingConstants {
         return ret;
     }
 
-    public boolean isPublicService(HttpServletRequest  request) {
+    public boolean isPublicService(HttpServletRequest request) {
         final String url = request.getRequestURI();
         final String baseUrl = request.getContextPath();
 

@@ -13,6 +13,7 @@ import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -85,7 +86,11 @@ public class Product {
 
     @OneToMany(mappedBy = "product", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
     @ToString.Exclude
-    private List<ProductImage> productImages;
+    private List<ProductImage> productImages = new ArrayList<>();
+
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "wishlist")
+    private List<User> wishlisted = new ArrayList<>();
 
     public Product() {
     }

@@ -32,4 +32,6 @@ public enum PageNames {
     MY_ORDERS,
     CANCELLATIONS,
     USER_DASH_PAGE,
+    WISHLIST,
+    EMPTY_WISHLIST,
 }

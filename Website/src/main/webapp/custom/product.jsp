@@ -30,7 +30,7 @@
                 </c:when>
                 <c:otherwise>
                     <%--product price--%>
-                    <div class="product-m__price">${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100)))}
+                    <div class="product-m__price">${WebsiteConstants.defaultDecimalFormat.format(product.price * (1-(product.discountPercent/ 100.0)))}
                         <span class="product-m__discount">${WebsiteConstants.defaultDecimalFormat.format(product.price)}</span></div>
                 </c:otherwise>
             </c:choose>
@@ -40,7 +40,7 @@
                     <span>${product.description}</span></div>
 
                 <div class="product-m__wishlist">
-                    <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top"
+                    <a class="far fa-heart" href="${applicationScope.urlMappingConstants.getControllerUrl(PageNames.WISHLIST)}?ref=${product.productId}" data-tooltip="tooltip" data-placement="top"
                        title="Add to Wishlist"></a></div>
             </div>
         </div>

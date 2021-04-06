@@ -6,7 +6,9 @@ import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 import managers.DatabaseManager;
+import models.orm.Admin;
 import models.orm.User;
+import providers.repositories.AdminRepo;
 import providers.repositories.UserRepo;
 
 import java.io.IOException;
@@ -17,28 +19,30 @@ import java.util.Set;
 @ServerEndpoint("/echo")
 public class SignupEndpoint {
     private final static Set<Session> vector = new HashSet<>();
+
     @OnOpen
-    public void onOpen(Session session){
-            //session.getBasicRemote().sendText("connectionEstablished");
-            vector.add(session);
+    public void onOpen(Session session) {
+        //session.getBasicRemote().sendText("connectionEstablished");
+        vector.add(session);
     }
 
     @OnMessage
-    public void onMessage(String msg , Session session){
+    public void onMessage(String msg, Session session) {
         try {
             var db = DatabaseManager.getInstance();
             db.beginSession();
 
             UserRepo userRepo = UserRepo.getInstance();
+            AdminRepo adminRepo = AdminRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
-            if (Validator.getInstance().EmailValidation(msg) == true){
-                if (user.isPresent()){
+            Optional<Admin> admin = adminRepo.findByEmail(msg);
+            if (Validator.getInstance().EmailValidation(msg)) {
+                if (user.isPresent() || admin.isPresent()) {
                     session.getBasicRemote().sendText("This Email is Already Registered");
-                }
-                else {
+                } else {
                     session.getBasicRemote().sendText("");
                 }
-            }else{
+            } else {
                 session.getBasicRemote().sendText("Please Enter a Valid Form of an Email");
             }
 
@@ -50,8 +54,8 @@ public class SignupEndpoint {
     }
 
     @OnClose
-    public void onClose(Session session){
+    public void onClose(Session session) {
         vector.remove(session);
-        System.out.println("closed"+ session.getId());
+        System.out.println("closed" + session.getId());
     }
 }

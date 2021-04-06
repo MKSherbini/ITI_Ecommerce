@@ -11,7 +11,7 @@ public class Validator {
     }
 
     public boolean EmailValidation(String regEmail){
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        String emailRegex = "(^[A-Za-z0-9._-]+@[A-Za-z0-9]+\\.[A-Za-z]{2,6}$)| [ \\t\\n]*";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(regEmail);
           return matcher.matches();

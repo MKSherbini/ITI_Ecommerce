@@ -1,4 +1,5 @@
 package utilities;
+
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
 import jakarta.websocket.OnOpen;
@@ -19,14 +20,15 @@ import java.util.Set;
 public class SignInEndpoint {
 
     private final static Set<Session> vector = new HashSet<>();
+
     @OnOpen
-    public void onOpen(Session session){
+    public void onOpen(Session session) {
         //session.getBasicRemote().sendText("connectionEstablished");
         vector.add(session);
     }
 
     @OnMessage
-    public void onMessage(String msg , Session session){
+    public void onMessage(String msg, Session session) {
         try {
             var db = DatabaseManager.getInstance();
             db.beginSession();
@@ -35,14 +37,13 @@ public class SignInEndpoint {
             AdminRepo adminRepo = AdminRepo.getInstance();
             Optional<User> user = userRepo.findByEmail(msg);
             Optional<Admin> admin = adminRepo.findByEmail(msg);
-            if (Validator.getInstance().EmailValidation(msg) == true){
-                if (user.isEmpty() || admin.isEmpty()){
+            if (Validator.getInstance().EmailValidation(msg)) {
+                if (user.isEmpty() && admin.isEmpty()) {
                     session.getBasicRemote().sendText("Couldn't find your email");
-                }
-                else {
+                } else {
                     session.getBasicRemote().sendText("");
                 }
-            }else{
+            } else {
                 session.getBasicRemote().sendText("Please Enter a Valid Form of an Email");
             }
 
@@ -54,9 +55,9 @@ public class SignInEndpoint {
     }
 
     @OnClose
-    public void onClose(Session session){
+    public void onClose(Session session) {
         vector.remove(session);
-        System.out.println("closed"+ session.getId());
+        System.out.println("closed" + session.getId());
     }
 
 }

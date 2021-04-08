@@ -20,12 +20,14 @@ The main target platform is Web.
 
 You can access the site from anywhere using links [here](15.188.55.103:1919/ITI_Ecommerce_Website), ludus-itiwebsite.ddns.net, and ludus-iti.ddns.net.net.
 
+## Video Demo
+[![alt text](Images/Preview/img0.jpg)](https://youtu.be/l2a1AiFzT4M)
 
 ## Website ScreenShots
 
-![alt text](Images/Preview/img0.jpg)
 ![alt text](Images/Preview/img3.jpg)
 ![alt text](Images/Preview/img12.jpg)
+![alt text](Images/Preview/img7.jpg)
+![alt text](Images/Preview/img22.jpg)
 ![alt text](Images/Preview/img31.jpg)
 ![alt text](Images/Preview/img44.jpg)
-

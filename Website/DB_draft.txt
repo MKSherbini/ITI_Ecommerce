@@ -1,0 +1,58 @@
+User:
+Long id
+String Email
+String Username
+String Password
+Date birthdate
+String address
+int credit;
+// on order, set a new cart, and asign orderTime for the old cart, subtract from credit
+
+Admin: // dashboard bs
+Long id
+String Email
+String Password
+
+Interests:
+CategoryID
+UserID
+
+Category:
+Long id;
+String name;
+
+Product:
+Long id;
+CategoryID
+String ProductName;
+int quantity;
+String description
+String photo;
+int price;
+int discount;
+
+Cart: is also order
+Long id;
+int subtotal;
+UserID;
+String paymentMethod;
+Date orderTime;
+bit isClosed; isHistory;
+
+CartItem:
+productID;
+cartID;
+int quantity;
+
+
+
+// deal
+func(){
+
+}
+
+if() {
+
+} else {
+
+}

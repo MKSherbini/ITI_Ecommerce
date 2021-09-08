@@ -1,7 +1,13 @@
 # ITI_Ecommerce_Website
-An Ecommerce website as a project for [ITI](iti.gov.eg/)
+
+An Ecommerce website as a project for [ITI](iti.gov.eg/), made to be a full online shopping solution supporting all basic functionalities like an advanced product filtering, cart, wishlist, a personalized home page, and complete support for non-logged in users plus they can signup to claim the account.
+
+## Methodologies
+
+Java, MySql, servlet, JSP, JSTL, JPA, JQuery, AJAX, SSE, and WebSocket 
 
 ## Credits
+
 We started from this template and made it into the full functional Ecommerce website it is now.
 
 Team members:
